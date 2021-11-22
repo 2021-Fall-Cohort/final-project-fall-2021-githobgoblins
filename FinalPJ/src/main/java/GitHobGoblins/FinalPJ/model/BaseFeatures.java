@@ -16,6 +16,7 @@ public class BaseFeatures {
     private String level;
     private String alignment;
     private int proficiencyBonus = 2;
+    private int experiencePoints = 0;
 
     public BaseFeatures(String name, String level, String alignment, int proficiencyBonus) {
         this.name = name;
