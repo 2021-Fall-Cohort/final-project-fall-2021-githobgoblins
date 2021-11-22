@@ -1,13 +1,12 @@
 package GitHobGoblins.FinalPJ.model;
 
-import net.bytebuddy.utility.dispatcher.JavaDispatcher;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class BaseFeatures {
+public class BaseFeatures extends PlayerCharacter{
+
 
     @Id
     @GeneratedValue

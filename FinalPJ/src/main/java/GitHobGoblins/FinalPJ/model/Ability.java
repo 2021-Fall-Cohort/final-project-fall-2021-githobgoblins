@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Ability {
+public class Ability extends PlayerCharacter {
 
     @Id
     @GeneratedValue
