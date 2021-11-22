@@ -18,3 +18,16 @@ window.onclick = function(event) {
   }
 }
 
+function learnClassFunction(){
+    var x = document.getElementById("moreInfoDiv");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "block";
+    }
+}
+
+const moreInfoButton = document.getElementById("moreInfoButton");
+moreInfoButton.addEventListener("click", ()=> {
+    learnClassFunction();
+})
