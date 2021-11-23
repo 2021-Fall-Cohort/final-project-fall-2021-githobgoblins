@@ -16,8 +16,8 @@ public class Background{
     private String name;
     private String feature;
 
-    @OneToMany(mappedBy = "background")
-    private Collection<PlayerCharacter> playerCharacters;
+//    @OneToMany(mappedBy = "background")
+//    private Collection<PlayerCharacter> playerCharacters;
 
 
     public Background(String name, String feature) {
@@ -41,20 +41,20 @@ public class Background{
         return feature;
     }
 
-    public Collection<PlayerCharacter> getPlayerCharacters() {
-        return playerCharacters;
-    }
+//    public Collection<PlayerCharacter> getPlayerCharacters() {
+//        return playerCharacters;
+//    }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Background that = (Background) o;
-        return Objects.equals(id, that.id) && Objects.equals(name, that.name) && Objects.equals(feature, that.feature) && Objects.equals(playerCharacters, that.playerCharacters);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, feature);
-    }
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        Background that = (Background) o;
+//        return Objects.equals(id, that.id) && Objects.equals(name, that.name) && Objects.equals(feature, that.feature) && Objects.equals(playerCharacters, that.playerCharacters);
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(id, name, feature);
+//    }
 }

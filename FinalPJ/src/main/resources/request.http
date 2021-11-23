@@ -5,7 +5,14 @@ GET http://localhost:8080/character/getCharacter
 POST http://localhost:8080/buildCharacter/base/
 Content-Type: application/json 
 
+{
   
+  "name": "josh",
+  "level": "1",
+  "alignment": "test align",
+  "proficiencyBonus": 1,
+  "experiencePoints": 0
+}
     
     
     

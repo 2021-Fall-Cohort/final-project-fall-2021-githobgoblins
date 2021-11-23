@@ -15,8 +15,8 @@ public class Ability {
     @Lob
     private String description;
 
-    @OneToMany(mappedBy = "ability")
-    private Collection<PlayerCharacter> playerCharacters;
+//    @OneToMany(mappedBy = "ability")
+//    private Collection<PlayerCharacter> playerCharacters;
 
     public Ability(String name, String description) {
         this.name = name;
@@ -27,9 +27,9 @@ public class Ability {
         //zero argument constructor
     }
 
-    public Collection<PlayerCharacter> getPlayerCharacters() {
-        return playerCharacters;
-    }
+//    public Collection<PlayerCharacter> getPlayerCharacters() {
+//        return playerCharacters;
+//    }
 
     public Long getId() {
         return id;
@@ -43,16 +43,17 @@ public class Ability {
         return description;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Ability ability = (Ability) o;
-        return Objects.equals(id, ability.id) && Objects.equals(name, ability.name) && Objects.equals(description, ability.description) && Objects.equals(playerCharacters, ability.playerCharacters);
-    }
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        Ability ability = (Ability) o;
+//        return Objects.equals(id, ability.id) && Objects.equals(name, ability.name) && Objects.equals(description, ability.description) && Objects.equals(playerCharacters, ability.playerCharacters);
+//    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, description);
-    }
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(id, name, description);
+//    }
+
 }

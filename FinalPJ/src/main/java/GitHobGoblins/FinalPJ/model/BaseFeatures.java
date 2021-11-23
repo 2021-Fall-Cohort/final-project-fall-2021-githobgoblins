@@ -1,5 +1,7 @@
 package GitHobGoblins.FinalPJ.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -8,7 +10,6 @@ import java.util.Collection;
 
 @Entity
 public class BaseFeatures {
-
 
     @Id
     @GeneratedValue
@@ -19,8 +20,8 @@ public class BaseFeatures {
     private int proficiencyBonus = 2;
     private int experiencePoints = 0;
 
-    @OneToOne
-    private PlayerCharacter playerCharacter;
+//    @OneToOne
+//    private PlayerCharacter playerCharacter;
 
     public BaseFeatures(String name, String level, String alignment, int proficiencyBonus, int experiencePoints) {
         this.name = name;

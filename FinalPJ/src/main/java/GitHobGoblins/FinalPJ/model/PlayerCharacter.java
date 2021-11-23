@@ -1,6 +1,8 @@
 package GitHobGoblins.FinalPJ.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -10,20 +12,19 @@ public class PlayerCharacter {
     @GeneratedValue
     private Long id;
 
-
-    @ManyToOne
+    @OneToOne
     private Ability ability;
 
-    @ManyToOne
+    @OneToOne
     private Background background;
 
     @OneToOne
     private BaseFeatures baseFeatures;
 
-    @ManyToOne
+    @OneToOne
     private DNDClass dndClass;
 
-    @ManyToOne
+    @OneToOne
     private Race race;
 
     public PlayerCharacter(Ability ability, Background background, BaseFeatures baseFeatures, DNDClass dndClass, Race race) {

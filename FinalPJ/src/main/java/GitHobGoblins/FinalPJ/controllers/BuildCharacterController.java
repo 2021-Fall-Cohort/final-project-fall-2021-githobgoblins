@@ -33,6 +33,8 @@ public class BuildCharacterController {
         characterRepo.save(temp1);
         return temp1;
     }
+
+
     @PutMapping("/editbase/{id}")
     public PlayerCharacter editBase (@RequestBody BaseFeatures baseFeatures, @PathVariable Long id){
         baseFeaturesRepo.save(baseFeatures);
