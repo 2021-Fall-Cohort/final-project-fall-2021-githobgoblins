@@ -10,20 +10,20 @@ public class PlayerCharacter {
     @GeneratedValue
     private Long id;
 
-    //maybe more later
-    @OneToOne
+
+    @ManyToOne
     private Ability ability;
 
-    @OneToOne
+    @ManyToOne
     private Background background;
 
     @OneToOne
     private BaseFeatures baseFeatures;
 
-    @OneToOne
+    @ManyToOne
     private DNDClass dndClass;
 
-    @OneToOne
+    @ManyToOne
     private Race race;
 
     public PlayerCharacter(Ability ability, Background background, BaseFeatures baseFeatures, DNDClass dndClass, Race race) {
@@ -60,5 +60,21 @@ public class PlayerCharacter {
 
     public Race getRace() {
         return race;
+    }
+
+    public void changeBase(BaseFeatures base){
+        this.baseFeatures=base;
+    }
+    public void changeAbilty(Ability ability){
+        this.ability =ability;
+    }
+    public void changeBackground(Background background){
+        this.background=background;
+    }
+    public void changeClass(DNDClass dndClass){
+        this.dndClass=dndClass;
+    }
+    public void changeRace(Race race){
+        this.race=race;
     }
 }

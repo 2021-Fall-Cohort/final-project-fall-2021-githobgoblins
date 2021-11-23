@@ -1,2 +1,17 @@
 ###
 GET http://localhost:8080/character/getCharacter
+
+###
+POST http://localhost:8080/buildCharacter/base/
+Content-Type: application/json 
+
+  
+    
+    
+    
+    
+    
+    
+    
+ 
+   
