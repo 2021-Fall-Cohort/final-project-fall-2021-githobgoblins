@@ -1,0 +1,148 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #6dab83;
+}
+
+
+.headerDiv{
+    background-color: #313834;
+}
+
+.headerUl{
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+.headerLi{
+    margin: 1.5rem;
+    color: white;
+}
+
+.mainContentDiv{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #558365;
+    border-radius: 10px;
+}
+
+.pageTitle{
+    margin: 2rem;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 2.5rem;
+}
+
+.pageTopDiv{
+    display: flex;
+    justify-content: space-around;
+}
+
+.formButtons{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.selectorArt{
+    width: 25rem;
+    height: auto;
+    border-radius: 25px;
+}
+
+.selector{
+    width: 10rem;
+    height: fit-content;
+    font-size: x-large;
+    background-color: #85a091;
+    border-radius: 15px;
+    margin: 2rem;
+}
+
+
+.modal{
+    display: none; 
+    position: fixed;
+    z-index: 1; 
+    top: 0;
+    width: 65%; 
+    height: fit-content; 
+    overflow: auto; 
+    background-color: blue; 
+}
+
+.modalContent {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}  
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.pageBottomDiv{
+    display: flex;
+    margin: 3rem;
+    justify-content: space-evenly;
+}
+
+#learnLabel{
+    font-size: large;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+#moreInfoDiv{
+    display: none;
+    width: 100%;
+    padding: 50px 0;
+    text-align: center;
+    background-color: lightblue;
+    margin-top: 20px;
+}
+
+#moreInfoButton{
+    height: fit-content;
+}
+
+.navButtons{
+    width:fit-content;
+    font-size: xx-large;
+}
+
+.footer{
+    background-color: #313834;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    align-items: center;
+}
+
+.footerLiEl{
+    font-size: small;
+    margin: .25rem;
+}
