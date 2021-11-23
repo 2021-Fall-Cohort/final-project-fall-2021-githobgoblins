@@ -3,15 +3,20 @@ package GitHobGoblins.FinalPJ.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 @Entity
-public class Ability extends PlayerCharacter {
+public class Ability {
 
     @Id
     @GeneratedValue
     private Long id;
     private String name;
+
+    @Lob
     private String description;
+
+
 
     public Ability(String name, String description) {
         this.name = name;
@@ -33,4 +38,5 @@ public class Ability extends PlayerCharacter {
     public String getDescription() {
         return description;
     }
+
 }

@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class BaseFeatures extends PlayerCharacter{
+public class BaseFeatures {
 
 
     @Id
@@ -17,11 +17,12 @@ public class BaseFeatures extends PlayerCharacter{
     private int proficiencyBonus = 2;
     private int experiencePoints = 0;
 
-    public BaseFeatures(String name, String level, String alignment, int proficiencyBonus) {
+    public BaseFeatures(String name, String level, String alignment, int proficiencyBonus, int experiencePoints) {
         this.name = name;
         this.level = level;
         this.alignment = alignment;
         this.proficiencyBonus = proficiencyBonus;
+        this.experiencePoints = experiencePoints;
     }
 
     public BaseFeatures(){
@@ -52,4 +53,7 @@ public class BaseFeatures extends PlayerCharacter{
         this.proficiencyBonus = proficiencyBonus;
     }
 
+    public int getExperiencePoints() {
+        return experiencePoints;
+    }
 }

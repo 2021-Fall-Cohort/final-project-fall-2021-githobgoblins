@@ -1,2 +1,2 @@
 ###
-GET https://www.dnd5eapi.co/api/races/dragonborn
+GET http://localhost:8080/character/getCharacter

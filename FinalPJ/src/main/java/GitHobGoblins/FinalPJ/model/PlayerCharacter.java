@@ -1,9 +1,7 @@
 package GitHobGoblins.FinalPJ.model;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class PlayerCharacter {
@@ -12,6 +10,55 @@ public class PlayerCharacter {
     @GeneratedValue
     private Long id;
 
-    private String race;
+    //maybe more later
+    @OneToOne
+    private Ability ability;
 
+    @OneToOne
+    private Background background;
+
+    @OneToOne
+    private BaseFeatures baseFeatures;
+
+    @OneToOne
+    private DNDClass dndClass;
+
+    @OneToOne
+    private Race race;
+
+    public PlayerCharacter(Ability ability, Background background, BaseFeatures baseFeatures, DNDClass dndClass, Race race) {
+        this.ability = ability;
+        this.background = background;
+        this.baseFeatures = baseFeatures;
+        this.dndClass = dndClass;
+        this.race = race;
+    }
+
+    public PlayerCharacter(){
+        //zero argument const.
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public Ability getAbility() {
+        return ability;
+    }
+
+    public Background getBackground() {
+        return background;
+    }
+
+    public BaseFeatures getBaseFeatures() {
+        return baseFeatures;
+    }
+
+    public DNDClass getDndClass() {
+        return dndClass;
+    }
+
+    public Race getRace() {
+        return race;
+    }
 }
