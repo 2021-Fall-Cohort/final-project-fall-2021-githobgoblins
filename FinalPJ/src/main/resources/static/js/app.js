@@ -17,12 +17,15 @@ function displayHeader(mainContainerEl){
     const homeLiEl = document.createElement("li");
     homeLiEl.classList.add("headerLi");
     homeLiEl.innerText = "Home";
+    
     const createLiEl = document.createElement("li");
     createLiEl.innerText = "Create a Character";
     createLiEl.classList.add("headerLi");
+    
     const userCreationsLiEl = document.createElement("li");
     userCreationsLiEl.innerText = "User Creations";
     userCreationsLiEl.classList.add("headerLi");
+    
     const meetLiEl = document.createElement("li");
     meetLiEl.innerText = "Meet the Goblins";
     meetLiEl.classList.add("headerLi");

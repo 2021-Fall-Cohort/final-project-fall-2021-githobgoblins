@@ -272,7 +272,7 @@ displayHeader(mainContainerEl);
 
   const forwardButtonEl = document.createElement("button");
   forwardButtonEl.classList.add("navButtons");
-  forwardButtonEl.setAttribute('id', 'fowardButton');
+  forwardButtonEl.setAttribute('id', 'forwardButton');
   forwardButtonEl.innerText = ">";
 
   mainContentDivEl.append(backButtonEl);
