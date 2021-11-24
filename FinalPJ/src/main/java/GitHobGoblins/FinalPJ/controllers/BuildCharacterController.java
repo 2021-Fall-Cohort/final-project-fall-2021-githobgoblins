@@ -5,7 +5,7 @@ import GitHobGoblins.FinalPJ.repositories.*;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/buildCharacter")
+@RequestMapping("/buildcharacter")
 public class BuildCharacterController {
 
     private AbilityRepository abilityRepo;
@@ -34,7 +34,6 @@ public class BuildCharacterController {
         return temp1;
     }
 
-
     @PutMapping("/editbase/{id}")
     public PlayerCharacter editBase (@RequestBody BaseFeatures baseFeatures, @PathVariable Long id){
         baseFeaturesRepo.save(baseFeatures);
@@ -45,24 +44,74 @@ public class BuildCharacterController {
     }
 
     @PostMapping("/ability")
-    public Iterable<Ability> setAbility(@RequestBody Ability ability){
+    public PlayerCharacter setAbility(@RequestBody Ability ability){
         abilityRepo.save(ability);
-        return abilityRepo.findAll();
+        PlayerCharacter temp1 = new PlayerCharacter(ability, null, null, null, null);
+        characterRepo.save(temp1);
+        return temp1;
+    }
+
+    @PutMapping("/editability/{id}")
+    public PlayerCharacter editAbility (@RequestBody Ability ability, @PathVariable Long id){
+        abilityRepo.save(ability);
+        PlayerCharacter temp1 = characterRepo.findById(id).get();
+        temp1.changeAbility(ability);
+        characterRepo.save(temp1);
+        return temp1;
     }
 
     @PostMapping("/background")
-    public Iterable <Background> setBackground(@RequestBody Background background){
+    public PlayerCharacter setBackground(@RequestBody Background background){
         backgroundRepo.save(background);
-        return backgroundRepo.findAll();
+        PlayerCharacter temp1 = new PlayerCharacter(null, background, null, null, null);
+        characterRepo.save(temp1);
+        return temp1;
     }
+
+    @PutMapping("/editbackground/{id}")
+    public PlayerCharacter editBackground (@RequestBody Background background, @PathVariable Long id){
+        backgroundRepo.save(background);
+        PlayerCharacter temp1 = characterRepo.findById(id).get();
+        temp1.changeBackground(background);
+        characterRepo.save(temp1);
+        return temp1;
+    }
+
     @PostMapping("/class")
-    public Iterable<DNDClass> setClass(@RequestBody DNDClass dndClass){
+    public PlayerCharacter setClass(@RequestBody DNDClass dndClass){
         dndClassRepo.save(dndClass);
-        return dndClassRepo.findAll();
+        PlayerCharacter temp1 = new PlayerCharacter(null, null, null, dndClass, null);
+        characterRepo.save(temp1);
+        return temp1;
     }
+
+    @PutMapping("/editclass/{id}")
+    public PlayerCharacter editClass (@RequestBody DNDClass dndClass, @PathVariable Long id){
+        dndClassRepo.save(dndClass);
+        PlayerCharacter temp1 = characterRepo.findById(id).get();
+        temp1.changeClass(dndClass);
+        characterRepo.save(temp1);
+        return temp1;
+    }
+
     @PostMapping("/race")
-    public Iterable<Race> setRace(@RequestBody Race race){
+    public PlayerCharacter setRace(@RequestBody Race race){
         raceRepo.save(race);
-        return raceRepo.findAll();
+        PlayerCharacter temp1 = new PlayerCharacter(null, null, null, null, race);
+        characterRepo.save(temp1);
+        return temp1;
     }
+
+    @PutMapping("/editrace/{id}")
+    public PlayerCharacter editRace (@RequestBody Race race, @PathVariable Long id){
+        raceRepo.save(race);
+        PlayerCharacter temp1 = characterRepo.findById(id).get();
+        temp1.changeRace(race);
+        characterRepo.save(temp1);
+        return temp1;
+    }
+
+
+
+
 }

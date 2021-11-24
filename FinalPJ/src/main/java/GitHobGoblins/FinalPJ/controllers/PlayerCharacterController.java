@@ -26,7 +26,7 @@ public class PlayerCharacterController {
         this.raceRepo = raceRepo;
     }
 
-    @GetMapping("/getCharacter")
+    @GetMapping("/getcharacter")
         public Iterable<PlayerCharacter> getCharacters() {
          return characterRepo.findAll();
         }

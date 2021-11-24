@@ -15,8 +15,8 @@ public class Ability {
     @Lob
     private String description;
 
-//    @OneToMany(mappedBy = "ability")
-//    private Collection<PlayerCharacter> playerCharacters;
+    @OneToMany(mappedBy = "ability")
+    private Collection<PlayerCharacter> playerCharacters;
 
     public Ability(String name, String description) {
         this.name = name;

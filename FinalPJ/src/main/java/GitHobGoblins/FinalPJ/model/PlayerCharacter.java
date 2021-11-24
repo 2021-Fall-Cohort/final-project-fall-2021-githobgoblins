@@ -12,7 +12,7 @@ public class PlayerCharacter {
     @GeneratedValue
     private Long id;
 
-    @OneToOne
+    @ManyToOne
     private Ability ability;
 
     @OneToOne
@@ -66,8 +66,8 @@ public class PlayerCharacter {
     public void changeBase(BaseFeatures base){
         this.baseFeatures=base;
     }
-    public void changeAbilty(Ability ability){
-        this.ability =ability;
+    public void changeAbility(Ability ability){
+        this.ability = ability;
     }
     public void changeBackground(Background background){
         this.background=background;

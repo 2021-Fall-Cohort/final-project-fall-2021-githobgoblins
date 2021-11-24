@@ -1,9 +1,6 @@
 package GitHobGoblins.FinalPJ.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.Collection;
 import java.util.Objects;
 
@@ -17,8 +14,8 @@ public class Background{
     private String feature;
 
 //    @OneToMany(mappedBy = "background")
-//    private Collection<PlayerCharacter> playerCharacters;
-
+    @OneToOne
+    private PlayerCharacter playerCharacters;
 
     public Background(String name, String feature) {
         this.name = name;
@@ -41,9 +38,9 @@ public class Background{
         return feature;
     }
 
-//    public Collection<PlayerCharacter> getPlayerCharacters() {
-//        return playerCharacters;
-//    }
+    public PlayerCharacter getPlayerCharacters() {
+        return playerCharacters;
+    }
 
 //    @Override
 //    public boolean equals(Object o) {
@@ -57,4 +54,5 @@ public class Background{
 //    public int hashCode() {
 //        return Objects.hash(id, name, feature);
 //    }
+
 }

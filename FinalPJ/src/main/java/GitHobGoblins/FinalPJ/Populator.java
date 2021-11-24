@@ -27,6 +27,8 @@ public class Populator implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception{
         Background acolyte = new Background("Acolyte", "As an acolyte, you command the respect of those who share your faith");
+        Background rogue = new Background("rogue", "As rogue...");
+
         DNDClass warlock = new DNDClass("Warlock", " ");
         Race dwarf = new Race("dwarf", " ");
         Ability doublejump = new Ability("Double Jump", " ");
@@ -34,6 +36,8 @@ public class Populator implements CommandLineRunner {
 
         PlayerCharacter josh = new PlayerCharacter(doublejump, acolyte, basefeatures1, warlock, dwarf);
         backgroundRepo.save(acolyte);
+        backgroundRepo.save(rogue);
+
         dndClassRepo.save(warlock);
         raceRepo.save(dwarf);
         abilityRepo.save(doublejump);

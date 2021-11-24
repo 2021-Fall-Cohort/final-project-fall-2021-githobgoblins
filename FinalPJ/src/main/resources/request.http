@@ -1,24 +1,36 @@
 ###
-GET http://localhost:8080/character/getCharacter
+GET http://localhost:8080/character/getcharacter
 
 ###
-POST http://localhost:8080/buildCharacter/base/
+POST http://localhost:8080/buildcharacter/base/
 Content-Type: application/json 
 
 {
-  
   "name": "josh",
   "level": "1",
   "alignment": "test align",
   "proficiencyBonus": 1,
   "experiencePoints": 0
 }
-    
-    
-    
-    
-    
-    
-    
- 
-   
+
+###
+POST http://localhost:8080/buildcharacter/ability
+Content-Type: application/json
+
+{
+  "name": "backflip2",
+  "description": "dasdasdas"
+}
+
+###
+PUT http://localhost:8080/buildcharacter/editbase/6
+Content-Type: application/json
+
+{
+  "name": "Britney",
+  "level": "2",
+  "alignment": "test align",
+  "proficiencyBonus": 1,
+  "experiencePoints": 0
+}
+
