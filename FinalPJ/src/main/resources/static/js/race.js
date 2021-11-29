@@ -26,7 +26,7 @@ function displayRaceView(mainContainerEl){
     raceSelectEl.classList.add("selector");
 
     const dragonbornOptionEl = document.createElement("option");
-    elfOptionEl.setAttribute('value', 'dragonborn');
+    dragonbornOptionEl.setAttribute('value', 'dragonborn');
     dragonbornOptionEl.innerText = "Dragonborn";
 
     const dwarfOptionEl = document.createElement("option");
@@ -42,11 +42,11 @@ function displayRaceView(mainContainerEl){
     gnomeOptionEl.innerText = "Gnome";
 
     const halfElfOptionEl = document.createElement("option");
-    halfElflfOptionEl.setAttribute('value', 'halfElf');
+    halfElfOptionEl.setAttribute('value', 'halfElf');
     halfElfOptionEl.innerText = "Half-Elf";
 
     const halfOrcOptionEl = document.createElement("option");
-    halfOrclfOptionEl.setAttribute('value', 'halfOrc');
+    halfOrcOptionEl.setAttribute('value', 'halfOrc');
     halfOrcOptionEl.innerText = "Half-Orc";
 
     const halflingOptionEl = document.createElement("option");
@@ -58,8 +58,8 @@ function displayRaceView(mainContainerEl){
     humanOptionEl.innerText = "Human";
 
     const tieflingOptionEl = document.createElement("option");
-    halfElflfOptionEl.setAttribute('value', 'tiefling');
-    halfElfOptionEl.innerText = "Tiefling";
+    tieflingOptionEl.setAttribute('value', 'tiefling');
+    tieflingOptionEl.innerText = "Tiefling";
 
     const raceModalButtonEl = document.createElement("button");
     raceModalButtonEl.setAttribute('id', 'openRaceModal');
@@ -125,8 +125,91 @@ function displayRaceView(mainContainerEl){
 
     raceModalBodyDivEl.append(raceModalBodyContentEl);
 
-    raceModalContentDivEl.append();
-    raceModalContentDivEl.append();
+    raceModalContentDivEl.append(modalHeaderDivEl);
+    raceModalContentDivEl.append(raceModalBodyDivEl);
+
+    raceModalDivEl.append(raceModalContentDivEl);
+
+    mainContentDiv.append(raceModalDivEl);
+
+    //creating all pageBottomDiv elements
+
+    const pageBottomDivEl = document.createElement("div");
+    pageBottomDivEl.classList.add("div");
+
+    const raceLearnDropdownDivEl = document.createElement("div");
+    raceLearnDropdownDivEl.classList.add("learnDropdown");
+
+    const raceDropdownLabelEl = document.createElement("label");
+    raceDropdownLabelEl.setAttribute('for', 'raceNames');
+    raceDropdownLabelEl.setAttribute('id', 'raceLearnLabel');
+
+    const raceLearnFormEl = document.createElement("form");
+    
+    const raceLearnSelectEl = document.createElement("select");
+    raceLearnSelectEl.setAttribute('name', 'raceNames');
+    raceLearnSelectEl,setAttribute9('id', 'raceNames');
+
+    const dragonbornLearnOptionEl = document.createElement("option");
+    dragonbornLearnOptionEl.setAttribute('value', 'dragonborn');
+    dragonbornLearnOptionEl.innerText = "Dragonborn";
+
+    const dwarfLearnOptionEl = document.createElement("option");
+    dwarfLearnOptionEl.setAttribute('value', 'dwarf');
+    dwarfLearnOptionEl.innerText = "Dwarf";
+
+    const elfLearnOptionEl = document.createElement("option");
+    elfLearnOptionEl.setAttribute('value', 'elf');
+    elfLearnOptionEl.innerText = "Elf";
+
+    const gnomeLearnOptionEl = document.createElement("option");
+    gnomeLearnOptionEl.setAttribute('value', 'gnome');
+    gnomeLearnOptionEl.innerText = "Gnome";
+
+    const halfElfLearnOptionEl = document.createElement("option");
+    halfElfLearnOptionEl.setAttribute('value', 'halfElf');
+    halfElfLearnOptionEl.innerText = "Half-Elf";
+
+    const halfOrcLearnOptionEl = document.createElement("option");
+    halfOrcLearnOptionEl.setAttribute('value', 'halfOrc');
+    halfOrcLearnOptionEl.innerText = "Half-Orc";
+
+    const halflingLearnOptionEl = document.createElement("option");
+    halflingLearnOptionEl.setAttribute('value', 'halfling');
+    halflingLearnOptionEl.innerText = "Halfling";
+
+    const humanLearnOptionEl = document.createElement("option");
+    humanLearnOptionEl.setAttribute('value', 'human');
+    humanLearnOptionEl.innerText = "Human";
+
+    const tieflingLearnOptionEl = document.createElement("option");
+    tieflingLearnOptionEl.setAttribute('value', 'tiefling');
+    tieflingLearnOptionEl.innerText = "Tiefling";
+
+    const raceMoreInfoButtonEl = document.createElement("button");
+    raceMoreInfoButtonEl.innerText = "More Info";
+    raceMoreInfoButtonEl.setAttribute('id', 'raceMoreInfoButton');
+
+    //appending all pageBottomDiv elements
+
+    raceLearnSelectEl.append(dragonbornLearnOptionEl);
+    raceLearnSelectEl.append(dwarfLearnOptionEl);
+    raceLearnSelectEl.append(elfLearnOptionEl);
+    raceLearnSelectEl.append(gnomeLearnOptionEl);
+    raceLearnSelectEl.append(halfElfLearnOptionEl);
+    raceLearnSelectEl.append(halfOrcLearnOptionEl);
+    raceLearnSelectEl.append(halflingLearnOptionEl);
+    raceLearnSelectEl.append(humanLearnOptionEl);
+    raceLearnSelectEl.append(tieflingLearnOptionEl);
+
+    raceLearnFormEl.append(raceLearnSelectEl);
+
+    raceLearnDropdownDivEl.append(raceDropdownLabelEl);
+    raceLearnDropdownDivEl.append(raceLearnFormEl);
+
+    pageBottomDivEl.append(raceLearnDropdownDivEl);
+    pageBottomDivEl.append(raceMoreInfoButtonEl);
+    mainContentDiv.append(pageBottomDivEl);
 
 
     displayFooter(mainContainerEl);
