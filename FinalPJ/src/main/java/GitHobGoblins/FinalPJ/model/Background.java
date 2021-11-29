@@ -13,9 +13,10 @@ public class Background{
     private String name;
     private String feature;
 
-//    @OneToMany(mappedBy = "background")
+
     @OneToOne
-    private PlayerCharacter playerCharacters;
+//    @JoinColumn(name = "playerCharacter_id")
+    private PlayerCharacter playerCharacter;
 
     public Background(String name, String feature) {
         this.name = name;
@@ -38,21 +39,7 @@ public class Background{
         return feature;
     }
 
-    public PlayerCharacter getPlayerCharacters() {
-        return playerCharacters;
-    }
-
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//        Background that = (Background) o;
-//        return Objects.equals(id, that.id) && Objects.equals(name, that.name) && Objects.equals(feature, that.feature) && Objects.equals(playerCharacters, that.playerCharacters);
+//    public PlayerCharacter getPlayerCharacter() {
+//        return playerCharacter;
 //    }
-//
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(id, name, feature);
-//    }
-
 }

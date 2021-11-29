@@ -17,10 +17,10 @@ public class PlayerCharacterController {
     private DNDClassRepository dndClassRepo;
     private RaceRepository raceRepo;
 
-    public PlayerCharacterController(AbilityRepository abilityRepo, BackgroundRepository backgroundRepo, BaseFeaturesRepository baseFeaturesRepo, CharacterRepository characterRepo, DNDClassRepository dndClassRepo, RaceRepository raceRepo) {
+    public PlayerCharacterController(BaseFeaturesRepository baseFeaturesRepo, AbilityRepository abilityRepo, BackgroundRepository backgroundRepo, CharacterRepository characterRepo, DNDClassRepository dndClassRepo, RaceRepository raceRepo) {
+        this.baseFeaturesRepo = baseFeaturesRepo;
         this.abilityRepo = abilityRepo;
         this.backgroundRepo = backgroundRepo;
-        this.baseFeaturesRepo = baseFeaturesRepo;
         this.characterRepo = characterRepo;
         this.dndClassRepo = dndClassRepo;
         this.raceRepo = raceRepo;

@@ -10,7 +10,8 @@ Content-Type: application/json
   "level": "1",
   "alignment": "test align",
   "proficiencyBonus": 1,
-  "experiencePoints": 0
+  "experiencePoints": 0,
+  "playerCharacter": "???"
 }
 
 ###

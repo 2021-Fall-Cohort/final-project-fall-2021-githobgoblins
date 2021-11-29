@@ -5,12 +5,16 @@ import GitHobGoblins.FinalPJ.repositories.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 @Component
 public class Populator implements CommandLineRunner {
 
     private AbilityRepository abilityRepo;
     private BackgroundRepository backgroundRepo;
     private BaseFeaturesRepository baseFeaturesRepo;
+
     private CharacterRepository characterRepo;
     private DNDClassRepository dndClassRepo;
     private RaceRepository raceRepo;
@@ -25,16 +29,22 @@ public class Populator implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) throws Exception{
+    public void run(String... args) throws Exception {
+
+        Ability doublejump = new Ability("Double Jump", " ");
+        Collection<Ability> abilities= new ArrayList<Ability>();
+
         Background acolyte = new Background("Acolyte", "As an acolyte, you command the respect of those who share your faith");
         Background rogue = new Background("rogue", "As rogue...");
 
         DNDClass warlock = new DNDClass("Warlock", " ");
+
         Race dwarf = new Race("dwarf", " ");
-        Ability doublejump = new Ability("Double Jump", " ");
+
         BaseFeatures basefeatures1 = new BaseFeatures("josh", "1", "test align", 1, 0);
 
-        PlayerCharacter josh = new PlayerCharacter(doublejump, acolyte, basefeatures1, warlock, dwarf);
+
+        PlayerCharacter josh = new PlayerCharacter(basefeatures1, abilities, acolyte, warlock, dwarf);
         backgroundRepo.save(acolyte);
         backgroundRepo.save(rogue);
 

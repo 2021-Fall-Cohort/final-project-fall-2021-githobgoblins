@@ -1,9 +1,6 @@
 package GitHobGoblins.FinalPJ.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.Collection;
 import java.util.Objects;
 
@@ -16,8 +13,8 @@ public class DNDClass{
     private String name;
     private String description;
 
-//    @OneToMany(mappedBy = "dndClass")
-//    private Collection<PlayerCharacter> playerCharacters;
+    @OneToOne
+    private PlayerCharacter playerCharacter;
 
     public DNDClass(String name, String description) {
         this.name = name;
@@ -27,10 +24,6 @@ public class DNDClass{
     public DNDClass (){
         //zero argument constructor
     }
-
-//    public Collection<PlayerCharacter> getPlayerCharacters() {
-//        return playerCharacters;
-//    }
 
     public Long getId() {
         return id;
@@ -44,17 +37,8 @@ public class DNDClass{
         return description;
     }
 
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//        DNDClass dndClass = (DNDClass) o;
-//        return Objects.equals(id, dndClass.id) && Objects.equals(name, dndClass.name) && Objects.equals(description, dndClass.description) && Objects.equals(playerCharacters, dndClass.playerCharacters);
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(id, name, description);
+//    public PlayerCharacter getPlayerCharacter() {
+//        return playerCharacter;
 //    }
 }
 

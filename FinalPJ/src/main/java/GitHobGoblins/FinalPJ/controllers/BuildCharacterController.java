@@ -26,90 +26,93 @@ public class BuildCharacterController {
     }
 
 //    Create base features: name, level, alignment patches
-    @PostMapping("/base")
-    public PlayerCharacter createBase(@RequestBody BaseFeatures baseFeatures){
-        baseFeaturesRepo.save(baseFeatures);
-        PlayerCharacter temp1 = new PlayerCharacter(null, null, baseFeatures, null, null);
-        characterRepo.save(temp1);
-        return temp1;
-    }
 
-    @PutMapping("/editbase/{id}")
-    public PlayerCharacter editBase (@RequestBody BaseFeatures baseFeatures, @PathVariable Long id){
-        baseFeaturesRepo.save(baseFeatures);
-        PlayerCharacter temp1 = characterRepo.findById(id).get();
-        temp1.changeBase(baseFeatures);
-        characterRepo.save(temp1);
-        return temp1;
-    }
 
-    @PostMapping("/ability")
-    public PlayerCharacter setAbility(@RequestBody Ability ability){
-        abilityRepo.save(ability);
-        PlayerCharacter temp1 = new PlayerCharacter(ability, null, null, null, null);
-        characterRepo.save(temp1);
-        return temp1;
-    }
 
-    @PutMapping("/editability/{id}")
-    public PlayerCharacter editAbility (@RequestBody Ability ability, @PathVariable Long id){
-        abilityRepo.save(ability);
-        PlayerCharacter temp1 = characterRepo.findById(id).get();
-        temp1.changeAbility(ability);
-        characterRepo.save(temp1);
-        return temp1;
-    }
-
-    @PostMapping("/background")
-    public PlayerCharacter setBackground(@RequestBody Background background){
-        backgroundRepo.save(background);
-        PlayerCharacter temp1 = new PlayerCharacter(null, background, null, null, null);
-        characterRepo.save(temp1);
-        return temp1;
-    }
-
-    @PutMapping("/editbackground/{id}")
-    public PlayerCharacter editBackground (@RequestBody Background background, @PathVariable Long id){
-        backgroundRepo.save(background);
-        PlayerCharacter temp1 = characterRepo.findById(id).get();
-        temp1.changeBackground(background);
-        characterRepo.save(temp1);
-        return temp1;
-    }
-
-    @PostMapping("/class")
-    public PlayerCharacter setClass(@RequestBody DNDClass dndClass){
-        dndClassRepo.save(dndClass);
-        PlayerCharacter temp1 = new PlayerCharacter(null, null, null, dndClass, null);
-        characterRepo.save(temp1);
-        return temp1;
-    }
-
-    @PutMapping("/editclass/{id}")
-    public PlayerCharacter editClass (@RequestBody DNDClass dndClass, @PathVariable Long id){
-        dndClassRepo.save(dndClass);
-        PlayerCharacter temp1 = characterRepo.findById(id).get();
-        temp1.changeClass(dndClass);
-        characterRepo.save(temp1);
-        return temp1;
-    }
-
-    @PostMapping("/race")
-    public PlayerCharacter setRace(@RequestBody Race race){
-        raceRepo.save(race);
-        PlayerCharacter temp1 = new PlayerCharacter(null, null, null, null, race);
-        characterRepo.save(temp1);
-        return temp1;
-    }
-
-    @PutMapping("/editrace/{id}")
-    public PlayerCharacter editRace (@RequestBody Race race, @PathVariable Long id){
-        raceRepo.save(race);
-        PlayerCharacter temp1 = characterRepo.findById(id).get();
-        temp1.changeRace(race);
-        characterRepo.save(temp1);
-        return temp1;
-    }
+//    @PostMapping("/base")
+//    public PlayerCharacter createBase(@RequestBody BaseFeatures baseFeatures){
+//        baseFeaturesRepo.save(baseFeatures);
+//        PlayerCharacter temp1 = new PlayerCharacter(null, baseFeatures, null, null, null);
+//        characterRepo.save(temp1);
+//        return temp1;
+//    }
+//
+//    @PutMapping("/editbase/{id}")
+//    public PlayerCharacter editBase (@RequestBody BaseFeatures baseFeatures, @PathVariable Long id){
+//        baseFeaturesRepo.save(baseFeatures);
+//        PlayerCharacter temp1 = characterRepo.findById(id).get();
+//        temp1.changeBase(baseFeatures);
+//        characterRepo.save(temp1);
+//        return temp1;
+//    }
+//
+//    @PostMapping("/ability")
+//    public PlayerCharacter setAbility(@RequestBody Ability ability){
+//        abilityRepo.save(ability);
+//        PlayerCharacter temp1 = new PlayerCharacter(null, null, null, null, ability);
+//        characterRepo.save(temp1);
+//        return temp1;
+//    }
+//
+//    @PutMapping("/editability/{id}")
+//    public PlayerCharacter editAbility (@RequestBody Ability ability, @PathVariable Long id){
+//        abilityRepo.save(ability);
+//        PlayerCharacter temp1 = characterRepo.findById(id).get();
+//        temp1.changeAbility(ability);
+//        characterRepo.save(temp1);
+//        return temp1;
+//    }
+//
+//    @PostMapping("/background")
+//    public PlayerCharacter setBackground(@RequestBody Background background){
+//        backgroundRepo.save(background);
+//        PlayerCharacter temp1 = new PlayerCharacter(background, null, null, null, null);
+//        characterRepo.save(temp1);
+//        return temp1;
+//    }
+//
+//    @PutMapping("/editbackground/{id}")
+//    public PlayerCharacter editBackground (@RequestBody Background background, @PathVariable Long id){
+//        backgroundRepo.save(background);
+//        PlayerCharacter temp1 = characterRepo.findById(id).get();
+//        temp1.changeBackground(background);
+//        characterRepo.save(temp1);
+//        return temp1;
+//    }
+//
+//    @PostMapping("/class")
+//    public PlayerCharacter setClass(@RequestBody DNDClass dndClass){
+//        dndClassRepo.save(dndClass);
+//        PlayerCharacter temp1 = new PlayerCharacter(null, null, dndClass, null, null);
+//        characterRepo.save(temp1);
+//        return temp1;
+//    }
+//
+//    @PutMapping("/editclass/{id}")
+//    public PlayerCharacter editClass (@RequestBody DNDClass dndClass, @PathVariable Long id){
+//        dndClassRepo.save(dndClass);
+//        PlayerCharacter temp1 = characterRepo.findById(id).get();
+//        temp1.changeClass(dndClass);
+//        characterRepo.save(temp1);
+//        return temp1;
+//    }
+//
+//    @PostMapping("/race")
+//    public PlayerCharacter setRace(@RequestBody Race race){
+//        raceRepo.save(race);
+//        PlayerCharacter temp1 = new PlayerCharacter(null, null, null, race, null);
+//        characterRepo.save(temp1);
+//        return temp1;
+//    }
+//
+//    @PutMapping("/editrace/{id}")
+//    public PlayerCharacter editRace (@RequestBody Race race, @PathVariable Long id){
+//        raceRepo.save(race);
+//        PlayerCharacter temp1 = characterRepo.findById(id).get();
+//        temp1.changeRace(race);
+//        characterRepo.save(temp1);
+//        return temp1;
+//    }
 
 
 
