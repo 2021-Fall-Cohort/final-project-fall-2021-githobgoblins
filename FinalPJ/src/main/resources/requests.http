@@ -1,0 +1,14 @@
+###
+GET https://www.dnd5eapi.co/api/
+
+###
+GET https://www.dnd5eapi.co/api/classes
+
+###
+GET https://www.dnd5eapi.co/api/classes/monk
+
+###
+GET https://www.dnd5eapi.co/api/rules
+
+###
+GET https://www.dnd5eapi.co/api/rule-sections
