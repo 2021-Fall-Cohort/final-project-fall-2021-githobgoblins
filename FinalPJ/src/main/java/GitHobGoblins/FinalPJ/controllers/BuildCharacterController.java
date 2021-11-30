@@ -61,6 +61,7 @@ public class BuildCharacterController {
     @PutMapping("/editclass/{id}")
     public PlayerCharacter editClass (@RequestBody DNDClass dndClass, @PathVariable Long id){
         PlayerCharacter temp1 = characterRepo.findById(id).get();
+//        get character, get class, pass in new resave
         dndClassRepo.save(dndClass);
         temp1.changeClass(dndClass);
         characterRepo.save(temp1);
@@ -77,7 +78,7 @@ public class BuildCharacterController {
         return temp1;
     }
 
-    @PutMapping("/editrace/{id}")
+    @PutMapping ("/editrace/{id}")
     public PlayerCharacter editRace (@RequestBody Race race, @PathVariable Long id){
         raceRepo.save(race);
         PlayerCharacter temp1 = characterRepo.findById(id).get();

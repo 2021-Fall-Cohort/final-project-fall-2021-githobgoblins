@@ -70,6 +70,9 @@ public class PlayerCharacter {
     public void changeFeature(Feature newFeature){
         feature.add(newFeature);
     }
+    public void removeFeature(Feature newFeature){
+        feature.remove(newFeature);
+    }
 
     public void changeBackground(Background background){
         this.background=background;

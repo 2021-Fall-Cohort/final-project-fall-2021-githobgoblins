@@ -18,12 +18,21 @@ Content-Type: application/json
 
 //add class to character
 ###
-Put http://localhost:8080/buildcharacter/class/9
+PUT http://localhost:8080/buildcharacter/class/9
 Content-Type: application/json
 
 {
-  "name" : "warlock",
-  "description": "warlock boi"
+  "name" : "fairy",
+  "description": "fairy boi"
+}
+
+###
+PUT http://localhost:8080/buildcharacter/editclass/9 
+Content-Type: application/json
+
+{
+  "name" : "org",
+  "description": "org boi"
 }
 
 ###
@@ -33,6 +42,15 @@ Content-Type: application/json
 {
   "name" : "dwarf",
   "description" :"short boi/girl"
+}
+
+###
+PUT http://localhost:8080/buildcharacter/editrace/9
+Content-Type: application/json
+
+{
+  "name" : "deamon race",
+  "description" :"deamon boi/girl"
   }
 
 ###
@@ -42,4 +60,13 @@ Content-Type: application/json
 {
   "name" : "acolyte",
   "description": "because what else"
+}
+
+###
+PUT http://localhost:8080/buildcharacter/editbackground/9
+Content-Type: application/json
+
+{
+  "name" : "gremin",
+  "description": "don't put water on me"
 }
