@@ -5,23 +5,25 @@ import java.util.Collection;
 import java.util.Objects;
 
 @Entity
-public class DNDClass{
+public class Feature {
 
     @Id
     @GeneratedValue
     private Long id;
     private String name;
+
+    @Lob
     private String description;
 
-    @OneToOne
+    @ManyToOne
     private PlayerCharacter playerCharacter;
 
-    public DNDClass(String name, String description) {
+    public Feature(String name, String description) {
         this.name = name;
         this.description = description;
     }
 
-    public DNDClass (){
+    public Feature() {
         //zero argument constructor
     }
 
@@ -40,5 +42,5 @@ public class DNDClass{
 //    public PlayerCharacter getPlayerCharacter() {
 //        return playerCharacter;
 //    }
-}
 
+}

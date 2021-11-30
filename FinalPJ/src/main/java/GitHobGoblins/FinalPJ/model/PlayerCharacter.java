@@ -1,7 +1,7 @@
 package GitHobGoblins.FinalPJ.model;
 
-
 import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 public class PlayerCharacter {
@@ -10,26 +10,26 @@ public class PlayerCharacter {
     @GeneratedValue
     private Long id;
 
+    //features
+    @OneToMany(mappedBy = "playerCharacter")
+    private Collection<Feature> feature;
 
-    @ManyToOne
-    private Ability ability;
-
-    @ManyToOne
+    @OneToOne
     private Background background;
 
     @OneToOne
-    private BaseFeatures baseFeatures;
+    private BaseInfo baseInfo;
 
-    @ManyToOne
+    @OneToOne
     private DNDClass dndClass;
 
-    @ManyToOne
+    @OneToOne
     private Race race;
 
-    public PlayerCharacter(Ability ability, Background background, BaseFeatures baseFeatures, DNDClass dndClass, Race race) {
-        this.ability = ability;
+    public PlayerCharacter(BaseInfo baseInfo, Collection<Feature> feature, Background background, DNDClass dndClass, Race race) {
+        this.baseInfo = baseInfo;
+        this.feature = feature;
         this.background = background;
-        this.baseFeatures = baseFeatures;
         this.dndClass = dndClass;
         this.race = race;
     }
@@ -42,16 +42,16 @@ public class PlayerCharacter {
         return id;
     }
 
-    public Ability getAbility() {
-        return ability;
+    public Collection<Feature> getFeature() {
+        return feature;
     }
 
     public Background getBackground() {
         return background;
     }
 
-    public BaseFeatures getBaseFeatures() {
-        return baseFeatures;
+    public BaseInfo getBaseFeatures() {
+        return baseInfo;
     }
 
     public DNDClass getDndClass() {
@@ -62,12 +62,18 @@ public class PlayerCharacter {
         return race;
     }
 
-    public void changeBase(BaseFeatures base){
-        this.baseFeatures=base;
+    public void changeBase(BaseInfo base){
+        this.baseInfo =base;
     }
-    public void changeAbilty(Ability ability){
-        this.ability =ability;
+
+
+    public void changeFeature(Feature newFeature){
+        feature.add(newFeature);
     }
+    public void removeFeature(Feature newFeature){
+        feature.remove(newFeature);
+    }
+
     public void changeBackground(Background background){
         this.background=background;
     }

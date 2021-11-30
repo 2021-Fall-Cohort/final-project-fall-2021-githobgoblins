@@ -1,6 +1,7 @@
 import {clearChildren} from "./app.js";
 import {displayHeader} from "./app.js";
 import {displayFooter} from "./app.js";
+import {displayRaceView} from "./race.js";
 
 function displayDNDClassView(mainContainerEl){
   
@@ -83,7 +84,19 @@ displayHeader(mainContainerEl);
 
   const imgEl = document.createElement("img");
   imgEl.classList.add("selectorArt");
-  imgEl.src = "/FinalPJ/src/main/resources/static/images/queen.jpg";
+  imgEl.src = "./images/queen.jpg";
+
+  //forward and back buttons
+
+  const backButtonEl = document.createElement("button");
+  backButtonEl.classList.add("navButtons");
+  backButtonEl.setAttribute('id', 'backButton');
+  backButtonEl.innerText = "<";
+
+  const forwardButtonEl = document.createElement("button");
+  forwardButtonEl.classList.add("navButtons");
+  forwardButtonEl.setAttribute('id', 'forwardButton');
+  forwardButtonEl.innerText = ">";
   
   //appending all pageTopDiv content
   selectEl.append(barbarianOptionEl);
@@ -105,8 +118,10 @@ displayHeader(mainContainerEl);
   formButtonsDivEl.append(formEl);
   formButtonsDivEl.append(modalButtonEl);
   
+  pageTopDivEl.append(backButtonEl);
   pageTopDivEl.append(formButtonsDivEl);
   pageTopDivEl.append(imgEl);
+  pageTopDivEl.append(forwardButtonEl);
 
   mainContentDivEl.append(pageTitleEl);
   mainContentDivEl.append(pageTopDivEl);
@@ -263,20 +278,16 @@ displayHeader(mainContainerEl);
 
   mainContentDivEl.append(moreInfoDivEl);
 
-  //forward and back buttons
+  forwardButtonEl.addEventListener("click", () => {
+    clearChildren(mainContainerEl);
+    displayRaceView(mainContainerEl);
+  })
 
-  const backButtonEl = document.createElement("button");
-  backButtonEl.classList.add("navButtons");
-  backButtonEl.setAttribute('id', 'backButton');
-  backButtonEl.innerText = "<";
+  // backwardButtonEl.addEventListener("click", () => {
+  //   clearChildren(mainContainerEl);
+  //   displayBackgroundView(mainContainerEl);
+  // })
 
-  const forwardButtonEl = document.createElement("button");
-  forwardButtonEl.classList.add("navButtons");
-  forwardButtonEl.setAttribute('id', 'forwardButton');
-  forwardButtonEl.innerText = ">";
-
-  mainContentDivEl.append(backButtonEl);
-  mainContentDivEl.append(forwardButtonEl);
 
   mainContainerEl.append(mainContentDivEl);
 
@@ -285,6 +296,7 @@ displayHeader(mainContainerEl);
   var modal = document.getElementById("classModal");
   var btn = document.getElementById("openClassModal");
   var span = document.getElementsByClassName("close")[0];
+  console.log(span);
 
   btn.onclick = function() {
     modal.style.display = "block";

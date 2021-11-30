@@ -1,10 +1,12 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/FinalPj/src/main/resources/static/css/dndClassStyle.css">
+    <link rel="stylesheet" href="./css/dndClassStyle.css">
+    <link rel="stylesheet" href="./css/raceStyle.css">
+    <link rel="stylesheet" href="./css/backgroundStyle.css">
     <title>Class Page</title>
 </head>
 <body>
@@ -44,7 +46,7 @@
 
             <div class="learnDropdown">
                 <label id="learnLabel" for="classNames">Select what classes you want to learn about</label> 
-                <form id ="make_checkbox_select">        
+                <form>        
                     <select name="classNames" id="classNames"> 
                         <option value="barbarian">Barbarian</option>
                         <option value="fighter">Fighter</option>
@@ -70,7 +72,6 @@
 
     </div>
 
-    <script src="/FinalPJ/src/main/resources/static/js/app.js" type="module"></script>
-
+    <script src="./js/app.js" type="module" ></script>
 </body>
 </html>
