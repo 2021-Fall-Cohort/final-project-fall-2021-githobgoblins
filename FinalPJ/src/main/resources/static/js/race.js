@@ -1,6 +1,8 @@
 import {clearChildren} from "./app.js";
 import {displayHeader} from "./app.js";
 import {displayFooter} from "./app.js";
+import { displayBackgroundView } from "./background.js";
+import { displayDNDClassView } from "./dndClass.js";
 
 
 function displayRaceView(mainContainerEl){
@@ -67,7 +69,16 @@ function displayRaceView(mainContainerEl){
     raceModalButtonEl.innerText = "Learn More About Race";
     console.log(raceModalButtonEl);
 
-    //modal variables and functions
+    // creating nav buttons
+    const backButtonEl = document.createElement("button");
+    backButtonEl.classList.add("navButtons");
+    backButtonEl.setAttribute('id', 'raceBackButton');
+    backButtonEl.innerText = "<";
+
+    const forwardButtonEl = document.createElement("button");
+    forwardButtonEl.classList.add("navButtons");
+    forwardButtonEl.setAttribute('id', 'raceForwardButton');
+    forwardButtonEl.innerText = ">";
 
    
 
@@ -92,8 +103,10 @@ function displayRaceView(mainContainerEl){
     raceFormButtonsDivEl.append(raceFormEl);
     raceFormButtonsDivEl.append(raceModalButtonEl);
 
+    pageTopDivEl.append(backButtonEl);
     pageTopDivEl.append(raceFormButtonsDivEl);
     pageTopDivEl.append(raceImgEl);
+    pageTopDivEl.append(forwardButtonEl);
 
     mainContentDiv.append(raceTitleEl);
     mainContentDiv.append(pageTopDivEl);
@@ -137,6 +150,8 @@ function displayRaceView(mainContainerEl){
     raceModalDivEl.append(raceModalContentDivEl);
 
     mainContentDiv.append(raceModalDivEl);
+
+    //making modal work
 
     raceModalButtonEl.addEventListener("click", ()=> {
       raceModalDivEl.style.display = "block";
@@ -273,6 +288,19 @@ function displayRaceView(mainContainerEl){
         learnRaceFunction();
     })
 
+    //wiring up nav buttons
+
+    backButtonEl.addEventListener("click", () => {
+      clearChildren(mainContainerEl);
+      displayDNDClassView(mainContainerEl);
+    });
+
+    forwardButtonEl.addEventListener("click", () => {
+      clearChildren(mainContainerEl);
+      displayBackgroundView(mainContainerEl);
+    })
+      
+    
     
 
     mainContainerEl.append(mainContentDiv);

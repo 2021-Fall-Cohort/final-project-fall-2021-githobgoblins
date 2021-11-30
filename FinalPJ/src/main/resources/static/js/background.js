@@ -1,6 +1,7 @@
 import {clearChildren} from "./app.js";
 import {displayHeader} from "./app.js";
 import {displayFooter} from "./app.js";
+import { displayRaceView } from "./race.js";
 // import {displayRaceView} from "./race.js";
 
 function displayBackgroundView(mainContainerEl){
@@ -87,7 +88,16 @@ function displayBackgroundView(mainContainerEl){
     backgroundImgEl.src = "./images/knight.jpg";
     backgroundImgEl.classList.add("selectorArt");
 
+    // creating nav buttons
+    const backButtonEl = document.createElement("button");
+    backButtonEl.classList.add("navButtons");
+    backButtonEl.setAttribute('id', 'backgroundBackButton');
+    backButtonEl.innerText = "<";
 
+    const forwardButtonEl = document.createElement("button");
+    forwardButtonEl.classList.add("navButtons");
+    forwardButtonEl.setAttribute('id', 'backgroundForwardButton');
+    forwardButtonEl.innerText = ">";
 
     //appending all pageTopDiv elements
 
@@ -110,8 +120,10 @@ function displayBackgroundView(mainContainerEl){
     backgroundFormButtonsDivEl.append(backgroundSelectEl);
     backgroundFormButtonsDivEl.append(backgroundModalButtonEl);
 
+    pageTopDivEl.append(backButtonEl);
     pageTopDivEl.append(backgroundFormButtonsDivEl);
     pageTopDivEl.append(backgroundImgEl);
+    pageTopDivEl.append(forwardButtonEl);
 
     mainContentDiv.append(backgroundTitleEl);
     mainContentDiv.append(pageTopDivEl);
@@ -155,6 +167,22 @@ function displayBackgroundView(mainContainerEl){
     backgroundModalDivEl.append(backgroundModalContentDivEl);
 
     mainContentDiv.append(backgroundModalDivEl);
+
+    //making modal work
+
+    backgroundModalButtonEl.addEventListener("click", ()=> {  
+      backgroundModalDivEl.style.display = "block";
+    })
+
+    backgroundModalCloseSpanEl.onclick = function() {
+        backgroundModalDivEl.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == backgroundModalDivEl) {
+          backgroundModalDivEl.style.display = "none";
+        }
+    }
 
     //creating all pageBottomDiv elements
 
@@ -280,6 +308,12 @@ function displayBackgroundView(mainContainerEl){
 
     const backgroundLearnMoreContentEl = document.createElement("p");
     backgroundLearnMoreContentEl.setAttribute('id', 'backgroundLearnMoreContent');
+
+    //wiring up nav buttons
+    backButtonEl.addEventListener("click", () => {
+      clearChildren(mainContainerEl);
+      displayRaceView(mainContainerEl);
+    });
 
     //appending backgroundMoreDiv content
 
