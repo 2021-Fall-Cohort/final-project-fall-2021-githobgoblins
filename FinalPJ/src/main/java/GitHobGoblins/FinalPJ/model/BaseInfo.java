@@ -1,14 +1,10 @@
 package GitHobGoblins.FinalPJ.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
-public class BaseFeatures {
-
+public class BaseInfo {
 
     @Id
     @GeneratedValue
@@ -22,7 +18,7 @@ public class BaseFeatures {
     @OneToOne
     private PlayerCharacter playerCharacter;
 
-    public BaseFeatures(String name, String level, String alignment, int proficiencyBonus, int experiencePoints) {
+    public BaseInfo(String name, String level, String alignment, int proficiencyBonus, int experiencePoints) {
         this.name = name;
         this.level = level;
         this.alignment = alignment;
@@ -30,7 +26,7 @@ public class BaseFeatures {
         this.experiencePoints = experiencePoints;
     }
 
-    public BaseFeatures(){
+    public BaseInfo(){
         //zero argument const.
     }
 
@@ -62,6 +58,7 @@ public class BaseFeatures {
         return experiencePoints;
     }
 
-//    public void string newName(String newName)
-//        return newName;
+//    public PlayerCharacter getPlayerCharacter() {
+//        return playerCharacter;
+//    }
 }
