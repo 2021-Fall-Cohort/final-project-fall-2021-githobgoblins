@@ -1,37 +1,45 @@
 ###
 GET http://localhost:8080/character/getcharacter
 
+
+
+//character initilize/baseInfo
 ###
 POST http://localhost:8080/buildcharacter/base/
 Content-Type: application/json 
 
 {
-  "name": "josh",
+  "name": "Carson",
   "level": "1",
-  "alignment": "test align",
-  "proficiencyBonus": 1,
-  "experiencePoints": 0,
-  "playerCharacter": "???"
-}
-
-###
-POST http://localhost:8080/buildcharacter/ability
-Content-Type: application/json
-
-{
-  "name": "backflip2",
-  "description": "dasdasdas"
-}
-
-###
-PUT http://localhost:8080/buildcharacter/editbase/6
-Content-Type: application/json
-
-{
-  "name": "Britney",
-  "level": "2",
   "alignment": "test align",
   "proficiencyBonus": 1,
   "experiencePoints": 0
 }
 
+//add class to character
+###
+Put http://localhost:8080/buildcharacter/class/9
+Content-Type: application/json
+
+{
+  "name" : "warlock",
+  "description": "warlock boi"
+}
+
+###
+PUT http://localhost:8080/buildcharacter/race/9
+Content-Type: application/json
+
+{
+  "name" : "dwarf",
+  "description" :"short boi/girl"
+  }
+
+###
+PUT http://localhost:8080/buildcharacter/background/9
+Content-Type: application/json
+
+{
+  "name" : "acolyte",
+  "description": "because what else"
+}

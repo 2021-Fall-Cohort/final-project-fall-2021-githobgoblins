@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/character")
 public class PlayerCharacterController {
 
-    private AbilityRepository abilityRepo;
+    private FeatureRepository abilityRepo;
     private BackgroundRepository backgroundRepo;
-    private BaseFeaturesRepository baseFeaturesRepo;
+    private BaseInfoRepository baseFeaturesRepo;
     private CharacterRepository characterRepo;
     private DNDClassRepository dndClassRepo;
     private RaceRepository raceRepo;
 
-    public PlayerCharacterController(BaseFeaturesRepository baseFeaturesRepo, AbilityRepository abilityRepo, BackgroundRepository backgroundRepo, CharacterRepository characterRepo, DNDClassRepository dndClassRepo, RaceRepository raceRepo) {
+    public PlayerCharacterController(BaseInfoRepository baseFeaturesRepo, FeatureRepository abilityRepo, BackgroundRepository backgroundRepo, CharacterRepository characterRepo, DNDClassRepository dndClassRepo, RaceRepository raceRepo) {
         this.baseFeaturesRepo = baseFeaturesRepo;
         this.abilityRepo = abilityRepo;
         this.backgroundRepo = backgroundRepo;
@@ -30,6 +30,4 @@ public class PlayerCharacterController {
         public Iterable<PlayerCharacter> getCharacters() {
          return characterRepo.findAll();
         }
-
-
 }

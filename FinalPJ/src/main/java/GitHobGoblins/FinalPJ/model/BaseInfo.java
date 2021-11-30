@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
-public class BaseFeatures {
+public class BaseInfo {
 
     @Id
     @GeneratedValue
@@ -15,13 +15,10 @@ public class BaseFeatures {
     private int proficiencyBonus = 2;
     private int experiencePoints = 0;
 
-    //ability score here?
-
-
     @OneToOne
     private PlayerCharacter playerCharacter;
 
-    public BaseFeatures(String name, String level, String alignment, int proficiencyBonus, int experiencePoints) {
+    public BaseInfo(String name, String level, String alignment, int proficiencyBonus, int experiencePoints) {
         this.name = name;
         this.level = level;
         this.alignment = alignment;
@@ -29,7 +26,7 @@ public class BaseFeatures {
         this.experiencePoints = experiencePoints;
     }
 
-    public BaseFeatures(){
+    public BaseInfo(){
         //zero argument const.
     }
 

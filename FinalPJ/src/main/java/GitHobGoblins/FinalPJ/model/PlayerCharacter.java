@@ -1,7 +1,6 @@
 package GitHobGoblins.FinalPJ.model;
 
 import javax.persistence.*;
-import java.util.Arrays;
 import java.util.Collection;
 
 @Entity
@@ -13,13 +12,13 @@ public class PlayerCharacter {
 
     //features
     @OneToMany(mappedBy = "playerCharacter")
-    private Collection<Ability> ability;
+    private Collection<Feature> feature;
 
     @OneToOne
     private Background background;
 
     @OneToOne
-    private BaseFeatures baseFeatures;
+    private BaseInfo baseInfo;
 
     @OneToOne
     private DNDClass dndClass;
@@ -27,9 +26,9 @@ public class PlayerCharacter {
     @OneToOne
     private Race race;
 
-    public PlayerCharacter(BaseFeatures baseFeatures, Collection<Ability> ability, Background background, DNDClass dndClass, Race race) {
-        this.baseFeatures = baseFeatures;
-        this.ability = ability;
+    public PlayerCharacter(BaseInfo baseInfo, Collection<Feature> feature, Background background, DNDClass dndClass, Race race) {
+        this.baseInfo = baseInfo;
+        this.feature = feature;
         this.background = background;
         this.dndClass = dndClass;
         this.race = race;
@@ -43,16 +42,16 @@ public class PlayerCharacter {
         return id;
     }
 
-    public Collection<Ability> getAbility() {
-        return ability;
+    public Collection<Feature> getFeature() {
+        return feature;
     }
 
     public Background getBackground() {
         return background;
     }
 
-    public BaseFeatures getBaseFeatures() {
-        return baseFeatures;
+    public BaseInfo getBaseFeatures() {
+        return baseInfo;
     }
 
     public DNDClass getDndClass() {
@@ -63,23 +62,22 @@ public class PlayerCharacter {
         return race;
     }
 
-    public void changeBase(BaseFeatures base){
-        this.baseFeatures=base;
+    public void changeBase(BaseInfo base){
+        this.baseInfo =base;
     }
 
 
-//
-//    public void changeAbility(Collection<Ability> ability){
-//        this.ability = ability;
-//    }
-//
-//    public void changeBackground(Background background){
-//        this.background=background;
-//    }
-//    public void changeClass(DNDClass dndClass){
-//        this.dndClass=dndClass;
-//    }
-//    public void changeRace(Race race){
-//        this.race=race;
-//    }
+    public void changeFeature(Feature newFeature){
+        feature.add(newFeature);
+    }
+
+    public void changeBackground(Background background){
+        this.background=background;
+    }
+    public void changeClass(DNDClass dndClass){
+        this.dndClass=dndClass;
+    }
+    public void changeRace(Race race){
+        this.race=race;
+    }
 }

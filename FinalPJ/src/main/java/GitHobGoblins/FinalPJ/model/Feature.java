@@ -5,7 +5,7 @@ import java.util.Collection;
 import java.util.Objects;
 
 @Entity
-public class Ability {
+public class Feature {
 
     @Id
     @GeneratedValue
@@ -18,12 +18,12 @@ public class Ability {
     @ManyToOne
     private PlayerCharacter playerCharacter;
 
-    public Ability(String name, String description) {
+    public Feature(String name, String description) {
         this.name = name;
         this.description = description;
     }
 
-    public Ability() {
+    public Feature() {
         //zero argument constructor
     }
 

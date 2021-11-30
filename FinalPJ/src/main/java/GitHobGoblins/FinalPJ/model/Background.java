@@ -11,19 +11,18 @@ public class Background{
     @GeneratedValue
     private Long id;
     private String name;
-    private String feature;
-
+    private String description;
 
     @OneToOne
 //    @JoinColumn(name = "playerCharacter_id")
     private PlayerCharacter playerCharacter;
 
-    public Background(String name, String feature) {
+    public Background(String name, String description) {
         this.name = name;
-        this.feature = feature;
+        this.description = description;
     }
 
-    public Background(){
+    public Background() {
         //zero arg const.
     }
 
@@ -35,11 +34,12 @@ public class Background{
         return name;
     }
 
-    public String getFeature() {
-        return feature;
+    public String getDescription() {
+        return description;
     }
 
-//    public PlayerCharacter getPlayerCharacter() {
+    //    public PlayerCharacter getPlayerCharacter() {
 //        return playerCharacter;
 //    }
+
 }
