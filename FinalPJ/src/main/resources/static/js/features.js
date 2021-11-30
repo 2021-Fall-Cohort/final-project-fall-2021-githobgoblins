@@ -42,17 +42,117 @@ function displayFeaturesView(mainContainerEl) {
 
     //making level modal elements
 
-    featureModalDivEl = document.createElement("div");
-    featureModalDivEl.classList.add("featureModal");
-    featureModalDivEl.setAttribute('id', 'featureModalDiv');
+    const levelModalButtonEl = document.createElement("button");
+    levelModalButtonEl.innerText = "?"
 
-    const featureModalContentDivEl = document.createElement("div");
-    featureModalContentDivEl.classList.add("featureModalContent");
+    const levelModalDivEl = document.createElement("div");
+    levelModalDivEl.classList.add("modal");
+    levelModalDivEl.setAttribute('id', 'levelModalDiv');
 
-    const featureModalHeaderDivEl = document.createElement("div");
-    featureModalHeaderDivEl.classList.add("featureModalHeaderDiv");
+    const levelModalContentDivEl = document.createElement("div");
+    levelModalContentDivEl.classList.add("levelModalContent");
 
-    
+    const levelModalHeaderDivEl = document.createElement("div");
+    levelModalHeaderDivEl.classList.add("levelModalHeaderDiv");
+
+    const levelModalCloseSpanEl = document.createElement("span");
+    levelModalCloseSpanEl.classList.add("close");
+    levelModalCloseSpanEl.innerHTML = "&times;";
+
+    const levelModalHeaderEl = document.createElement("h2");
+    levelModalHeaderEl.classList.add("levelModalHeader");
+    levelModalHeaderEl.innerText = "Level";
+
+    const levelModalBodyDivEl = document.createElement("div");
+    levelModalBodyDivEl.classList.add("modalBody");
+
+    const levelModalBodyContentEl = document.createElement("p");
+    levelModalBodyContentEl.innerText = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non eaque quia adipisci quis alias, laborum quibusdam dignissimos veniam incidunt, tempore, ex eius repellendus. Iure repudiandae quisquam itaque quis neque quam!";
+
+    //appending level modal elements
+
+    levelModalHeaderDivEl.append(levelModalCloseSpanEl);
+    levelModalHeaderDivEl.append(levelModalHeaderEl);
+
+    levelModalBodyDivEl.append(levelModalBodyContentEl);
+
+    levelModalContentDivEl.append(levelModalHeaderDivEl);
+    levelModalContentDivEl.append(levelModalBodyDivEl);
+
+    levelModalDivEl.append(levelModalContentDivEl);
+
+    //making level modal work
+
+    levelModalButtonEl.addEventListener("click", ()=> {  
+        levelModalDivEl.style.display = "block";
+    })
+  
+    levelModalCloseSpanEl.onclick = function() {
+        levelModalDivEl.style.display = "none";
+    }
+  
+    window.onclick = function(event) {
+        if (event.target == levelModalDivEl) {
+            levelModalDivEl.style.display = "none";
+        }
+    }
+
+    //making all alignment modal elements
+
+    const alignmentModalButtonEl = document.createElement("button");
+    alignmentModalButtonEl.innerText = "?"
+
+    const alignmentModalDivEl = document.createElement("div");
+    alignmentModalDivEl.classList.add("modal");
+    alignmentModalDivEl.setAttribute('id', 'levelModalDiv');
+
+    const alignmentModalContentDivEl = document.createElement("div");
+    alignmentModalContentDivEl.classList.add("alignmentModalContent");
+
+    const alignmentModalHeaderDivEl = document.createElement("div");
+    alignmentModalHeaderDivEl.classList.add("alignmentModalHeaderDiv");
+
+    const alignmentModalCloseSpanEl = document.createElement("span");
+    alignmentModalCloseSpanEl.classList.add("close");
+    alignmentModalCloseSpanEl.innerHTML = "&times;";
+
+    const alignmentModalHeaderEl = document.createElement("h2");
+    alignmentModalHeaderEl.classList.add("alignmentModalHeader");
+    alignmentModalHeaderEl.innerText = "Alignment";
+
+    const alignmentModalBodyDivEl = document.createElement("div");
+    alignmentModalBodyDivEl.classList.add("modalBody");
+
+    const alignmentModalBodyContentEl = document.createElement("p");
+    alignmentModalBodyContentEl.innerText = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non eaque quia adipisci quis alias, laborum quibusdam dignissimos veniam incidunt, tempore, ex eius repellendus. Iure repudiandae quisquam itaque quis neque quam!";
+
+    //appending all alignment modal content
+
+    alignmentModalHeaderDivEl.append(alignmentModalCloseSpanEl);
+    alignmentModalHeaderDivEl.append(alignmentModalHeaderEl);
+
+    alignmentModalBodyDivEl.append(alignmentModalBodyContentEl);
+
+    alignmentModalContentDivEl.append(alignmentModalHeaderDivEl);
+    alignmentModalContentDivEl.append(alignmentModalBodyDivEl);
+
+    alignmentModalDivEl.append(alignmentModalContentDivEl);
+
+    //making alignment modal work
+
+    alignmentModalButtonEl.addEventListener("click", ()=> {  
+        alignmentModalDivEl.style.display = "block";
+    })
+  
+    alignmentModalCloseSpanEl.onclick = function() {
+        alignmentModalDivEl.style.display = "none";
+    }
+  
+    window.onclick = function(event) {
+        if (event.target == alignmentModalDivEl) {
+            alignmentModalDivEl.style.display = "none";
+        }
+    }
 
     //appending all features page content
 
@@ -60,13 +160,20 @@ function displayFeaturesView(mainContainerEl) {
     featureDivEl.append(nameFieldEl);
     featureDivEl.append(levelLabelEl);
     featureDivEl.append(levelFieldEl);
+    featureDivEl.append(levelModalButtonEl);
     featureDivEl.append(alignmentLabelEl);
     featureDivEl.append(alignmentFieldEl);
+    featureDivEl.append(alignmentModalButtonEl);
 
+    mainContentDivEl.append(alignmentModalDivEl);
+    mainContentDivEl.append(levelModalDivEl);
     mainContentDivEl.append(featureHeaderEl);
     mainContentDivEl.append(featureDivEl);
 
     mainContainerEl.append(mainContentDivEl);
+
+    displayFooter(mainContainerEl);
+
 }
 
 export {displayFeaturesView}

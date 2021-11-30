@@ -20,7 +20,7 @@ function displayBackgroundView(mainContainerEl){
     const pageTopDivEl = document.createElement("div");
     pageTopDivEl.classList.add("pageTopDiv");
 
-    const backgroundFormButtonsDivEl = document.createElement("div");
+    const backgroundFormButtonsDivEl = document.createElement("div"); 
     backgroundFormButtonsDivEl.classList.add("formButtons");
 
     const backgroundFormEl = document.createElement("form");
@@ -141,7 +141,7 @@ function displayBackgroundView(mainContainerEl){
     backgroundModalHeaderDivEl.classList.add("modalHeader");
 
     const backgroundModalCloseSpanEl = document.createElement("span");
-    backgroundModalCloseSpanEl.classList.add("close");
+    backgroundModalCloseSpanEl.classList.add("close");    
     backgroundModalCloseSpanEl.innerHTML = "&times";
 
     const backgroundModalHeaderEl = document.createElement("h2");
