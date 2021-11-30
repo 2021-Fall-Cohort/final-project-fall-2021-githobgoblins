@@ -24,12 +24,6 @@ function displayBackgroundView{
     const backgroundSelectEl = document.createElement("select");
     backgroundSelectEl.classList.add("selector");
 
-
-
-
-
-
-
     const acolyteOptionEl = document.createElement("option");
     acolyteOptionEl.setAttribute('value', 'acolyte');
     acolyteOptionEl.innerText = "Acolyte";
@@ -83,6 +77,14 @@ function displayBackgroundView{
     urchinOptionEl.setAttribute('value', 'urchin');
     urchinOptionEl.innerText = "Urchin";
 
+    const backgroundModalButtonEl = document.createElement("button");
+    backgroundModalButtonEl.setAttribute('id', 'openBackgroundModal');
+    backgroundModalButtonEl.innerText = "Learn More About the  Background";
+
+    const backgroundImgEl = document.createElement("img");
+    backgroundImgEl.src = "/FinalPJ/src/main/resources/static/images/queen.jpg";
+    backgroundImgEl.classList.add("selectorArt");
+
     //appending all pageTopDiv elements
 
     backgroundSelectEl.append(acolyteOptionEl);
@@ -98,5 +100,7 @@ function displayBackgroundView{
     backgroundSelectEl.append(sailorOptionEl);
     backgroundSelectEl.append(soilderOptionEl);
     backgroundSelectEl.append(urchinOptionEl);
+
+
 
 }
