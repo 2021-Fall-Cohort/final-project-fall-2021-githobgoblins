@@ -1,7 +1,7 @@
 import {clearChildren} from "./app.js";
 import {displayHeader} from "./app.js";
 import {displayFooter} from "./app.js";
-import {displayDNDClassView} from "./dndClass.js";
+
 
 function displayRaceView(mainContainerEl){
 
@@ -61,12 +61,18 @@ function displayRaceView(mainContainerEl){
     tieflingOptionEl.setAttribute('value', 'tiefling');
     tieflingOptionEl.innerText = "Tiefling";
 
+    //this is the open modal button
     const raceModalButtonEl = document.createElement("button");
     raceModalButtonEl.setAttribute('id', 'openRaceModal');
     raceModalButtonEl.innerText = "Learn More About Race";
+    console.log(raceModalButtonEl);
+
+    //modal variables and functions
+
+   
 
     const raceImgEl = document.createElement("img");
-    raceImgEl.src = "/FinalPJ/src/main/resources/static/images/queen.jpg";
+    raceImgEl.src = "./images/elf.jpg";
     raceImgEl.classList.add("selectorArt");
 
     //appending all pageTopDiv elements
@@ -81,7 +87,7 @@ function displayRaceView(mainContainerEl){
     raceSelectEl.append(humanOptionEl);
     raceSelectEl.append(tieflingOptionEl);
 
-    raceFormEl.append("raceSelectEl");
+    raceFormEl.append(raceSelectEl);
 
     raceFormButtonsDivEl.append(raceFormEl);
     raceFormButtonsDivEl.append(raceModalButtonEl);
@@ -96,31 +102,31 @@ function displayRaceView(mainContainerEl){
 
     const raceModalDivEl = document.createElement("div");
     raceModalDivEl.classList.add("modal");
-    raceModalDivEl.setAttribute('id', 'raceModal');
+    raceModalDivEl.setAttribute('id', 'raceModalDiv');
 
     const raceModalContentDivEl = document.createElement("div");
-    raceModalContentDivEl.classList.add("modalContent");
+    raceModalContentDivEl.classList.add("raceModalContent");
 
     const modalHeaderDivEl = document.createElement("div");
-    modalHeaderDivEl.classList.add("modalHeader");
+    modalHeaderDivEl.classList.add("raceModalHeader");
     
-    const modalCloseSpanEl = document.createElement("span");
-    modalCloseSpanEl.classList.add("close");
-    modalCloseSpanEl.innerHTML = "&times;";
+    const raceModalCloseSpanEl = document.createElement("span");
+    raceModalCloseSpanEl.classList.add("raceClose");
+    raceModalCloseSpanEl.innerHTML = "&times;";
 
     const raceModalHeaderEl = document.createElement("h2");
     raceModalHeaderEl.classList.add("raceModalHeader");
     raceModalHeaderEl.innerText = "Race";
 
     const raceModalBodyDivEl = document.createElement("div");
-    raceModalBodyDivEl.classList.add("modalBody");
+    raceModalBodyDivEl.classList.add("raceModalBody");
 
     const raceModalBodyContentEl = document.createElement("p");
     raceModalBodyContentEl.innerText = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non eaque quia adipisci quis alias, laborum quibusdam dignissimos veniam incidunt, tempore, ex eius repellendus. Iure repudiandae quisquam itaque quis neque quam!";
 
     //appending all modal content
 
-    modalHeaderDivEl.append(modalCloseSpanEl);
+    modalHeaderDivEl.append(raceModalCloseSpanEl);
     modalHeaderDivEl.append(raceModalHeaderEl);
 
     raceModalBodyDivEl.append(raceModalBodyContentEl);
@@ -131,6 +137,20 @@ function displayRaceView(mainContainerEl){
     raceModalDivEl.append(raceModalContentDivEl);
 
     mainContentDiv.append(raceModalDivEl);
+
+    raceModalButtonEl.addEventListener("click", ()=> {
+      raceModalDivEl.style.display = "block";
+    })
+
+    raceModalCloseSpanEl.onclick = function() {
+        raceModalDivEl.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == raceModalDivEl) {
+          raceModalDivEl.style.display = "none";
+        }
+    }
 
     //creating all pageBottomDiv elements
 
@@ -148,7 +168,7 @@ function displayRaceView(mainContainerEl){
     
     const raceLearnSelectEl = document.createElement("select");
     raceLearnSelectEl.setAttribute('name', 'raceNames');
-    raceLearnSelectEl,setAttribute9('id', 'raceNames');
+    raceLearnSelectEl.setAttribute('id', 'raceNames');
 
     const dragonbornLearnOptionEl = document.createElement("option");
     dragonbornLearnOptionEl.setAttribute('value', 'dragonborn');
@@ -190,6 +210,21 @@ function displayRaceView(mainContainerEl){
     raceMoreInfoButtonEl.innerText = "More Info";
     raceMoreInfoButtonEl.setAttribute('id', 'raceMoreInfoButton');
 
+    //creating more info elements for page dropdown
+
+    const raceMoreInfoDivEl = document.createElement("div");
+    raceMoreInfoDivEl.setAttribute('id', 'raceMoreInfoDiv');
+
+    const raceMoreInfoTextEl = document.createElement("p");
+    raceMoreInfoTextEl.classList.add("raceMoreInfoText");
+    raceMoreInfoTextEl.innerText = "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur numquam quaerat accusantium voluptatum vero necessitatibus architecto molestiae molestias eligendi amet facere aspernatur, sed ullam a dolorum atque laborum nulla labore.";
+
+    //appending more info content
+
+    raceMoreInfoDivEl.append(raceMoreInfoTextEl);
+
+    mainContentDiv.append(raceMoreInfoDivEl);
+
     //appending all pageBottomDiv elements
 
     raceLearnSelectEl.append(dragonbornLearnOptionEl);
@@ -211,6 +246,38 @@ function displayRaceView(mainContainerEl){
     pageBottomDivEl.append(raceMoreInfoButtonEl);
     mainContentDiv.append(pageBottomDivEl);
 
+    //creating raceLearnMoreDiv elements
+
+    const raceLearnMoreDivEl = document.createElement("div");
+    raceLearnMoreDivEl.setAttribute('id', 'raceLearnMoreDiv');
+    const raceLearnMoreContentEl = document.createElement("p");
+    raceLearnMoreContentEl.setAttribute('id', 'raceLearnMoreContent');
+
+    //appending raceLearnMoreDiv content
+
+    raceLearnMoreDivEl.append(raceLearnMoreContentEl);
+    mainContentDiv.append(raceLearnMoreDivEl);
+
+    //learn more about individual races dropdown 
+
+    function learnRaceFunction(){
+        var x = document.getElementById("raceMoreInfoDiv");
+        if (x.style.display === "block") {
+          x.style.display = "none";
+        } else {
+          x.style.display = "block";
+        }
+    }
+  
+    raceMoreInfoButtonEl.addEventListener("click", ()=> {
+        learnRaceFunction();
+    })
+
+    
+
+    mainContainerEl.append(mainContentDiv);
 
     displayFooter(mainContainerEl);
 }
+
+export {displayRaceView}

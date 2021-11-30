@@ -1,17 +1,20 @@
 import {clearChildren} from "./app.js";
 import {displayHeader} from "./app.js";
 import {displayFooter} from "./app.js";
-import {displayDNDClassView} from "./race.js";
+// import {displayRaceView} from "./race.js";
 
-function displayBackgroundView{
+function displayBackgroundView(mainContainerEl){
 
 
     displayHeader(mainContainerEl);
 
+    const mainContentDiv = document.createElement("div");
+    mainContentDiv.classList.add("mainContentDiv");
+
     //making all html elements for the pageTopDiv
     const backgroundTitleEl = document.createElement("h1");
     backgroundTitleEl.classList.add("pageTitle");
-    backgroundTitleEl.innerText = "Select Your Background";
+    backgroundTitleEl.innerText =  "Background";
 
     const pageTopDivEl = document.createElement("div");
     pageTopDivEl.classList.add("pageTopDiv");
@@ -24,12 +27,6 @@ function displayBackgroundView{
     const backgroundSelectEl = document.createElement("select");
     backgroundSelectEl.classList.add("selector");
 
-
-
-
-
-
-
     const acolyteOptionEl = document.createElement("option");
     acolyteOptionEl.setAttribute('value', 'acolyte');
     acolyteOptionEl.innerText = "Acolyte";
@@ -40,7 +37,7 @@ function displayBackgroundView{
 
     const criminalOptionEl = document.createElement("option");
     criminalOptionEl.setAttribute('value', 'criminal');
-    charlatanOptionEl.innerText = "Criminal";
+    criminalOptionEl.innerText = "Criminal";
 
     const entertainerOptionEl = document.createElement("option");
     entertainerOptionEl.setAttribute('value', 'entertainer');
@@ -70,18 +67,27 @@ function displayBackgroundView{
     sageOptionEl.setAttribute('value', 'sage');
     sageOptionEl.innerText = "Sage";
 
-
     const sailorOptionEl = document.createElement("option");
     sailorOptionEl.setAttribute('value', 'sailor');
     sailorOptionEl.innerText = "Sailor";
 
-    const soilderOptionEl = document.createElement("option");
-    sageOptionEl.setAttribute('value', 'soilder');
-    soilderOptionEl.innerText = "Soilder";
+    const soldierOptionEl = document.createElement("option");
+    soldierOptionEl.setAttribute('value', 'soldier');
+    soldierOptionEl.innerText = "Soldier";
 
     const urchinOptionEl = document.createElement("option");
     urchinOptionEl.setAttribute('value', 'urchin');
     urchinOptionEl.innerText = "Urchin";
+
+    const backgroundModalButtonEl = document.createElement("button");
+    backgroundModalButtonEl.setAttribute('id', 'openBackgroundModal');
+    backgroundModalButtonEl.innerText = "Learn More About the Backgroud";
+
+    const backgroundImgEl = document.createElement("img");
+    backgroundImgEl.src = "./images/knight.jpg";
+    backgroundImgEl.classList.add("selectorArt");
+
+
 
     //appending all pageTopDiv elements
 
@@ -96,7 +102,206 @@ function displayBackgroundView{
     backgroundSelectEl.append(outlanderOptionEl);
     backgroundSelectEl.append(sageOptionEl);
     backgroundSelectEl.append(sailorOptionEl);
-    backgroundSelectEl.append(soilderOptionEl);
+    backgroundSelectEl.append(soldierOptionEl);
     backgroundSelectEl.append(urchinOptionEl);
 
+    // backgroundFormEl.append(backgroundSelectEl);
+
+    backgroundFormButtonsDivEl.append(backgroundSelectEl);
+    backgroundFormButtonsDivEl.append(backgroundModalButtonEl);
+
+    pageTopDivEl.append(backgroundFormButtonsDivEl);
+    pageTopDivEl.append(backgroundImgEl);
+
+    mainContentDiv.append(backgroundTitleEl);
+    mainContentDiv.append(pageTopDivEl);
+
+    //creating all modal elements
+
+    const backgroundModalDivEl = document.createElement("div");
+    backgroundModalDivEl.classList.add("modal");
+    backgroundModalDivEl.setAttribute('id', 'backgroundModal');
+
+    const backgroundModalContentDivEl = document.createElement("div");
+    backgroundModalContentDivEl.classList.add("modalContent");
+
+    const backgroundModalHeaderDivEl = document.createElement("div");
+    backgroundModalHeaderDivEl.classList.add("modalHeader");
+
+    const backgroundModalCloseSpanEl = document.createElement("span");
+    backgroundModalCloseSpanEl.classList.add("close");
+    backgroundModalCloseSpanEl.innerHTML = "&times";
+
+    const backgroundModalHeaderEl = document.createElement("h2");
+    backgroundModalHeaderEl.classList.add("backgroundModalHeader");
+    backgroundModalHeaderEl.innerText = "Backround";
+
+    const backgroundModalBodyDivEl = document.createElement("div");
+    backgroundModalBodyDivEl.classList.add("modalBody");
+
+    const backgroundModalBodyContentEl = document.createElement("p");
+    backgroundModalBodyContentEl.innerText = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non eaque quia adipisci quis alias, laborum quibusdam dignissimos veniam incidunt, tempore, ex eius repellendus. Iure repudiandae quisquam itaque quis neque quam!";
+
+    //appending all modal content
+
+    backgroundModalHeaderDivEl.append(backgroundModalCloseSpanEl);
+    backgroundModalHeaderDivEl.append(backgroundModalHeaderEl);
+
+    backgroundModalBodyDivEl.append(backgroundModalBodyContentEl);
+
+    backgroundModalContentDivEl.append(backgroundModalHeaderDivEl);
+    backgroundModalContentDivEl.append(backgroundModalBodyDivEl);
+
+    backgroundModalDivEl.append(backgroundModalContentDivEl);
+
+    mainContentDiv.append(backgroundModalDivEl);
+
+    //creating all pageBottomDiv elements
+
+    const pageBottomDivEl = document.createElement("div");
+    pageBottomDivEl.classList.add("div");
+
+    const backgroundLearnDropdownDivEl = document.createElement("div");
+    backgroundLearnDropdownDivEl.classList.add("learnDropdown");
+
+    const backgroundDropdownLabelEl = document.createElement("label");
+    backgroundDropdownLabelEl.setAttribute('for', 'backgroundNames');
+    backgroundDropdownLabelEl.setAttribute('id', 'backgroundLearnLabel');
+
+    const backgroundLearnFormEl = document.createElement("form");
+    
+    const backgroundLearnSelectEl = document.createElement("select");
+    backgroundLearnSelectEl.setAttribute('name', 'backgroundNames');
+    backgroundLearnSelectEl.setAttribute('id', 'backgroundNames');
+
+    const acolyteLearnOptionEl = document.createElement("option");
+    acolyteLearnOptionEl.setAttribute('value', 'acolyte');
+    acolyteLearnOptionEl.innerText = "Acolyte";
+
+    const charlatanLearnOptionEl = document.createElement("option");
+    charlatanLearnOptionEl.setAttribute('value', 'carlatan');
+    charlatanLearnOptionEl.innerText = "Charlatan";
+
+    const criminalLearnOptionEl = document.createElement("option");
+    criminalLearnOptionEl.setAttribute('value', 'criminal');
+    charlatanLearnOptionEl.innerText = "Criminal";
+
+    const entertainerLearnOptionEl = document.createElement("option");
+    entertainerLearnOptionEl.setAttribute('value', 'entertainer');
+    entertainerLearnOptionEl.innerText = "Entertainer";
+
+    const folkHeroLearnOptionEl = document.createElement("option");
+    folkHeroLearnOptionEl.setAttribute('value', 'folkHero');
+    folkHeroLearnOptionEl.innerText = "Folk Hero";
+
+    const guildArtisanLearnOptionEl = document.createElement("option");
+    guildArtisanLearnOptionEl.setAttribute('value', 'guildArtisan');
+    guildArtisanLearnOptionEl.innerText = "Guild Artisan";
+
+    const hermitLearnOptionEl = document.createElement("option");
+    hermitLearnOptionEl.setAttribute('value', 'hemit');
+    hermitLearnOptionEl.innerText = "Hermit";
+
+    const nobleLearnOptionEl = document.createElement("option");
+    nobleLearnOptionEl.setAttribute('value', 'noble');
+    nobleLearnOptionEl.innerText = "Noble";
+
+    const outlanderLearnOptionEl = document.createElement("option");
+    outlanderLearnOptionEl.setAttribute('value', 'outlander');
+    outlanderLearnOptionEl.innerText = "Outlander";
+
+    const sageLearnOptionEl = document.createElement("option");
+    sageLearnOptionEl.setAttribute('value', 'sage');
+    sageLearnOptionEl.innerText = "Sage";
+
+    const sailorLearnOptionEl = document.createElement("option");
+    sailorLearnOptionEl.setAttribute('value', 'sailor');
+    sailorLearnOptionEl.innerText = "Sailor";
+
+    
+    const soldierLearnOptionEl = document.createElement("option");
+    soldierLearnOptionEl.setAttribute('value', 'soldier');
+    soldierLearnOptionEl.innerText = "Soldier";
+
+
+    const urchinLearnOptionEl = document.createElement("option");
+    urchinLearnOptionEl.setAttribute('value', 'urchin');
+    urchinLearnOptionEl.innerText = "Urchin";
+
+    const backgroundMoreInfoButtonEl = document.createElement("button");
+    backgroundMoreInfoButtonEl.innerText = "More Info";
+    backgroundMoreInfoButtonEl.setAttribute('id', 'backgroundMoreInfoButton');
+
+    //creating more info elements for page dropdown
+
+    const backgroundMoreInfoDivEl = document.createElement("div");
+    backgroundMoreInfoDivEl.setAttribute('id', 'backgroundMoreInfoDiv');
+    
+
+    const backgroundMoreInfoTextEl = document.createElement("p");
+    backgroundMoreInfoDivEl.classList.add("backgroundMoreInfoText");
+    backgroundMoreInfoDivEl.innerText = "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur numquam quaerat accusantium voluptatum vero necessitatibus architecto molestiae molestias eligendi amet facere aspernatur, sed ullam a dolorum atque laborum nulla labore.";
+    //appending more info content
+
+    backgroundMoreInfoDivEl.append(backgroundMoreInfoTextEl);
+     
+    mainContentDiv.append(backgroundMoreInfoDivEl);
+
+    //appending all pageBottomDiv elements
+
+    backgroundLearnSelectEl.append(acolyteLearnOptionEl);
+    backgroundLearnSelectEl.append(charlatanLearnOptionEl);
+    backgroundLearnSelectEl.append(criminalLearnOptionEl);
+    backgroundLearnSelectEl.append(entertainerLearnOptionEl);
+    backgroundLearnSelectEl.append(folkHeroLearnOptionEl);
+    backgroundLearnSelectEl.append(guildArtisanLearnOptionEl);
+    backgroundLearnSelectEl.append(hermitLearnOptionEl);
+    backgroundLearnSelectEl.append(nobleLearnOptionEl);
+    backgroundLearnSelectEl.append(outlanderLearnOptionEl);
+    backgroundLearnSelectEl.append(sageLearnOptionEl);
+    backgroundLearnSelectEl.append(sailorLearnOptionEl);
+    backgroundLearnSelectEl.append(soldierLearnOptionEl);
+    backgroundLearnSelectEl.append(urchinLearnOptionEl);
+
+    backgroundLearnFormEl.append(backgroundLearnSelectEl);
+
+    backgroundLearnDropdownDivEl.append(backgroundDropdownLabelEl);
+    // backgroundFormButtonsDivEl.append(backgroundFormEl);
+
+    pageBottomDivEl.append(backgroundLearnDropdownDivEl);
+    pageBottomDivEl.append(backgroundLearnFormEl);
+    pageBottomDivEl.append(backgroundMoreInfoButtonEl);
+    mainContentDiv.append(pageBottomDivEl);
+
+    //creating backgroundLearnMoreDiv elements
+
+    const backgroundLearnMoreDivEl = document.createElement("div");
+    backgroundLearnMoreDivEl.setAttribute('id', 'raceLearnMoreDiv');
+
+    const backgroundLearnMoreContentEl = document.createElement("p");
+    backgroundLearnMoreContentEl.setAttribute('id', 'backgroundLearnMoreContent');
+
+    //appending backgroundMoreDiv content
+
+    backgroundLearnMoreDivEl.append(backgroundLearnMoreContentEl);
+    mainContentDiv.append(backgroundLearnMoreDivEl);
+
+    function learnBackgroundFunction(){
+        var x = document.getElementById("backgroundMoreInfoDiv");
+        if (x.style.display === "block") {
+          x.style.display = "none";
+        } else {
+          x.style.display = "block";
+        }
+    }
+  
+    backgroundMoreInfoButtonEl.addEventListener("click", ()=> {
+        learnBackgroundFunction();
+    })
+
+    mainContainerEl.append(mainContentDiv);
+
+    displayFooter(mainContainerEl);
 }
+
+export {displayBackgroundView}

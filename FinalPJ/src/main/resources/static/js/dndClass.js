@@ -1,6 +1,7 @@
 import {clearChildren} from "./app.js";
 import {displayHeader} from "./app.js";
 import {displayFooter} from "./app.js";
+import {displayRaceView} from "./race.js";
 
 function displayDNDClassView(mainContainerEl){
   
@@ -83,7 +84,7 @@ displayHeader(mainContainerEl);
 
   const imgEl = document.createElement("img");
   imgEl.classList.add("selectorArt");
-  imgEl.src = "/FinalPJ/src/main/resources/static/images/queen.jpg";
+  imgEl.src = "./images/queen.jpg";
   
   //appending all pageTopDiv content
   selectEl.append(barbarianOptionEl);
@@ -278,6 +279,17 @@ displayHeader(mainContainerEl);
   mainContentDivEl.append(backButtonEl);
   mainContentDivEl.append(forwardButtonEl);
 
+  forwardButtonEl.addEventListener("click", () => {
+    clearChildren(mainContainerEl);
+    displayRaceView(mainContainerEl);
+  })
+
+  // backwardButtonEl.addEventListener("click", () => {
+  //   clearChildren(mainContainerEl);
+  //   displayBackgroundView(mainContainerEl);
+  // })
+
+
   mainContainerEl.append(mainContentDivEl);
 
   //modal functionalities
@@ -285,6 +297,7 @@ displayHeader(mainContainerEl);
   var modal = document.getElementById("classModal");
   var btn = document.getElementById("openClassModal");
   var span = document.getElementsByClassName("close")[0];
+  console.log(span);
 
   btn.onclick = function() {
     modal.style.display = "block";

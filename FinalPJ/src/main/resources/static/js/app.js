@@ -1,4 +1,7 @@
 import {displayDNDClassView } from "./dndClass.js";
+import { displayRaceView } from "./race.js";
+import { displayBackgroundView } from "./background.js";
+
 
 const mainContainerEl = document.querySelector(".mainContainerEl");
 
@@ -77,6 +80,9 @@ function clearChildren(element) {
 };
 
 displayDNDClassView(mainContainerEl);
+// displayRaceView(mainContainerEl);
+// displayBackgroundView(mainContainerEl);
+
 
 export {clearChildren}
 
