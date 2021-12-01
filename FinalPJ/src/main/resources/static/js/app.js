@@ -2,6 +2,7 @@ import {displayDNDClassView } from "./dndClass.js";
 import { displayRaceView } from "./race.js";
 import { displayBackgroundView } from "./background.js";
 import { displayFeaturesView } from "./features.js";
+import { displayOutputView } from "./output.js";
 
 const mainContainerEl = document.querySelector(".mainContainerEl");
 
@@ -79,6 +80,7 @@ function clearChildren(element) {
     }
 };
 
+// displayOutputView(mainContainerEl);
 displayFeaturesView(mainContainerEl);
 // displayDNDClassView(mainContainerEl);
 // displayRaceView(mainContainerEl);

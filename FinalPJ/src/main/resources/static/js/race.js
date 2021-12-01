@@ -7,165 +7,163 @@ import { displayDNDClassView } from "./dndClass.js";
 
 function displayRaceView(mainContainerEl){
 
-    displayHeader(mainContainerEl);
+  displayHeader(mainContainerEl);
 
-    const mainContentDiv = document.createElement("div");
-    mainContentDiv.classList.add("mainContentDiv");
+  const mainContentDiv = document.createElement("div");
+  mainContentDiv.classList.add("mainContentDiv");
 
-    //making all html elements for the pageTopDiv
-    const raceTitleEl = document.createElement("h1");
-    raceTitleEl.classList.add("pageTitle");
-    raceTitleEl.innerText = "Select Your Race";
+  //making all html elements for the pageTopDiv
+  const raceTitleEl = document.createElement("h1");
+  raceTitleEl.classList.add("pageTitle");
+  raceTitleEl.innerText = "Select Your Race";
 
-    const pageTopDivEl = document.createElement("div");
-    pageTopDivEl.classList.add("pageTopDiv");
+  const pageTopDivEl = document.createElement("div");
+  pageTopDivEl.classList.add("pageTopDiv");
 
-    const raceFormButtonsDivEl = document.createElement("div");
-    raceFormButtonsDivEl.classList.add("formButtons");
-    const raceFormEl = document.createElement("form");
+  const raceFormButtonsDivEl = document.createElement("div");
+  raceFormButtonsDivEl.classList.add("formButtons");
+  const raceFormEl = document.createElement("form");
     
-    const raceSelectEl = document.createElement("select");
-    raceSelectEl.classList.add("selector");
+  const raceSelectEl = document.createElement("select");
+  raceSelectEl.classList.add("selector");
 
-    const dragonbornOptionEl = document.createElement("option");
-    dragonbornOptionEl.setAttribute('value', 'dragonborn');
-    dragonbornOptionEl.innerText = "Dragonborn";
+  const dragonbornOptionEl = document.createElement("option");
+  dragonbornOptionEl.setAttribute('value', 'dragonborn');
+  dragonbornOptionEl.innerText = "Dragonborn";
 
-    const dwarfOptionEl = document.createElement("option");
-    dwarfOptionEl.setAttribute('value', 'dwarf');
-    dwarfOptionEl.innerText = "Dwarf";
+  const dwarfOptionEl = document.createElement("option");
+  dwarfOptionEl.setAttribute('value', 'dwarf');
+  dwarfOptionEl.innerText = "Dwarf";
 
-    const elfOptionEl = document.createElement("option");
-    elfOptionEl.setAttribute('value', 'elf');
-    elfOptionEl.innerText = "Elf";
+  const elfOptionEl = document.createElement("option");
+  elfOptionEl.setAttribute('value', 'elf');
+  elfOptionEl.innerText = "Elf";
 
-    const gnomeOptionEl = document.createElement("option");
-    gnomeOptionEl.setAttribute('value', 'gnome');
-    gnomeOptionEl.innerText = "Gnome";
+  const gnomeOptionEl = document.createElement("option");
+  gnomeOptionEl.setAttribute('value', 'gnome');
+  gnomeOptionEl.innerText = "Gnome";
 
-    const halfElfOptionEl = document.createElement("option");
-    halfElfOptionEl.setAttribute('value', 'halfElf');
-    halfElfOptionEl.innerText = "Half-Elf";
+  const halfElfOptionEl = document.createElement("option");
+  halfElfOptionEl.setAttribute('value', 'halfElf');
+  halfElfOptionEl.innerText = "Half-Elf";
 
-    const halfOrcOptionEl = document.createElement("option");
-    halfOrcOptionEl.setAttribute('value', 'halfOrc');
-    halfOrcOptionEl.innerText = "Half-Orc";
+  const halfOrcOptionEl = document.createElement("option");
+  halfOrcOptionEl.setAttribute('value', 'halfOrc');
+  halfOrcOptionEl.innerText = "Half-Orc";
 
-    const halflingOptionEl = document.createElement("option");
-    halflingOptionEl.setAttribute('value', 'halfling');
-    halflingOptionEl.innerText = "Halfling";
+  const halflingOptionEl = document.createElement("option");
+  halflingOptionEl.setAttribute('value', 'halfling');
+  halflingOptionEl.innerText = "Halfling";
 
-    const humanOptionEl = document.createElement("option");
-    humanOptionEl.setAttribute('value', 'human');
-    humanOptionEl.innerText = "Human";
+  const humanOptionEl = document.createElement("option");
+  humanOptionEl.setAttribute('value', 'human');
+  humanOptionEl.innerText = "Human";
 
-    const tieflingOptionEl = document.createElement("option");
-    tieflingOptionEl.setAttribute('value', 'tiefling');
-    tieflingOptionEl.innerText = "Tiefling";
+  const tieflingOptionEl = document.createElement("option");
+  tieflingOptionEl.setAttribute('value', 'tiefling');
+  tieflingOptionEl.innerText = "Tiefling";
 
-    //this is the open modal button
-    const raceModalButtonEl = document.createElement("button");
-    raceModalButtonEl.setAttribute('id', 'openRaceModal');
-    raceModalButtonEl.innerText = "Learn More About Race";
-    console.log(raceModalButtonEl);
+  //this is the open modal button
+  const raceModalButtonEl = document.createElement("button");
+  raceModalButtonEl.setAttribute('id', 'openRaceModal');
+  raceModalButtonEl.innerText = "Learn More About Race";
+  console.log(raceModalButtonEl);
 
-    // creating nav buttons
-    const backButtonEl = document.createElement("button");
-    backButtonEl.classList.add("navButtons");
-    backButtonEl.setAttribute('id', 'raceBackButton');
-    backButtonEl.innerText = "<";
+  // creating nav buttons
+  const backButtonEl = document.createElement("button");
+  backButtonEl.classList.add("navButtons");
+  backButtonEl.setAttribute('id', 'raceBackButton');
+  backButtonEl.innerText = "<";
 
-    const forwardButtonEl = document.createElement("button");
-    forwardButtonEl.classList.add("navButtons");
-    forwardButtonEl.setAttribute('id', 'raceForwardButton');
-    forwardButtonEl.innerText = ">";
+  const forwardButtonEl = document.createElement("button");
+  forwardButtonEl.classList.add("navButtons");
+  forwardButtonEl.setAttribute('id', 'raceForwardButton');
+  forwardButtonEl.innerText = ">";
 
-   
+  const raceImgEl = document.createElement("img");
+  raceImgEl.src = "./images/elf.jpg";
+  raceImgEl.classList.add("selectorArt");
 
-    const raceImgEl = document.createElement("img");
-    raceImgEl.src = "./images/elf.jpg";
-    raceImgEl.classList.add("selectorArt");
+  //appending all pageTopDiv elements
 
-    //appending all pageTopDiv elements
+  raceSelectEl.append(dragonbornOptionEl);
+  raceSelectEl.append(dwarfOptionEl);
+  raceSelectEl.append(elfOptionEl);
+  raceSelectEl.append(gnomeOptionEl);
+  raceSelectEl.append(halfElfOptionEl);
+  raceSelectEl.append(halfOrcOptionEl);
+  raceSelectEl.append(halflingOptionEl);
+  raceSelectEl.append(humanOptionEl);
+  raceSelectEl.append(tieflingOptionEl);
 
-    raceSelectEl.append(dragonbornOptionEl);
-    raceSelectEl.append(dwarfOptionEl);
-    raceSelectEl.append(elfOptionEl);
-    raceSelectEl.append(gnomeOptionEl);
-    raceSelectEl.append(halfElfOptionEl);
-    raceSelectEl.append(halfOrcOptionEl);
-    raceSelectEl.append(halflingOptionEl);
-    raceSelectEl.append(humanOptionEl);
-    raceSelectEl.append(tieflingOptionEl);
+  raceFormEl.append(raceSelectEl);
 
-    raceFormEl.append(raceSelectEl);
+  raceFormButtonsDivEl.append(raceFormEl);
+  raceFormButtonsDivEl.append(raceModalButtonEl);
 
-    raceFormButtonsDivEl.append(raceFormEl);
-    raceFormButtonsDivEl.append(raceModalButtonEl);
+  pageTopDivEl.append(backButtonEl);
+  pageTopDivEl.append(raceFormButtonsDivEl);
+  pageTopDivEl.append(raceImgEl);
+  pageTopDivEl.append(forwardButtonEl);
 
-    pageTopDivEl.append(backButtonEl);
-    pageTopDivEl.append(raceFormButtonsDivEl);
-    pageTopDivEl.append(raceImgEl);
-    pageTopDivEl.append(forwardButtonEl);
+  mainContentDiv.append(raceTitleEl);
+  mainContentDiv.append(pageTopDivEl);
 
-    mainContentDiv.append(raceTitleEl);
-    mainContentDiv.append(pageTopDivEl);
+  //creating all modal elements
 
-    //creating all modal elements
+  const raceModalDivEl = document.createElement("div");
+  raceModalDivEl.classList.add("modal");
+  raceModalDivEl.setAttribute('id', 'raceModalDiv');
 
-    const raceModalDivEl = document.createElement("div");
-    raceModalDivEl.classList.add("modal");
-    raceModalDivEl.setAttribute('id', 'raceModalDiv');
+  const raceModalContentDivEl = document.createElement("div");
+  raceModalContentDivEl.classList.add("raceModalContent");
 
-    const raceModalContentDivEl = document.createElement("div");
-    raceModalContentDivEl.classList.add("raceModalContent");
-
-    const modalHeaderDivEl = document.createElement("div");
-    modalHeaderDivEl.classList.add("raceModalHeader");
+  const modalHeaderDivEl = document.createElement("div");
+  modalHeaderDivEl.classList.add("raceModalHeader");
     
-    const raceModalCloseSpanEl = document.createElement("span");
-    raceModalCloseSpanEl.classList.add("raceClose");
-    raceModalCloseSpanEl.innerHTML = "&times;";
+  const raceModalCloseSpanEl = document.createElement("span");
+  raceModalCloseSpanEl.classList.add("raceClose");
+  raceModalCloseSpanEl.innerHTML = "&times;";
 
-    const raceModalHeaderEl = document.createElement("h2");
-    raceModalHeaderEl.classList.add("raceModalHeader");
-    raceModalHeaderEl.innerText = "Race";
+  const raceModalHeaderEl = document.createElement("h2");
+  raceModalHeaderEl.classList.add("raceModalHeader");
+  raceModalHeaderEl.innerText = "Race";
 
-    const raceModalBodyDivEl = document.createElement("div");
-    raceModalBodyDivEl.classList.add("raceModalBody");
+  const raceModalBodyDivEl = document.createElement("div");
+  raceModalBodyDivEl.classList.add("raceModalBody");
 
-    const raceModalBodyContentEl = document.createElement("p");
-    raceModalBodyContentEl.innerText = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non eaque quia adipisci quis alias, laborum quibusdam dignissimos veniam incidunt, tempore, ex eius repellendus. Iure repudiandae quisquam itaque quis neque quam!";
+  const raceModalBodyContentEl = document.createElement("p");
+  raceModalBodyContentEl.innerText = "Humans are the most common people in the worlds of D&D, but they live and work alongside dwarves, elves, halflings, and countless other fantastic species. Your character belongs to one of these peoples. Not every intelligent race of the multiverse is appropriate for a player-controlled adventurer. Dwarves, elves, halflings, and humans are the most common races to produce the sort of adventurers who make up typical parties. Dragonborn, gnomes, half-elves, half-orcs, and tieflings are less common as adventurers. Your choice of race affects many different aspects of your character. It establishes fundamental qualities that exist throughout your character’s adventuring career. When making this decision, keep in mind the kind of character you want to play. For example, a halfling could be a good choice for a sneaky rogue, a dwarf makes a tough warrior, and an elf can be a master of arcane magic. Your character race not only affects your ability scores and traits but also provides the cues for building your character’s story. Each race’s description in this section includes information to help you roleplay a character of that race, including personality, physical appearance, features of society, and racial alignment tendencies. These details are suggestions to help you think about your character; adventurers can deviate widely from the norm for their race. It’s worthwhile to consider why your character is different, as a helpful way to think about your character’s background and personality";
 
-    //appending all modal content
+  //appending all modal content
 
-    modalHeaderDivEl.append(raceModalCloseSpanEl);
-    modalHeaderDivEl.append(raceModalHeaderEl);
+  modalHeaderDivEl.append(raceModalCloseSpanEl);
+  modalHeaderDivEl.append(raceModalHeaderEl);
 
-    raceModalBodyDivEl.append(raceModalBodyContentEl);
+  raceModalBodyDivEl.append(raceModalBodyContentEl);
 
-    raceModalContentDivEl.append(modalHeaderDivEl);
-    raceModalContentDivEl.append(raceModalBodyDivEl);
+  raceModalContentDivEl.append(modalHeaderDivEl);
+  raceModalContentDivEl.append(raceModalBodyDivEl);
 
-    raceModalDivEl.append(raceModalContentDivEl);
+  raceModalDivEl.append(raceModalContentDivEl);
 
-    mainContentDiv.append(raceModalDivEl);
+  mainContentDiv.append(raceModalDivEl);
 
-    //making modal work
+  //making modal work
 
-    raceModalButtonEl.addEventListener("click", ()=> {
-      raceModalDivEl.style.display = "block";
-    })
+  raceModalButtonEl.addEventListener("click", ()=> {
+    raceModalDivEl.style.display = "block";
+  })
 
-    raceModalCloseSpanEl.onclick = function() {
-        raceModalDivEl.style.display = "none";
+  raceModalCloseSpanEl.onclick = function() {
+    raceModalDivEl.style.display = "none";
+  }
+
+  window.onclick = function(event) {
+    if (event.target == raceModalDivEl) {
+      raceModalDivEl.style.display = "none";
     }
-
-    window.onclick = function(event) {
-        if (event.target == raceModalDivEl) {
-          raceModalDivEl.style.display = "none";
-        }
-    }
+  }
 
     //creating all pageBottomDiv elements
 
@@ -257,48 +255,65 @@ function displayRaceView(mainContainerEl){
     raceLearnDropdownDivEl.append(raceDropdownLabelEl);
     raceLearnDropdownDivEl.append(raceLearnFormEl);
 
-    pageBottomDivEl.append(raceLearnDropdownDivEl);
-    pageBottomDivEl.append(raceMoreInfoButtonEl);
-    mainContentDiv.append(pageBottomDivEl);
+  pageBottomDivEl.append(raceLearnDropdownDivEl);
+  pageBottomDivEl.append(raceMoreInfoButtonEl);
+  mainContentDiv.append(pageBottomDivEl);
 
-    //creating raceLearnMoreDiv elements
+  //creating raceLearnMoreDiv elements
 
-    const raceLearnMoreDivEl = document.createElement("div");
-    raceLearnMoreDivEl.setAttribute('id', 'raceLearnMoreDiv');
-    const raceLearnMoreContentEl = document.createElement("p");
-    raceLearnMoreContentEl.setAttribute('id', 'raceLearnMoreContent');
+  const raceLearnMoreDivEl = document.createElement("div");
+  raceLearnMoreDivEl.setAttribute('id', 'raceLearnMoreDiv');
+  const raceLearnMoreContentEl = document.createElement("p");
+  raceLearnMoreContentEl.setAttribute('id', 'raceLearnMoreContent');
 
-    //appending raceLearnMoreDiv content
+  //appending raceLearnMoreDiv content
 
-    raceLearnMoreDivEl.append(raceLearnMoreContentEl);
-    mainContentDiv.append(raceLearnMoreDivEl);
+  raceLearnMoreDivEl.append(raceLearnMoreContentEl);
+  mainContentDiv.append(raceLearnMoreDivEl);
 
-    //learn more about individual races dropdown 
+  //learn more about individual races dropdown 
 
-    function learnRaceFunction(){
-        var x = document.getElementById("raceMoreInfoDiv");
-        if (x.style.display === "block") {
-          x.style.display = "none";
-        } else {
-          x.style.display = "block";
-        }
-    }
+  function learnRaceFunction(){
+    var x = document.getElementById("raceMoreInfoDiv");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+      } 
+      else {
+        x.style.display = "block";
+      }
+  }
   
-    raceMoreInfoButtonEl.addEventListener("click", ()=> {
-        learnRaceFunction();
-    })
+  raceMoreInfoButtonEl.addEventListener("click", ()=> {
+    learnRaceFunction();
+  })
 
     //wiring up nav buttons
 
-    backButtonEl.addEventListener("click", () => {
+  backButtonEl.addEventListener("click", () => {
       clearChildren(mainContainerEl);
       displayDNDClassView(mainContainerEl);
-    });
+  });
 
-    forwardButtonEl.addEventListener("click", () => {
-      clearChildren(mainContainerEl);
-      displayBackgroundView(mainContainerEl);
-    })
+  forwardButtonEl.addEventListener("click", () => {
+
+    clearChildren(mainContainerEl);
+    displayBackgroundView(mainContainerEl);
+  //     PlayerCharacter.race = selectEl.value;
+  //     fetch(`http://localhost: 8080/race/{PlayerCharacter.id}` {
+  //       method: 'PUT',
+  //       headers: {
+  //           'Content-Type': 'application/json'
+  //       },
+  //       body: JSON.stringify(PlayerCharacter.race)
+  //     })
+  //   .then(res => res.json())
+  //   .then(song => {
+  //       clearChildren(mainContainerEl);
+  //       displayBackgroundView(mainContainerEl);
+
+  //   })
+  //   .catch(err => console.error(err));
+  })
       
     
     

@@ -1,6 +1,7 @@
 import {clearChildren} from "./app.js";
 import {displayHeader} from "./app.js";
 import {displayFooter} from "./app.js";
+import {displayFeaturesView} from "./features.js";
 import {displayRaceView} from "./race.js";
 
 function displayDNDClassView(mainContainerEl){
@@ -149,7 +150,7 @@ displayHeader(mainContainerEl);
   modalBodyEl.classList.add("modalBody");
 
   const modalBodyContentEl = document.createElement("p");
-  modalBodyContentEl.innerText = "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur numquam quaerat accusantium voluptatum vero necessitatibus architecto molestiae molestias eligendi amet facere aspernatur, sed ullam a dolorum atque laborum nulla labore.";
+  modalBodyContentEl.innerText = "Class is the primary definition of what your character can do. It’s more than a profession; it’s your character’s calling. Class shapes the way you think about the world and interact with it and your relationship with other people and powers in the multiverse. A fighter, for example, might view the world in pragmatic terms of strategy and maneuvering, and see herself as just a pawn in a much larger game. A cleric, by contrast, might see himself as a willing servant in a god’s unfolding plan or a conflict brewing among various deities. While the fighter has contacts in a mercenary company or army, the cleric might know a number of priests, paladins, and devotees who share his faith. Your class gives you a variety of special features, such as a fighter’s mastery of weapons and armor, and a wizard’s spells. At low levels, your class gives you only two or three features, but as you advance in level you gain more and your existing features often improve.";
 
   //appending all modal content
 
@@ -279,14 +280,17 @@ displayHeader(mainContainerEl);
   mainContentDivEl.append(moreInfoDivEl);
 
   forwardButtonEl.addEventListener("click", () => {
+    
+
+
     clearChildren(mainContainerEl);
     displayRaceView(mainContainerEl);
   })
 
-  // backwardButtonEl.addEventListener("click", () => {
-  //   clearChildren(mainContainerEl);
-  //   displayBackgroundView(mainContainerEl);
-  // })
+  backButtonEl.addEventListener("click", () => {
+    clearChildren(mainContainerEl);
+    displayFeaturesView(mainContainerEl);
+  })
 
 
   mainContainerEl.append(mainContentDivEl);

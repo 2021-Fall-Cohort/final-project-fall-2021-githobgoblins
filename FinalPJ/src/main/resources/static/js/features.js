@@ -67,7 +67,7 @@ function displayFeaturesView(mainContainerEl) {
     levelModalBodyDivEl.classList.add("modalBody");
 
     const levelModalBodyContentEl = document.createElement("p");
-    levelModalBodyContentEl.innerText = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non eaque quia adipisci quis alias, laborum quibusdam dignissimos veniam incidunt, tempore, ex eius repellendus. Iure repudiandae quisquam itaque quis neque quam!";
+    levelModalBodyContentEl.innerText = "As your character goes on adventures and overcomes challenges, he or she gains experience, represented by experience points. A character who reaches a specified experience point total advances in capability. This advancement is called gaining a level. When your character gains a level, his or her class often grants additional features, as detailed in the class description. Some of these features allow you to increase your ability scores, either increasing two scores by 1 each or increasing one score by 2. You can’t increase an ability score above 20. In addition, every character's proficiency bonus increases at certain levels.";
 
     //appending level modal elements
 
@@ -124,7 +124,7 @@ function displayFeaturesView(mainContainerEl) {
     alignmentModalBodyDivEl.classList.add("modalBody");
 
     const alignmentModalBodyContentEl = document.createElement("p");
-    alignmentModalBodyContentEl.innerText = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non eaque quia adipisci quis alias, laborum quibusdam dignissimos veniam incidunt, tempore, ex eius repellendus. Iure repudiandae quisquam itaque quis neque quam!";
+    alignmentModalBodyContentEl.innerText = "A typical creature in the game world has an alignment, which broadly describes its moral and personal attitudes. Alignment is a combination of two factors: one identifies morality (good, evil, or neutral), and the other describes attitudes toward society and order (lawful, chaotic, or neutral). Thus, nine distinct alignments define the possible combinations. These brief summaries of the nine alignments describe the typical behavior of a creature with that alignment. Individuals might vary significantly from that typical behavior, and few people are perfectly and consistently faithful to the precepts of their alignment.";
 
     //appending all alignment modal content
 
@@ -154,8 +154,22 @@ function displayFeaturesView(mainContainerEl) {
         }
     }
 
-    //appending all features page content
+    
 
+    const forwardButtonEl = document.createElement("button");
+    forwardButtonEl.classList.add("navButtons");
+    forwardButtonEl.setAttribute('id', 'backgroundForwardButton');
+    forwardButtonEl.innerText = ">";
+
+    //wiring up forward button
+    forwardButtonEl.addEventListener("click", () => {
+        
+        clearChildren(mainContainerEl);
+        displayDNDClassView(mainContainerEl);  
+    })
+
+    //appending all features page content
+    
     featureDivEl.append(nameLabelEl);
     featureDivEl.append(nameFieldEl);
     featureDivEl.append(levelLabelEl);
@@ -164,6 +178,7 @@ function displayFeaturesView(mainContainerEl) {
     featureDivEl.append(alignmentLabelEl);
     featureDivEl.append(alignmentFieldEl);
     featureDivEl.append(alignmentModalButtonEl);
+    featureDivEl.append(forwardButtonEl);
 
     mainContentDivEl.append(alignmentModalDivEl);
     mainContentDivEl.append(levelModalDivEl);
