@@ -18,6 +18,9 @@ public class Feature {
     @ManyToOne
     private PlayerCharacter playerCharacter;
 
+//    @ManyToOne
+//    private Race race;
+
     public Feature(String name, String description) {
         this.name = name;
         this.description = description;
