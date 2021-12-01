@@ -18,12 +18,20 @@ public class Feature {
     @ManyToOne
     private PlayerCharacter playerCharacter;
 
+    @ManyToOne
+//    @JoinColumn(name="race_id")
+    private Race race;
+
 //    @ManyToOne
-//    private Race race;
+//    private Background background;
+
+//    @ManyToOne
+//    private DNDClass dndClass;
 
     public Feature(String name, String description) {
         this.name = name;
         this.description = description;
+
     }
 
     public Feature() {
@@ -42,7 +50,14 @@ public class Feature {
         return description;
     }
 
-//    public PlayerCharacter getPlayerCharacter() {
+    public Race getRace() {
+        return race;
+    }
+    public void addPlayerCharacter(PlayerCharacter character){
+        playerCharacter= character;
+    }
+
+    //    public PlayerCharacter getPlayerCharacter() {
 //        return playerCharacter;
 //    }
 

@@ -1,5 +1,5 @@
 ###
-GET http://localhost:8080/character/getcharacter
+GET http://localhost:8080/character/getcharacters
 
 
 
@@ -70,3 +70,7 @@ Content-Type: application/json
   "name" : "gremin",
   "description": "don't put water on me"
 }
+
+
+###
+GET  http://localhost:8080/character/showallfeatures

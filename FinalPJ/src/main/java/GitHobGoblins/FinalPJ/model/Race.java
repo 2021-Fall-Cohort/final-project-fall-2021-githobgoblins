@@ -1,5 +1,7 @@
 package GitHobGoblins.FinalPJ.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Objects;
@@ -12,6 +14,9 @@ public class Race {
     private Long id;
     private String name;
     private String description;
+
+    @OneToMany(mappedBy = "race")
+    private Collection<Feature> features;
 
     @OneToOne
     private PlayerCharacter playerCharacter;
@@ -37,6 +42,9 @@ public class Race {
         return description;
     }
 
+    public Collection<Feature> getFeatures() {
+        return features;
+    }
 //    public PlayerCharacter getPlayerCharacter() {
 //        return playerCharacter;
 //    }

@@ -13,6 +13,9 @@ public class DNDClass{
     private String name;
     private String description;
 
+//    @OneToMany(mappedBy = "dndClass")
+//    private Collection<Feature> features;
+
     @OneToOne
     private PlayerCharacter playerCharacter;
 

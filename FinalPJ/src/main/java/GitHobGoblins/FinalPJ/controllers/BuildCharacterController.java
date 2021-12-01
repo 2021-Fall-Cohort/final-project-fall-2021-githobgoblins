@@ -33,7 +33,7 @@ public class BuildCharacterController {
     //create character
     @PostMapping("/base")
     public PlayerCharacter createBase(@RequestBody BaseInfo baseInfo){
-        PlayerCharacter temp1 = new PlayerCharacter(baseInfo, null,null, null, null);
+        PlayerCharacter temp1 = new PlayerCharacter(baseInfo, null, null, null);
         baseInfoRepo.save(baseInfo);
         characterRepo.save(temp1);
         return temp1;
@@ -75,6 +75,7 @@ public class BuildCharacterController {
         temp1.changeRace(race);
         raceRepo.save(race);
         characterRepo.save(temp1);
+        //        for each feature in race get it (part of for each), add it to player, then save feature
         return temp1;
     }
 
@@ -105,7 +106,11 @@ public class BuildCharacterController {
         characterRepo.save(temp1);
         return temp1;
     }
-
+//    @GetMapping("/getracefeatures/{id}")
+//    public PlayerCharacter getRaceFeatures(@PathVariable Long id){
+//        PlayerCharacter temp1 = characterRepo.findById(id).get();
+////        get character, get features, return character features
+//    }
 
 //    @PostMapping("/feature")
 //    public PlayerCharacter setAbility(@RequestBody Feature feature, @PathVariable Long id) {

@@ -26,9 +26,8 @@ public class PlayerCharacter {
     @OneToOne
     private Race race;
 
-    public PlayerCharacter(BaseInfo baseInfo, Collection<Feature> feature, Background background, DNDClass dndClass, Race race) {
+    public PlayerCharacter(BaseInfo baseInfo, Background background, DNDClass dndClass, Race race) {
         this.baseInfo = baseInfo;
-        this.feature = feature;
         this.background = background;
         this.dndClass = dndClass;
         this.race = race;

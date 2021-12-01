@@ -13,8 +13,10 @@ public class Background{
     private String name;
     private String description;
 
+//    @OneToMany(mappedBy = "background")
+//    private Collection<Feature> features;
+
     @OneToOne
-//    @JoinColumn(name = "playerCharacter_id")
     private PlayerCharacter playerCharacter;
 
     public Background(String name, String description) {
