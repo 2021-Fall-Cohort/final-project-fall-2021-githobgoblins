@@ -5,7 +5,7 @@ import { displayBackgroundView } from "./background.js";
 import { displayDNDClassView } from "./dndClass.js";
 
 
-function displayRaceView(mainContainerEl){
+function displayRaceView(mainContainerEl, currentCharacter){
 
   displayHeader(mainContainerEl);
 
@@ -295,24 +295,24 @@ function displayRaceView(mainContainerEl){
   });
 
   forwardButtonEl.addEventListener("click", () => {
-
-    clearChildren(mainContainerEl);
-    displayBackgroundView(mainContainerEl);
-  //     PlayerCharacter.race = selectEl.value;
-  //     fetch(`http://localhost: 8080/race/{PlayerCharacter.id}` {
-  //       method: 'PUT',
-  //       headers: {
-  //           'Content-Type': 'application/json'
-  //       },
-  //       body: JSON.stringify(PlayerCharacter.race)
-  //     })
-  //   .then(res => res.json())
-  //   .then(song => {
-  //       clearChildren(mainContainerEl);
-  //       displayBackgroundView(mainContainerEl);
-
-  //   })
-  //   .catch(err => console.error(err));
+    const raceJson = {
+      "name" : raceSelectEl.value,
+      "description": "warlock boi"
+    };
+      fetch(`http://localhost:8080/buildcharacter/race/${currentCharacter.id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(raceJson)
+      })
+    .then(res => res.json())
+    .then(character => {
+        clearChildren(mainContainerEl);
+        displayBackgroundView(mainContainerEl, character);
+        currentCharacter = character;
+    })
+    .catch(err => console.error(err));
   })
       
     

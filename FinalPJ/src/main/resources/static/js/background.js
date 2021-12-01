@@ -4,7 +4,7 @@ import {displayFooter} from "./app.js";
 import { displayRaceView } from "./race.js";
 // import {displayRaceView} from "./race.js";
 
-function displayBackgroundView(mainContainerEl){
+function displayBackgroundView(mainContainerEl, currentCharacter){
 
 
     displayHeader(mainContainerEl);
@@ -324,6 +324,27 @@ function displayBackgroundView(mainContainerEl){
       displayRaceView(mainContainerEl);
     });
 
+    forwardButtonEl.addEventListener("click", ()=> {
+      const backgroundJson = {
+        "name": backgroundSelectEl.value,
+        "description": "because what else"
+      };
+    
+      fetch(`http://localhost:8080/buildcharacter/background/${currentCharacter.id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(backgroundJson)
+      })
+      .then(res => res.json())
+      .then(character => {
+        clearChildren(mainContainerEl);
+        displayOutputView(mainContainerEl, character);
+        currentCharacter = character;
+      })
+      .catch(err => console.error(err));
+  })
     //appending backgroundMoreDiv content
 
     backgroundLearnMoreDivEl.append(backgroundLearnMoreContentEl);

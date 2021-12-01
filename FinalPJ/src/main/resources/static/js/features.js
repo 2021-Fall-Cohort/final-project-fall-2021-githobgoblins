@@ -161,11 +161,34 @@ function displayFeaturesView(mainContainerEl) {
     forwardButtonEl.setAttribute('id', 'backgroundForwardButton');
     forwardButtonEl.innerText = ">";
 
+  
+
+    let currentCharacter; 
+
     //wiring up forward button
     forwardButtonEl.addEventListener("click", () => {
-        
+        const characterBaseJson = {
+            "name": nameFieldEl.value,
+            "level": levelFieldEl.value,
+            "alignment": alignmentFieldEl.value,
+            "proficiencyBonus": 2,
+            "experiencePoints": 0
+        };
+          
+        fetch(`http://localhost:8080/buildcharacter/base/`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(characterBaseJson)
+      })
+    .then(res => res.json())
+    .then(character => {
         clearChildren(mainContainerEl);
-        displayDNDClassView(mainContainerEl);  
+        displayDNDClassView(mainContainerEl, character);
+        currentCharacter = character;
+    })
+    .catch(err => console.error(err));
     })
 
     //appending all features page content

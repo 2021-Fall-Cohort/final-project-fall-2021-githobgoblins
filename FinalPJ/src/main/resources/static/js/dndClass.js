@@ -4,9 +4,11 @@ import {displayFooter} from "./app.js";
 import {displayFeaturesView} from "./features.js";
 import {displayRaceView} from "./race.js";
 
-function displayDNDClassView(mainContainerEl){
+function displayDNDClassView(mainContainerEl, currentCharacter){
   
 displayHeader(mainContainerEl);
+
+console.log(currentCharacter);
 
   const mainContentDivEl = document.createElement("div");
   mainContentDivEl.classList.add("mainContentDiv");
@@ -280,11 +282,27 @@ displayHeader(mainContainerEl);
   mainContentDivEl.append(moreInfoDivEl);
 
   forwardButtonEl.addEventListener("click", () => {
+    const classJson = {
+      "name": selectEl.value,
+      "description": "warlock boi"
+    };
+      fetch(`http://localhost:8080/buildcharacter/class/${currentCharacter.id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(classJson)
+      })
+    .then(res => res.json())
+    .then(character => {
+        clearChildren(mainContainerEl);
+        displayRaceView(mainContainerEl, currentCharacter);
+        currentCharacter = character;
+    })
+    .catch(err => console.error(err));
+
+
     
-
-
-    clearChildren(mainContainerEl);
-    displayRaceView(mainContainerEl);
   })
 
   backButtonEl.addEventListener("click", () => {

@@ -3,7 +3,7 @@ import {displayDNDClassView} from "./dndClass.js";
 import { displayHeader } from "./app.js";
 import { displayFooter } from "./app.js";
 
-function displayOutputView(mainContainerEl) {
+function displayOutputView(mainContainerEl, currentCharacter) {
 
     displayHeader(mainContainerEl);
 
