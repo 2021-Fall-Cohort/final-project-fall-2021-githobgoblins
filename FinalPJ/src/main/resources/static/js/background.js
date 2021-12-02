@@ -2,11 +2,11 @@ import {clearChildren} from "./app.js";
 import {displayHeader} from "./app.js";
 import {displayFooter} from "./app.js";
 import { displayRaceView } from "./race.js";
-// import {displayRaceView} from "./race.js";
+import {displayOutputView} from "./output.js";
 
 function displayBackgroundView(mainContainerEl, currentCharacter){
 
-
+  console.log(currentCharacter);
     displayHeader(mainContainerEl);
 
     const mainContentDiv = document.createElement("div");
