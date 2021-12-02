@@ -36,21 +36,45 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:8080/buildcharacter/race/9
+PUT http://localhost:8080/buildcharacter/race/13
 Content-Type: application/json
 
 {
   "name" : "dwarf",
-  "description" :"short boi/girl"
+  "description" :"short boi/girl",
+  "features": [
+    {
+      "name" : "run fast",
+      "description" :"super sonic speed"
+    },
+    # Insert Features Here
+    {
+      "name" : "CARSON FEATURES HERE",
+      "description" :"???????"
+    }
+
+  ]
 }
 
 ###
-PUT http://localhost:8080/buildcharacter/editrace/9
+PUT http://localhost:8080/buildcharacter/editrace/13
 Content-Type: application/json
 
 {
   "name" : "deamon race",
-  "description" :"deamon boi/girl"
+  "description" :"deamon boi/girl",
+    "features": [
+    {
+      "name" : "Stupid Like Britney",
+      "description" :"Has zero logic skills"
+    },
+    # Insert Features Here
+    {
+      "name" : "Brillaint",
+      "description" :"Like Rickie"
+    }
+
+  ]
   }
 
 ###
