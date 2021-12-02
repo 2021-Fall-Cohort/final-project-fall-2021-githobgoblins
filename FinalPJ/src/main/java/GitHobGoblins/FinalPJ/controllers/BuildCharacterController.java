@@ -4,20 +4,23 @@ import GitHobGoblins.FinalPJ.model.*;
 import GitHobGoblins.FinalPJ.repositories.*;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 @RestController
 @RequestMapping("/buildcharacter")
 public class BuildCharacterController {
 
-    private FeatureRepository abilityRepo;
+    private FeatureRepository featureRepo;
     private BackgroundRepository backgroundRepo;
     private BaseInfoRepository baseInfoRepo;
     private CharacterRepository characterRepo;
     private DNDClassRepository dndClassRepo;
     private RaceRepository raceRepo;
 
-    public BuildCharacterController(FeatureRepository abilityRepo, BackgroundRepository backgroundRepo,
+    public BuildCharacterController(FeatureRepository featureRepo, BackgroundRepository backgroundRepo,
                                     BaseInfoRepository baseFeaturesRepo, CharacterRepository characterRepo, DNDClassRepository dndClassRepo, RaceRepository raceRepo) {
-        this.abilityRepo = abilityRepo;
+        this.featureRepo = featureRepo;
         this.backgroundRepo = backgroundRepo;
         this.baseInfoRepo = baseFeaturesRepo;
         this.characterRepo = characterRepo;
@@ -76,14 +79,31 @@ public class BuildCharacterController {
         raceRepo.save(race);
         characterRepo.save(temp1);
         //        for each feature in race get it (part of for each), add it to player, then save feature
+        Collection<Feature> currentFeatures= race.getFeatures();
+        for (Feature currentFeature: currentFeatures) {
+            currentFeature.addPlayerCharacter(temp1);
+            featureRepo.save(currentFeature);
+        }
+        characterRepo.save(temp1);
         return temp1;
     }
 
     @PutMapping ("/editrace/{id}")
     public PlayerCharacter editRace (@RequestBody Race race, @PathVariable Long id){
-        raceRepo.save(race);
         PlayerCharacter temp1 = characterRepo.findById(id).get();
+        Race currentRace= temp1.getRace();
+        for(Feature oldFeature: currentRace.getFeatures()){
+            oldFeature.removePlayerCharacter();
+            featureRepo.save(oldFeature);
+        }
+        raceRepo.save(race);
         temp1.changeRace(race);
+        characterRepo.save(temp1);
+        Collection<Feature> currentFeatures= race.getFeatures();
+        for (Feature currentFeature: currentFeatures) {
+            currentFeature.addPlayerCharacter(temp1);
+            featureRepo.save(currentFeature);
+        }
         characterRepo.save(temp1);
         return temp1;
     }

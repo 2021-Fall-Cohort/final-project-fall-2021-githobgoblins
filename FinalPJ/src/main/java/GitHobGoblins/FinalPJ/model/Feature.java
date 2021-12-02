@@ -56,7 +56,9 @@ public class Feature {
     public void addPlayerCharacter(PlayerCharacter character){
         playerCharacter= character;
     }
-
+    public void removePlayerCharacter(){
+        playerCharacter= null;
+    }
     //    public PlayerCharacter getPlayerCharacter() {
 //        return playerCharacter;
 //    }
