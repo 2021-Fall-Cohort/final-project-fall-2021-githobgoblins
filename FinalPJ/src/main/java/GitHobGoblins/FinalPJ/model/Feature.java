@@ -1,5 +1,7 @@
 package GitHobGoblins.FinalPJ.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Objects;
@@ -16,17 +18,20 @@ public class Feature {
     private String description;
 
     @ManyToOne
+    @JsonIgnore
     private PlayerCharacter playerCharacter;
 
     @ManyToOne
-//    @JoinColumn(name="race_id")
+    @JsonIgnore
     private Race race;
 
-//    @ManyToOne
-//    private Background background;
+    @ManyToOne
+    @JsonIgnore
+    private Background background;
 
-//    @ManyToOne
-//    private DNDClass dndClass;
+    @ManyToOne
+    @JsonIgnore
+    private DNDClass dndClass;
 
     public Feature(String name, String description) {
         this.name = name;
@@ -53,6 +58,20 @@ public class Feature {
     public Race getRace() {
         return race;
     }
+
+    public void addRace(Race race){
+        this.race = race;
+    }
+
+    public void addBackground(Background background){
+        this.background = background;
+    }
+
+    public void addDNDClass(DNDClass dndClass){
+        this.dndClass = dndClass;
+    }
+
+
     public void addPlayerCharacter(PlayerCharacter character){
         playerCharacter= character;
     }

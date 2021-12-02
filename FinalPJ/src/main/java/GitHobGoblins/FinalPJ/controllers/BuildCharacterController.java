@@ -4,6 +4,7 @@ import GitHobGoblins.FinalPJ.model.*;
 import GitHobGoblins.FinalPJ.repositories.*;
 import org.springframework.web.bind.annotation.*;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -55,8 +56,16 @@ public class BuildCharacterController {
     @PutMapping("/class/{id}")
     public PlayerCharacter setClass(@RequestBody DNDClass dndClass, @PathVariable Long id){
         PlayerCharacter temp1 = characterRepo.findById(id).get();
-        dndClassRepo.save(dndClass);
         temp1.changeClass(dndClass);
+        dndClassRepo.save(dndClass);
+        characterRepo.save(temp1);
+        //        for each feature in race get it (part of for each), add it to player, then save feature
+        Collection<Feature> currentFeatures= dndClass.getFeatures();
+        for (Feature currentFeature: currentFeatures) {
+            currentFeature.addPlayerCharacter(temp1);
+            currentFeature.addDNDClass(dndClass);
+            featureRepo.save(currentFeature);
+        }
         characterRepo.save(temp1);
         return temp1;
     }
@@ -64,12 +73,33 @@ public class BuildCharacterController {
     @PutMapping("/editclass/{id}")
     public PlayerCharacter editClass (@RequestBody DNDClass dndClass, @PathVariable Long id){
         PlayerCharacter temp1 = characterRepo.findById(id).get();
-//        get character, get class, pass in new resave
+        DNDClass currentClass= temp1.getDndClass();
+        ArrayList<Long> featureIds = new ArrayList<Long>();
+
+        for(Feature oldFeature: currentClass.getFeatures()){
+//            oldFeature.removePlayerCharacter();
+//            featureRepo.save(oldFeature);
+            featureIds.add(oldFeature.getId());
+        }
+        for (Long featureId: featureIds) {
+            featureRepo.deleteById(featureId);
+        }
+
         dndClassRepo.save(dndClass);
         temp1.changeClass(dndClass);
         characterRepo.save(temp1);
-        return temp1;
+        Collection<Feature> currentFeatures= dndClass.getFeatures();
+        for (Feature currentFeature: currentFeatures) {
+            currentFeature.addPlayerCharacter(temp1);
+            currentFeature.addDNDClass(dndClass);
+            featureRepo.save(currentFeature);
+        }
+
+        characterRepo.save(temp1);
+        return characterRepo.findById(id).get();
     }
+
+
 
     //add race
     @PutMapping("/race/{id}")
@@ -82,6 +112,7 @@ public class BuildCharacterController {
         Collection<Feature> currentFeatures= race.getFeatures();
         for (Feature currentFeature: currentFeatures) {
             currentFeature.addPlayerCharacter(temp1);
+            currentFeature.addRace(race);
             featureRepo.save(currentFeature);
         }
         characterRepo.save(temp1);
@@ -92,9 +123,15 @@ public class BuildCharacterController {
     public PlayerCharacter editRace (@RequestBody Race race, @PathVariable Long id){
         PlayerCharacter temp1 = characterRepo.findById(id).get();
         Race currentRace= temp1.getRace();
+        ArrayList<Long> featureIds = new ArrayList<Long>();
+
         for(Feature oldFeature: currentRace.getFeatures()){
-            oldFeature.removePlayerCharacter();
-            featureRepo.save(oldFeature);
+//            oldFeature.removePlayerCharacter();
+//            featureRepo.save(oldFeature);
+            featureIds.add(oldFeature.getId());
+        }
+        for (Long featureId: featureIds) {
+            featureRepo.deleteById(featureId);
         }
 
         raceRepo.save(race);
@@ -103,52 +140,58 @@ public class BuildCharacterController {
         Collection<Feature> currentFeatures= race.getFeatures();
         for (Feature currentFeature: currentFeatures) {
             currentFeature.addPlayerCharacter(temp1);
+            currentFeature.addRace(race);
             featureRepo.save(currentFeature);
         }
+
         characterRepo.save(temp1);
         return characterRepo.findById(id).get();
     }
 
-    //add background
     @PutMapping("/background/{id}")
     public PlayerCharacter setBackground(@RequestBody Background background, @PathVariable Long id){
         PlayerCharacter temp1 = characterRepo.findById(id).get();
         temp1.changeBackground(background);
         backgroundRepo.save(background);
         characterRepo.save(temp1);
+        Collection<Feature> currentFeatures = background.getFeatures();
+
+        for (Feature currentFeature: currentFeatures) {
+        currentFeature.addPlayerCharacter(temp1);
+        currentFeature.addBackground(background);
+        featureRepo.save(currentFeature);
+    }
+        characterRepo.save(temp1);
         return temp1;
     }
 
     @PutMapping("/editbackground/{id}")
     public PlayerCharacter editBackground (@RequestBody Background background, @PathVariable Long id){
-        backgroundRepo.save(background);
         PlayerCharacter temp1 = characterRepo.findById(id).get();
+        Background currentBackground = temp1.getBackground();
+        ArrayList<Long> featureIds = new ArrayList<Long>();
+
+        for(Feature oldFeature: currentBackground.getFeatures()){
+//            oldFeature.removePlayerCharacter();
+//            featureRepo.save(oldFeature);
+            featureIds.add(oldFeature.getId());
+        }
+        for (Long featureId: featureIds) {
+            featureRepo.deleteById(featureId);
+        }
+
+        backgroundRepo.save(background);
         temp1.changeBackground(background);
         characterRepo.save(temp1);
-        return temp1;
-    }
-//    @GetMapping("/getracefeatures/{id}")
-//    public PlayerCharacter getRaceFeatures(@PathVariable Long id){
-//        PlayerCharacter temp1 = characterRepo.findById(id).get();
-////        get character, get features, return character features
-//    }
+        Collection<Feature> currentFeatures= background.getFeatures();
+        for (Feature currentFeature: currentFeatures) {
+            currentFeature.addPlayerCharacter(temp1);
+            currentFeature.addBackground(background);
+            featureRepo.save(currentFeature);
+        }
 
-//    @PostMapping("/feature")
-//    public PlayerCharacter setAbility(@RequestBody Feature feature, @PathVariable Long id) {
-//
-//        PlayerCharacter temp1 = characterRepo.findById(id).get();
-//        temp1.changeFeature(feature);
-//
-//        abilityRepo.save(feature);
-//        characterRepo.save(temp1);
-//        return temp1;
-//    }
-//    @PutMapping("/editfeature/{id}")
-//    public PlayerCharacter editAbility (@RequestBody Feature feature, @PathVariable Long id){
-//        abilityRepo.save(feature);
-//        PlayerCharacter temp1 = characterRepo.findById(id).get();
-//        temp1.changeAbility(feature);
-//        characterRepo.save(temp1);
-//        return temp1;
-//    }
+        characterRepo.save(temp1);
+        return characterRepo.findById(id).get();
+    }
+
 }

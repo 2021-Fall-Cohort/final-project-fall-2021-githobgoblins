@@ -4,6 +4,7 @@ import GitHobGoblins.FinalPJ.model.Feature;
 import GitHobGoblins.FinalPJ.model.PlayerCharacter;
 import GitHobGoblins.FinalPJ.repositories.*;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -35,4 +36,10 @@ public class PlayerCharacterController {
         public Iterable<Feature> getAllFeatures(){
         return featureRepo.findAll();
     }
+
+    @GetMapping("/getcharacter/{id}")
+    public PlayerCharacter getCharacter(@PathVariable Long id){
+        return characterRepo.findById(id).get();
+    }
+
 }

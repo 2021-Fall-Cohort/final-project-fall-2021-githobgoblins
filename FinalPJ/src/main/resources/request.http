@@ -1,7 +1,8 @@
 ###
 GET http://localhost:8080/character/getcharacters
 
-
+###
+GET http://localhost:8080/character/getcharacter/12
 
 //character initilize/baseInfo
 ###
@@ -20,25 +21,49 @@ Content-Type: application/json
 
 
 ###
-PUT http://localhost:8080/buildcharacter/class/9
+PUT http://localhost:8080/buildcharacter/class/15
 Content-Type: application/json
 
 {
   "name" : "fairy",
-  "description": "fairy boi"
+  "description": "fairy boi",
+    "features": [
+    {
+      "name" : "something unique",
+      "description" :"unique things"
+    },
+    # Insert Features Here
+    {
+      "name" : "watch shows faster",
+      "description" :" more shows in less time"
+    }
+
+  ]
 }
 
 ###
-PUT http://localhost:8080/buildcharacter/editclass/9 
+PUT http://localhost:8080/buildcharacter/editclass/12 
 Content-Type: application/json
 
 {
   "name" : "org",
-  "description": "org boi"
+  "description": "org boi",
+    "features": [
+    {
+      "name" : "swim fast",
+      "description" :"like running but swimming"
+    },
+    # Insert Features Here
+    {
+      "name" : "Become Kickie Ridwell",
+      "description" :"True Level up"
+    }
+
+  ]
 }
 
 ###
-PUT http://localhost:8080/buildcharacter/race/13
+PUT http://localhost:8080/buildcharacter/race/15
 Content-Type: application/json
 
 {
@@ -47,12 +72,18 @@ Content-Type: application/json
   "features": [
     {
       "name" : "run fast",
-      "description" :"super sonic speed"
+      "description" :"super sonic speed",
+      "class" : null,
+      "race" : null,
+      "background" : null
     },
     # Insert Features Here
     {
       "name" : "CARSON FEATURES HERE",
-      "description" :"???????"
+      "description" :"???????",
+      "class" : null,
+      "race" : null,
+      "background" : null
     }
 
   ]
@@ -79,22 +110,45 @@ Content-Type: application/json
   ]
   }
 
+
 ###
-PUT http://localhost:8080/buildcharacter/background/9
+PUT http://localhost:8080/buildcharacter/background/13
 Content-Type: application/json
 
 {
   "name" : "acolyte",
-  "description": "because what else"
+  "description": "because what else",
+  "features" : [
+    {
+      "name" : "code fast",
+      "description" :"super sonic typing"
+    },
+    # Insert Features Here
+    {
+      "name" : "Speed reading",
+      "description" : "get 'er don"
+    }
+  ]
 }
 
 ###
-PUT http://localhost:8080/buildcharacter/editbackground/9
+PUT http://localhost:8080/buildcharacter/editbackground/13
 Content-Type: application/json
 
 {
   "name" : "gremin",
-  "description": "don't put water on me"
+  "description": "don't put water on me",
+  "features" : [
+    {
+      "name" : "debug fast",
+      "description" :"never miss a char"
+    },
+    # Insert Features Here
+    {
+      "name" : "logic skills",
+      "description" : "break down complex things"
+    }
+  ]
 }
 
 

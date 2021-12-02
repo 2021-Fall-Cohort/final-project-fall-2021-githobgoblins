@@ -12,7 +12,7 @@ public class PlayerCharacter {
 
     //features
     @OneToMany(mappedBy = "playerCharacter")
-    private Collection<Feature> feature;
+    private Collection<Feature> features;
 
     @OneToOne
     private Background background;
@@ -41,8 +41,8 @@ public class PlayerCharacter {
         return id;
     }
 
-    public Collection<Feature> getFeature() {
-        return feature;
+    public Collection<Feature> getFeatures() {
+        return features;
     }
 
     public Background getBackground() {
@@ -67,10 +67,10 @@ public class PlayerCharacter {
 
 
     public void changeFeature(Feature newFeature){
-        feature.add(newFeature);
+        features.add(newFeature);
     }
     public void removeFeature(Feature newFeature){
-        feature.remove(newFeature);
+        features.remove(newFeature);
     }
 
     public void changeBackground(Background background){

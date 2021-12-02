@@ -1,6 +1,7 @@
 package GitHobGoblins.FinalPJ.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.Collection;
@@ -18,8 +19,6 @@ public class Race {
     @OneToMany(mappedBy = "race")
     private Collection<Feature> features;
 
-    @OneToOne
-    private PlayerCharacter playerCharacter;
 
     public Race(String name, String description) {
         this.name = name;
@@ -45,7 +44,5 @@ public class Race {
     public Collection<Feature> getFeatures() {
         return features;
     }
-//    public PlayerCharacter getPlayerCharacter() {
-//        return playerCharacter;
-//    }
+
 }
