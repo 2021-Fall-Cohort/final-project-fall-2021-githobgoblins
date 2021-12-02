@@ -96,6 +96,7 @@ public class BuildCharacterController {
             oldFeature.removePlayerCharacter();
             featureRepo.save(oldFeature);
         }
+
         raceRepo.save(race);
         temp1.changeRace(race);
         characterRepo.save(temp1);
@@ -105,7 +106,7 @@ public class BuildCharacterController {
             featureRepo.save(currentFeature);
         }
         characterRepo.save(temp1);
-        return temp1;
+        return characterRepo.findById(id).get();
     }
 
     //add background

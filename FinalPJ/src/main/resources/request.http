@@ -17,6 +17,8 @@ Content-Type: application/json
 }
 
 //add class to character
+
+
 ###
 PUT http://localhost:8080/buildcharacter/class/9
 Content-Type: application/json
