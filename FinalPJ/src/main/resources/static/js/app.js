@@ -80,11 +80,11 @@ function clearChildren(element) {
     }
 };
 
-// displayOutputView(mainContainerEl);
+ displayOutputView(mainContainerEl);
 displayFeaturesView(mainContainerEl);
-// displayDNDClassView(mainContainerEl);
-// displayRaceView(mainContainerEl);
-// displayBackgroundView(mainContainerEl);
+ displayDNDClassView(mainContainerEl);
+ displayRaceView(mainContainerEl);
+ displayBackgroundView(mainContainerEl);
 
 
 export {clearChildren}
