@@ -81,10 +81,10 @@ function clearChildren(element) {
     }
 };
 
-// displayOutputView(mainContainerEl);
+ //displayOutputView(mainContainerEl);
 displayFeaturesView(mainContainerEl);
-// displayDNDClassView(mainContainerEl);
-// displayRaceView(mainContainerEl);
+displayDNDClassView(mainContainerEl);
+ displayRaceView(mainContainerEl);
 // displayBackgroundView(mainContainerEl);
 // displayAbilitiesView(mainContainerEl);
 
