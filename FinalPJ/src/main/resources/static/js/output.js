@@ -93,7 +93,7 @@ function displayOutputView(mainContainerEl, currentCharacter) {
     const experiencePointsOutputEl = document.createElement("h4");
     experiencePointsOutputEl.innerText = currentCharacter.baseFeatures.experiencePoints;
 
-    experiencePointsOutputDivEl.append(alignmentOutputEl);
+    experiencePointsOutputDivEl.append(experiencePointsOutputEl);
 
     const bonusEl = document.createElement("h3");
     bonusEl.innerText = "Proficiency Bonus";

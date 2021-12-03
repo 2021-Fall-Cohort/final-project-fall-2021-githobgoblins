@@ -33,7 +33,7 @@ function displayBackgroundView(mainContainerEl, currentCharacter){
     acolyteOptionEl.innerText = "Acolyte";
 
     const charlatanOptionEl = document.createElement("option");
-    charlatanOptionEl.setAttribute('value', 'carlatan');
+    charlatanOptionEl.setAttribute('value', 'charlatan');
     charlatanOptionEl.innerText = "Charlatan";
 
     const criminalOptionEl = document.createElement("option");

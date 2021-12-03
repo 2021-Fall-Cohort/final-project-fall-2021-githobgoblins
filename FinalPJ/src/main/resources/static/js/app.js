@@ -3,6 +3,7 @@ import { displayRaceView } from "./race.js";
 import { displayBackgroundView } from "./background.js";
 import { displayFeaturesView } from "./features.js";
 import { displayOutputView } from "./output.js";
+import { displayAbilitiesView } from "./abilities.js";
 
 const mainContainerEl = document.querySelector(".mainContainerEl");
 
@@ -85,6 +86,7 @@ displayFeaturesView(mainContainerEl);
 // displayDNDClassView(mainContainerEl);
 // displayRaceView(mainContainerEl);
 // displayBackgroundView(mainContainerEl);
+// displayAbilitiesView(mainContainerEl);
 
 
 export {clearChildren}
