@@ -19,6 +19,8 @@ public class Race {
     @OneToMany(mappedBy = "race")
     private Collection<Feature> features;
 
+//    @OneToMany(mappedBy = "abilityScore")
+//    private Collection<AbilityScores> abilityScore;
 
     public Race(String name, String description) {
         this.name = name;
@@ -45,4 +47,7 @@ public class Race {
         return features;
     }
 
+//    public Collection<AbilityScores> getAbilityScore() {
+//        return abilityScore;
+//    }
 }

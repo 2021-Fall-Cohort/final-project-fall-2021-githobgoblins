@@ -14,18 +14,21 @@ public class Populator implements CommandLineRunner {
     private FeatureRepository featureRepo;
     private BackgroundRepository backgroundRepo;
     private BaseInfoRepository baseFeaturesRepo;
-
     private CharacterRepository characterRepo;
     private DNDClassRepository dndClassRepo;
     private RaceRepository raceRepo;
+    private AbilityRepository abilityRepo;
 
-    public Populator(FeatureRepository featureRepo, BackgroundRepository backgroundRepo, BaseInfoRepository baseFeaturesRepo, CharacterRepository characterRepo, DNDClassRepository dndClassRepo, RaceRepository raceRepo) {
+    public Populator(FeatureRepository featureRepo, BackgroundRepository backgroundRepo, BaseInfoRepository baseFeaturesRepo,
+                     CharacterRepository characterRepo, DNDClassRepository dndClassRepo, RaceRepository raceRepo,
+                     AbilityRepository abilityRepo) {
         this.featureRepo = featureRepo;
         this.backgroundRepo = backgroundRepo;
         this.baseFeaturesRepo = baseFeaturesRepo;
         this.characterRepo = characterRepo;
         this.dndClassRepo = dndClassRepo;
         this.raceRepo = raceRepo;
+        this.abilityRepo = abilityRepo;
     }
 
     @Override
@@ -68,8 +71,13 @@ public class Populator implements CommandLineRunner {
         baseFeaturesRepo.save(basefeatures1);
         baseFeaturesRepo.save(basefeatures2);
 
-        PlayerCharacter josh = new PlayerCharacter(basefeatures1, acolyte, warlock, dwarf);
-        PlayerCharacter britney = new PlayerCharacter(basefeatures2, acolyte, warlock, ork);
+        AbilityScores score1 =new AbilityScores(15,14,13,10,8, 5);
+        AbilityScores score2 =new AbilityScores(5,8,12,14,10, 15);
+        abilityRepo.save(score1);
+        abilityRepo.save(score2);
+
+        PlayerCharacter josh = new PlayerCharacter(basefeatures1, acolyte, warlock, dwarf, score1);
+        PlayerCharacter britney = new PlayerCharacter(basefeatures2, acolyte, warlock, ork, score2);
         characterRepo.save(josh);
         characterRepo.save(britney);
 

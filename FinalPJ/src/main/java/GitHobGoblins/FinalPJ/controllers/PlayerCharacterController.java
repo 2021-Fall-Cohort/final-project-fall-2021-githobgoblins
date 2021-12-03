@@ -18,14 +18,19 @@ public class PlayerCharacterController {
     private CharacterRepository characterRepo;
     private DNDClassRepository dndClassRepo;
     private RaceRepository raceRepo;
+    private AbilityRepository abilityRepo;
 
-    public PlayerCharacterController(BaseInfoRepository baseFeaturesRepo, FeatureRepository featureRepo, BackgroundRepository backgroundRepo, CharacterRepository characterRepo, DNDClassRepository dndClassRepo, RaceRepository raceRepo) {
+    public PlayerCharacterController(BaseInfoRepository baseFeaturesRepo, FeatureRepository featureRepo,
+                                     BackgroundRepository backgroundRepo, CharacterRepository characterRepo,
+                                     DNDClassRepository dndClassRepo, RaceRepository raceRepo,
+                                    AbilityRepository abilityRepo) {
         this.baseFeaturesRepo = baseFeaturesRepo;
         this.featureRepo = featureRepo;
         this.backgroundRepo = backgroundRepo;
         this.characterRepo = characterRepo;
         this.dndClassRepo = dndClassRepo;
         this.raceRepo = raceRepo;
+        this.abilityRepo = abilityRepo;
     }
 
     @GetMapping("/getcharacters")

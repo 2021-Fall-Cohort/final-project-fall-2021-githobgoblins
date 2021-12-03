@@ -1,9 +1,12 @@
 package GitHobGoblins.FinalPJ.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class AbilityScores {
@@ -18,6 +21,10 @@ public class AbilityScores {
     private int intelligence;
     private int wisdom;
     private int charisma;
+
+    @ManyToOne
+    @JsonIgnore
+    private Race race;
 
     public AbilityScores(int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma) {
         this.strength = strength;
@@ -58,5 +65,12 @@ public class AbilityScores {
 
     public int getCharisma() {
         return charisma;
+    }
+
+    public Race getRace() {
+        return race;
+    }
+    public void changeRace(Race race){
+        this.race =race;
     }
 }

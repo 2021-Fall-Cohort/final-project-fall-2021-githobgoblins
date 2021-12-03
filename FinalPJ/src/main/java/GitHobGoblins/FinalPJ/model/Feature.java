@@ -78,6 +78,8 @@ public class Feature {
     public void removePlayerCharacter(){
         playerCharacter= null;
     }
+
+
     //    public PlayerCharacter getPlayerCharacter() {
 //        return playerCharacter;
 //    }

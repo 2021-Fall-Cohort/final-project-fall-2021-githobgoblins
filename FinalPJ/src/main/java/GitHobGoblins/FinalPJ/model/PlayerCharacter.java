@@ -26,11 +26,15 @@ public class PlayerCharacter {
     @OneToOne
     private Race race;
 
-    public PlayerCharacter(BaseInfo baseInfo, Background background, DNDClass dndClass, Race race) {
+    @OneToOne
+    private AbilityScores abilityScore;
+
+    public PlayerCharacter(BaseInfo baseInfo, Background background, DNDClass dndClass, Race race, AbilityScores abilityScore) {
         this.baseInfo = baseInfo;
         this.background = background;
         this.dndClass = dndClass;
         this.race = race;
+        this.abilityScore= abilityScore;
     }
 
     public PlayerCharacter(){
@@ -61,6 +65,10 @@ public class PlayerCharacter {
         return race;
     }
 
+    public AbilityScores getAbilityScores() {
+        return abilityScore;
+    }
+
     public void changeBase(BaseInfo base){
         this.baseInfo =base;
     }
@@ -75,6 +83,9 @@ public class PlayerCharacter {
 
     public void changeBackground(Background background){
         this.background=background;
+    }
+    public void changeAbilityScore(AbilityScores abilityScore){
+        this.abilityScore=abilityScore;
     }
     public void changeClass(DNDClass dndClass){
         this.dndClass=dndClass;
