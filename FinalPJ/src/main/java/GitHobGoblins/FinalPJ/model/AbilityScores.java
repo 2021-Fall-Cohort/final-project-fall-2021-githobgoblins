@@ -22,9 +22,6 @@ public class AbilityScores {
     private int wisdom;
     private int charisma;
 
-    @ManyToOne
-    @JsonIgnore
-    private Race race;
 
     public AbilityScores(int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma) {
         this.strength = strength;
@@ -35,7 +32,7 @@ public class AbilityScores {
         this.charisma = charisma;
     }
 
-    public AbilityScores(){
+    public AbilityScores() {
 
     }
 
@@ -67,10 +64,37 @@ public class AbilityScores {
         return charisma;
     }
 
-    public Race getRace() {
-        return race;
+    public void calculateRaceBonus(int abilityScoreImprovement1, int abilityScoreImprovement2, String
+            abilityScoreImprovementName1, String abilityScoreImprovementName2) {
+
+        if (abilityScoreImprovementName1.equals("strength")) {
+            strength += abilityScoreImprovement1;
+        } else if (abilityScoreImprovementName1.equals("dexterity")) {
+            dexterity += abilityScoreImprovement1;
+        } else if (abilityScoreImprovementName1.equals("constitution")) {
+            constitution += abilityScoreImprovement1;
+        } else if (abilityScoreImprovementName1.equals("intelligence")) {
+            intelligence += abilityScoreImprovement1;
+        } else if (abilityScoreImprovementName1.equals("wisdom")) {
+            wisdom += abilityScoreImprovement1;
+        } else if (abilityScoreImprovementName1.equals("charisma")) {
+            charisma += abilityScoreImprovement1;
+        }
+
+        if (abilityScoreImprovementName2.equals("strength")) {
+            strength += abilityScoreImprovement2;
+        } else if (abilityScoreImprovementName2.equals("dexterity")) {
+            dexterity += abilityScoreImprovement2;
+        } else if (abilityScoreImprovementName2.equals("constitution")) {
+            constitution += abilityScoreImprovement2;
+        } else if (abilityScoreImprovementName2.equals("intelligence")) {
+            intelligence += abilityScoreImprovement2;
+        } else if (abilityScoreImprovementName2.equals("wisdom")) {
+            wisdom += abilityScoreImprovement2;
+        } else if (abilityScoreImprovementName2.equals("charisma")) {
+            charisma += abilityScoreImprovement2;
+        }
     }
-    public void changeRace(Race race){
-        this.race =race;
-    }
+
 }
+

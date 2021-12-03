@@ -53,6 +53,17 @@ public class Populator implements CommandLineRunner {
         orkFeatures.add(teleport);
 
 
+        AbilityScores score1 =new AbilityScores(15,14,13,10,8, 5);
+        AbilityScores score2 =new AbilityScores(5,8,12,14,10, 15);
+        abilityRepo.save(score1);
+        abilityRepo.save(score2);
+
+        ArrayList<AbilityScores> dwarfScores =new ArrayList<>();
+        dwarfScores.add(score1);
+
+        ArrayList<AbilityScores> orkScores = new ArrayList<>();
+        orkScores.add(score2);
+
         Background acolyte = new Background("Acolyte", "As an acolyte, you command the respect of those who share your faith");
         Background rogue = new Background("rogue", "As rogue...");
         backgroundRepo.save(acolyte);
@@ -61,8 +72,8 @@ public class Populator implements CommandLineRunner {
         DNDClass warlock = new DNDClass("Warlock", " ");
         dndClassRepo.save(warlock);
 
-        Race dwarf = new Race("dwarf", " ");
-        Race ork = new Race("ork", " ");
+        Race dwarf = new Race("dwarf", " ",2,1,"strength","dex");
+        Race ork = new Race("ork", " ",1,2,"strength","dex");
         raceRepo.save(dwarf);
         raceRepo.save(ork);
 
@@ -71,10 +82,6 @@ public class Populator implements CommandLineRunner {
         baseFeaturesRepo.save(basefeatures1);
         baseFeaturesRepo.save(basefeatures2);
 
-        AbilityScores score1 =new AbilityScores(15,14,13,10,8, 5);
-        AbilityScores score2 =new AbilityScores(5,8,12,14,10, 15);
-        abilityRepo.save(score1);
-        abilityRepo.save(score2);
 
         PlayerCharacter josh = new PlayerCharacter(basefeatures1, acolyte, warlock, dwarf, score1);
         PlayerCharacter britney = new PlayerCharacter(basefeatures2, acolyte, warlock, ork, score2);

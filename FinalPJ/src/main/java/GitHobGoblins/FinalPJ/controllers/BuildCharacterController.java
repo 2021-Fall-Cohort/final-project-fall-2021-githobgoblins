@@ -135,7 +135,11 @@ public class BuildCharacterController {
         for (Long featureId: featureIds) {
             featureRepo.deleteById(featureId);
         }
-
+//      Make sure the ability score class isn't null, then remove ability bonus,
+        if(temp1.getAbilityScores()!=null){
+            temp1.getAbilityScores().calculateRaceBonus(-temp1.getRace().getAbilityScoreImprovement1(),-temp1.getRace().getAbilityScoreImprovement2(),
+                    temp1.getRace().getAbilityScoreImprovementName1(),temp1.getRace().getAbilityScoreImprovementName2());
+        }
         raceRepo.save(race);
         temp1.changeRace(race);
         characterRepo.save(temp1);
@@ -145,7 +149,11 @@ public class BuildCharacterController {
             currentFeature.addRace(race);
             featureRepo.save(currentFeature);
         }
-
+//      Check if ability score class isn't null then calculate race bonus
+        if(temp1.getAbilityScores()!=null){
+            temp1.getAbilityScores().calculateRaceBonus(temp1.getRace().getAbilityScoreImprovement1(),temp1.getRace().getAbilityScoreImprovement2(),
+                    temp1.getRace().getAbilityScoreImprovementName1(),temp1.getRace().getAbilityScoreImprovementName2());
+        }
         characterRepo.save(temp1);
         return characterRepo.findById(id).get();
     }
@@ -198,48 +206,14 @@ public class BuildCharacterController {
     @PutMapping("/abilityscore/{id}")
     public PlayerCharacter setAbilityScore(@RequestBody AbilityScores abilityScore, @PathVariable Long id){
         PlayerCharacter temp1 = characterRepo.findById(id).get();
+        abilityScore.calculateRaceBonus(temp1.getRace().getAbilityScoreImprovement1(),temp1.getRace().getAbilityScoreImprovement2(),
+                temp1.getRace().getAbilityScoreImprovementName1(),temp1.getRace().getAbilityScoreImprovementName2());
         temp1.changeAbilityScore(abilityScore);
         abilityRepo.save(abilityScore);
         characterRepo.save(temp1);
-//        Collection<Feature> currentFeatures = abilityScore.getFeatures();
-//
-//        for (Feature currentFeature: currentFeatures) {
-//            currentFeature.addPlayerCharacter(temp1);
-//            currentFeature.addBackground(background);
-//            featureRepo.save(currentFeature);
-//        }
-//        characterRepo.save(temp1);
         return temp1;
     }
 
-//    @PutMapping("/editabilityscore/{id}")
-//    public PlayerCharacter editBackground (@RequestBody AbilityScores abilityScore, @PathVariable Long id){
-//        PlayerCharacter temp1 = characterRepo.findById(id).get();
-//        AbilityScores currentAbilityScore = temp1.getAbilityScores();
-//        ArrayList<Long> featureIds = new ArrayList<Long>();
-//
-//        for(Feature oldFeature: currentBackground.getFeatures()){
-////            oldFeature.removePlayerCharacter();
-////            featureRepo.save(oldFeature);
-//            featureIds.add(oldFeature.getId());
-//        }
-//        for (Long featureId: featureIds) {
-//            featureRepo.deleteById(featureId);
-//        }
-//
-//        backgroundRepo.save(background);
-//        temp1.changeBackground(background);
-//        characterRepo.save(temp1);
-//        Collection<Feature> currentFeatures= background.getFeatures();
-//        for (Feature currentFeature: currentFeatures) {
-//            currentFeature.addPlayerCharacter(temp1);
-//            currentFeature.addBackground(background);
-//            featureRepo.save(currentFeature);
-//        }
-//
-//        characterRepo.save(temp1);
-//        return characterRepo.findById(id).get();
-//    }
 
 
 }

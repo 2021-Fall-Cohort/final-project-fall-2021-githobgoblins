@@ -21,7 +21,7 @@ Content-Type: application/json
 
 
 ###
-PUT http://localhost:8080/buildcharacter/class/15
+PUT http://localhost:8080/buildcharacter/class/17
 Content-Type: application/json
 
 {
@@ -63,12 +63,16 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:8080/buildcharacter/race/15
+PUT http://localhost:8080/buildcharacter/race/17
 Content-Type: application/json
 
 {
   "name" : "dwarf",
   "description" :"short boi/girl",
+  "abilityScoreImprovement1": 2,
+  "abilityScoreImprovement2": 1,
+  "abilityScoreImprovementName1": "strength",
+  "abilityScoreImprovementName2": "charisma",
   "features": [
     {
       "name" : "run fast",
@@ -90,12 +94,16 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:8080/buildcharacter/editrace/13
+PUT http://localhost:8080/buildcharacter/editrace/17
 Content-Type: application/json
 
 {
   "name" : "deamon race",
   "description" :"deamon boi/girl",
+  "abilityScoreImprovement1": 2,
+  "abilityScoreImprovement2": 0,
+  "abilityScoreImprovementName1": "dexterity",
+  "abilityScoreImprovementName2": "wisdom",
     "features": [
     {
       "name" : "Stupid Like Britney",
@@ -112,7 +120,7 @@ Content-Type: application/json
 
 
 ###
-PUT http://localhost:8080/buildcharacter/background/13
+PUT http://localhost:8080/buildcharacter/background/17
 Content-Type: application/json
 
 {
@@ -150,7 +158,17 @@ Content-Type: application/json
     }
   ]
 }
+###
+PUT http://localhost:8080/buildcharacter/abilityscore/17
+Content-Type: application/json
 
-
+{
+  "strength": 12,
+  "dexterity": 15,
+  "constitution": 14,
+  "intelligence": 10,
+  "wisdom": 8,
+  "charisma": 13
+}
 ###
 GET  http://localhost:8080/character/showallfeatures
