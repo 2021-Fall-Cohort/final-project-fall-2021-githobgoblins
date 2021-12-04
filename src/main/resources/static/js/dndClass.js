@@ -318,7 +318,7 @@ console.log(currentCharacter);
 
   backButtonEl.addEventListener("click", () => {
     clearChildren(mainContainerEl);
-    displayFeaturesView(mainContainerEl);
+    displayFeaturesView(mainContainerEl, currentCharacter);
   })
 
 
