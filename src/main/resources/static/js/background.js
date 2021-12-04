@@ -327,7 +327,17 @@ function displayBackgroundView(mainContainerEl, currentCharacter){
     forwardButtonEl.addEventListener("click", ()=> {
       const backgroundJson = {
         "name": backgroundSelectEl.value,
-        "description": "because what else"
+        "description": "because what else",
+        "features" : [
+          {
+            "name" : "code fast",
+            "description" :"super sonic typing"
+          },
+          {
+            "name" : "Speed reading",
+            "description" : "get 'er don"
+          }
+        ]
       };
     
       fetch(`http://localhost:8080/buildcharacter/background/${currentCharacter.id}`, {
