@@ -5,6 +5,7 @@ import { displayFeaturesView } from "./features.js";
 import { displayOutputView } from "./output.js";
 import { displayAbilitiesView } from "./abilities.js";
 
+
 const mainContainerEl = document.querySelector(".mainContainerEl");
 
 function displayHeader(mainContainerEl){
