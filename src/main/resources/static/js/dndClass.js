@@ -29,6 +29,9 @@ console.log(currentCharacter);
 
   const selectEl = document.createElement("select");
   selectEl.classList.add("selector");
+  selectEl.setAttribute("name", "chkveg");
+  selectEl.setAttribute("id", "chkveg");
+  selectEl.setAttribute("multiple", "multiple");
   
   const barbarianOptionEl = document.createElement("option");
   barbarianOptionEl.setAttribute('value', 'barbarian');
@@ -187,6 +190,7 @@ console.log(currentCharacter);
   const classNamesEl = document.createElement("select");
   classNamesEl.setAttribute('name', 'classNames');
   classNamesEl.setAttribute('id', 'classNames');
+  classNamesEl.setAttribute("multiple", "multiple");
 
   const barbarianLearnOptionEl = document.createElement("option");
   barbarianLearnOptionEl.setAttribute('value', 'barbarianLearn');
@@ -314,6 +318,12 @@ console.log(currentCharacter);
   mainContainerEl.append(mainContentDivEl);
 
   //modal functionalities
+  $("#classNames").multiselect({
+    includeSelectAllOption: true,
+  });
+  $("#chkveg").multiselect({
+    includeSelectAllOption: true,
+  });
 
   var modal = document.getElementById("classModal");
   var btn = document.getElementById("openClassModal");

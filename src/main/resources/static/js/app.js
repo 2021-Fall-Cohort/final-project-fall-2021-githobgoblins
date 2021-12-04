@@ -85,7 +85,7 @@ function clearChildren(element) {
 displayFeaturesView(mainContainerEl);
 // displayDNDClassView(mainContainerEl);
 // displayRaceView(mainContainerEl);
-// displayBackgroundView(mainContainerEl);
+// // displayBackgroundView(mainContainerEl);
 // displayAbilitiesView(mainContainerEl);
 
 
