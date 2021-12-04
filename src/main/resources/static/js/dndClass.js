@@ -284,7 +284,18 @@ console.log(currentCharacter);
   forwardButtonEl.addEventListener("click", () => {
     const classJson = {
       "name": selectEl.value,
-      "description": "warlock boi"
+      "description": "warlock boi",
+      "features": [
+        {
+          "name" : "something unique",
+          "description" :"unique things"
+        },
+        {
+          "name" : "watch shows faster",
+          "description" :" more shows in less time"
+        }
+    
+      ]
     };
       fetch(`http://localhost:8080/buildcharacter/class/${currentCharacter.id}`, {
         method: 'PUT',
