@@ -4,9 +4,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/output.css">
     <title>Output</title>
 </head>
 <body>
-    
+    <div class="main">
+        <div class="heading">
+            <h1 class="dnd">Dungeons & Dragons</h1>
+        </div class="output">
+
+        <div class="card">
+            <section class="base current-selections" id="base">
+                
+                <h1 class="name">Base Features</h1>
+                <h3>Current Base Features</h3>
+                <p class="feature">Feature 1</p>
+                <p class="feature">Feature 2</p>
+                <p class="feature">Feature 3</p>
+                <p class="feature">Feature 4</p>
+            </section>
+
+            <section class="base edits" id="edit-base">
+                <h3>Edit Features</h3>
+                <!-- <label for="feature1">Feature 1</label> -->
+                <input type="text" id="feature1" placeholder="Enter Feature1">
+                <!-- <label for="Feature2">Feature 2</label> -->
+                <input type="text" id="Feature2" placeholder="Enter Feature2">
+
+                <!-- <label for="Feature3">Feature 3</label> -->
+                <input type="text" id="Feature3" placeholder="Enter Feature3">
+                <!-- <label for="Feature4">Feature 4</label> -->
+                <input type="text" id="Feature4" placeholder="Enter Feature4">
+            </section>
+
+            <button id="edit-button" type="submit">Edit Changes</button>
+            <button id="change-button" type="submit">Submit Changes</button>
+        </div>
+    </div>
 </body>
 </html>
