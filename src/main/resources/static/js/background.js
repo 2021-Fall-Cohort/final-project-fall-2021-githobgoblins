@@ -350,7 +350,7 @@ function displayBackgroundView(mainContainerEl, currentCharacter){
       .then(res => res.json())
       .then(character => {
         clearChildren(mainContainerEl);
-        displayOutputView(mainContainerEl, character);
+        displayAbilitiesView(mainContainerEl, character);
         currentCharacter = character;
       })
       .catch(err => console.error(err));
