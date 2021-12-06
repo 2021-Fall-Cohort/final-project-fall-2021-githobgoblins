@@ -3,6 +3,7 @@ import {displayHeader} from "./app.js";
 import {displayFooter} from "./app.js";
 import { displayRaceView } from "./race.js";
 import {displayOutputView} from "./output.js";
+import {displayAbilitiesView} from "./abilities.js";
 
 function displayBackgroundView(mainContainerEl, currentCharacter){
 

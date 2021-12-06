@@ -36,9 +36,61 @@ function displayFeaturesView(mainContainerEl) {
     const alignmentLabelEl = document.createElement("h3");
     alignmentLabelEl.innerText = "Alignment";
 
-    const alignmentFieldEl = document.createElement("input");
-    alignmentFieldEl.type = "text";
+    const alignmentFieldEl = document.createElement("select");
     alignmentFieldEl.placeholder = "Select an Alignment";
+
+    const randOptionEl = document.createElement("option");
+    randOptionEl.setAttribute('value', 'randomize');
+    randOptionEl.innerText = "Randomize!";
+
+    const lawGoodOptionEl = document.createElement("option");
+    lawGoodOptionEl.setAttribute('value', 'Lawful-Good');
+    lawGoodOptionEl.innerText = "Lawful-Good";
+
+    const neutGoodOptionEl = document.createElement("option");
+    neutGoodOptionEl.setAttribute('value', 'Neutral-Good');
+    neutGoodOptionEl.innerText = "Neutral-Good";
+
+    const chaGoodOptionEl = document.createElement("option");
+    chaGoodOptionEl.setAttribute('value', 'Chaotic-Good');
+    chaGoodOptionEl.innerText = "Chaotic-Good";
+
+    const lawNeutralOptionEl = document.createElement("option");
+    lawNeutralOptionEl.setAttribute('value', 'Lawful-Neutral');
+    lawNeutralOptionEl.innerText = "Lawful-Neutral";
+
+    const trueNeutOptionEl = document.createElement("option");
+    trueNeutOptionEl.setAttribute('value', 'True-Neutral');
+    trueNeutOptionEl.innerText = "True-Neutral";
+
+    const chaNeutralOptionEl = document.createElement("option");
+    chaNeutralOptionEl.setAttribute('value', 'Chaotic-Neutral');
+    chaNeutralOptionEl.innerText = "Chaotic-Neutral";
+
+    const lawEvilOptionEl = document.createElement("option");
+    lawEvilOptionEl.setAttribute('value', 'Lawful-Evil');
+    lawEvilOptionEl.innerText = "Lawful-Evil";
+
+    const neutEvilOptionEl = document.createElement("option");
+    neutEvilOptionEl.setAttribute('value', 'Neutral-Evil');
+    neutEvilOptionEl.innerText = "Neutral-Evil";
+
+    const chaEvilOptionEl = document.createElement("option");
+    chaEvilOptionEl.setAttribute('value', 'Chaotic-Evil');
+    chaEvilOptionEl.innerText = "Chaotic-Evil"; 
+
+    //appending all alignment options
+
+    alignmentFieldEl.append(randOptionEl);
+    alignmentFieldEl.append(lawGoodOptionEl);
+    alignmentFieldEl.append(neutGoodOptionEl);
+    alignmentFieldEl.append(chaEvilOptionEl);
+    alignmentFieldEl.append(lawNeutralOptionEl);
+    alignmentFieldEl.append(trueNeutOptionEl);
+    alignmentFieldEl.append(chaNeutralOptionEl);
+    alignmentFieldEl.append(lawEvilOptionEl);
+    alignmentFieldEl.append(neutEvilOptionEl);
+    alignmentFieldEl.append(chaEvilOptionEl);
 
     //making level modal elements
 
