@@ -8,38 +8,254 @@
     <title>Output</title>
 </head>
 <body>
-    <div class="main">
+    <div class="outputDiv">
         <div class="heading">
-            <h1 class="dnd">Dungeons & Dragons</h1>
-        </div class="output">
-
+            <h1 class="dnd">D&D Final Character</h1>
+        </div>
+<!--------- Base--------------  -->
         <div class="card">
-            <section class="base current-selections" id="base">
-                
-                <h1 class="name">Base Features</h1>
+            
+
+            <section class="base current-selections" id="base">    
+                <h1 class="name">Base Features</h1>          
                 <h3>Current Base Features</h3>
-                <p class="feature">Feature 1</p>
-                <p class="feature">Feature 2</p>
-                <p class="feature">Feature 3</p>
-                <p class="feature">Feature 4</p>
+                <p>Name</p>
+                <p>Level</p>
+                <p>Alignment</p>
+                <p>Proficency Bonus</p>
+                <p>Experience Points</p>
             </section>
 
             <section class="base edits" id="edit-base">
-                <h3>Edit Features</h3>
-                <!-- <label for="feature1">Feature 1</label> -->
-                <input type="text" id="feature1" placeholder="Enter Feature1">
-                <!-- <label for="Feature2">Feature 2</label> -->
-                <input type="text" id="Feature2" placeholder="Enter Feature2">
-
-                <!-- <label for="Feature3">Feature 3</label> -->
-                <input type="text" id="Feature3" placeholder="Enter Feature3">
-                <!-- <label for="Feature4">Feature 4</label> -->
-                <input type="text" id="Feature4" placeholder="Enter Feature4">
+                <h3>Edit Features</h3>                
+                <input type="text"  placeholder="Edit Name">
+                <label for="level">Level</label>                 
+                    <select><option>1</option>                   
+                    </select>    
+                <input type="text"  placeholder="Edit Alignment">
+                <input type="text" placeholder="Edit Proficnency Bonus">
+                <input type="text" placeholder="Edit Expereince Points">
             </section>
 
-            <button id="edit-button" type="submit">Edit Changes</button>
-            <button id="change-button" type="submit">Submit Changes</button>
+            <div class="edit-btn">
+                <button class="edit" id="edit-button" type="submit">Edit</button>
+                
+            </div>
+            <div class="cancel-submit">
+                <button class="edit cancel" id="cancel-edit" type="submit">Cancel Edit</button>
+                <button class="edit submit" id="submit" type="submit">Submit Changes</button>
+            </div>
+        </div>
+<!-- -------------Class---------------- -->
+        <div class="card">
+            <section class="dnd-class current-selections" id="dnd-class">
+                
+                <h1 class="name">D&D Class</h1>
+                <h3>Current Class</h3>
+                <p>Name</p>
+                <p>Description</p>
+                <h3>Class Features</h3>
+                <p>Feature 1 Name</p>
+                <p>Feature 2 Name</p>
+            </section>
+
+            <section class="dnd-class edits" id="edit-dnd-class">
+                <h3>Edit Class</h3>
+                <label for="className">New Class</label>               
+                <select>
+                    <option>Class1</option>
+                    <option>Class2</option>
+                </select>
+                 <!-- Need to see if extra features can be selected -->
+            </section>
+
+            <div class="edit-btn">
+                <button class="edit" id="edit-button" type="submit">Edit</button>
+                
+            </div>
+            <div class="cancel-submit">
+                <button class="edit cancel" id="cancel-edit" type="submit">Cancel Edit</button>
+                <button class="edit submit" id="submit" type="submit">Submit Changes</button>
+            </div>
+        </div>
+
+<!-- -------------Race ----------------- -->
+        <div class="card">
+            <section class="race current-selections" id="race">
+                
+                <h1 class="name">Race</h1>
+                <h3>Current Race</h3>
+                <p>Name</p>
+                <p>Description</p>
+                <p>Ability Score Improvment 1</p>
+                <p>Ability Score Improvment 2</p>
+                <p>Ability Score Improvment 1 Name</p>
+                <p>Ability Score Improvment 2 Name</p>
+                <h3>Race Features</h3>
+                <p>Feature 1</p>
+                <p>Feature 2</p>
+            </section>
+
+            <section class="race edits" id="edit-race">
+                <h3>Edit Race</h3>
+                <label for="raceName">New Race</label>               
+                <select>
+                    <option>Race1</option>
+                    <option>Race2</option>
+                </select>
+            </section>
+
+            <div class="edit-btn">
+                <button class="edit" id="edit-button" type="submit">Edit</button>
+                
+            </div>
+            <div class="cancel-submit">
+                <button class="edit cancel" id="cancel-edit" type="submit">Cancel Edit</button>
+                <button class="edit submit" id="submit" type="submit">Submit Changes</button>
+            </div>
+        </div>
+        
+<!-- ---------Background------------------->
+        
+        <div class="card">
+            <section class="bg current-selections" id="bg">
+                
+                <h1 class="name">Background</h1>
+                <h3>Current Background</h3>
+                <p>Name</p>
+                <p>Description</p>
+                <h3>Background Features</h3>
+                <p>Feature 1</p>
+                <p>Feature 2</p>
+            </section>
+
+            <section class="bg edits" id="bg-edit">
+                <h3>Edit Backround</h3>
+                <label for="bgName">New Background</label>               
+                <select>
+                    <option>Background 1</option>
+                    <option>Background 2</option>
+                </select>
+            </section>
+
+            <div class="edit-btn">
+                <button class="edit" id="edit-button" type="submit">Edit</button>
+                
+            </div>
+            <div class="cancel-submit">
+                <button class="edit cancel" id="cancel-edit" type="submit">Cancel Edit</button>
+                <button class="edit submit" id="submit" type="submit">Submit Changes</button>
+            </div>
+        </div>
+<!-- ---------------Ability Score --------------->
+        <div class="card">
+            <section class="as current-selections" id="as">
+                
+                <h1 class="name">Ability Score</h1>
+                <h3>Current Ability Score</h3>
+                <p>Strength: </p>
+                <p>Dexterity: </p>
+                <p>Constitution: </p>
+                <p>Intelligence: </p>
+                <p>Wisdom: </p>
+                <p>Charisma: </p>
+            </section>
+
+            <section class="base edits" id="edit-base">
+                <h3>Edit Ability Score</h3>
+                <label for="Strength">Strength</label>               
+                <select>
+                    <option>8</option>
+                    <option>10</option>
+                    <option>12</option>
+                    <option>13</option>
+                    <option>14</option>
+                    <option>15</option>
+                </select>    
+
+                <label for="Dexterity">Dexterity</label>               
+                <select>
+                    <option>8</option>
+                    <option>10</option>
+                    <option>12</option>
+                    <option>13</option>
+                    <option>14</option>
+                    <option>15</option>
+                </select>  
+                    
+                <label for="Constitution">Constitution</label>               
+                <select>
+                    <option>8</option>
+                    <option>10</option>
+                    <option>12</option>
+                    <option>13</option>
+                    <option>14</option>
+                    <option>15</option>
+                </select>  
+                                        
+                <label for="intelligence">Intelligence</label>               
+                <select>
+                    <option>8</option>
+                    <option>10</option>
+                    <option>12</option>
+                    <option>13</option>
+                    <option>14</option>
+                    <option>15</option>
+                </select>  
+                    
+                <label for="wistdom">Wisdom</label>               
+                <select>
+                    <option>8</option>
+                    <option>10</option>
+                    <option>12</option>
+                    <option>13</option>
+                    <option>14</option>
+                    <option>15</option>
+                </select>  
+                    
+                <label for="charisma">Charisma</label>   
+                <select>
+                    <option>8</option>
+                    <option>10</option>
+                    <option>12</option>
+                    <option>13</option>
+                    <option>14</option>
+                    <option>15</option>
+                </select>                      
+            </section>
+
+            <div class="edit-btn">
+                <button class="edit" id="edit-button" type="submit">Edit</button>
+                
+            </div>
+            <div class="cancel-submit">
+                <button class="edit cancel" id="cancel-edit" type="submit">Cancel Edit</button>
+                <button class="edit submit" id="submit" type="submit">Submit Changes</button>
+            </div>
+        </div>
+
+<!-- ---------------All Features --------------->
+        <div class="card">
+            <section class="features current-selections" id="features">
+                
+                <h1 class="name">Features</h1>
+                <h3>Current Features</h3>
+                <p></p>Feature 1</p>
+                <p></p>Feature 2</p>
+                <p></p>Feature 3</p>
+                <p></p>Feature 4</p>
+            </section>
+
+            <section class="feature edits" id="edit-features">
+               
+            </section>
+
+            <!-- <button class="edit" id="edit-button" type="submit">Edit</button>
+            <button class="edit cancel" id="cancel-edit" type="submit">Cancel Edit</button>
+            <button class="edit submit" id="submit" type="submit">Submit Changes</button> -->
         </div>
     </div>
+
+    <script src="./js/testouput.js"></script>
 </body>
 </html>

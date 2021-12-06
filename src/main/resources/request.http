@@ -2,7 +2,7 @@
 GET http://localhost:8080/character/getcharacters
 
 ###
-GET http://localhost:8080/character/getcharacter/35
+GET http://localhost:8080/character/getcharacter/14
 
 //character initilize/baseInfo
 ###
@@ -21,7 +21,7 @@ Content-Type: application/json
 
 
 ###
-PUT http://localhost:8080/buildcharacter/class/35
+PUT http://localhost:8080/buildcharacter/class/17
 Content-Type: application/json
 
 {
@@ -63,7 +63,7 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:8080/buildcharacter/race/35
+PUT http://localhost:8080/buildcharacter/race/17
 Content-Type: application/json
 
 {
@@ -120,7 +120,7 @@ Content-Type: application/json
 
 
 ###
-PUT http://localhost:8080/buildcharacter/background/35
+PUT http://localhost:8080/buildcharacter/background/17
 Content-Type: application/json
 
 {
