@@ -3,6 +3,7 @@ import {displayHeader} from "./app.js";
 import {displayFooter} from "./app.js";
 import { displayRaceView } from "./race.js";
 import {displayOutputView} from "./output.js";
+import {displayAbilitiesView} from "./abilities.js";
 
 function displayBackgroundView(mainContainerEl, currentCharacter){
 
@@ -327,7 +328,17 @@ function displayBackgroundView(mainContainerEl, currentCharacter){
     forwardButtonEl.addEventListener("click", ()=> {
       const backgroundJson = {
         "name": backgroundSelectEl.value,
-        "description": "because what else"
+        "description": "because what else",
+        "features" : [
+          {
+            "name" : "code fast",
+            "description" :"super sonic typing"
+          },
+          {
+            "name" : "Speed reading",
+            "description" : "get 'er don"
+          }
+        ]
       };
     
       fetch(`http://localhost:8080/buildcharacter/background/${currentCharacter.id}`, {
@@ -340,7 +351,7 @@ function displayBackgroundView(mainContainerEl, currentCharacter){
       .then(res => res.json())
       .then(character => {
         clearChildren(mainContainerEl);
-        displayOutputView(mainContainerEl, character);
+        displayAbilitiesView(mainContainerEl, character);
         currentCharacter = character;
       })
       .catch(err => console.error(err));

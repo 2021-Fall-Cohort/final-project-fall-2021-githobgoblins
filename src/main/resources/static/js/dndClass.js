@@ -193,7 +193,7 @@ console.log(currentCharacter);
   classNamesEl.setAttribute("multiple", "multiple");
 
   const barbarianLearnOptionEl = document.createElement("option");
-  barbarianLearnOptionEl.setAttribute('value', 'barbarianLearn');
+  barbarianLearnOptionEl.setAttribute('value', 'barbarian');
   barbarianLearnOptionEl.innerText = "Barbarian";
 
   const bardLearnOptionEl = document.createElement("option");
@@ -288,7 +288,18 @@ console.log(currentCharacter);
   forwardButtonEl.addEventListener("click", () => {
     const classJson = {
       "name": selectEl.value,
-      "description": "warlock boi"
+      "description": "warlock boi",
+      "features": [
+        {
+          "name" : "something unique",
+          "description" :"unique things"
+        },
+        {
+          "name" : "watch shows faster",
+          "description" :" more shows in less time"
+        }
+    
+      ]
     };
       fetch(`http://localhost:8080/buildcharacter/class/${currentCharacter.id}`, {
         method: 'PUT',
@@ -311,7 +322,7 @@ console.log(currentCharacter);
 
   backButtonEl.addEventListener("click", () => {
     clearChildren(mainContainerEl);
-    displayFeaturesView(mainContainerEl);
+    displayFeaturesView(mainContainerEl, currentCharacter);
   })
 
 

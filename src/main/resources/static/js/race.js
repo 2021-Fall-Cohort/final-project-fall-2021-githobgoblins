@@ -230,7 +230,7 @@ function displayRaceView(mainContainerEl, currentCharacter){
 
     const raceMoreInfoTextEl = document.createElement("p");
     raceMoreInfoTextEl.classList.add("raceMoreInfoText");
-    raceMoreInfoTextEl.innerText = "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur numquam quaerat accusantium voluptatum vero necessitatibus architecto molestiae molestias eligendi amet facere aspernatur, sed ullam a dolorum atque laborum nulla labore.";
+    raceMoreInfoTextEl.innerText = "";
 
     //appending more info content
 
@@ -297,7 +297,28 @@ function displayRaceView(mainContainerEl, currentCharacter){
   forwardButtonEl.addEventListener("click", () => {
     const raceJson = {
       "name" : raceSelectEl.value,
-      "description": "warlock boi"
+      "description": "warlock boi",
+      "abilityScoreImprovement1": 2,
+      "abilityScoreImprovement2": 1,
+      "abilityScoreImprovementName1": "strength",
+      "abilityScoreImprovementName2": "charisma",
+      "features": [
+        {
+          "name" : "run fast",
+          "description" :"super sonic speed",
+          "class" : null,
+          "race" : null,
+          "background" : null
+        },
+
+        {
+          "name" : "CARSON FEATURES HERE",
+          "description" :"???????",
+          "class" : null,
+          "race" : null,
+          "background" : null
+        }
+      ]
     };
       fetch(`http://localhost:8080/buildcharacter/race/${currentCharacter.id}`, {
         method: 'PUT',
