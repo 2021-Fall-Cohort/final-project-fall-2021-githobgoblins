@@ -9,7 +9,7 @@
     width: 65%;
     grid-template-columns: 1fr 4fr;
     background-color: #549269;
-    border-radius: 10px;
+    border-radius: 4px;
 }
 
 .center-content h1 {
@@ -29,13 +29,13 @@
 }
 
 .center-content li {
-    font-size: 1.25rem;
+    font-size: 1.3rem !important;
     list-style: none;
     padding: 0;
 }
 
 .center-content  li .strong {
-    font-size: 1.4rem;
+    font-size: 1.4rem !important;
     color: white;
 }
 

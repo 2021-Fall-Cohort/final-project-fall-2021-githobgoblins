@@ -4,6 +4,7 @@ import { displayBackgroundView } from "./background.js";
 import { displayFeaturesView } from "./features.js";
 import { displayOutputView } from "./output.js";
 import { displayAbilitiesView } from "./abilities.js";
+import { displayContacts } from "./contactpage.js";
 
 
 const mainContainerEl = document.querySelector(".mainContainerEl");
@@ -35,7 +36,13 @@ function displayHeader(mainContainerEl){
     const meetLiEl = document.createElement("li");
     meetLiEl.innerText = "Meet the Goblins";
     meetLiEl.classList.add("headerLi");
+    meetLiEl.addEventListener("click", ()=> {
+        clearChildren(mainContainerEl);
+        displayHeader(mainContainerEl);
+        mainContainerEl.innerHTML += displayContacts();
+        displayFooter(mainContainerEl);
 
+    })
 
     //appending header elements
 

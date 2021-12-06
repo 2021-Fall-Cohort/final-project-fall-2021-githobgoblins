@@ -1,72 +1,93 @@
 
-const mainContainerEl = document.querySelector(".mainContainer");
-const footerDivEl = document.querySelector(".footerDiv")
+function displayContacts() {
+    return `
+    <div class="mainContainer">
+    </div>
 
-displayHeader1(mainContainerEl);
-displayFooter1(footerDivEl);
+    <div class="forSections">
+        <section class="center-content">
+            <h1>Meet The Goblins</h1>
+        </section>
 
-function displayHeader1(element) {
+        <section class="center-content">
+            <div class=img-div>
+                <img src="images/carsonHS.jpg" alt="Picture of Carson">
+            </div>
+            
+            <ul>
+                <h2>Carson Dentinger</h2>
+                <li><strong class="strong">Primary Role For This Project:</strong> Front End Development, Project Design</li>
+                <li><strong class="strong">Email: </strong>carson.dentinger@gmail.com</li>
+                <li><a href="https://www.linkedin.com/in/carson-dentinger/">Linked In</a></li>
+                <li><a href="https://carsondentinger.github.io/">Portfolio</a></li>
+            </ul>
 
-//creating header html elements
-const headerEl = document.createElement("header");
-headerEl.classList.add("header");
+        </section>
 
-const headerDivEl = document.createElement("div");
-headerDivEl.classList.add("headerDiv");
+        <section class="center-content">
+            <div class=img-div>
+                <img src="images/ricoHS.jpg" alt="Picture of Rico">
+            </div>
+            
+            <ul>
+                <h2>Rico McLellan Jr</h2>
+                <li><strong class="strong">Primary Role For This Project:</strong> Front End Development</li>
+                <li><strong class="strong">Email:</strong>ricodmclellan@gmail.com</li>
+                <li><a href="https://www.linkedin.com/in/ricodmclellan2018/">Linked In</a></li>
+                <li><a href="https://ricomclellan.github.io/">Portfolio</a> </li>
+            </ul>
 
-const headerUlEl = document.createElement("ul");
-headerUlEl.classList.add("headerUl");
+        </section>
 
-const homeLiEl = document.createElement("li");
-homeLiEl.classList.add("headerLi");
-homeLiEl.innerText = "Home";
+        <section class="center-content">
+            <div class=img-div>
+                <img src="images/aliHS.jpg" alt="Picture of Ali">
+            </div>
+            
+            <ul>
+                <h2>Ali Ashkir</h2>
+                <li><strong class="strong">Primary Role For This Project:</strong> Front End Development</li>
+                <li><strong class="strong">Email: </strong>ashkiralo04@gmail.com</li>
+                <li><a href="https://www.linkedin.com/in/ali-ashkir-5070211ba/">Linked In</a></li>
+                <li><a href="https://alithecoder1.github.io/">Portfolio</a></li>
+            </ul>
 
-const createLiEl = document.createElement("li");
-createLiEl.innerText = "Create a Character";
-createLiEl.classList.add("headerLi");
+        </section>
 
-const userCreationsLiEl = document.createElement("li");
-userCreationsLiEl.innerText = "User Creations";
-userCreationsLiEl.classList.add("headerLi");
+        <section class="center-content">
+            <div class=img-div>
+                <img src="images/britneyHS.jpg" alt="Picture of Britney">
+            </div>
+            
+            <ul>
+                <h2>Britney Woolford</h2>
+                <li><strong class="strong">Primary Role For This Project:</strong> Back End Development, Project Managment</li>
+                <li><strong class="strong">Email: </strong>britney@britneywoolford.com</li>
+                <li><a href="https://www.linkedin.com/in/britneywoolford/">Linked In</a></li>
+                <li><a href="https://britneywoolford.com/">Portfolio</a> </li>
+            </ul>
 
-const meetLiEl = document.createElement("li");
-meetLiEl.innerText = "Meet the Goblins";
-meetLiEl.classList.add("headerLi");
+        </section>
 
+        <section class="center-content">
+            <div class=img-div>
+                <img src="images/joshHS.jpg" alt="Picture of Josh">
+            </div>
+            
+            <ul>
+                <h2>Josh Gardner</h2>
+                <li><strong class="strong">Primary Role For This Project:</strong> Back End Development</li>
+                <li><strong class="strong">Email: </strong>jwgardner22@gmail.com</li>
+                <li><a href="https://www.linkedin.com/in/joshua-gardner/">Linked In</a> </li>
+                <li><a href="https://jgard2019.github.io/">Portfolio</a></li>
+            </ul>
 
-//appending header elements
+        </section>
+    </div>
+    
+    
+    `
 
-headerUlEl.append(homeLiEl);
-headerUlEl.append(createLiEl);
-headerUlEl.append(userCreationsLiEl);
-headerUlEl.append(meetLiEl);
-
-headerDivEl.append(headerUlEl);
-headerEl.append(headerDivEl);
-mainContainerEl.append(headerEl);
 }
 
-
-function displayFooter1(element) {
-    const footerEl = document.createElement("footer");
-    footerEl.classList.add("footer");
-    
-    const wcciEl = document.createElement("h3");
-    wcciEl.classList.add("footerLiEl");
-    wcciEl.innerText = "We Can Code It";
-    
-    const gitHobGoblins = document.createElement("h4");
-    gitHobGoblins.innerText = "Git-HobGoblins";
-    gitHobGoblins.classList.add("footerLiEl");
-    
-    const yearEl = document.createElement("p");
-    yearEl.innerText = "2021";
-    yearEl.classList.add("footerLiEl");
-
-    //appending footer elements
-    footerEl.append(wcciEl);
-    footerEl.append(gitHobGoblins);
-    footerEl.append(yearEl);
-    
-    footerDivEl.append(footerEl);
-}
+export {displayContacts};
