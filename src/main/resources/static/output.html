@@ -11,10 +11,12 @@
     <div class="outputDiv">
         <div class="heading">
             <h1 class="dnd">D&D Final Character</h1>
+            <button class="user email" id="user-email" type="submit">Email Character</button>
+            <button class="user print" id="user-print" type="submit">Print Character</button>
+            <button class="user tweet" id="user-tweet" type="submit">Tweet Character</button>
         </div>
 <!--------- Base--------------  -->
-        <div class="card">
-            
+        <div class="card">            
 
             <section class="base current-selections" id="base">    
                 <h1 class="name">Base Features</h1>          
@@ -26,16 +28,18 @@
                 <p>Experience Points</p>
             </section>
 
-            <section class="base edits" id="edit-base">
-                <h3>Edit Features</h3>                
-                <input type="text"  placeholder="Edit Name">
-                <label for="level">Level</label>                 
-                    <select><option>1</option>                   
-                    </select>    
-                <input type="text"  placeholder="Edit Alignment">
-                <input type="text" placeholder="Edit Proficnency Bonus">
-                <input type="text" placeholder="Edit Expereince Points">
-            </section>
+            <div class="edit-div">
+                <section class="base edits" id="edit-base">
+                    <h3>Edit Features</h3>                
+                    <input type="text"  placeholder="Edit Name">
+                    <label for="level">Level</label>                 
+                        <select><option>1</option>                   
+                        </select>    
+                    <input type="text"  placeholder="Edit Alignment">
+                    <input type="text" placeholder="Edit Proficnency Bonus">
+                    <input type="text" placeholder="Edit Expereince Points">
+                </section>              
+            </div>
 
             <div class="edit-btn">
                 <button class="edit" id="edit-button" type="submit">Edit</button>
@@ -96,23 +100,26 @@
                 <p>Feature 2</p>
             </section>
 
-            <section class="race edits" id="edit-race">
-                <h3>Edit Race</h3>
-                <label for="raceName">New Race</label>               
-                <select>
-                    <option>Race1</option>
-                    <option>Race2</option>
-                </select>
-            </section>
+            <div class="edit-div">
+                <section class="race edits" id="edit-race">
+                    <h3>Edit Race</h3>
+                    <label for="raceName">New Race</label>               
+                    <select>
+                        <option>Race1</option>
+                        <option>Race2</option>
+                    </select>
+                </section>
+
+                <div class="cancel-submit">
+                    <button class="edit cancel" id="cancel-edit" type="submit">Cancel Edit</button>
+                    <button class="edit submit" id="submit" type="submit">Submit Changes</button>
+                </div>
+            </div>
 
             <div class="edit-btn">
-                <button class="edit" id="edit-button" type="submit">Edit</button>
-                
+                <button class="edit" id="edit-button" type="submit">Edit</button> 
             </div>
-            <div class="cancel-submit">
-                <button class="edit cancel" id="cancel-edit" type="submit">Cancel Edit</button>
-                <button class="edit submit" id="submit" type="submit">Submit Changes</button>
-            </div>
+          
         </div>
         
 <!-- ---------Background------------------->

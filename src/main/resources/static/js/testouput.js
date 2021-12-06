@@ -10,10 +10,14 @@ const editSection = document.getElementsByClassName("edits");
 
 
 function showEdit(){
-
+    // editSection.style.display
 }
 
 function hideEdit(){
+
+}
+
+function refreshChanges(){
 
 }
 
