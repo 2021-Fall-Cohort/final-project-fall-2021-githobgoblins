@@ -17,7 +17,7 @@ GET https://www.dnd5eapi.co/api/ability-scores
 ###
 GET https://www.dnd5eapi.co/api/races
 ###
-GET https://www.dnd5eapi.co/api/races/dwarf
+GET https://www.dnd5eapi.co/api/races/dragonborn
 ###
 GET https://www.dnd5eapi.co/api/races/elf
 ###
@@ -27,7 +27,7 @@ GET https://www.dnd5eapi.co/api/backgrounds/acolyte
 ###
 GET https://www.dnd5eapi.co/api/classes/fighter
 ###
-GET https://www.dnd5eapi.co/api/
+GET https://www.dnd5eapi.co/api/subraces/high-elf
 ###
 GET https://www.dnd5eapi.co/api/rules
 ###
@@ -39,4 +39,4 @@ GET https://www.dnd5eapi.co/api/rules/appendix
 ###
 GET https://www.dnd5eapi.co/api/ability-scores/dex
 ###
-GET https://www.dnd5eapi.co/api/traits/darkvision
+GET https://www.dnd5eapi.co/api/traits/darkvision/

@@ -230,7 +230,7 @@ function displayRaceView(mainContainerEl, currentCharacter){
 
     const raceMoreInfoTextEl = document.createElement("p");
     raceMoreInfoTextEl.classList.add("raceMoreInfoText");
-    raceMoreInfoTextEl.innerText = "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur numquam quaerat accusantium voluptatum vero necessitatibus architecto molestiae molestias eligendi amet facere aspernatur, sed ullam a dolorum atque laborum nulla labore.";
+    raceMoreInfoTextEl.innerText = "";
 
     //appending more info content
 

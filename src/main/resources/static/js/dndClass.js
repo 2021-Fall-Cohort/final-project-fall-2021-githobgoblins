@@ -189,7 +189,7 @@ console.log(currentCharacter);
   classNamesEl.setAttribute('id', 'classNames');
 
   const barbarianLearnOptionEl = document.createElement("option");
-  barbarianLearnOptionEl.setAttribute('value', 'barbarianLearn');
+  barbarianLearnOptionEl.setAttribute('value', 'barbarian');
   barbarianLearnOptionEl.innerText = "Barbarian";
 
   const bardLearnOptionEl = document.createElement("option");
