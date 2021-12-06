@@ -2,7 +2,7 @@
 GET http://localhost:8080/character/getcharacters
 
 ###
-GET http://localhost:8080/character/getcharacter/12
+GET http://localhost:8080/character/getcharacter/14
 
 //character initilize/baseInfo
 ###
@@ -140,7 +140,7 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:8080/buildcharacter/editbackground/13
+PUT http://localhost:8080/buildcharacter/editbackground/17
 Content-Type: application/json
 
 {

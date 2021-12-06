@@ -19,6 +19,8 @@ function displayOutputView(mainContainerEl, currentCharacter) {
     const outputDivEl = document.createElement("div");
     outputDivEl.classList.add("outputDiv");
 
+    // Base Features Div
+
     const nameLabelEl = document.createElement("h3");
     nameLabelEl.innerText = "Name";
 
@@ -29,6 +31,8 @@ function displayOutputView(mainContainerEl, currentCharacter) {
     nameOutputEl.innerText = currentCharacter.baseFeatures.name;
 
     nameOutputDivEl.append(nameOutputEl);
+
+    // Class Features Div
 
     const classLabelEl = document.createElement("h3");
     classLabelEl.innerText = "Class";
@@ -41,15 +45,22 @@ function displayOutputView(mainContainerEl, currentCharacter) {
 
     classOutputDivEl.append(classOutputEl);
 
-    const backgroundLabelEl = document.createElement("h3");
-    backgroundLabelEl.innerText = "Background";
-
+    // Background Features Div
     const backgroundOutputDivEl = document.createElement("div");
     backgroundOutputDivEl.classList.add("outputDiv");
-    
+
+    const backgroundLabelEl = document.createElement("h3");
+    backgroundLabelEl.innerText = "Background";
+     
     const backgroundOutputEl = document.createElement("h4");
     backgroundOutputEl.innerText = currentCharacter.background.name;
+    
+    
+    
     backgroundOutputDivEl.append(backgroundOutputEl);
+
+
+    // Race Features Div 
 
     const raceEl = document.createElement("h3");
     raceEl.innerText = "Race";
@@ -62,6 +73,8 @@ function displayOutputView(mainContainerEl, currentCharacter) {
 
     raceOutputDivEl.append(raceOutputEl);
 
+
+// NEEDS TO BE APPENDED AND ADDED TO BASE 
     const levelEl = document.createElement("h3");
     levelEl.innerText = "Level";
 
@@ -84,6 +97,8 @@ function displayOutputView(mainContainerEl, currentCharacter) {
 
     alignmentOutputDivEl.append(alignmentOutputEl);
 
+
+// EXPERIENCE POINTS LIKELY REMOVED 
     const experiencePointsEl = document.createElement("h3");
     experiencePointsEl.innerText = "Experience Points";
 
@@ -94,6 +109,7 @@ function displayOutputView(mainContainerEl, currentCharacter) {
     experiencePointsOutputEl.innerText = currentCharacter.baseFeatures.experiencePoints;
 
     experiencePointsOutputDivEl.append(experiencePointsOutputEl);
+// ********************************************************************
 
     const bonusEl = document.createElement("h3");
     bonusEl.innerText = "Proficiency Bonus";
