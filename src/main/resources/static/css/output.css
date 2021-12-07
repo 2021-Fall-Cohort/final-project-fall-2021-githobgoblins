@@ -6,12 +6,12 @@
 
 /* Fonts, Basic Box, Align Hidden, Buttons */
 
-body{
+/* body{
     font-family: 'Murecho', sans-serif;
     display: flex;
     flex-direction: column;
     padding-left: 5%;
-}
+} */
 .heading{
     display: flex;
     flex-direction: row;
@@ -51,7 +51,7 @@ body{
     flex-direction: column;
     
 }
-button{
+.output-button{
     cursor: pointer;
     background-color: #069459;
     /* cool to add border thats the same color */
@@ -70,6 +70,12 @@ button{
     display:block;
     grid-column-start: 2;
     
+}
+.cancel{
+
+}
+.submit{
+margin-left: 5%;
 }
 .outputDiv input{
     border: 2px solid #f0f0f0;    
