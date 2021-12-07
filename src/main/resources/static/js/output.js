@@ -250,7 +250,7 @@ function displayOutputView(mainContainerEl, currentCharacter) {
     strTitleEl.innerText = "Strength";
 
     const strOutputEl = document.createElement("h3");
-    strOutputEl.innerText = "15";
+    strOutputEl.innerText = currentCharacter.abilityScores.strength;
 
     strDivEl.append(strTitleEl);
     strDivEl.append(strOutputEl);
@@ -263,7 +263,7 @@ function displayOutputView(mainContainerEl, currentCharacter) {
     dexTitleEl.innerText = "Dexterity";
 
     const dexOutputEl = document.createElement("h3");
-    dexOutputEl.innerText = "14";
+    dexOutputEl.innerText = currentCharacter.abilityScores.dexterity;
 
     dexDivEl.append(dexTitleEl);
     dexDivEl.append(dexOutputEl);
@@ -276,7 +276,7 @@ function displayOutputView(mainContainerEl, currentCharacter) {
     conTitleEl.innerText = "Constitution";
 
     const conOutputEl = document.createElement("h3");
-    conOutputEl.innerText = "13";
+    conOutputEl.innerText = currentCharacter.abilityScores.constitution;
 
     conDivEl.append(conTitleEl);
     conDivEl.append(conOutputEl);
@@ -289,7 +289,7 @@ function displayOutputView(mainContainerEl, currentCharacter) {
     intTitleEl.innerText = "Intelligence";
 
     const intOutputEl = document.createElement("h3");
-    intOutputEl.innerText = "12";
+    intOutputEl.innerText = currentCharacter.abilityScores.intelligence;
 
     intDivEl.append(intTitleEl);
     intDivEl.append(intOutputEl);
@@ -302,7 +302,7 @@ function displayOutputView(mainContainerEl, currentCharacter) {
     wisTitleEl.innerText = "Wisdom";
 
     const wisOutputEl = document.createElement("h3");
-    wisOutputEl.innerText = "10";
+    wisOutputEl.innerText = currentCharacter.abilityScores.wisdom;
 
     wisDivEl.append(wisTitleEl);
     wisDivEl.append(wisOutputEl);
@@ -315,7 +315,7 @@ function displayOutputView(mainContainerEl, currentCharacter) {
     chaTitleEl.innerText = "Charisma";
 
     const chaOutputEl = document.createElement("h3");
-    chaOutputEl.innerText = "8";
+    chaOutputEl.innerText = currentCharacter.abilityScores.charisma;
 
     chaDivEl.append(chaTitleEl);
     chaDivEl.append(chaOutputEl);

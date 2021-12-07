@@ -1,0 +1,58 @@
+.forSections { 
+
+}
+
+.center-content {
+    display: grid;
+    margin: 1rem auto;
+    padding: 1rem;
+    width: 65%;
+    grid-template-columns: 1fr 4fr;
+    background-color: #549269;
+    border-radius: 4px;
+}
+
+.center-content h1 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    font-size: 3rem;
+    text-align: center;
+}
+
+.center-content h2 {
+    font-size: 2rem;
+}
+
+.center-content ul {
+    padding: 0;
+    margin : .5rem;
+}
+
+.center-content li {
+    font-size: 1.3rem !important;
+    list-style: none;
+    padding: 0;
+}
+
+.center-content  li .strong {
+    font-size: 1.4rem !important;
+    color: white;
+}
+
+.center-content a {
+    color: white;
+}
+
+.img-div {
+    height: 160px;
+    width: 160px;
+    background-color: rgb(49, 56, 52);
+    border-radius: 50%;
+    
+}
+
+img {
+    height:100%;
+    width: 100%;
+    border-radius: 50%;
+}

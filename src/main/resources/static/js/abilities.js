@@ -6,6 +6,8 @@ import {displayOutputView} from "./output.js";
 
 function displayAbilitiesView(mainContainerEl, currentCharacter) {
 
+    let abilityChoices = [];
+
     displayHeader(mainContainerEl);
 
     //creating arrays for button to cycle through
@@ -29,11 +31,15 @@ function displayAbilitiesView(mainContainerEl, currentCharacter) {
     const abilitiesDiv = document.createElement("div");
     abilitiesDiv.classList.add("abilitiesViewDiv");
 
+    const abilitiesPageTitleEl = document.createElement("h1");
+    abilitiesPageTitleEl.classList.add("abilitiesPageTitle");
+    abilitiesPageTitleEl.innerText = "Ability Scores";
+
     const defaultDivEl = document.createElement("div");
     defaultDivEl.classList.add("abilitySelectDiv");
 
     const defaultTitleEl = document.createElement("h4");
-    defaultTitleEl.classList.add("abilityTitle");
+    defaultTitleEl.classList.add("abilitySelectTitle");
     defaultTitleEl.innerText = abilityNames[0];
 
     const defaultInputEl = document.createElement("select");
@@ -41,7 +47,7 @@ function displayAbilitiesView(mainContainerEl, currentCharacter) {
 
     const abilityButtonEl = document.createElement("button");
     abilityButtonEl.classList.add("abilityButton");
-    abilityButtonEl.innerText = "Next Ability Score";
+    abilityButtonEl.innerText = "OK";
 
     //creating ability score output display
 
@@ -51,10 +57,12 @@ function displayAbilitiesView(mainContainerEl, currentCharacter) {
     const abilitiesOutputDiv = document.createElement("div");
     abilitiesOutputDiv.classList.add("abilitiesOutputDiv");
     
+    const abilitiesOutputTitleEl = document.createElement("h2");
+    abilitiesOutputTitleEl.classList.add("abilitiesOutputTitle");
+    abilitiesOutputTitleEl.innerText = currentCharacter.baseFeatures.name + "'s Ability Scores";
 
-    const abilitiesTitleEl = document.createElement("h4");
-    abilitiesTitleEl.classList.add("abilitiesTitle");
-    abilitiesTitleEl.innerText = "Ability Scores";
+    const scoreOutputHolderDivEl = document.createElement("div");
+    scoreOutputHolderDivEl.classList.add("scoreOutputHolderDiv");
 
     const strDivEl = document.createElement("div");
     strDivEl.classList.add("abilityDiv");
@@ -64,7 +72,8 @@ function displayAbilitiesView(mainContainerEl, currentCharacter) {
     strTitleEl.innerText = "STR";
 
     const strOutputEl = document.createElement("h3");
-    strOutputEl.innerText = "15";
+    strOutputEl.innerText = "";
+    strOutputEl.classList.add("scoreNumber");
 
     strDivEl.append(strTitleEl);
     strDivEl.append(strOutputEl);
@@ -77,7 +86,8 @@ function displayAbilitiesView(mainContainerEl, currentCharacter) {
     dexTitleEl.innerText = "DEX";
 
     const dexOutputEl = document.createElement("h3");
-    dexOutputEl.innerText = "14";
+    dexOutputEl.innerText = "";
+    dexOutputEl.classList.add("scoreNumber");
 
     dexDivEl.append(dexTitleEl);
     dexDivEl.append(dexOutputEl);
@@ -90,7 +100,8 @@ function displayAbilitiesView(mainContainerEl, currentCharacter) {
     conTitleEl.innerText = "CON";
 
     const conOutputEl = document.createElement("h3");
-    conOutputEl.innerText = "13";
+    conOutputEl.innerText = "";
+    conOutputEl.classList.add("scoreNumber");
 
     conDivEl.append(conTitleEl);
     conDivEl.append(conOutputEl);
@@ -103,7 +114,8 @@ function displayAbilitiesView(mainContainerEl, currentCharacter) {
     intTitleEl.innerText = "INT";
 
     const intOutputEl = document.createElement("h3");
-    intOutputEl.innerText = "12";
+    intOutputEl.innerText = "";
+    intOutputEl.classList.add("scoreNumber");
 
     intDivEl.append(intTitleEl);
     intDivEl.append(intOutputEl);
@@ -116,7 +128,8 @@ function displayAbilitiesView(mainContainerEl, currentCharacter) {
     wisTitleEl.innerText = "WIS";
 
     const wisOutputEl = document.createElement("h3");
-    wisOutputEl.innerText = "10";
+    wisOutputEl.innerText = "";
+    wisOutputEl.classList.add("scoreNumber");
 
     wisDivEl.append(wisTitleEl);
     wisDivEl.append(wisOutputEl);
@@ -129,22 +142,26 @@ function displayAbilitiesView(mainContainerEl, currentCharacter) {
     chaTitleEl.innerText = "CHA";
 
     const chaOutputEl = document.createElement("h3");
-    chaOutputEl.innerText = "8";
+    chaOutputEl.innerText = "";
+    chaOutputEl.classList.add("scoreNumber");
 
     chaDivEl.append(chaTitleEl);
     chaDivEl.append(chaOutputEl);
 
-    abilitiesOutputDiv.append(strDivEl);
-    abilitiesOutputDiv.append(dexDivEl);
-    abilitiesOutputDiv.append(conDivEl);
-    abilitiesOutputDiv.append(wisDivEl);
-    abilitiesOutputDiv.append(intDivEl);
-    abilitiesOutputDiv.append(chaDivEl);
+    // making finish character
 
+    const finishCharacterButtonEl = document.createElement("button");
+    finishCharacterButtonEl.innerText = "Finish Character!";
+    finishCharacterButtonEl.classList.add("finishCharacterButton");
 
-
-    
-
+    abilitiesOutputDiv.append(abilitiesOutputTitleEl);
+    scoreOutputHolderDivEl.append(strDivEl);
+    scoreOutputHolderDivEl.append(dexDivEl);
+    scoreOutputHolderDivEl.append(conDivEl);
+    scoreOutputHolderDivEl.append(intDivEl);
+    scoreOutputHolderDivEl.append(wisDivEl);
+    scoreOutputHolderDivEl.append(chaDivEl);
+    abilitiesOutputDiv.append(scoreOutputHolderDivEl);
 
     let i;
     let j = 0;
@@ -157,97 +174,77 @@ function displayAbilitiesView(mainContainerEl, currentCharacter) {
 
     abilityButtonEl.addEventListener("click", () =>{
         j++;
-        scores.splice(defaultInputEl.selectedIndex, 1);
-        console.log(defaultInputEl.value);
-        console.log(scores);
+        abilityChoices.push(scores.splice(defaultInputEl.selectedIndex, 1)[0]);    
+        // console.log(defaultInputEl.value);
+        // console.log(scores);
         removeOptions(defaultInputEl);
         for(i = 0; i < scores.length; i++) {
             let optionEl = document.createElement("option");
             optionEl.setAttribute('value', scores[i]);
             optionEl.innerText = scores[i].toString();
             defaultInputEl.append(optionEl);
-            
-            
         }
         defaultTitleEl.innerText = abilityNames[j];
         console.log(j);
         console.log(abilityNames);
         
         if(j===6){
-            abilityButtonEl.style.display = "none";
-            defaultInputEl.style.display = "none";
-            defaultTitleEl.style.display = "none";
-            abilitiesHolderDivEl.style.display = "block";
-            
-        }
+            strOutputEl.innerText = abilityChoices[0];
+            dexOutputEl.innerText = abilityChoices[1];
+            conOutputEl.innerText = abilityChoices[2];
+            intOutputEl.innerText = abilityChoices[3];
+            wisOutputEl.innerText = abilityChoices[4];
+            chaOutputEl.innerText = abilityChoices[5];
+            defaultDivEl.style.display = "none";
+            abilitiesHolderDivEl.style.display = "block";   
+            finishCharacterButtonEl.style.display = "block";
+            console.log(abilityChoices);
+        }    
     })
+
+    finishCharacterButtonEl.addEventListener("click", () => {
+        console.log(abilityChoices);
+        const abilityScoreJson = {
+            "strength": abilityChoices[0],
+            "dexterity": abilityChoices[1],
+            "constitution": abilityChoices[2],
+            "intelligence": abilityChoices[3],
+            "wisdom": abilityChoices[4],
+            "charisma": abilityChoices[5]
+        };
+          
+        fetch(`http://localhost:8080/buildcharacter/abilityscore/${currentCharacter.id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(abilityScoreJson)
+        })
+        .then(res => res.json())
+        .then(character => {
+            clearChildren(mainContainerEl);
+            displayOutputView(mainContainerEl, character);
+            currentCharacter = character;
+        })
+        .catch(err => console.error(err));
+    })
+        
+    //viewport height spacing div
+    const spacingDivEl = document.createElement("div");
+    spacingDivEl.classList.add("spacingDiv");
 
     defaultDivEl.append(defaultTitleEl);
     defaultDivEl.append(defaultInputEl);
     defaultDivEl.append(abilityButtonEl);
-
-    // const dexDivEl = document.createElement("div");
-    // dexDivEl.classList.add("abilityDiv");
-
-    // const dexTitleEl = document.createElement("h4");
-    // dexTitleEl.classList.add("abilityTitle");
-    // dexTitleEl.innerText = "Dexterity";
-
-    // const dexInputEl = document.createElement("select");
-
-    // const abilityButtonEl = document.createElement("button");
-    // abilityButtonEl.classList.add("abilityButton");
-    // abilityButtonEl.innerText = "Next Ability Score";
-
-    
-    // dexDivEl.append(dexTitleEl);
-    // dexDivEl.append(strInputEl);
-    // dexDivEl.append(abilityButtonEl);
-
-    // const conDivEl = document.createElement("div");
-    // conDivEl.classList.add("abilityDiv");
-
-    // const conTitleEl = document.createElement("h4");
-    // conTitleEl.classList.add("abilityTitle");
-    // conTitleEl.innerText = "Constitution";
-
-    // const conInputEl = document.createElement("select");
-
-    // const abilityButtonEl = document.createElement("button");
-    // abilityButtonEl.classList.add("abilityButton");
-    // abilityButtonEl.innerText = "Next Ability Score";
-
-    
-    // conDivEl.append(conTitleEl);
-    // conDivEl.append(conInputEl);
-    // conDivEl.append(abilityButtonEl);
-
-    // const wisDivEl = document.createElement("div");
-    // wisDivEl.classList.add("abilityDiv");
-
-    // const wisTitleEl = document.createElement("h4");
-    // wisTitleEl.classList.add("abilityTitle");
-    // wisTitleEl.innerText = "Wisdom";
-
-    // const wisInputEl = document.createElement("select");
-
-    // const abilityButtonEl = document.createElement("button");
-    // abilityButtonEl.classList.add("abilityButton");
-    // abilityButtonEl.innerText = "Next Ability Score";
-
-    
-    // wisDivEl.append(dexTitleEl);
-    // wisDivEl.append(strInputEl);
-    // wisDivEl.append(abilityButtonEl);
-
-    
     abilitiesHolderDivEl.append(abilitiesOutputDiv);
     abilitiesDiv.append(defaultDivEl);
+    mainContentDiv.append(abilitiesPageTitleEl);
     mainContentDiv.append(abilitiesDiv);
     mainContentDiv.append(abilitiesHolderDivEl);
-    mainContainerEl.append(mainContentDiv);
+    spacingDivEl.append(mainContentDiv);
+    mainContainerEl.append(spacingDivEl);
+    mainContainerEl.append(finishCharacterButtonEl);
     
-
     displayFooter(mainContainerEl);
 }
 

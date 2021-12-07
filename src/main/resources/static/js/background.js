@@ -3,6 +3,7 @@ import {displayHeader} from "./app.js";
 import {displayFooter} from "./app.js";
 import { displayRaceView } from "./race.js";
 import {displayOutputView} from "./output.js";
+import {displayAbilitiesView} from "./abilities.js";
 
 function displayBackgroundView(mainContainerEl, currentCharacter){
 
@@ -350,7 +351,7 @@ function displayBackgroundView(mainContainerEl, currentCharacter){
       .then(res => res.json())
       .then(character => {
         clearChildren(mainContainerEl);
-        displayOutputView(mainContainerEl, character);
+        displayAbilitiesView(mainContainerEl, character);
         currentCharacter = character;
       })
       .catch(err => console.error(err));
