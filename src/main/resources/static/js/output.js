@@ -11,28 +11,155 @@ function displayOutputView(mainContainerEl, currentCharacter) {
 
     const mainContentDivEl = document.createElement("div");
     mainContentDivEl.classList.add("mainContentDiv");
+    
+    const outputDivEl = document.createElement("div");
+    outputDivEl.classList.add("finalOutputDiv");
+   
+    mainContentDivEl.append(outputDivEl);
+    // mainContainerEl.append(mainContentDivEl);  Redundant SHOULDN'T BE HERE PROBABLY APPENDS TO MAIN PAGE ON INDEX 
+
+// HEADER & PRINT BUTTONS 
+    const headingDiv =document.createElement("div");
+    headingDiv.classList.add("heading");
 
     const outputHeaderEl = document.createElement("h1");
-    outputHeaderEl.classList.add("outputHeader");
-    outputHeaderEl.innerText = "Dungeons & Dragons";
+    outputHeaderEl.innerText = "Dungeons & Dragons Final Character";
 
-    const outputDivEl = document.createElement("div");
-    outputDivEl.classList.add("outputDiv");
+    const emailCharBtn =document.createElement("button");
+    emailCharBtn.setAttribute("id, user-email");
 
-    // Base Features Div
+    const printCharBtn =document.createElement("button");
+    printCharBtn.setAttribute("id, user-print");
+
+    const tweetCharBtn =document.createElement("button");
+    tweetCharBtn.setAttribute("id, user-tweet");
+
+    headingDiv.append(outputHeaderEl);
+    headingDiv.append(emailCharBtn);
+    headingDiv.append(printCharBtn);
+    headingDiv.append(tweetCharBtn);
+    outputDivEl.append(headingDiv);
+
+// Base Features Div
+
+    const baseFeaturesDiv = document.createElement("div");
+    baseFeaturesDiv.classList.add("outputDiv");
+
+// Current Features Sections
+    const baseCurrentSection =documet.createElement("section");
+    baseCurrentSection.classList.add("base, current-seclection");
+    baseCurrentSection.setAttribute("id, base");
+    
+    const baseHeading =document.createElement("h1");
+    baseHeading.innerText= "Current Base Features";
 
     const nameLabelEl = document.createElement("h3");
     nameLabelEl.innerText = "Name";
-
-    const nameOutputDivEl = document.createElement("div");
-    nameOutputDivEl.classList.add("outputDiv");
     
-    const nameOutputEl = document.createElement("h4");
+    const nameOutputEl = document.createElement("small");
     nameOutputEl.innerText = currentCharacter.baseFeatures.name;
 
-    nameOutputDivEl.append(nameOutputEl);
+    const levelEl = document.createElement("h3");
+    levelEl.innerText = "Level";
 
-    // Class Features Div
+    const levelOutputEl = document.createElement("small");
+    levelOutputEl.innerText = currentCharacter.baseFeatures.level;
+
+    const alignmentEl = document.createElement("h3");
+    alignmentEl.innerText = "Alignment";
+    
+    const alignmentOutputEl = document.createElement("small");
+    alignmentOutputEl.innerText = currentCharacter.baseFeatures.alignment;
+
+    const profBonus = document.createElement("h3");
+    profBonus.innerText = "Proficiency Bonus";
+    
+    const bonusOutputEl = document.createElement("small");
+    bonusOutputEl.innerText = currentCharacter.baseFeatures.proficiencyBonus;
+
+    const experiencePointsEl = document.createElement("h3");
+    experiencePointsEl.innerText = "Experience Points";
+    
+    const experiencePointsOutputEl = document.createElement("small");
+    experiencePointsOutputEl.innerText = currentCharacter.baseFeatures.experiencePoints;   
+
+    baseCurrentSection.append(experiencePointsOutputEl);
+    baseCurrentSection.append(experiencePointsEl);
+    baseCurrentSection.append(profBonus);
+    baseCurrentSection.append(bonusOutputEl);
+    baseCurrentSection.append(alignmentOutputEl);
+    baseCurrentSection.append(alignmentEl);
+    baseCurrentSection.append(levelOutputEl);
+    baseCurrentSection.append(levelEl);
+    baseCurrentSection.append(nameOutputEl);
+    baseCurrentSection.append(nameLabelEl);  
+    baseCurrentSection.append(baseHeading);
+    baseFeaturesDiv.append(baseCurrentSection);
+    mainContentDivEl.append(baseFeaturesDiv);
+ 
+// Edit Base Features Section 
+
+    const baseEditWrapper= document.createElement("div");
+    baseEditWrapper.classList.add("edit-div");
+    baseEditWrapper.setAttribute("id, edit-base");
+
+    const editBaseSection =documet.createElement("section");
+    editBaseSection.classList.add("base, edits");
+    
+    const editBaseH1 =document.createElement("h3");
+    editBaseH1.innerText= "Edit Base Features";
+
+    const editName = document.createElement("input");
+    editName.type = "text";
+    editName.placeholder = "Edit Your Character's Name";
+
+    const levelFieldEl = document.createElement("input");
+    levelFieldEl.type = "number";
+    levelFieldEl.placeholder = "Choose 1-3";
+
+    const editPB = document.createElement("input");
+    editPB.type = "text";
+    editPB.placeholder = "Edit Proficnency Bonus";
+
+    const editXP = document.createElement("input");
+    editXP.type = "text";
+    editXP.placeholder = "Edit Expereince Points";
+
+    editBaseSection.append(editXP);
+    editBaseSection.append(editPB);
+    editBaseSection.append(levelFieldEl);
+    editBaseSection.append(editName);
+    editBaseSection.append(editBaseH1);
+    baseEditWrapper.append(editBaseSection);
+    baseFeaturesDiv.append(baseEditWrapper);
+
+// Base Feature Buttons
+
+    const editBtnDiv= document.createElement("div");
+    editBtnDiv.classList.add("edit-button-div");
+
+    const baseEditBtn= document.createElement("button");
+    baseEditBtn.classList.add("edit-button");
+    baseEditBtn.setAttribute("id, base-edit-button");
+
+    const cancSubBtnDiv= document.createElement("div");
+    cancSubBtnDiv.classList.add("cancel-submit");
+
+    const baseCancEdit= document.createElement("button");
+    baseCancEdit.classList.add("edit, cancel");
+    baseCancEdit.setAttribute("id, base-cancel-edit");
+    
+    const baseSubmit= document.createElement("button");
+    baseSubmit.classList.add("edit, submit");
+    baseSubmit.setAttribute("id, base-submit");
+
+    editBtnDiv.append(baseEditBtn);    
+    cancSubBtnDiv.append(baseCancEdit);
+    cancSubBtnDiv.append(baseSubmit);
+    baseFeaturesDiv.append(editBtnDiv);
+    baseFeaturesDiv.append(cancSubBtnDiv);
+
+// Class Features Div
 
     const classLabelEl = document.createElement("h3");
     classLabelEl.innerText = "Class";
@@ -44,6 +171,9 @@ function displayOutputView(mainContainerEl, currentCharacter) {
     classOutputEl.innerText = currentCharacter.dndClass.name;
 
     classOutputDivEl.append(classOutputEl);
+    outputDivEl.append(classLabelEl);
+    outputDivEl.append(classOutputEl);
+   
 
     // Background Features Div
     const backgroundOutputDivEl = document.createElement("div");
@@ -58,9 +188,10 @@ function displayOutputView(mainContainerEl, currentCharacter) {
     
     
     backgroundOutputDivEl.append(backgroundOutputEl);
+    outputDivEl.append(backgroundLabelEl);
+    outputDivEl.append(backgroundOutputEl);
 
-
-    // Race Features Div 
+// Race Features Div 
 
     const raceEl = document.createElement("h3");
     raceEl.innerText = "Race";
@@ -72,56 +203,11 @@ function displayOutputView(mainContainerEl, currentCharacter) {
     raceOutputEl.innerText = currentCharacter.race.name;
 
     raceOutputDivEl.append(raceOutputEl);
+    outputDivEl.append(raceEl);
+    outputDivEl.append(raceOutputDivEl);
+   
 
-
-// NEEDS TO BE APPENDED AND ADDED TO BASE 
-    const levelEl = document.createElement("h3");
-    levelEl.innerText = "Level";
-
-    const levelOutputDivEl = document.createElement("div");
-    levelOutputDivEl.classList.add("outputDiv");
-    
-    const levelOutputEl = document.createElement("h4");
-    levelOutputEl.innerText = currentCharacter.baseFeatures.level;
-
-    levelOutputDivEl.append(levelOutputEl);
-
-    const alignmentEl = document.createElement("h3");
-    alignmentEl.innerText = "Alignment";
-
-    const alignmentOutputDivEl = document.createElement("div");
-    alignmentOutputDivEl.classList.add("outputDiv");
-    
-    const alignmentOutputEl = document.createElement("h4");
-    alignmentOutputEl.innerText = currentCharacter.baseFeatures.alignment;
-
-    alignmentOutputDivEl.append(alignmentOutputEl);
-
-
-// EXPERIENCE POINTS LIKELY REMOVED 
-    const experiencePointsEl = document.createElement("h3");
-    experiencePointsEl.innerText = "Experience Points";
-
-    const experiencePointsOutputDivEl = document.createElement("div");
-    experiencePointsOutputDivEl.classList.add("outputDiv");
-    
-    const experiencePointsOutputEl = document.createElement("h4");
-    experiencePointsOutputEl.innerText = currentCharacter.baseFeatures.experiencePoints;
-
-    experiencePointsOutputDivEl.append(experiencePointsOutputEl);
-// ********************************************************************
-
-    const bonusEl = document.createElement("h3");
-    bonusEl.innerText = "Proficiency Bonus";
-
-    const bonusOutputDivEl = document.createElement("div");
-    bonusOutputDivEl.classList.add("outputDiv");
-    
-    const bonusOutputEl = document.createElement("h4");
-    bonusOutputEl.innerText = currentCharacter.baseFeatures.proficiencyBonus;
-
-    bonusOutputDivEl.append(bonusOutputEl);
-
+//  HIT POINTS LIKELY REMOVED 
     const hpEl = document.createElement("h3");
     hpEl.innerText = "Hit Points";
 
@@ -133,7 +219,10 @@ function displayOutputView(mainContainerEl, currentCharacter) {
 
     hpOutputDivEl.append(hpOutputEl);
     
-    //creating ability scores output elements
+    outputDivEl.append(hpEl);
+    outputDivEl.append(hpOutputDivEl);
+
+//---------------------------creating ability scores output elements------------------------------
 
     const abilitiesDivEl = document.createElement("div");
     abilitiesDivEl.classList.add("abilitiesDiv");
@@ -230,32 +319,9 @@ function displayOutputView(mainContainerEl, currentCharacter) {
 
     // append these to the top
 
-    outputDivEl.append(nameLabelEl);
-    outputDivEl.append(nameOutputDivEl);
-    outputDivEl.append(classLabelEl);
-    outputDivEl.append(classOutputEl);
-    outputDivEl.append(backgroundLabelEl);
-    outputDivEl.append(backgroundOutputEl);
-    outputDivEl.append(raceEl);
-    outputDivEl.append(raceOutputDivEl);
-    outputDivEl.append(levelEl);
-    outputDivEl.append(levelOutputDivEl);
-    outputDivEl.append(alignmentEl);
-    outputDivEl.append(alignmentOutputDivEl);
-    outputDivEl.append(experiencePointsEl);
-    outputDivEl.append(experiencePointsOutputDivEl);
-    outputDivEl.append(bonusEl);
-    outputDivEl.append(bonusOutputDivEl);
-    outputDivEl.append(hpEl);
-    outputDivEl.append(hpOutputDivEl);
     outputDivEl.append(abilitiesDivEl);
 
-    mainContentDivEl.append(outputHeaderEl);
-    mainContentDivEl.append(outputDivEl);
-
-    mainContainerEl.append(mainContentDivEl);
-
-   const proficiencyBonusEl = document.createElement("h3");
+    const proficiencyBonusEl = document.createElement("h3");
     proficiencyBonusEl.innerText = "Proficiency Bonus";
 
     const strengthEl = document.createElement("h3");
