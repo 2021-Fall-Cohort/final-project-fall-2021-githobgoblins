@@ -159,23 +159,35 @@ function displayOutputView(mainContainerEl, currentCharacter) {
     baseFeaturesDiv.append(editBtnDiv);
     baseFeaturesDiv.append(cancSubBtnDiv);
 
-// Class Features Div
-
-    const classLabelEl = document.createElement("h3");
-    classLabelEl.innerText = "Class";
-
+// ----------------------------Class Features Div------------------------------
     const classOutputDivEl = document.createElement("div");
     classOutputDivEl.classList.add("outputDiv");
+
+    const editClassSection =documet.createElement("section");
+    editClassSection.classList.add("dnd-class, current-selections");
+    editClassSection.setAttribute("id, dnd-class");    
+
+    const classLabelEl = document.createElement("h3");
+    classLabelEl.innerText = "Current Class";    
     
-    const classOutputEl = document.createElement("h4");
+    const classOutputEl = document.createElement("small");
     classOutputEl.innerText = currentCharacter.dndClass.name;
+
+    const classDes = document.createElement("h3");
+    classDes.innerText = "Description";  
+    
+    const classDesOutput= document.createElement("small");
+    classDesOutput.innerText = currentCharacter.dndClass.description; 
+    
+    
+
 
     classOutputDivEl.append(classOutputEl);
     outputDivEl.append(classLabelEl);
     outputDivEl.append(classOutputEl);
    
 
-    // Background Features Div
+// -----------------------------Background Features Div------------------------------
     const backgroundOutputDivEl = document.createElement("div");
     backgroundOutputDivEl.classList.add("outputDiv");
 
@@ -183,8 +195,7 @@ function displayOutputView(mainContainerEl, currentCharacter) {
     backgroundLabelEl.innerText = "Background";
      
     const backgroundOutputEl = document.createElement("h4");
-    backgroundOutputEl.innerText = currentCharacter.background.name;
-    
+    backgroundOutputEl.innerText = currentCharacter.background.name;   
     
     
     backgroundOutputDivEl.append(backgroundOutputEl);
