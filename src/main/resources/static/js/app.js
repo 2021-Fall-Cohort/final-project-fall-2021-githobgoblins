@@ -35,6 +35,13 @@ function displayHeader(mainContainerEl) {
     const createLiEl = document.createElement("li");
     createLiEl.innerText = "Create a Character";
     createLiEl.classList.add("headerLi");
+    createLiEl.addEventListener("click", ()=> {
+        clearChildren(mainContainerEl);
+        displayHeader(mainContainerEl);
+        displayFeaturesView(mainContainerEl);
+        displayFooter(mainContainerEl);
+    })
+
     
     const userCreationsLiEl = document.createElement("li");
     userCreationsLiEl.innerText = "User Creations";
@@ -56,7 +63,9 @@ function displayHeader(mainContainerEl) {
     meetLiEl.addEventListener("click", ()=> {
         clearChildren(mainContainerEl);
         displayHeader(mainContainerEl);
-        mainContainerEl.innerHTML += displayContacts();
+        let contactsEl = document.createElement("div");
+        contactsEl.innerHTML= displayContacts();
+        mainContainerEl.append(contactsEl);
         displayFooter(mainContainerEl);
 
     });
@@ -105,8 +114,9 @@ function clearChildren(element) {
     }
 };
 
+
 // displayOutputView(mainContainerEl);
-displayFeaturesView(mainContainerEl);
+ displayFeaturesView(mainContainerEl);
 // displayDNDClassView(mainContainerEl);
 // displayRaceView(mainContainerEl);
 // // displayBackgroundView(mainContainerEl);

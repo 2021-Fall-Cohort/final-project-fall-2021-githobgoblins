@@ -40,7 +40,7 @@ section {
 }
 
 .infoBoxDiv p {
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: #fff;
     margin: 2rem;
 }
@@ -53,6 +53,10 @@ section {
 
 .item-list {
     list-style-type: none;
+}
+
+.class-info {
+    font-size: 1.5rem;
 }
 
 .clicktohide {

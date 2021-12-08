@@ -1,3 +1,5 @@
+import { classJson, raceJson, backgroundJson } from "./descJson.js";
+
 function displayRulesPage(mainContainerEl) {
     const mainSection = document.createElement("section");
     mainSection.classList.add("content-section");
@@ -92,20 +94,56 @@ function displayRulesPage(mainContainerEl) {
     listItem1.appendChild(item1Button);
 
     item1Button.addEventListener("click", ()=>{
-
-        fetch('https://www.dnd5eapi.co/api/traits/darkvision/', {
+        let i = 0;
+        infoBoxText.innerText = "";
+        fetch('https://www.dnd5eapi.co/api/classes', {
         method: 'GET'
     })
         .then(response => response.json())
         .then(classes => {
-            infoBoxText.innerText = classes;
-            console.log("fetch complete");
+            classes.results.forEach(result=> {
+                let classObjectName = document.createElement("h3");
+                classObjectName.innerText = result.name;
+                infoBoxText.appendChild(classObjectName);
+
+                let classDesc = document.createElement("p");
+                classDesc.classList.add("class-info");
+
+                classDesc.innerText = classJson[i].desc;
+
+                classObjectName.append(classDesc);
+                i++;
+            });
         })
     });
 
     //races
     contentUL.appendChild(listItem2);
     listItem2.appendChild(item2Button);
+    item2Button.addEventListener("click", ()=>{
+        let i = 0;
+        infoBoxText.innerText = "";
+        fetch('https://www.dnd5eapi.co/api/races', {
+        method: 'GET'
+        })
+        .then(response => response.json())
+        .then(races => {
+            races.results.forEach(result => {
+                let raceObjectName = document.createElement("h3");
+                raceObjectName.innerText = result.name;
+                infoBoxText.appendChild(raceObjectName);
+
+                let raceDesc = document.createElement("p");
+                raceDesc.classList.add("race-info");
+                raceDesc.innerText = classJson[i].desc;
+
+                raceObjectName.append(raceDesc);
+                i++;
+            })
+        })
+
+    })
+
 
     //backgrounds
     contentUL.appendChild(listItem3);
