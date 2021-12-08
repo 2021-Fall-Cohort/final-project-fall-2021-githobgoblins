@@ -23,8 +23,13 @@ function displayHeader(mainContainerEl){
     
     const homeLiEl = document.createElement("li");
     homeLiEl.classList.add("headerLi");
-    homeLiEl.innerText = "Home";
     
+    const goblinLogoEl = document.createElement("img");
+    goblinLogoEl.classList.add("goblinLogo");
+    goblinLogoEl.src = "/src/main/resources/static/images/goblin.png";
+    
+    homeLiEl.append(goblinLogoEl);
+
     const createLiEl = document.createElement("li");
     createLiEl.innerText = "Create a Character";
     createLiEl.classList.add("headerLi");
@@ -79,7 +84,6 @@ function displayFooter(mainContainerEl){
     footerEl.append(yearEl);
     
     mainContainerEl.append(footerEl);
-
 }
 
 
