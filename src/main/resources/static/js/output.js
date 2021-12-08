@@ -25,22 +25,22 @@ function displayOutputView(mainContainerEl, currentCharacter) {
         const emailCharBtn =document.createElement("button");
         emailCharBtn.setAttribute("id", "user-email,");
         emailCharBtn.classList.add("output-button");
-        emailCharBtn.innerText="Email Character";
+        emailCharBtn.innerText="Download Character";
 
-        const printCharBtn =document.createElement("button");
-        printCharBtn.setAttribute("id", "user-print");
-        printCharBtn.classList.add("output-button");
-        printCharBtn.innerText="Print Character";
+        // const printCharBtn =document.createElement("button");
+        // printCharBtn.setAttribute("id", "user-print");
+        // printCharBtn.classList.add("output-button");
+        // printCharBtn.innerText="Print Character";
 
-        const tweetCharBtn =document.createElement("button");
-        tweetCharBtn.setAttribute("id", "user-tweet");
-        tweetCharBtn.classList.add("output-button");
-        tweetCharBtn.innerText="Tweet Character";
+        // const tweetCharBtn =document.createElement("button");
+        // tweetCharBtn.setAttribute("id", "user-tweet");
+        // tweetCharBtn.classList.add("output-button");
+        // tweetCharBtn.innerText="Tweet Character";
 
         headingDiv.append(outputHeaderEl);
         headingDiv.append(emailCharBtn);
-        headingDiv.append(printCharBtn);
-        headingDiv.append(tweetCharBtn);
+        // headingDiv.append(printCharBtn);
+        // headingDiv.append(tweetCharBtn);
         outputDivEl.append(headingDiv);
         
 // ****************BASE FEASTURES******************************
@@ -239,32 +239,32 @@ function displayOutputView(mainContainerEl, currentCharacter) {
 
 //------------- Base Feature Buttons-----------
 
-    const editBtnDiv= document.createElement("div");
-    editBtnDiv.classList.add("edit-btn-div");
+    // const editBtnDiv= document.createElement("div");
+    // editBtnDiv.classList.add("edit-btn-div");
 
-    const baseEditBtn= document.createElement("button");
-    baseEditBtn.classList.add("edit-button", "output-button");
-    baseEditBtn.setAttribute("id", "base-edit-button");
-    baseEditBtn.innerText="Edit";
+    // const baseEditBtn= document.createElement("button");
+    // baseEditBtn.classList.add("edit-button", "output-button");
+    // baseEditBtn.setAttribute("id", "base-edit-button");
+    // baseEditBtn.innerText="Edit";
     
 
     const cancSubBtnDiv= document.createElement("div");
     cancSubBtnDiv.classList.add("cancel-submit", "output-button");
 
-    const baseCancEdit= document.createElement("button");
-    baseCancEdit.classList.add("edit", "cancel", "output-button");
-    baseCancEdit.setAttribute("id", "base-cancel-edit");
-    baseCancEdit.innerText="Cancel Edit";
+    // const baseCancEdit= document.createElement("button");
+    // baseCancEdit.classList.add("edit", "cancel", "output-button");
+    // baseCancEdit.setAttribute("id", "base-cancel-edit");
+    // baseCancEdit.innerText="Cancel Edit";
     
     const baseSubmit= document.createElement("button");
     baseSubmit.classList.add("edit", "submit", "output-button");
     baseSubmit.setAttribute("id", "base-submit");
     baseSubmit.innerText="Submit";
 
-    editBtnDiv.append(baseEditBtn);    
-    cancSubBtnDiv.append(baseCancEdit);
+    // editBtnDiv.append(baseEditBtn);    
+    // cancSubBtnDiv.append(baseCancEdit);
     cancSubBtnDiv.append(baseSubmit);
-    baseFeaturesDiv.append(editBtnDiv);
+    // baseFeaturesDiv.append(editBtnDiv);
     baseFeaturesDiv.append(cancSubBtnDiv);
 
 //  Edit, Cancel Edit and Submit Event Listeners 
@@ -417,32 +417,32 @@ function displayOutputView(mainContainerEl, currentCharacter) {
             
     //------------- Class Buttons-----------
 
-    const classEditBtnDiv= document.createElement("div");
-    classEditBtnDiv.classList.add("edit-btn-div");
+    // const classEditBtnDiv= document.createElement("div");
+    // classEditBtnDiv.classList.add("edit-btn-div");
 
-    const classEditBtn= document.createElement("button");
-    classEditBtn.classList.add("edit-button", "output-button");
-    classEditBtn.setAttribute("id", "class-edit-button");
-    classEditBtn.innerText="Edit";
+    // const classEditBtn= document.createElement("button");
+    // classEditBtn.classList.add("edit-button", "output-button");
+    // classEditBtn.setAttribute("id", "class-edit-button");
+    // classEditBtn.innerText="Edit";
     
 
     const classCancSubmitDiv= document.createElement("div");
     classCancSubmitDiv.classList.add("cancel-submit", "output-button");
 
-    const classCancEdit= document.createElement("button");
-    classCancEdit.classList.add("edit", "cancel", "output-button");
-    classCancEdit.setAttribute("id", "class-cancel-edit");
-    classCancEdit.innerText="Cancel Edit";
+    // const classCancEdit= document.createElement("button");
+    // classCancEdit.classList.add("edit", "cancel", "output-button");
+    // classCancEdit.setAttribute("id", "class-cancel-edit");
+    // classCancEdit.innerText="Cancel Edit";
     
     const classSubmitBtn= document.createElement("button");
     classSubmitBtn.classList.add("edit", "submit", "output-button");
     classSubmitBtn.setAttribute("id", "class-submit");
     classSubmitBtn.innerText="Submit";
 
-    classEditBtnDiv.append(classEditBtn);    
-    classCancSubmitDiv.append(classCancEdit);
+    // classEditBtnDiv.append(classEditBtn);    
+    // classCancSubmitDiv.append(classCancEdit);
     classCancSubmitDiv.append(classSubmitBtn);
-    dndClassDiv.append(classEditBtnDiv);
+    // dndClassDiv.append(classEditBtnDiv);
     dndClassDiv.append(classCancSubmitDiv);
 
 //  Edit, Cancel Edit and Submit Event Listeners 
@@ -598,32 +598,32 @@ function displayOutputView(mainContainerEl, currentCharacter) {
 
 //------------- Background Buttons-----------
 
-    const bgEditBtnDiv= document.createElement("div");
-    bgEditBtnDiv.classList.add("edit-btn-div");
+    // const bgEditBtnDiv= document.createElement("div");
+    // bgEditBtnDiv.classList.add("edit-btn-div");
 
-    const bgEditBtn= document.createElement("button");
-    bgEditBtn.classList.add("edit-button", "output-button");
-    bgEditBtn.setAttribute("id", "bg-edit-button");
-    bgEditBtn.innerText="Edit";
+    // const bgEditBtn= document.createElement("button");
+    // bgEditBtn.classList.add("edit-button", "output-button");
+    // bgEditBtn.setAttribute("id", "bg-edit-button");
+    // bgEditBtn.innerText="Edit";
     
 
     const bgCancSubDiv= document.createElement("div");
     bgCancSubDiv.classList.add("cancel-submit", "output-button");
 
-    const bgCancEdit= document.createElement("button");
-    bgCancEdit.classList.add("edit", "cancel", "output-button");
-    bgCancEdit.setAttribute("id", "bg-cancel-edit");
-    bgCancEdit.innerText="Cancel Edit";
+    // const bgCancEdit= document.createElement("button");
+    // bgCancEdit.classList.add("edit", "cancel", "output-button");
+    // bgCancEdit.setAttribute("id", "bg-cancel-edit");
+    // bgCancEdit.innerText="Cancel Edit";
     
     const bgSubmit= document.createElement("button");
     bgSubmit.classList.add("edit", "submit", "output-button");
     bgSubmit.setAttribute("id", "bg-submit");
     bgSubmit.innerText="Submit";
 
-    bgEditBtnDiv.append(bgEditBtn);    
-    bgCancSubDiv.append(bgCancEdit);
+    // bgEditBtnDiv.append(bgEditBtn);    
+    // bgCancSubDiv.append(bgCancEdit);
     bgCancSubDiv.append(bgSubmit);
-    bgDiv.append(bgEditBtnDiv);
+    // bgDiv.append(bgEditBtnDiv);
     bgDiv.append(bgCancSubDiv);
 
 //--------------------  Event Listener 
@@ -750,31 +750,31 @@ function displayOutputView(mainContainerEl, currentCharacter) {
 
  //------------- Race Buttons-----------
 
-    const raceEditBtnDiv= document.createElement("div");
-    raceEditBtnDiv.classList.add("edit-btn-div");
+    // const raceEditBtnDiv= document.createElement("div");
+    // raceEditBtnDiv.classList.add("edit-btn-div");
 
-    const raceEditBtn= document.createElement("button");
-    raceEditBtn.classList.add("edit-button", "output-button");
-    raceEditBtn.setAttribute("id", "race-edit-button");
-    raceEditBtn.innerText="Edit";    
+    // const raceEditBtn= document.createElement("button");
+    // raceEditBtn.classList.add("edit-button", "output-button");
+    // raceEditBtn.setAttribute("id", "race-edit-button");
+    // raceEditBtn.innerText="Edit";    
 
     const raceCancSubmitDiv= document.createElement("div");
     raceCancSubmitDiv.classList.add("cancel-submit", "output-button");
 
-    const raceCancEdit= document.createElement("button");
-    raceCancEdit.classList.add("edit", "cancel", "output-button");
-    raceCancEdit.setAttribute("id", "race-cancel-edit");
-    raceCancEdit.innerText="Cancel Edit";
+    // const raceCancEdit= document.createElement("button");
+    // raceCancEdit.classList.add("edit", "cancel", "output-button");
+    // raceCancEdit.setAttribute("id", "race-cancel-edit");
+    // raceCancEdit.innerText="Cancel Edit";
     
     const raceSubmitBtn= document.createElement("button");
     raceSubmitBtn.classList.add("edit", "submit", "output-button");
     raceSubmitBtn.setAttribute("id", "race-submit");
     raceSubmitBtn.innerText="Submit";
 
-    raceEditBtnDiv.append(raceEditBtn);    
-    raceCancSubmitDiv.append(raceCancEdit);
+    // raceEditBtnDiv.append(raceEditBtn);    
+    // raceCancSubmitDiv.append(raceCancEdit);
     raceCancSubmitDiv.append(raceSubmitBtn);
-    raceDiv.append(raceEditBtnDiv);
+    // raceDiv.append(raceEditBtnDiv);
     raceDiv.append(raceCancSubmitDiv);
 
 //-------------Event Listeners---------------
