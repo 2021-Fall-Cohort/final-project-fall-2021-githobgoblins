@@ -39,4 +39,4 @@ GET https://www.dnd5eapi.co/api/rules/appendix
 ###
 GET https://www.dnd5eapi.co/api/ability-scores/dex
 ###
-GET https://www.dnd5eapi.co/api/traits/darkvision/
+GET https://www.dnd5eapi.co/api/traits/darkvision
