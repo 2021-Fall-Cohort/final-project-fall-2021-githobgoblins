@@ -26,7 +26,7 @@ function displayRaceView(mainContainerEl, currentCharacter){
   const raceFormEl = document.createElement("form");
     
   const raceSelectEl = document.createElement("select");
-  raceSelectEl.classList.add("selector");
+  //raceSelectEl.classList.add("selector");
 
   const dragonbornOptionEl = document.createElement("option");
   dragonbornOptionEl.setAttribute('value', 'dragonborn');
