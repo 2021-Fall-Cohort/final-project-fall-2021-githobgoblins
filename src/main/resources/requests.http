@@ -8,7 +8,7 @@ GET https://www.dnd5eapi.co/api/classes
 GET https://www.dnd5eapi.co/api/classes/monk
 
 ###
-GET https://www.dnd5eapi.co/api/rules
+GET https://www.dnd5eapi.co/api/rules/spellcasting
 
 ###
 GET https://www.dnd5eapi.co/api/rule-sections
@@ -29,9 +29,9 @@ GET https://www.dnd5eapi.co/api/classes/fighter
 ###
 GET https://www.dnd5eapi.co/api/subraces/high-elf
 ###
-GET https://www.dnd5eapi.co/api/rules
+GET https://www.dnd5eapi.co/api/rule-sections/the-environment"
 ###
-GET https://www.dnd5eapi.co/api/rules/adventuring
+GET https://www.dnd5eapi.co/api/rule-sections/diseases
 ###
 GET https://www.dnd5eapi.co/api/rule-sections/between-adventures
 ###

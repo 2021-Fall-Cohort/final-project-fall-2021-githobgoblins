@@ -4,6 +4,7 @@ import {displayFooter} from "./app.js";
 import { displayRaceView } from "./race.js";
 import {displayOutputView} from "./output.js";
 import {displayAbilitiesView} from "./abilities.js";
+import {backgroundJson} from "./descJson.js";
 
 function displayBackgroundView(mainContainerEl, currentCharacter){
 
@@ -198,7 +199,7 @@ function displayBackgroundView(mainContainerEl, currentCharacter){
     backgroundDropdownLabelEl.setAttribute('id', 'backgroundLearnLabel');
 
     const backgroundLearnFormEl = document.createElement("form");
-    
+
     const backgroundLearnSelectEl = document.createElement("select");
     backgroundLearnSelectEl.setAttribute('name', 'backgroundNames');
     backgroundLearnSelectEl.setAttribute('id', 'backgroundNames');
@@ -208,12 +209,12 @@ function displayBackgroundView(mainContainerEl, currentCharacter){
     acolyteLearnOptionEl.innerText = "Acolyte";
 
     const charlatanLearnOptionEl = document.createElement("option");
-    charlatanLearnOptionEl.setAttribute('value', 'carlatan');
+    charlatanLearnOptionEl.setAttribute('value', 'charlatan');
     charlatanLearnOptionEl.innerText = "Charlatan";
 
     const criminalLearnOptionEl = document.createElement("option");
     criminalLearnOptionEl.setAttribute('value', 'criminal');
-    charlatanLearnOptionEl.innerText = "Criminal";
+    criminalLearnOptionEl.innerText = "Criminal";
 
     const entertainerLearnOptionEl = document.createElement("option");
     entertainerLearnOptionEl.setAttribute('value', 'entertainer');
@@ -247,11 +248,9 @@ function displayBackgroundView(mainContainerEl, currentCharacter){
     sailorLearnOptionEl.setAttribute('value', 'sailor');
     sailorLearnOptionEl.innerText = "Sailor";
 
-    
     const soldierLearnOptionEl = document.createElement("option");
     soldierLearnOptionEl.setAttribute('value', 'soldier');
     soldierLearnOptionEl.innerText = "Soldier";
-
 
     const urchinLearnOptionEl = document.createElement("option");
     urchinLearnOptionEl.setAttribute('value', 'urchin');
@@ -266,12 +265,20 @@ function displayBackgroundView(mainContainerEl, currentCharacter){
     const backgroundMoreInfoDivEl = document.createElement("div");
     backgroundMoreInfoDivEl.setAttribute('id', 'backgroundMoreInfoDiv');
     
+    const moreInfoCloseEl = document.createElement("h4");
+    moreInfoCloseEl.classList.add("moreInfoClose");
+    moreInfoCloseEl.innerText = "x";
+
+    const backgroundLearnTitleEl = document.createElement("h3");
+    backgroundLearnTitleEl.classList.add("learnMoreTitle");
 
     const backgroundMoreInfoTextEl = document.createElement("p");
     backgroundMoreInfoDivEl.classList.add("backgroundMoreInfoText");
-    backgroundMoreInfoDivEl.innerText = "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur numquam quaerat accusantium voluptatum vero necessitatibus architecto molestiae molestias eligendi amet facere aspernatur, sed ullam a dolorum atque laborum nulla labore.";
+    
     //appending more info content
 
+    backgroundMoreInfoDivEl.append(moreInfoCloseEl);
+    backgroundMoreInfoDivEl.append(backgroundLearnTitleEl);
     backgroundMoreInfoDivEl.append(backgroundMoreInfoTextEl);
      
     mainContentDiv.append(backgroundMoreInfoDivEl);
@@ -369,9 +376,15 @@ function displayBackgroundView(mainContainerEl, currentCharacter){
           x.style.display = "block";
         }
     }
+
+    moreInfoCloseEl.addEventListener("click", ()=>{
+      learnBackgroundFunction();
+    })
   
     backgroundMoreInfoButtonEl.addEventListener("click", ()=> {
         learnBackgroundFunction();
+        backgroundLearnTitleEl.innerText = backgroundJson[backgroundLearnSelectEl.selectedIndex].title;
+        backgroundMoreInfoTextEl.innerText = backgroundJson[backgroundLearnSelectEl.selectedIndex].desc;
     })
 
     mainContainerEl.append(mainContentDiv);
