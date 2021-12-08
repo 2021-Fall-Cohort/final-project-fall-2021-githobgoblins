@@ -474,8 +474,9 @@ function displayOutputView(mainContainerEl, currentCharacter) {
         .then(res => res.json())
         .then(character => {
             clearChildren(mainContainerEl);
-            displayOutputView(mainContainerEl, currentCharacter);
             currentCharacter = character;
+            displayOutputView(mainContainerEl, currentCharacter);
+            
         })
         .catch(err => console.error(err));
 
