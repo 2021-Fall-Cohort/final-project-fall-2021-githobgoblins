@@ -28,7 +28,7 @@ function displayBackgroundView(mainContainerEl, currentCharacter){
     const backgroundFormEl = document.createElement("form");
 
     const backgroundSelectEl = document.createElement("select");
-    //backgroundSelectEl.classList.add("selector");
+    backgroundSelectEl.classList.add("selector");
 
     const acolyteOptionEl = document.createElement("option");
     acolyteOptionEl.setAttribute('value', 'acolyte');
