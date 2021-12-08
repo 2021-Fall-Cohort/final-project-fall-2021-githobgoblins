@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Murecho&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+/* Fonts, Basic Box, Align Hidden, Buttons */
+
+/* body{
+    font-family: 'Murecho', sans-serif;
+    display: flex;
+    flex-direction: column;
+    padding-left: 5%;
+} */
+.heading{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.heading button{
+    cursor: pointer;
+    background-color: #069459;
+    /* cool to add border thats the same color */
+    border: 2px solid #069459;
+    border-radius: 8px;
+    color: white;    
+    font-size: 16px;
+    padding: 5px;   
+    width: 10%;
+
+}
+.edit-div{    
+    display: block;
+    grid-column-start: 2;
+    
+}  
+.outputDiv{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  border: 2px solid black;
+  border-radius: 8px;
+  padding-left: 3%;
+  margin-bottom: 2rem;
+  
+}
+
+.edits{
+    padding-top: 13%;
+    display: flex;
+    flex-direction: column;
+    
+}
+.output-button{
+    cursor: pointer;
+    background-color: #069459;
+    /* cool to add border thats the same color */
+    border: 2px solid #069459;
+    border-radius: 4px;
+    color: white;    
+    font-size: 16px;
+    padding: 10px;   
+    width: 25%;
+}
+  
+.edit-btn-div{
+    grid-column-start: 1;
+}
+.cancel-submit{
+    display:block;
+    grid-column-start: 2;
+    
+}
+.cancel{
+
+}
+.submit{
+margin-left: 5%;
+}
+.outputDiv input{
+    border: 2px solid #f0f0f0;    
+    border-radius: 4px;
+    display: block;
+    width: 60%;
+    padding: 10px;
+    font-size: 14px;
+    margin: .25rem;
+
+}
+/* focus state lets you change "state" or status when clicked or assuming hovered */
+.outputDiv input:focus{
+    outline: 0;
+    border-color: #777;
+}
+/* removed/hid buillt in select box, increased size, added arrow */
+.outputDiv select{
+    padding: 10px 20px 10px 10px;
+    /* Code necessary for mac but NOT WINDOWS to render above padding  */
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    border: 1px solid #dedede;
+    font-size: 16px;
+    background: transparent;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%20000002%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+    background-position: right 10px top 50%, 0, 0;
+    background-size: 12px auto, 100%;
+    background-repeat: no-repeat;
+    width: 61%;
+    margin-top: .25rem;
+}

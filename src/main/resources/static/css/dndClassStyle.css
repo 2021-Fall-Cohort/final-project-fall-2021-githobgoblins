@@ -4,7 +4,7 @@
 }
 
 body{
-    background-color: #6dab83;
+    background-color: #6dab83 !important;
 }
 
 
@@ -20,7 +20,7 @@ body{
 }
 
 .headerLi{
-    margin: 1.5rem;
+ 
     color: white;
 }
 
