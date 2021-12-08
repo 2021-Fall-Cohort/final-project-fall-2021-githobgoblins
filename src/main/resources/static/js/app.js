@@ -6,10 +6,12 @@ import { displayOutputView } from "./output.js";
 import { displayAbilitiesView } from "./abilities.js";
 import { displayContacts } from "./contactpage.js";
 
+import { displayRulesPage } from "./rulesPage.js";
 
 const mainContainerEl = document.querySelector(".mainContainerEl");
 
-function displayHeader(mainContainerEl){
+
+function displayHeader(mainContainerEl) {
 
     //creating header html elements
     const headerEl = document.createElement("header");
@@ -32,6 +34,16 @@ function displayHeader(mainContainerEl){
     const userCreationsLiEl = document.createElement("li");
     userCreationsLiEl.innerText = "User Creations";
     userCreationsLiEl.classList.add("headerLi");
+
+    const rulesPageEl = document.createElement("li");
+    rulesPageEl.innerText = "Rules Page";
+    rulesPageEl.classList.add("headerLi");
+    rulesPageEl.addEventListener("click", ()=> {
+        clearChildren(mainContainerEl);
+        displayHeader(mainContainerEl);
+        displayRulesPage(mainContainerEl);
+        displayFooter(mainContainerEl);
+    });
     
     const meetLiEl = document.createElement("li");
     meetLiEl.innerText = "Meet the Goblins";
@@ -42,13 +54,14 @@ function displayHeader(mainContainerEl){
         mainContainerEl.innerHTML += displayContacts();
         displayFooter(mainContainerEl);
 
-    })
+    });
 
     //appending header elements
 
     headerUlEl.append(homeLiEl);
     headerUlEl.append(createLiEl);
     headerUlEl.append(userCreationsLiEl);
+    headerUlEl.append(rulesPageEl);
     headerUlEl.append(meetLiEl);
 
     headerDivEl.append(headerUlEl);
@@ -81,7 +94,6 @@ function displayFooter(mainContainerEl){
     mainContainerEl.append(footerEl);
 
 }
-
 
 function clearChildren(element) {
     while (element.firstChild) {
