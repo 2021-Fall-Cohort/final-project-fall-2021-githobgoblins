@@ -28,10 +28,10 @@ console.log(currentCharacter);
   const formEl = document.createElement("form");
 
   const selectEl = document.createElement("select");
-  selectEl.classList.add("selector");
+  //selectEl.classList.add("selector");
   selectEl.setAttribute("name", "chkveg");
   selectEl.setAttribute("id", "chkveg");
-  selectEl.setAttribute("multiple", "multiple");
+  //selectEl.setAttribute("multiple", "multiple");
   
   const barbarianOptionEl = document.createElement("option");
   barbarianOptionEl.setAttribute('value', 'barbarian');
@@ -332,9 +332,9 @@ console.log(currentCharacter);
   $("#classNames").multiselect({
     includeSelectAllOption: true,
   });
-  $("#chkveg").multiselect({
-    includeSelectAllOption: true,
-  });
+  //$("#chkveg").multiselect({
+    //includeSelectAllOption: true,
+  //});
 
   var modal = document.getElementById("classModal");
   var btn = document.getElementById("openClassModal");
