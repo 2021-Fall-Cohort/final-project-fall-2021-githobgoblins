@@ -4,6 +4,7 @@ import { displayBackgroundView } from "./background.js";
 import { displayFeaturesView } from "./features.js";
 import { displayOutputView } from "./output.js";
 import { displayAbilitiesView } from "./abilities.js";
+import { displayUserCreationsView } from "./userCreations.js";
 import { displayContacts } from "./contactpage.js";
 
 import { displayRulesPage } from "./rulesPage.js";
@@ -119,6 +120,10 @@ function clearChildren(element) {
  displayFeaturesView(mainContainerEl);
 // displayDNDClassView(mainContainerEl);
 // displayRaceView(mainContainerEl);
+// displayBackgroundView(mainContainerEl);
+// displayAbilitiesView(mainContainerEl);
+displayUserCreationsView(mainContainerEl);
+
 // // displayBackgroundView(mainContainerEl);
 // displayAbilitiesView(mainContainerEl);
 
@@ -128,3 +133,4 @@ export {clearChildren}
 export {displayHeader}
 
 export {displayFooter}
+

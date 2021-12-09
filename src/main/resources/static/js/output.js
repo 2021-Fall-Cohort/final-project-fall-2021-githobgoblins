@@ -22,15 +22,32 @@ function displayOutputView(mainContainerEl, currentCharacter) {
         const outputHeaderEl = document.createElement("h1");
         outputHeaderEl.innerText = "Dungeons & Dragons Final Character";
 
-        const emailCharBtn =document.createElement("button");
-        emailCharBtn.setAttribute("id", "user-email,");
-        emailCharBtn.classList.add("output-button");
-        emailCharBtn.innerText="Download Character";
+        // const emailCharBtn =document.createElement("button");
+        // emailCharBtn.setAttribute("id", "user-email,");
+        // emailCharBtn.classList.add("output-button");
+        // emailCharBtn.innerText="Download Character";
 
-        // const printCharBtn =document.createElement("button");
-        // printCharBtn.setAttribute("id", "user-print");
-        // printCharBtn.classList.add("output-button");
-        // printCharBtn.innerText="Print Character";
+
+        const printCharBtn =document.createElement("button");
+        printCharBtn.setAttribute("id", "user-print");
+        printCharBtn.classList.add("output-button");
+        printCharBtn.innerText="Print Character";
+
+        printCharBtn.addEventListener("click", () =>{
+            const hideDiv= document.querySelectorAll(".edit-div");
+            console.log(hideDiv);
+            hideDiv.forEach((editDiv) =>{
+                editDiv.style.visibility="hidden";
+                
+            });
+            const hideCancelSubmit= document.querySelectorAll(".cancel-submit");
+            console.log(hideCancelSubmit);
+            hideCancelSubmit.forEach((submit) =>{
+                submit.style.visibility="hidden";
+                
+            });
+            window.print();
+        })
 
         // const tweetCharBtn =document.createElement("button");
         // tweetCharBtn.setAttribute("id", "user-tweet");
@@ -38,8 +55,8 @@ function displayOutputView(mainContainerEl, currentCharacter) {
         // tweetCharBtn.innerText="Tweet Character";
 
         headingDiv.append(outputHeaderEl);
-        headingDiv.append(emailCharBtn);
-        // headingDiv.append(printCharBtn);
+        // headingDiv.append(emailCharBtn);
+        headingDiv.append(printCharBtn);
         // headingDiv.append(tweetCharBtn);
         outputDivEl.append(headingDiv);
         
@@ -315,19 +332,31 @@ function displayOutputView(mainContainerEl, currentCharacter) {
         const classNameEl = document.createElement("small");
         classNameEl.innerText = currentCharacter.dndClass.name;
 
-        // const classDes = document.createElement("h3");
-        // classDes.innerText = "Description";  
+        const classDes = document.createElement("h3");
+        classDes.innerText = "Description";  
         
-        // const classDesOutput= document.createElement("small");
-        // classDesOutput.innerText = currentCharacter.dndClass.description; 
-    
-        //--------Leaving out Class Features------------ 
-        // currentClassSection.append(classDes);
-        // currentClassSection.append(classDesOutput);
+        const classDesOutput= document.createElement("small");
+        classDesOutput.innerText = currentCharacter.dndClass.description;
+        
+        const classFeatures =document.createElement("h3");
+        classFeatures.innerText="Class Features";
+
+        const classFeature1=document.createElement("small");
+        classFeature1.innerText=currentCharacter.dndClass.features[0].name;
+
+        const classFeature2=document.createElement("small");
+        classFeature2.innerText=currentCharacter.dndClass.features[1].name;
+        
 
         currentClassSection.append(classh2); 
         currentClassSection.append(classLabelEl);
-        currentClassSection.append(classNameEl);             
+        currentClassSection.append(classNameEl); 
+        currentClassSection.append(classDes);
+        currentClassSection.append(classDesOutput);
+
+        currentClassSection.append(classFeatures);
+        currentClassSection.append(classFeature1);
+        currentClassSection.append(classFeature2);
         dndClassDiv.append(currentClassSection);
         outputDivEl.append(dndClassDiv);
 
@@ -447,7 +476,7 @@ function displayOutputView(mainContainerEl, currentCharacter) {
 
 //  Edit, Cancel Edit and Submit Event Listeners 
 
-// !!!!!!!!!!!!!!!!!!Submit Doesn't Refresh!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!Submit FIXED!!!!!!!!!!!!!!!!!!!!!!
     classSubmitBtn.addEventListener("click", () => {
         const classJson = {
         "name": selectEl.value,
@@ -474,8 +503,9 @@ function displayOutputView(mainContainerEl, currentCharacter) {
         .then(res => res.json())
         .then(character => {
             clearChildren(mainContainerEl);
-            displayOutputView(mainContainerEl, currentCharacter);
             currentCharacter = character;
+            displayOutputView(mainContainerEl, currentCharacter);
+            
         })
         .catch(err => console.error(err));
 
@@ -489,6 +519,7 @@ function displayOutputView(mainContainerEl, currentCharacter) {
         bgDiv.classList.add("outputDiv");
 
         const bgSection= document.createElement("section");       
+        currentClassSection.classList.add("bg-class", "current-selections");
 
         const backgroundLabelEl = document.createElement("h2");
         backgroundLabelEl.innerText = "Background";
@@ -499,13 +530,29 @@ function displayOutputView(mainContainerEl, currentCharacter) {
         const backgroundOutputEl = document.createElement("h4");
         backgroundOutputEl.innerText = currentCharacter.background.name;
 
-        const bgDes=document.createElement("small");
-        bgDes.innerText=currentCharacter.background.description;
+        const bgDes=document.createElement("H3");
+        bgDes.innerText="Description";
+        
+        const desOutput=document.createElement("small");
+        desOutput.innerText=currentCharacter.background.description;
+
+        const bgFeatures =document.createElement("h3");
+        bgFeatures.innerText="Background Features";
+
+        const bgFeature1=document.createElement("small");
+        bgFeature1.innerText=currentCharacter.background.features[0].name;
+
+        const bgFeature2=document.createElement("small");
+        bgFeature2.innerText=currentCharacter.background.features[1].name;
 
         bgSection.append(backgroundLabelEl);
         bgSection.append(currentBGh2);
         bgSection.append(backgroundOutputEl);
         bgSection.append(bgDes);
+        bgSection.append(desOutput);
+        bgSection.append(bgFeatures);
+        bgSection.append(bgFeature1);
+        bgSection.append(bgFeature2);
         bgDiv.append(bgSection);
         outputDivEl.append(bgDiv);
 
@@ -669,17 +716,61 @@ function displayOutputView(mainContainerEl, currentCharacter) {
         raceSection.setAttribute("id", "race-class");  
         
         const raceH2= document.createElement("h2");
-        raceH2.innerText= "Class";
+        raceH2.innerText= "Race";
 
         const raceEl = document.createElement("h3");
-        raceEl.innerText = "Current Class";              
+        raceEl.innerText = "Current Race";              
 
         const raceOutputEl = document.createElement("h4");
         raceOutputEl.innerText = currentCharacter.race.name;
 
+        const raceDes = document.createElement("h3");
+        raceDes.innerText = "Description";  
+        
+        const raceDesOutput= document.createElement("small");
+        raceDesOutput.innerText = currentCharacter.race.description;
+        
+        const raceFeatures =document.createElement("h3");
+        raceFeatures.innerText="Race Features";
+
+        const raceFeature1=document.createElement("small");
+        raceFeature1.innerText=currentCharacter.race.features[0].name;
+
+        const raceFeature2=document.createElement("small");
+        raceFeature2.innerText=currentCharacter.race.features[1].name;
+
+        const asDiv=document.createElement("div");
+        asDiv.classList.add("as");
+
+        const aScoreImprovment=document.createElement("h3");
+        aScoreImprovment.innerText="Ability Score Improvements"
+
+        const aScoreOne =document.createElement("small");
+        aScoreOne.innerText= "Name: " + currentCharacter.race.abilityScoreImprovementName1;
+        
+        const aScoreBonusOne =document.createElement("small");
+        aScoreBonusOne.innerText=" Bonus: + " + currentCharacter.race.abilityScoreImprovement1;
+
+        const aScoreTwo =document.createElement("small");
+        aScoreTwo.innerText= "Name: " + currentCharacter.race.abilityScoreImprovementName2;
+
+        const aScoreBonusTwo =document.createElement("small");
+        aScoreBonusTwo.innerText=" Bonus: + " + currentCharacter.race.abilityScoreImprovement2;
+
         raceSection.append(raceH2);       
         raceSection.append(raceEl);
         raceSection.append(raceOutputEl);
+        raceSection.append(raceDes);
+        raceSection.append(raceDesOutput);
+        raceSection.append(raceFeatures);
+        raceSection.append(raceFeature1);
+        raceSection.append(raceFeature2);
+        asDiv.append(aScoreImprovment);
+        asDiv.append(aScoreOne);
+        asDiv.append(aScoreBonusOne);
+        asDiv.append(aScoreTwo);
+        asDiv.append(aScoreBonusTwo);
+        raceSection.append(asDiv);        
         raceDiv.append(raceSection);
         outputDivEl.append(raceDiv);
 
