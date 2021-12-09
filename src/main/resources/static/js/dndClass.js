@@ -289,27 +289,17 @@ console.log(currentCharacter);
   mainContentDivEl.append(moreInfoDivEl);
 
   forwardButtonEl.addEventListener("click", () => {
-    const classJson = {
+    const userClassJson = {
       "name": selectEl.value,
       "description": "warlock boi",
-      "features": [
-        {
-          "name" : "something unique",
-          "description" :"unique things"
-        },
-        {
-          "name" : "watch shows faster",
-          "description" :" more shows in less time"
-        }
-    
-      ]
+      "features": classJson[selectEl.selectedIndex].features,
     };
-      fetch(`http://localhost:8080/buildcharacter/class/${currentCharacter.id}`, {
+      fetch(`https://localhost:8080/buildcharacter/class/${currentCharacter.id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(classJson)
+        body: JSON.stringify(userClassJson)
       })
     .then(res => res.json())
     .then(character => {

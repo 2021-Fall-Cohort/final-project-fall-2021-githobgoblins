@@ -28,7 +28,7 @@ function displayHeader(mainContainerEl) {
     
     const goblinLogoEl = document.createElement("img");
     goblinLogoEl.classList.add("goblinLogo");
-    goblinLogoEl.src = "/src/main/resources/static/images/goblin.png";
+    goblinLogoEl.src = "./static/images/goblin.png";
     
     homeLiEl.append(goblinLogoEl);
 

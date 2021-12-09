@@ -1,11 +1,11 @@
 ###
-GET https://www.dnd5eapi.co/api/
-
-###
 GET https://www.dnd5eapi.co/api/classes
 
 ###
-GET https://www.dnd5eapi.co/api/classes/monk
+GET https://www.dnd5eapi.co/api/classes/wizard/levels
+
+###
+GET https://www.dnd5eapi.co/api/features/arcane-recovery
 
 ###
 GET https://www.dnd5eapi.co/api/rules/spellcasting
@@ -17,11 +17,11 @@ GET https://www.dnd5eapi.co/api/ability-scores
 ###
 GET https://www.dnd5eapi.co/api/races
 ###
-GET https://www.dnd5eapi.co/api/races/dragonborn
+GET https://www.dnd5eapi.co/api/races/tiefling
 ###
-GET https://www.dnd5eapi.co/api/races/elf
+GET https://www.dnd5eapi.co/api/traits/infernal-legacy
 ###
-GET https://www.dnd5eapi.co/api/backgrounds
+GET https://www.dnd5eapi.co/api/traits/trance
 ###
 GET https://www.dnd5eapi.co/api/backgrounds/acolyte
 ###

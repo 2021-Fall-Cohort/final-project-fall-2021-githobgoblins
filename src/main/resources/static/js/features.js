@@ -227,7 +227,7 @@ function displayFeaturesView(mainContainerEl) {
             "experiencePoints": 0
         };
           
-        fetch(`http://localhost:8080/buildcharacter/base/`, {
+        fetch(`https://localhost:8080/buildcharacter/base/`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
