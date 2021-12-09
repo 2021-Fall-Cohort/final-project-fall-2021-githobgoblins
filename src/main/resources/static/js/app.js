@@ -4,6 +4,7 @@ import { displayBackgroundView } from "./background.js";
 import { displayFeaturesView } from "./features.js";
 import { displayOutputView } from "./output.js";
 import { displayAbilitiesView } from "./abilities.js";
+import { displayUserCreationsView } from "./userCreations.js";
 
 const mainContainerEl = document.querySelector(".mainContainerEl");
 
@@ -82,11 +83,13 @@ function clearChildren(element) {
 };
 
 // displayOutputView(mainContainerEl);
-// displayFeaturesView(mainContainerEl);
+displayFeaturesView(mainContainerEl);
 // displayDNDClassView(mainContainerEl);
 // displayRaceView(mainContainerEl);
 // displayBackgroundView(mainContainerEl);
-displayAbilitiesView(mainContainerEl);
+// displayAbilitiesView(mainContainerEl);
+displayUserCreationsView(mainContainerEl);
+
 
 
 export {clearChildren}
@@ -94,3 +97,4 @@ export {clearChildren}
 export {displayHeader}
 
 export {displayFooter}
+
