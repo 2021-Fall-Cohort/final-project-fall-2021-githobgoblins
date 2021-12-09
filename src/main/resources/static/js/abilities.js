@@ -213,7 +213,7 @@ function displayAbilitiesView(mainContainerEl, currentCharacter) {
             "charisma": abilityChoices[5]
         };
           
-        fetch(`https://localhost:8080/buildcharacter/abilityscore/${currentCharacter.id}`, {
+        fetch(`http://localhost:8080/buildcharacter/abilityscore/${currentCharacter.id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'

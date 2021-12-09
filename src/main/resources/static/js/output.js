@@ -297,7 +297,7 @@ function displayOutputView(mainContainerEl, currentCharacter) {
             "experiencePoints": 0
         };
           
-        fetch(`https://localhost:8080/buildcharacter/editbase/${currentCharacter.id}`, {
+        fetch(`http://localhost:8080/buildcharacter/editbase/${currentCharacter.id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'

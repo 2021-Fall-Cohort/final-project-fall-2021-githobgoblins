@@ -339,7 +339,7 @@ function displayBackgroundView(mainContainerEl, currentCharacter){
         "features" : backgroundJson[backgroundSelectEl.selectedIndex].features,
       };
     
-      fetch(`https://localhost:8080/buildcharacter/background/${currentCharacter.id}`, {
+      fetch(`http://localhost:8080/buildcharacter/background/${currentCharacter.id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'

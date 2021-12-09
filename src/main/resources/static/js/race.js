@@ -303,7 +303,7 @@ function displayRaceView(mainContainerEl, currentCharacter){
       "abilityScoreImprovementName2": raceJson[raceSelectEl.selectedIndex].abilityScoreImprovementName2,
       "features": raceJson[raceSelectEl.selectedIndex].features,
     };
-      fetch(`https:localhost:8080/buildcharacter/race/${currentCharacter.id}`, {
+      fetch(`http:localhost:8080/buildcharacter/race/${currentCharacter.id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'

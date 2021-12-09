@@ -23,7 +23,7 @@ function displayUserCreationsView(mainContainerEl){
     const allCreationsDivEl = document.createElement("div");
     allCreationsDivEl.classList.add("allCreations");
 
-    fetch('/character/getcharacters')
+    fetch('http://localhost:8080/character/getcharacters')
     .then(res => res.json())
     .then(playerCharacters => {
         playerCharacters.forEach(playerCharacter => {

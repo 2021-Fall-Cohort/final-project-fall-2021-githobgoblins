@@ -294,7 +294,7 @@ console.log(currentCharacter);
       "description": "warlock boi",
       "features": classJson[selectEl.selectedIndex].features,
     };
-      fetch(`https://localhost:8080/buildcharacter/class/${currentCharacter.id}`, {
+      fetch(`http://localhost:8080/buildcharacter/class/${currentCharacter.id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
