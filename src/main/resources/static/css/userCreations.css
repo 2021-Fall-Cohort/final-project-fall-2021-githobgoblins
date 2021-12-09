@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Murecho&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Murecho', sans-serif;
+    display: flex;
+    flex-direction: column;
+    padding-left: 5%;
+    background-color: #6dab83;
+}
+.allCreations{
+    display: grid;
+    grid-template-columns: repeat(autofit);
+    gap: 1rem;
+    margin-top: 2rem;
+    
+}
+.userCards{
+    display: flex;
+    flex-direction: column;
+
+}
+img{
