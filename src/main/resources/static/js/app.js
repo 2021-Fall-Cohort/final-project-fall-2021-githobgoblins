@@ -122,7 +122,7 @@ function clearChildren(element) {
 // displayRaceView(mainContainerEl);
 // displayBackgroundView(mainContainerEl);
 // displayAbilitiesView(mainContainerEl);
-displayUserCreationsView(mainContainerEl);
+// displayUserCreationsView(mainContainerEl);
 
 // // displayBackgroundView(mainContainerEl);
 // displayAbilitiesView(mainContainerEl);
