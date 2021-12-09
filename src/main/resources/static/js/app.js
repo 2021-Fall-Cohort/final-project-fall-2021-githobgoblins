@@ -4,6 +4,7 @@ import { displayBackgroundView } from "./background.js";
 import { displayFeaturesView } from "./features.js";
 import { displayOutputView } from "./output.js";
 import { displayAbilitiesView } from "./abilities.js";
+import { displayUserCreationsView } from "./userCreations.js";
 import { displayContacts } from "./contactpage.js";
 
 import { displayRulesPage } from "./rulesPage.js";
@@ -35,6 +36,13 @@ function displayHeader(mainContainerEl) {
     const createLiEl = document.createElement("li");
     createLiEl.innerText = "Create a Character";
     createLiEl.classList.add("headerLi");
+    createLiEl.addEventListener("click", ()=> {
+        clearChildren(mainContainerEl);
+        displayHeader(mainContainerEl);
+        displayFeaturesView(mainContainerEl);
+        displayFooter(mainContainerEl);
+    })
+
     
     const userCreationsLiEl = document.createElement("li");
     userCreationsLiEl.innerText = "User Creations";
@@ -56,7 +64,9 @@ function displayHeader(mainContainerEl) {
     meetLiEl.addEventListener("click", ()=> {
         clearChildren(mainContainerEl);
         displayHeader(mainContainerEl);
-        mainContainerEl.innerHTML += displayContacts();
+        let contactsEl = document.createElement("div");
+        contactsEl.innerHTML= displayContacts();
+        mainContainerEl.append(contactsEl);
         displayFooter(mainContainerEl);
 
     });
@@ -105,10 +115,15 @@ function clearChildren(element) {
     }
 };
 
+
 // displayOutputView(mainContainerEl);
-displayFeaturesView(mainContainerEl);
+ displayFeaturesView(mainContainerEl);
 // displayDNDClassView(mainContainerEl);
 // displayRaceView(mainContainerEl);
+// displayBackgroundView(mainContainerEl);
+// displayAbilitiesView(mainContainerEl);
+displayUserCreationsView(mainContainerEl);
+
 // // displayBackgroundView(mainContainerEl);
 // displayAbilitiesView(mainContainerEl);
 
@@ -118,3 +133,4 @@ export {clearChildren}
 export {displayHeader}
 
 export {displayFooter}
+
