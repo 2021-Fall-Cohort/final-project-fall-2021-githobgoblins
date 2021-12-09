@@ -11,7 +11,7 @@ GET https://www.dnd5eapi.co/api/features/arcane-recovery
 GET https://www.dnd5eapi.co/api/rules/spellcasting
 
 ###
-GET https://www.dnd5eapi.co/api/rule-sections
+GET https://www.dnd5eapi.co/api/rules/adventuring
 ###
 GET https://www.dnd5eapi.co/api/ability-scores
 ###

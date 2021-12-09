@@ -19,7 +19,7 @@ function displayRulesPage(mainContainerEl) {
     const contentUL = document.createElement("ul");
     mainSection.append(mainH1El);
     mainSection.appendChild(contentUL);
-    
+
     const infoBox = document.createElement("div");
     infoBox.classList.add("infoBoxDiv");
     const infoBoxH2 = document.createElement("h2");
@@ -212,22 +212,22 @@ function displayRulesPage(mainContainerEl) {
                             infoBox.appendChild(abilityDeets);
                             console.log(abilityUrl);
 
-                            if(abilityScore.innerText == "CHA"){
+                            if (abilityScore.innerText == "CHA") {
                                 abilityScore.innerText = abilities2.full_name;
                             }
-                            if(abilityScore.innerText == "CON"){
+                            if (abilityScore.innerText == "CON") {
                                 abilityScore.innerText = abilities2.full_name;
                             }
-                            if(abilityScore.innerText == "DEX"){
+                            if (abilityScore.innerText == "DEX") {
                                 abilityScore.innerText = abilities2.full_name;
                             }
-                            if(abilityScore.innerText == "INT"){
+                            if (abilityScore.innerText == "INT") {
                                 abilityScore.innerText = abilities2.full_name;
                             }
-                            if(abilityScore.innerText == "STR"){
+                            if (abilityScore.innerText == "STR") {
                                 abilityScore.innerText = abilities2.full_name;
                             }
-                            if(abilityScore.innerText == "WIS"){
+                            if (abilityScore.innerText == "WIS") {
                                 abilityScore.innerText = abilities2.full_name;
                             }
 
@@ -240,21 +240,109 @@ function displayRulesPage(mainContainerEl) {
     //Adventuring
     contentUL.appendChild(listItem5);
     listItem5.appendChild(item5Button);
+    item5Button.addEventListener("click", ()=> {
+
+        clearChildren(infoBox);
+        let someDudesFav = document.createElement("hr");
+        infoBox.append(infoBoxH2);
+        infoBox.append(someDudesFav);
+        infoBoxH2.innerText = "Adventuring Info and Rules";
+
+        fetch('https://www.dnd5eapi.co/api/rules/adventuring', {
+                method: 'GET'
+            })
+            .then(res => res.json())
+            .then(adventures => {
+                console.log(adventures);
+                adventures.subsections.forEach(section => {
+                    let subSection = document.createElement("h2");
+                    subSection.classList.add("infoBoxH2");
+                    subSection.innerText = section.name;
+                    infoBox.appendChild(subSection);
+
+                    let sectionUrl = "" + section.url;
+                    fetch ("https://www.dnd5eapi.co"+ sectionUrl, {
+                        method: 'GET'
+                    })
+                    .then(res => res.json())
+                    .then(getDesc => {
+                        let sectionDesc = document.createElement("p");
+                        sectionDesc.innerText = getDesc.desc;
+                        infoBox.appendChild(subSection);
+                        infoBox.appendChild(sectionDesc);
+                    })                
+                });
+            });
+    });
+
 
     //Monsters
     contentUL.appendChild(listItem6);
     listItem6.appendChild(item6Button);
+    item6Button.addEventListener("click", () => {
 
-    //Resting
-    contentUL.appendChild(listItem7);
-    listItem7.appendChild(item7Button);
+        clearChildren(infoBox);
+        let someDudesFav = document.createElement("hr");
+        infoBox.append(infoBoxH2);
+        infoBox.append(someDudesFav);
+        infoBoxH2.innerText = "Monsters";
 
-    //Combat
+        fetch('https://www.dnd5eapi.co/api/monsters', {
+                method: 'GET'
+            })
+            .then(res => res.json())
+            .then(monsters => {
+                monsters.results.forEach(monsterList => {
+                    let monster = document.createElement("h3");
+                    monster.classList.add("infoBoxH3");
+                    monster.innerText = monsterList.name;
+                    infoBox.appendChild(monster);
+
+                })
+            })
+    })
+
+    //Resting, resting is already in adventure rules section
+    // contentUL.appendChild(listItem7);
+    // listItem7.appendChild(item7Button);
+
+
+
+    //Combat api/rules/combat
     contentUL.appendChild(listItem8);
     listItem8.appendChild(item8Button);
+    item8Button.addEventListener("click", () => {
 
+        clearChildren(infoBox);
+        let someDudesFav = document.createElement("hr");
+        infoBox.append(infoBoxH2);
+        infoBox.append(someDudesFav);
+        infoBoxH2.innerText = "Combat Rules and Details";
+
+        fetch('https://www.dnd5eapi.co/api/rules/combat', {
+                method: 'GET'
+            })
+            .then(res => res.json())
+            .then(combatDeets => {
+                combatDeets.subsections.forEach(combatdetails => {
+                    let combatSections = document.createElement("h2");
+                    combatSections.classList.add("infoBoxH2");
+                    combatSections.innerText = combatdetails.name;
+
+                    let combatSubUrls = "" + combatdetails.url;
+                    fetch('https://www.dnd5eapi.co' + combatSubUrls, {
+                    method: 'GET'
+                    })
+                    .then(res => res.json())
+                    .then(moreCombatDeets =>{
+                        let combatDescriptions = document.createElement("p");
+                        combatDescriptions.innerText = moreCombatDeets.desc;
+
+                        infoBox.appendChild(combatSections);
+                        infoBox.append(combatDescriptions);
+                    })
+                })
+            })
+    })
 }
-
-export {
-    displayRulesPage
-};
+export { displayRulesPage };
