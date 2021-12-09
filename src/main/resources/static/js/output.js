@@ -22,15 +22,32 @@ function displayOutputView(mainContainerEl, currentCharacter) {
         const outputHeaderEl = document.createElement("h1");
         outputHeaderEl.innerText = "Dungeons & Dragons Final Character";
 
-        const emailCharBtn =document.createElement("button");
-        emailCharBtn.setAttribute("id", "user-email,");
-        emailCharBtn.classList.add("output-button");
-        emailCharBtn.innerText="Download Character";
+        // const emailCharBtn =document.createElement("button");
+        // emailCharBtn.setAttribute("id", "user-email,");
+        // emailCharBtn.classList.add("output-button");
+        // emailCharBtn.innerText="Download Character";
 
-        // const printCharBtn =document.createElement("button");
-        // printCharBtn.setAttribute("id", "user-print");
-        // printCharBtn.classList.add("output-button");
-        // printCharBtn.innerText="Print Character";
+
+        const printCharBtn =document.createElement("button");
+        printCharBtn.setAttribute("id", "user-print");
+        printCharBtn.classList.add("output-button");
+        printCharBtn.innerText="Print Character";
+
+        printCharBtn.addEventListener("click", () =>{
+            const hideDiv= document.querySelectorAll(".edit-div");
+            console.log(hideDiv);
+            hideDiv.forEach((editDiv) =>{
+                editDiv.style.visibility="hidden";
+                
+            });
+            const hideCancelSubmit= document.querySelectorAll(".cancel-submit");
+            console.log(hideCancelSubmit);
+            hideCancelSubmit.forEach((submit) =>{
+                submit.style.visibility="hidden";
+                
+            });
+            window.print();
+        })
 
         // const tweetCharBtn =document.createElement("button");
         // tweetCharBtn.setAttribute("id", "user-tweet");
@@ -38,8 +55,8 @@ function displayOutputView(mainContainerEl, currentCharacter) {
         // tweetCharBtn.innerText="Tweet Character";
 
         headingDiv.append(outputHeaderEl);
-        headingDiv.append(emailCharBtn);
-        // headingDiv.append(printCharBtn);
+        // headingDiv.append(emailCharBtn);
+        headingDiv.append(printCharBtn);
         // headingDiv.append(tweetCharBtn);
         outputDivEl.append(headingDiv);
         
