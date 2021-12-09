@@ -1,0 +1,27 @@
+.cards {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+.card {
+  position: relative;
+}
+
+.card img {
+  border-radius: unset;
+  height: 70vh;
+}
+
+.card-desc {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  font-size: 30px;
+  width: 95%;
+  color: white;
+  font-weight: bolder;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+html{
+  font-size: 16px !important;
+}

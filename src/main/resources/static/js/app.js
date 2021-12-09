@@ -4,11 +4,18 @@ import { displayBackgroundView } from "./background.js";
 import { displayFeaturesView } from "./features.js";
 import { displayOutputView } from "./output.js";
 import { displayAbilitiesView } from "./abilities.js";
+<<<<<<< HEAD
 import { displayUserCreationsView } from "./userCreations.js";
+=======
+import { displayContacts } from "./contactpage.js";
+
+import { displayRulesPage } from "./rulesPage.js";
+>>>>>>> dev
 
 const mainContainerEl = document.querySelector(".mainContainerEl");
 
-function displayHeader(mainContainerEl){
+
+function displayHeader(mainContainerEl) {
 
     //creating header html elements
     const headerEl = document.createElement("header");
@@ -22,8 +29,13 @@ function displayHeader(mainContainerEl){
     
     const homeLiEl = document.createElement("li");
     homeLiEl.classList.add("headerLi");
-    homeLiEl.innerText = "Home";
     
+    const goblinLogoEl = document.createElement("img");
+    goblinLogoEl.classList.add("goblinLogo");
+    goblinLogoEl.src = "/src/main/resources/static/images/goblin.png";
+    
+    homeLiEl.append(goblinLogoEl);
+
     const createLiEl = document.createElement("li");
     createLiEl.innerText = "Create a Character";
     createLiEl.classList.add("headerLi");
@@ -31,17 +43,34 @@ function displayHeader(mainContainerEl){
     const userCreationsLiEl = document.createElement("li");
     userCreationsLiEl.innerText = "User Creations";
     userCreationsLiEl.classList.add("headerLi");
+
+    const rulesPageEl = document.createElement("li");
+    rulesPageEl.innerText = "Rules Page";
+    rulesPageEl.classList.add("headerLi");
+    rulesPageEl.addEventListener("click", ()=> {
+        clearChildren(mainContainerEl);
+        displayHeader(mainContainerEl);
+        displayRulesPage(mainContainerEl);
+        displayFooter(mainContainerEl);
+    });
     
     const meetLiEl = document.createElement("li");
     meetLiEl.innerText = "Meet the Goblins";
     meetLiEl.classList.add("headerLi");
+    meetLiEl.addEventListener("click", ()=> {
+        clearChildren(mainContainerEl);
+        displayHeader(mainContainerEl);
+        mainContainerEl.innerHTML += displayContacts();
+        displayFooter(mainContainerEl);
 
+    });
 
     //appending header elements
 
     headerUlEl.append(homeLiEl);
     headerUlEl.append(createLiEl);
     headerUlEl.append(userCreationsLiEl);
+    headerUlEl.append(rulesPageEl);
     headerUlEl.append(meetLiEl);
 
     headerDivEl.append(headerUlEl);
@@ -72,9 +101,7 @@ function displayFooter(mainContainerEl){
     footerEl.append(yearEl);
     
     mainContainerEl.append(footerEl);
-
 }
-
 
 function clearChildren(element) {
     while (element.firstChild) {
@@ -86,10 +113,15 @@ function clearChildren(element) {
 displayFeaturesView(mainContainerEl);
 // displayDNDClassView(mainContainerEl);
 // displayRaceView(mainContainerEl);
+<<<<<<< HEAD
 // displayBackgroundView(mainContainerEl);
 // displayAbilitiesView(mainContainerEl);
 displayUserCreationsView(mainContainerEl);
 
+=======
+// // displayBackgroundView(mainContainerEl);
+// displayAbilitiesView(mainContainerEl);
+>>>>>>> dev
 
 
 export {clearChildren}

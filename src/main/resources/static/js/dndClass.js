@@ -3,6 +3,7 @@ import {displayHeader} from "./app.js";
 import {displayFooter} from "./app.js";
 import {displayFeaturesView} from "./features.js";
 import {displayRaceView} from "./race.js";
+import {classJson} from "./descJson.js";
 
 function displayDNDClassView(mainContainerEl, currentCharacter){
   
@@ -28,7 +29,7 @@ console.log(currentCharacter);
   const formEl = document.createElement("form");
 
   const selectEl = document.createElement("select");
-  selectEl.classList.add("selector");
+  selectEl.classList.add("classSelector");
   
   const barbarianOptionEl = document.createElement("option");
   barbarianOptionEl.setAttribute('value', 'barbarian');
@@ -170,7 +171,6 @@ console.log(currentCharacter);
 
   //creating all pageBottomDiv content
   
-
   const pageBottomDivEl = document.createElement("div");
   pageBottomDivEl.classList.add("pageBottomDiv");
 
@@ -180,16 +180,15 @@ console.log(currentCharacter);
   const learnLabelEl = document.createElement("label");
   learnLabelEl.classList.add("learnLabel");
   learnLabelEl.setAttribute('for', 'classNames');
-  learnLabelEl.innerText = "Select what classes you want to learn about";
+  learnLabelEl.innerText = "Select what class you want to learn about";
 
   const learnFormEl = document.createElement("form");
 
-  const classNamesEl = document.createElement("select");
-  classNamesEl.setAttribute('name', 'classNames');
+  const classNamesEl = document.createElement("select");4
   classNamesEl.setAttribute('id', 'classNames');
 
   const barbarianLearnOptionEl = document.createElement("option");
-  barbarianLearnOptionEl.setAttribute('value', 'barbarianLearn');
+  barbarianLearnOptionEl.setAttribute('value', 'barbarian');
   barbarianLearnOptionEl.innerText = "Barbarian";
 
   const bardLearnOptionEl = document.createElement("option");
@@ -217,7 +216,7 @@ console.log(currentCharacter);
   paladinLearnOptionEl.innerText = "Paladin";
 
   const rangerLearnOptionEl = document.createElement("option");
-  rangerLearnOptionEl.setAttribute('value', 'rangerLearn');
+  rangerLearnOptionEl.setAttribute('value', '12');
   rangerLearnOptionEl.innerText = "Ranger";
 
   const rogueLearnOptionEl = document.createElement("option");
@@ -271,12 +270,20 @@ console.log(currentCharacter);
   const moreInfoDivEl = document.createElement("div");
   moreInfoDivEl.setAttribute('id', 'moreInfoDiv');
 
+  const moreInfoCloseEl = document.createElement("h4");
+  moreInfoCloseEl.classList.add("moreInfoClose");
+  moreInfoCloseEl.innerText = "x";
+
+  const moreInfoTitleEl = document.createElement("h3");
+  moreInfoTitleEl.classList.add("learnMoreTitle");
+
   const moreInfoTextEl = document.createElement("p");
   moreInfoTextEl.classList.add("moreInfoText");
-  moreInfoTextEl.innerText = "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur numquam quaerat accusantium voluptatum vero necessitatibus architecto molestiae molestias eligendi amet facere aspernatur, sed ullam a dolorum atque laborum nulla labore.";
 
   //appending more info content
 
+  moreInfoDivEl.append(moreInfoCloseEl);
+  moreInfoDivEl.append(moreInfoTitleEl);
   moreInfoDivEl.append(moreInfoTextEl);
 
   mainContentDivEl.append(moreInfoDivEl);
@@ -311,9 +318,6 @@ console.log(currentCharacter);
         currentCharacter = character;
     })
     .catch(err => console.error(err));
-
-
-    
   })
 
   backButtonEl.addEventListener("click", () => {
@@ -325,7 +329,7 @@ console.log(currentCharacter);
   mainContainerEl.append(mainContentDivEl);
 
   //modal functionalities
-
+  
   var modal = document.getElementById("classModal");
   var btn = document.getElementById("openClassModal");
   var span = document.getElementsByClassName("close")[0];
@@ -354,9 +358,16 @@ console.log(currentCharacter);
       }
   }
 
+  moreInfoCloseEl.addEventListener("click", ()=>{
+    learnClassFunction();
+  })
+
   const moreInfoButton = document.getElementById("moreInfoButton");
   moreInfoButton.addEventListener("click", ()=> {
       learnClassFunction();
+      console.log(classNamesEl.selectedOptions);
+      moreInfoTitleEl.innerText = classJson[classNamesEl.selectedIndex].title;
+      moreInfoTextEl.innerText = classJson[classNamesEl.selectedIndex].desc;
   })
 
   displayFooter(mainContainerEl);

@@ -3,6 +3,7 @@ import {displayHeader} from "./app.js";
 import {displayFooter} from "./app.js";
 import { displayBackgroundView } from "./background.js";
 import { displayDNDClassView } from "./dndClass.js";
+import {raceJson} from "./descJson.js";
 
 
 function displayRaceView(mainContainerEl, currentCharacter){
@@ -25,7 +26,7 @@ function displayRaceView(mainContainerEl, currentCharacter){
   const raceFormEl = document.createElement("form");
     
   const raceSelectEl = document.createElement("select");
-  raceSelectEl.classList.add("selector");
+  //raceSelectEl.classList.add("selector");
 
   const dragonbornOptionEl = document.createElement("option");
   dragonbornOptionEl.setAttribute('value', 'dragonborn');
@@ -70,15 +71,10 @@ function displayRaceView(mainContainerEl, currentCharacter){
   console.log(raceModalButtonEl);
 
   // creating nav buttons
-  const backButtonEl = document.createElement("button");
-  backButtonEl.classList.add("navButtons");
-  backButtonEl.setAttribute('id', 'raceBackButton');
-  backButtonEl.innerText = "<";
 
   const forwardButtonEl = document.createElement("button");
-  forwardButtonEl.classList.add("navButtons");
-  forwardButtonEl.setAttribute('id', 'raceForwardButton');
-  forwardButtonEl.innerText = ">";
+  forwardButtonEl.innerText = "NEXT";
+  forwardButtonEl.classList.add("nextPageButton");
 
   const raceImgEl = document.createElement("img");
   raceImgEl.src = "./images/elf.jpg";
@@ -101,10 +97,8 @@ function displayRaceView(mainContainerEl, currentCharacter){
   raceFormButtonsDivEl.append(raceFormEl);
   raceFormButtonsDivEl.append(raceModalButtonEl);
 
-  pageTopDivEl.append(backButtonEl);
   pageTopDivEl.append(raceFormButtonsDivEl);
   pageTopDivEl.append(raceImgEl);
-  pageTopDivEl.append(forwardButtonEl);
 
   mainContentDiv.append(raceTitleEl);
   mainContentDiv.append(pageTopDivEl);
@@ -228,15 +222,25 @@ function displayRaceView(mainContainerEl, currentCharacter){
     const raceMoreInfoDivEl = document.createElement("div");
     raceMoreInfoDivEl.setAttribute('id', 'raceMoreInfoDiv');
 
+    const moreInfoCloseEl = document.createElement("h4");
+    moreInfoCloseEl.classList.add("moreInfoClose");
+    moreInfoCloseEl.innerText = "x";
+
     const raceMoreInfoTextEl = document.createElement("p");
     raceMoreInfoTextEl.classList.add("raceMoreInfoText");
-    raceMoreInfoTextEl.innerText = "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur numquam quaerat accusantium voluptatum vero necessitatibus architecto molestiae molestias eligendi amet facere aspernatur, sed ullam a dolorum atque laborum nulla labore.";
-
+    
+    const raceLearnMoreTitleEl = document.createElement("h3");
+    raceLearnMoreTitleEl.classList.add("learnMoreTitle");
+    
     //appending more info content
 
+    raceMoreInfoDivEl.append(moreInfoCloseEl);
+    raceMoreInfoDivEl.append(raceLearnMoreTitleEl);
     raceMoreInfoDivEl.append(raceMoreInfoTextEl);
+    
 
     mainContentDiv.append(raceMoreInfoDivEl);
+    mainContentDiv.append(forwardButtonEl);
 
     //appending all pageBottomDiv elements
 
@@ -263,11 +267,13 @@ function displayRaceView(mainContainerEl, currentCharacter){
 
   const raceLearnMoreDivEl = document.createElement("div");
   raceLearnMoreDivEl.setAttribute('id', 'raceLearnMoreDiv');
+  
   const raceLearnMoreContentEl = document.createElement("p");
   raceLearnMoreContentEl.setAttribute('id', 'raceLearnMoreContent');
 
   //appending raceLearnMoreDiv content
 
+  
   raceLearnMoreDivEl.append(raceLearnMoreContentEl);
   mainContentDiv.append(raceLearnMoreDivEl);
 
@@ -285,14 +291,15 @@ function displayRaceView(mainContainerEl, currentCharacter){
   
   raceMoreInfoButtonEl.addEventListener("click", ()=> {
     learnRaceFunction();
+    raceLearnMoreTitleEl.innerText = raceJson[raceLearnSelectEl.selectedIndex].title;
+    raceMoreInfoTextEl.innerText = raceJson[raceLearnSelectEl.selectedIndex].desc;
+  })
+
+  moreInfoCloseEl.addEventListener("click", ()=>{
+    learnRaceFunction();
   })
 
     //wiring up nav buttons
-
-  backButtonEl.addEventListener("click", () => {
-      clearChildren(mainContainerEl);
-      displayDNDClassView(mainContainerEl);
-  });
 
   forwardButtonEl.addEventListener("click", () => {
     const raceJson = {
