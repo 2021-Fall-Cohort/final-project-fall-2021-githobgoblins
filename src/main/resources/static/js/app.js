@@ -4,13 +4,10 @@ import { displayBackgroundView } from "./background.js";
 import { displayFeaturesView } from "./features.js";
 import { displayOutputView } from "./output.js";
 import { displayAbilitiesView } from "./abilities.js";
-<<<<<<< HEAD
 import { displayUserCreationsView } from "./userCreations.js";
-=======
 import { displayContacts } from "./contactpage.js";
 
 import { displayRulesPage } from "./rulesPage.js";
->>>>>>> dev
 
 const mainContainerEl = document.querySelector(".mainContainerEl");
 
@@ -113,15 +110,12 @@ function clearChildren(element) {
 displayFeaturesView(mainContainerEl);
 // displayDNDClassView(mainContainerEl);
 // displayRaceView(mainContainerEl);
-<<<<<<< HEAD
 // displayBackgroundView(mainContainerEl);
 // displayAbilitiesView(mainContainerEl);
 displayUserCreationsView(mainContainerEl);
 
-=======
 // // displayBackgroundView(mainContainerEl);
 // displayAbilitiesView(mainContainerEl);
->>>>>>> dev
 
 
 export {clearChildren}
