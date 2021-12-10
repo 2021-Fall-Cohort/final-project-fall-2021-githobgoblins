@@ -5,6 +5,7 @@ import { displayFeaturesView } from "./features.js";
 import { displayOutputView } from "./output.js";
 import { displayAbilitiesView } from "./abilities.js";
 import { displayContacts } from "./contactpage.js";
+import { displayCardsOutputView } from "./cards.js";
 
 import { displayRulesPage } from "./rulesPage.js";
 
