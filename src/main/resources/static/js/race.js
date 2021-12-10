@@ -279,15 +279,7 @@ function displayRaceView(mainContainerEl, currentCharacter){
 
   //learn more about individual races dropdown 
 
-  function learnRaceFunction(){
-    var x = document.getElementById("raceMoreInfoDiv");
-    if (x.style.display === "block") {
-      x.style.display = "none";
-      } 
-      else {
-        x.style.display = "block";
-      }
-  }
+  
   
   raceMoreInfoButtonEl.addEventListener("click", ()=> {
     learnRaceFunction();
@@ -299,40 +291,24 @@ function displayRaceView(mainContainerEl, currentCharacter){
     learnRaceFunction();
   })
 
-    //wiring up nav buttons
+  //wiring up nav buttons
 
   forwardButtonEl.addEventListener("click", () => {
-    const raceJson = {
-      "name" : raceSelectEl.value,
-      "description": "warlock boi",
-      "abilityScoreImprovement1": 2,
-      "abilityScoreImprovement2": 1,
-      "abilityScoreImprovementName1": "strength",
-      "abilityScoreImprovementName2": "charisma",
-      "features": [
-        {
-          "name" : "run fast",
-          "description" :"super sonic speed",
-          "class" : null,
-          "race" : null,
-          "background" : null
-        },
-
-        {
-          "name" : "CARSON FEATURES HERE",
-          "description" :"???????",
-          "class" : null,
-          "race" : null,
-          "background" : null
-        }
-      ]
+    const userRaceJson = {
+      "name" : raceJson[raceSelectEl.selectedIndex].title,
+      "description": raceJson[raceSelectEl.selectedIndex].desc,
+      "abilityScoreImprovement1": raceJson[raceSelectEl.selectedIndex].abilityScoreImprovement1,
+      "abilityScoreImprovement2": raceJson[raceSelectEl.selectedIndex].abilityScoreImprovement2,
+      "abilityScoreImprovementName1": raceJson[raceSelectEl.selectedIndex].abilityScoreImprovementName1,
+      "abilityScoreImprovementName2": raceJson[raceSelectEl.selectedIndex].abilityScoreImprovementName2,
+      "features": raceJson[raceSelectEl.selectedIndex].features
     };
-      fetch(`http://localhost:8080/buildcharacter/race/${currentCharacter.id}`, {
+      fetch(`/buildcharacter/race/${currentCharacter.id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(raceJson)
+        body: JSON.stringify(userRaceJson)
       })
     .then(res => res.json())
     .then(character => {
@@ -349,6 +325,16 @@ function displayRaceView(mainContainerEl, currentCharacter){
     mainContainerEl.append(mainContentDiv);
 
     displayFooter(mainContainerEl);
+}
+
+function learnRaceFunction(){
+  var x = document.getElementById("raceMoreInfoDiv");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+    } 
+    else {
+      x.style.display = "block";
+    }
 }
 
 export {displayRaceView}

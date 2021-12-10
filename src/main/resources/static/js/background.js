@@ -1,4 +1,4 @@
-import {clearChildren} from "./app.js";
+ import {clearChildren} from "./app.js";
 import {displayHeader} from "./app.js";
 import {displayFooter} from "./app.js";
 import { displayRaceView } from "./race.js";
@@ -333,27 +333,18 @@ function displayBackgroundView(mainContainerEl, currentCharacter){
     });
 
     forwardButtonEl.addEventListener("click", ()=> {
-      const backgroundJson = {
+      const userBackgroundJson = {
         "name": backgroundSelectEl.value,
         "description": "because what else",
-        "features" : [
-          {
-            "name" : "code fast",
-            "description" :"super sonic typing"
-          },
-          {
-            "name" : "Speed reading",
-            "description" : "get 'er don"
-          }
-        ]
+        "features" : backgroundJson[backgroundSelectEl.selectedIndex].features,
       };
     
-      fetch(`http://localhost:8080/buildcharacter/background/${currentCharacter.id}`, {
+      fetch(`/buildcharacter/background/${currentCharacter.id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(backgroundJson)
+        body: JSON.stringify(userBackgroundJson)
       })
       .then(res => res.json())
       .then(character => {

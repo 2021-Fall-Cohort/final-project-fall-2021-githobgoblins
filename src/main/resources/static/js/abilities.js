@@ -21,7 +21,7 @@ function displayAbilitiesView(mainContainerEl, currentCharacter) {
 
     let scores = [fifteen, fourteen, thirteen, twelve, ten, eight];
 
-    let abilityNames = ["Strength", "Dexterity", "Constituion", "Wisdom", "Intelligence", "Charisma"];
+    let abilityNames = ["Strength", "Dexterity", "Constitution", "Wisdom", "Intelligence", "Charisma"];
 
     //creating html elements to select ability scores
 
@@ -213,7 +213,7 @@ function displayAbilitiesView(mainContainerEl, currentCharacter) {
             "charisma": abilityChoices[5]
         };
           
-        fetch(`http://localhost:8080/buildcharacter/abilityscore/${currentCharacter.id}`, {
+        fetch(`/buildcharacter/abilityscore/${currentCharacter.id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'

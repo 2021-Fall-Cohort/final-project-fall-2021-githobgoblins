@@ -9,12 +9,16 @@ function displayFeaturesView(mainContainerEl) {
 
     //making all fields and content for features page
 
+    const bigHolderDivEl = document.createElement("div");
+    bigHolderDivEl.classList.add("bigHolderDiv");
+
     const mainContentDivEl = document.createElement("div");
     mainContentDivEl.classList.add("mainContentDiv");
+    mainContentDivEl.setAttribute('id', 'baseMainContentDiv');
 
     const featureHeaderEl = document.createElement("h1");
     featureHeaderEl.classList.add("featureHeader");
-    featureHeaderEl.innerText = "Basic Info";
+    featureHeaderEl.innerText = "Basic Information";
 
     const featureDivEl = document.createElement("div");
     featureDivEl.classList.add("featureDiv");
@@ -24,24 +28,33 @@ function displayFeaturesView(mainContainerEl) {
 
     const nameFieldEl = document.createElement("input");
     nameFieldEl.type = "text";
-    nameFieldEl.placeholder = "Enter Your Character's Name";
+    nameFieldEl.placeholder = "Enter Character Name";
+    nameFieldEl.classList.add("nameField");
+
+    const levelDivEl = document.createElement("div");
+    levelDivEl.classList.add("alignmentDiv");
 
     const levelLabelEl = document.createElement("h3");
     levelLabelEl.innerText = "Level";
 
-    const levelFieldEl = document.createElement("input");
-    levelFieldEl.type = "number";
-    levelFieldEl.placeholder = "Choose 1-3";
+    const levelFieldDivEl = document.createElement("div");
+    levelFieldDivEl.classList.add("levelFieldDiv");
+
+    const levelFieldEl = document.createElement("p");
+    levelFieldEl.classList.add("levelField");
+    levelFieldEl.innerText = "1";
+    
+    levelFieldDivEl.append(levelFieldEl);
+
+    const alignmentDivEl = document.createElement("div");
+    alignmentDivEl.classList.add("alignmentDiv");
 
     const alignmentLabelEl = document.createElement("h3");
     alignmentLabelEl.innerText = "Alignment";
 
     const alignmentFieldEl = document.createElement("select");
     alignmentFieldEl.placeholder = "Select an Alignment";
-
-    const randOptionEl = document.createElement("option");
-    randOptionEl.setAttribute('value', 'randomize');
-    randOptionEl.innerText = "Randomize!";
+    alignmentFieldEl.classList.add("selectorField");
 
     const lawGoodOptionEl = document.createElement("option");
     lawGoodOptionEl.setAttribute('value', 'Lawful-Good');
@@ -81,9 +94,9 @@ function displayFeaturesView(mainContainerEl) {
 
     //appending all alignment options
 
-    alignmentFieldEl.append(randOptionEl);
     alignmentFieldEl.append(lawGoodOptionEl);
     alignmentFieldEl.append(neutGoodOptionEl);
+    alignmentFieldEl.append(chaGoodOptionEl);
     alignmentFieldEl.append(chaEvilOptionEl);
     alignmentFieldEl.append(lawNeutralOptionEl);
     alignmentFieldEl.append(trueNeutOptionEl);
@@ -96,6 +109,7 @@ function displayFeaturesView(mainContainerEl) {
 
     const levelModalButtonEl = document.createElement("button");
     levelModalButtonEl.innerText = "?"
+    levelModalButtonEl.classList.add("alignmentModalButton");
 
     const levelModalDivEl = document.createElement("div");
     levelModalDivEl.classList.add("modal");
@@ -153,6 +167,7 @@ function displayFeaturesView(mainContainerEl) {
 
     const alignmentModalButtonEl = document.createElement("button");
     alignmentModalButtonEl.innerText = "?"
+    alignmentModalButtonEl.classList.add("alignmentModalButton");
 
     const alignmentModalDivEl = document.createElement("div");
     alignmentModalDivEl.classList.add("modal");
@@ -206,12 +221,10 @@ function displayFeaturesView(mainContainerEl) {
         }
     }
 
-    
-
     const forwardButtonEl = document.createElement("button");
     forwardButtonEl.classList.add("navButtons");
-    forwardButtonEl.setAttribute('id', 'backgroundForwardButton');
-    forwardButtonEl.innerText = ">";
+    forwardButtonEl.setAttribute('id', 'featureForwardButton');
+    forwardButtonEl.innerText = "NEXT";
 
   
 
@@ -227,7 +240,7 @@ function displayFeaturesView(mainContainerEl) {
             "experiencePoints": 0
         };
           
-        fetch(`http://localhost:8080/buildcharacter/base/`, {
+        fetch(`/buildcharacter/base/`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -245,22 +258,28 @@ function displayFeaturesView(mainContainerEl) {
 
     //appending all features page content
     
+    alignmentDivEl.append(alignmentLabelEl);
+    alignmentDivEl.append(alignmentModalButtonEl);
+
+    levelDivEl.append(levelLabelEl);
+    levelDivEl.append(levelModalButtonEl);
+
     featureDivEl.append(nameLabelEl);
     featureDivEl.append(nameFieldEl);
-    featureDivEl.append(levelLabelEl);
-    featureDivEl.append(levelFieldEl);
-    featureDivEl.append(levelModalButtonEl);
-    featureDivEl.append(alignmentLabelEl);
-    featureDivEl.append(alignmentFieldEl);
-    featureDivEl.append(alignmentModalButtonEl);
-    featureDivEl.append(forwardButtonEl);
+    featureDivEl.append(levelDivEl);
+    featureDivEl.append(levelFieldDivEl);
+    featureDivEl.append(alignmentDivEl);
+    featureDivEl.append(alignmentFieldEl);   
 
     mainContentDivEl.append(alignmentModalDivEl);
     mainContentDivEl.append(levelModalDivEl);
     mainContentDivEl.append(featureHeaderEl);
     mainContentDivEl.append(featureDivEl);
 
-    mainContainerEl.append(mainContentDivEl);
+    bigHolderDivEl.append(mainContentDivEl);
+    bigHolderDivEl.append(forwardButtonEl);
+
+    mainContainerEl.append(bigHolderDivEl);
 
     displayFooter(mainContainerEl);
 
