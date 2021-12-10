@@ -135,7 +135,7 @@ displayFeaturesView(mainContainerEl);
 
 //  displayBackgroundView(mainContainerEl);
 // displayAbilitiesView(mainContainerEl);
-displayCardsOutputView(mainContainerEl);
+// displayCardsOutputView(mainContainerEl);
 
 
 export {clearChildren}
