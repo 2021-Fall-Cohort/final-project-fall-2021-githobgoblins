@@ -13,6 +13,7 @@ public class DNDClass{
     @GeneratedValue
     private Long id;
     private String name;
+    @Lob
     private String description;
 
     @OneToMany(mappedBy = "dndClass")

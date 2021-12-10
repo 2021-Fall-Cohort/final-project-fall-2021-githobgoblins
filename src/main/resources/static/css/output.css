@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Murecho&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap');
 
 *{
     box-sizing: border-box;
@@ -12,73 +13,126 @@
     flex-direction: column;
     padding-left: 5%;
 } */
+
+.heading h1,
+.asH1 h1{
+    font-family:'IM Fell English SC'; 
+    /* color: #F6AA1C; */
+    color: black;  
+}
+.heading h1{
+    font-size: 55px;
+    color:black;
+    /* color: #9B3D12; */
+}
+.cardDiv h2{
+    font-family:'IM Fell English SC';
+    font-size: 35px;
+    /* color: #9B3D12;  */
+    color: black; 
+}
+.cardDiv h3, h4, small, p{
+    font-family:'Murecho', sans-serif;
+    /* color: #230903; */
+    color: black;
+}
+.cardDiv h1{
+    font-family:'IM Fell English SC';
+}
+.Title{
+    font-family:'Murecho', sans-serif;
+ }
+ .label,
+ #edit-name-label{
+     font-family: 'Murecho', sans-serif;
+     font-size: 18px;
+     font-weight: 500;
+     padding-top: .4rem;
+ }
+ .charText{
+     font-size: 14px;
+     font-weight: 200;
+ }
 .heading{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+    padding-left: 5%;
 }
+
+
 .heading button{
     cursor: pointer;
-    background-color: #069459;
+    background-color:  #fcba04;
     /* cool to add border thats the same color */
-    border: 2px solid #069459;
+    border: 2px solid #fcba04;
     border-radius: 8px;
-    color: white;    
+    color: #9B3D12;    
     font-size: 16px;
     padding: 5px;   
     width: 10%;
 
 }
+.heading button:hover{
+    background-color: #F6AA1C;
+}
+.cardDiv{   
+    /* display: flex; */
+    /* flex-direction: row; */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    /* border: 2px solid black; */
+    border-radius: 8px;
+    padding-left: 3%;
+    margin-bottom: 2rem;
+    
+}
+
 .edit-div{    
-    display: block;
     grid-column-start: 2;
     
 }  
-.outputDiv{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto;
-  border: 2px solid black;
-  border-radius: 8px;
-  padding-left: 3%;
-  margin-bottom: 2rem;
-  
-}
-
 .edits{
     padding-top: 13%;
+    /* padding-left: 3%; */
     display: flex;
     flex-direction: column;
     
 }
-.output-button{
-    cursor: pointer;
-    background-color: #069459;
-    /* cool to add border thats the same color */
-    border: 2px solid #069459;
-    border-radius: 4px;
-    color: white;    
-    font-size: 16px;
-    padding: 10px;   
-    width: 25%;
-}
-  
-.edit-btn-div{
-    grid-column-start: 1;
-}
-.cancel-submit{
-    display:block;
-    grid-column-start: 2;
-    
-}
-.cancel{
 
+.cancel-submit{
+    padding-top: 3%;
+    grid-column-start: 2;
+   
 }
 .submit{
-margin-left: 5%;
+    cursor: pointer;
+    background-color:  #fcba04;
+    /* cool to add border thats the same color */
+    border: 2px solid #fcba04;
+    border-radius: 8px;
+    color: #9B3D12;    
+    font-size: 16px;
+    padding: 5px;   
+    width: 30%;
+    grid-column-start: 2;
+    /* margin-top: 13%; */
 }
-.outputDiv input{
-    border: 2px solid #f0f0f0;    
+.submit:hover{
+    cursor: pointer;
+    background-color: #F6AA1C;
+    border: 2px solid #fcba04;
+    /* cool to add border thats the same color */
+    
+}
+.submit{
+margin-left: 18%;
+}
+.cardDiv input{
+    border: 2px solid #777;    
     border-radius: 4px;
     display: block;
     width: 60%;
@@ -87,19 +141,19 @@ margin-left: 5%;
     margin: .25rem;
 
 }
-/* focus state lets you change "state" or status when clicked or assuming hovered */
-.outputDiv input:focus{
+
+.cardDiv input:focus{
     outline: 0;
     border-color: #777;
 }
-/* removed/hid buillt in select box, increased size, added arrow */
-.outputDiv select{
+
+.cardDiv select{
     padding: 10px 20px 10px 10px;
     /* Code necessary for mac but NOT WINDOWS to render above padding  */
     -moz-appearance: none;
     -webkit-appearance: none;
     appearance: none;
-    border: 1px solid #dedede;
+    border: 1px solid #3A0842;
     font-size: 16px;
     background: transparent;
     background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%20000002%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
@@ -108,4 +162,32 @@ margin-left: 5%;
     background-repeat: no-repeat;
     width: 61%;
     margin-top: .25rem;
+}
+.asDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 3rem;
+    margin-bottom: 8rem;
+}
+.asH1{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    
+    border-radius: 8px;
+    padding-left: 3%;
+    margin-bottom: 2rem;
+}
+.indASDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    width: 10rem;
+    border-radius: 10px;
+    border-style:   solid;
+    /* border-color: black; */
+    background-color: #9B3D12;
 }
