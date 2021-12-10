@@ -64,14 +64,14 @@ mainContainerEl.append(headerCardsEl);
 
 const cardsEl = document.createElement("div");
 cardsEl.classList.add("cards");
-cardsEl.innerText = "Portfolio";
+// cardsEl.innerText = "Portfolio";
 
 const cardCardOneEl = document.createElement("div");
 cardCardOneEl.classList.add("cardCard1");
 
 const portfolioCardEl = document.createElement("img");
 portfolioCardEl.classList.add("PortfolioLogo");
-portfolioCardEl.src = "./images/card_1.jfif";
+portfolioCardEl.src = "./images/castle.jpg";
 
 const cardDescOneEl = document.createElement("p");
 cardDescOneEl.classList.add("card-desc");
@@ -114,11 +114,11 @@ const cardDescTwoEl = document.createElement("p");
 cardDescTwoEl.classList.add("card-desc");
 
 //append At home or on the go Card Section
-cardCardTwoEl.append(cardAtHomeOrOnTheGoEl);
-cardCardTwoEl.append(cardDescTwoEl);
-cardsEl.append(cardCardTwoEl);
+// cardCardTwoEl.append(cardAtHomeOrOnTheGoEl);
+// cardCardTwoEl.append(cardDescTwoEl);
+// cardsEl.append(cardCardTwoEl);
 
-mainContainerEl.append(cardsEl);
+// mainContainerEl.append(cardsEl);
 
 // Event Listener for Cards 2
 cardDescTwoEl.addEventListener("click", () =>{
@@ -151,11 +151,11 @@ cardDescThreeEl.addEventListener("click", () =>{
 })
 
 //Append all Tap into 
-cardCardThreeEl.append(tapIntoAdventureCardEl);
-cardCardThreeEl.append(cardDescThreeEl);
-cardsEl.append(cardCardThreeEl);
+// cardCardThreeEl.append(tapIntoAdventureCardEl);
+// cardCardThreeEl.append(cardDescThreeEl);
+// cardsEl.append(cardCardThreeEl);
 
-mainContainerEl.append(cardDescThreeEl);
+// mainContainerEl.append(cardDescThreeEl);
 
 
 
