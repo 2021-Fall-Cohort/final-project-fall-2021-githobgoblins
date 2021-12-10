@@ -49,15 +49,15 @@ function displayOutputView(mainContainerEl, currentCharacter) {
             window.print();
         })
 
-        const restartbtn =document.createElement("button");
-        restartbtn.setAttribute("id", "user-restart");
-        restartbtn.classList.add("output-button");
-        restartbtn.innerText="New Character";
+        // const restartbtn =document.createElement("button");
+        // restartbtn.setAttribute("id", "user-restart");
+        // restartbtn.classList.add("output-button");
+        // restartbtn.innerText="New Character";
 
         headingDiv.append(outputHeaderEl);
         // headingDiv.append(emailCharBtn);
         headingDiv.append(printCharBtn);
-        headingDiv.append(restartbtn);
+        // headingDiv.append(restartbtn);
         outputDivEl.append(headingDiv);
         // mainContentDivEl.append(outputHeaderEl);
         
