@@ -64,9 +64,11 @@ function displayHeader(mainContainerEl) {
     meetLiEl.classList.add("headerLi");
     meetLiEl.addEventListener("click", ()=> {
         clearChildren(mainContainerEl);
+        displayHeader(mainContainerEl);
         let contactsEl = document.createElement("div");
         contactsEl.innerHTML= displayContacts();
         mainContainerEl.append(contactsEl);
+        displayFooter(mainContainerEl);
     });
 
     //appending header elements

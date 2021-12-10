@@ -6,8 +6,13 @@ import {
     raceJson,
     backgroundJson
 } from "./descJson.js";
+import {displayHeader} from "./app.js";
+import {displayFooter} from "./app.js";
 
 function displayRulesPage(mainContainerEl) {
+
+    displayHeader(mainContainerEl);
+
     const mainSection = document.createElement("section");
     mainSection.classList.add("content-section");
 
@@ -344,5 +349,8 @@ function displayRulesPage(mainContainerEl) {
                 })
             })
     })
+
+
+    displayFooter(mainContainerEl);
 }
 export { displayRulesPage };

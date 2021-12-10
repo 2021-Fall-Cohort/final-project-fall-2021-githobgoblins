@@ -140,7 +140,7 @@ function displayOutputView(mainContainerEl, currentCharacter) {
     baseEditWrapper.classList.add("edit-div");
     baseEditWrapper.setAttribute("id", "edit-base");
 
-    const editBaseSection =document.createElement("section");
+    const editBaseSection = document.createElement("section");
     editBaseSection.classList.add("base", "edits");
     
     const editBaseH1 =document.createElement("h3");
