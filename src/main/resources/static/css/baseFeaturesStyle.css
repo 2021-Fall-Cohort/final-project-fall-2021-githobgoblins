@@ -39,15 +39,17 @@
     border-color: black;
     border-radius: 15px;
     box-shadow: 0 4px black;
-    background-color: #819187;
+    background-color: #fcba04;
+    color: #9B3D12;
+    font-family: 'IM Fell English SC', serif;
 }
 
 #featureForwardButton:hover{
-    background-color: #b0c2b7;
+    background-color: #F6AA1C;
 }
 
 #featureForwardButton:active{
-    background-color: #85eeaa;
+    background-color: #db581c;
     box-shadow: 0 2px #666;
     transform: translateY(4px);
 }

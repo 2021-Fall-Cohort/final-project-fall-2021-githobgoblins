@@ -6,11 +6,7 @@ import { displayFeaturesView } from "./features.js";
 
 function displayCardsOutputView(mainContainerEl){
   
-
-
-
-
-displayHeader(mainContainerEl);
+    displayHeader(mainContainerEl);
 
 //header Cards HomePage
 

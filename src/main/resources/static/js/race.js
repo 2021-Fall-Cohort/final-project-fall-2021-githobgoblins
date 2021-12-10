@@ -16,17 +16,21 @@ function displayRaceView(mainContainerEl, currentCharacter){
   //making all html elements for the pageTopDiv
   const raceTitleEl = document.createElement("h1");
   raceTitleEl.classList.add("pageTitle");
-  raceTitleEl.innerText = "Select Your Race";
+  raceTitleEl.innerText = "Race";
 
   const pageTopDivEl = document.createElement("div");
   pageTopDivEl.classList.add("pageTopDiv");
 
   const raceFormButtonsDivEl = document.createElement("div");
-  raceFormButtonsDivEl.classList.add("formButtons");
+  raceFormButtonsDivEl.classList.add("formButtonsDiv");
   const raceFormEl = document.createElement("form");
     
+  const raceSelectorTitleEl = document.createElement("h4");
+  raceSelectorTitleEl.classList.add("selectorTitle");
+  raceSelectorTitleEl.innerText = "Select " + currentCharacter.baseFeatures.name + "'s Race";
+
   const raceSelectEl = document.createElement("select");
-  //raceSelectEl.classList.add("selector");
+  raceSelectEl.classList.add("selectorField");
 
   const dragonbornOptionEl = document.createElement("option");
   dragonbornOptionEl.setAttribute('value', 'dragonborn');
@@ -94,6 +98,7 @@ function displayRaceView(mainContainerEl, currentCharacter){
 
   raceFormEl.append(raceSelectEl);
 
+  raceFormButtonsDivEl.append(raceSelectorTitleEl);
   raceFormButtonsDivEl.append(raceFormEl);
   raceFormButtonsDivEl.append(raceModalButtonEl);
 
@@ -162,20 +167,26 @@ function displayRaceView(mainContainerEl, currentCharacter){
     //creating all pageBottomDiv elements
 
     const pageBottomDivEl = document.createElement("div");
-    pageBottomDivEl.classList.add("div");
+    pageBottomDivEl.classList.add("pageBottomDiv");
 
-    const raceLearnDropdownDivEl = document.createElement("div");
-    raceLearnDropdownDivEl.classList.add("learnDropdown");
+    const raceLearnHeaderEl = document.createElement("h4");
+    raceLearnHeaderEl.classList.add("classLearnHeader");
+    raceLearnHeaderEl.innerText = "Learn More About Races";
 
     const raceDropdownLabelEl = document.createElement("label");
-    raceDropdownLabelEl.setAttribute('for', 'raceNames');
-    raceDropdownLabelEl.setAttribute('id', 'raceLearnLabel');
+    raceDropdownLabelEl.classList.add("learnLabel");
+    raceDropdownLabelEl.setAttribute('for', 'classNames');
+    raceDropdownLabelEl.innerText = "Select what race you want to learn about";
+
+    const raceLearnDropdownDivEl = document.createElement("div");
+    raceLearnDropdownDivEl.classList.add("learnDropdown");    
 
     const raceLearnFormEl = document.createElement("form");
     
     const raceLearnSelectEl = document.createElement("select");
     raceLearnSelectEl.setAttribute('name', 'raceNames');
     raceLearnSelectEl.setAttribute('id', 'raceNames');
+    raceLearnSelectEl.classList.add("selectorField");
 
     const dragonbornLearnOptionEl = document.createElement("option");
     dragonbornLearnOptionEl.setAttribute('value', 'dragonborn');
@@ -237,10 +248,6 @@ function displayRaceView(mainContainerEl, currentCharacter){
     raceMoreInfoDivEl.append(moreInfoCloseEl);
     raceMoreInfoDivEl.append(raceLearnMoreTitleEl);
     raceMoreInfoDivEl.append(raceMoreInfoTextEl);
-    
-
-    mainContentDiv.append(raceMoreInfoDivEl);
-    mainContentDiv.append(forwardButtonEl);
 
     //appending all pageBottomDiv elements
 
@@ -259,9 +266,12 @@ function displayRaceView(mainContainerEl, currentCharacter){
     raceLearnDropdownDivEl.append(raceDropdownLabelEl);
     raceLearnDropdownDivEl.append(raceLearnFormEl);
 
-  pageBottomDivEl.append(raceLearnDropdownDivEl);
-  pageBottomDivEl.append(raceMoreInfoButtonEl);
-  mainContentDiv.append(pageBottomDivEl);
+    pageBottomDivEl.append(raceLearnHeaderEl);  
+    pageBottomDivEl.append(raceDropdownLabelEl);
+    pageBottomDivEl.append(raceLearnDropdownDivEl);
+    pageBottomDivEl.append(raceMoreInfoDivEl);
+    pageBottomDivEl.append(raceMoreInfoButtonEl);
+    mainContentDiv.append(pageBottomDivEl);
 
   //creating raceLearnMoreDiv elements
 
@@ -323,6 +333,7 @@ function displayRaceView(mainContainerEl, currentCharacter){
     
 
     mainContainerEl.append(mainContentDiv);
+    mainContainerEl.append(forwardButtonEl);
 
     displayFooter(mainContainerEl);
 }

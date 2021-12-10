@@ -98,7 +98,7 @@ console.log(currentCharacter);
   //forward and back buttons
 
   const forwardButtonEl = document.createElement("button");
-  forwardButtonEl.classList.add("navButtons");
+  forwardButtonEl.classList.add("nextPageButton");
   forwardButtonEl.setAttribute('id', 'classForwardButton');
   forwardButtonEl.innerText = "NEXT";
   

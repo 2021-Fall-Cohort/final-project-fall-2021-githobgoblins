@@ -42,3 +42,97 @@
   cursor: pointer;
 }
 
+.nextPageButton{
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    padding: .5rem;
+    font-weight: bold;
+    border: solid 2px;
+    border-color: black;
+    border-radius: 15px;
+    box-shadow: 0 4px black;
+    background-color: #fcba04;
+    font-family: 'IM Fell English SC', serif;
+    color: #9B3D12;
+}
+
+.nextPageButton:hover{
+    background-color: #F6AA1C;
+}
+
+.nextPageButton:active{
+    background-color: #db581c;
+    box-shadow: 0 2px #666;
+    transform: translateY(4px);
+}
+
+#openRaceModal{
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: .75rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    padding: .5rem;
+    font-weight: bold;
+    border: solid 2px;
+    border-color: black;
+    border-radius: 15px;
+    box-shadow: 0 4px black;
+    background-color: #819187;
+}
+
+#openRaceModal:hover{
+    background-color: #b0c2b7;
+}
+
+#openRaceModal:active{
+    background-color: #85eeaa;
+    box-shadow: 0 2px #666;
+    transform: translateY(4px);
+}
+
+#raceMoreInfoButton{
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: .75rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: .5rem;
+    font-weight: bold;
+    border: solid 2px;
+    border-color: black;
+    border-radius: 15px;
+    box-shadow: 0 4px black;
+    background-color: #819187;
+}
+
+#raceMoreInfoButton:hover{
+    background-color: #b0c2b7;
+}
+
+#raceMoreInfoButton:active{
+    background-color: #85eeaa;
+    box-shadow: 0 2px #666;
+    transform: translateY(4px);
+}
+
+#raceMoreInfoDiv{
+    display: none;
+    width: 105%;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-bottom: 1.5rem;
+    text-align: center;
+    background-color: lightblue;
+    margin-top: 20px;
+    animation-name: animatetop;
+    animation-duration: 2s;
+    border: 2px solid;
+    border-radius: 10px;
+}

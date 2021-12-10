@@ -152,7 +152,7 @@ function displayAbilitiesView(mainContainerEl, currentCharacter) {
 
     const finishCharacterButtonEl = document.createElement("button");
     finishCharacterButtonEl.innerText = "Finish Character!";
-    finishCharacterButtonEl.classList.add("finishCharacterButton");
+    finishCharacterButtonEl.classList.add("nextPageButton");
 
     abilitiesOutputDiv.append(abilitiesOutputTitleEl);
     scoreOutputHolderDivEl.append(strDivEl);
