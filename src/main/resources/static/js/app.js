@@ -30,6 +30,13 @@ function displayHeader(mainContainerEl) {
     const goblinLogoEl = document.createElement("img");
     goblinLogoEl.classList.add("goblinLogo");
     goblinLogoEl.src = "/src/main/resources/static/images/goblin.png";
+
+    goblinLogoEl.addEventListener("click", ()=> {
+        clearChildren(mainContainerEl);
+        displayHeader(mainContainerEl);
+        displayCardsOutputView(mainContainerEl);
+        displayFooter(mainContainerEl);
+    });
     
     homeLiEl.append(goblinLogoEl);
 
@@ -107,11 +114,12 @@ function clearChildren(element) {
 };
 
 // displayOutputView(mainContainerEl);
-displayFeaturesView(mainContainerEl);
+// displayFeaturesView(mainContainerEl);
 // displayDNDClassView(mainContainerEl);
 // displayRaceView(mainContainerEl);
 // // displayBackgroundView(mainContainerEl);
 // displayAbilitiesView(mainContainerEl);
+displayCardsOutputView(mainContainerEl);
 
 
 export {clearChildren}

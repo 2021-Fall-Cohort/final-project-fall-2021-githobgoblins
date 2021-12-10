@@ -4,43 +4,42 @@ import { displayHeader } from "./app.js";
 import { displayFooter } from "./app.js";
 import { displayFeaturesView } from "./features.js";
 
-function displayCardsOutputView(mainContainerEl,currentCharacter){
+function displayCardsOutputView(mainContainerEl){
+  
 
 
-console.log(currentCharacter);
+
 
 displayHeader(mainContainerEl);
 
 //header Cards HomePage
-const mainContainerEl = document.createElement("div");
-mainContainerEl.classList.add("mainContainerEl");
+
 
 const headerCardsEl = document.createElement("header");
 headerCardsEl.classList.add("header");
-headerCardsEl.innerText = "One Shot Wizard";
+
 
 const headerDivCardsEl = document.createElement("div");
 headerDivCardsEl.classList.add("headerDiv");
 
 const headerUlCardsEl = document.createElement("ul");
 headerUlCardsEl.classList.add =("headerUl");
-headerUlCardsEl.innerText = "One Shot Goblin";
+
 
 const headerLiHomeEl = document.createElement("li");
 headerLiHomeEl.classList.add("Home");
-headerLiHomeEl.innerText = "Home";
+
 
 const headerLiCreateCharacterEl = document.createElement("li");
-headerLiCreateCharacterEl.classList.add("Create a Character");
-headerLiCreateCharacterEl.innerText  = "Create a Character";
+headerLiCreateCharacterEl.classList.add("CreateACharacter");
 
 const headerLiUserCreationsEl = document.createElement("li");
-headerLiUserCreationsEl.classList.add("User Creations");
-headerLiUserCreationsEl.innerText = "User Creations";
+headerLiUserCreationsEl.classList.add("UserCreations");
+
 
 const headerLiMeetTheGoblinsEl = document.createElement("li");
-headerLiMeetTheGoblinsEl.classList.add("Meet the Goblins");
-headerLiMeetTheGoblinsEl.innerText = "Meet the Goblins";
+headerLiMeetTheGoblinsEl.classList.add("MeetTheGoblins");
+
 
 
 
@@ -56,29 +55,28 @@ headerDivCardsEl.append(headerUlCardsEl);
 
 headerCardsEl.append(headerDivCardsEl);
 
-headerCardsEl.append(mainContainerEl);
-
-headerLiUserCreationsEl.addEventListener("click"(), => {
-display
-
-})
+mainContainerEl.append(headerCardsEl);
 
 
-//Cards Section
+
+
+//Portfolio Cards Section
 
 const cardsEl = document.createElement("div");
 cardsEl.classList.add("cards");
 cardsEl.innerText = "Portfolio";
 
 const cardCardOneEl = document.createElement("div");
-cardCardOneEl.classList.add("card card1");
+cardCardOneEl.classList.add("cardCard1");
 
 const portfolioCardEl = document.createElement("img");
-portfolioCardEl.add("PortfolioLogo");
+portfolioCardEl.classList.add("PortfolioLogo");
 portfolioCardEl.src = "./images/card_1.jfif";
 
 const cardDescOneEl = document.createElement("p");
 cardDescOneEl.classList.add("card-desc");
+
+
 
 
 // append all Card  Portfolio Sections
@@ -87,71 +85,90 @@ cardCardOneEl.append(portfolioCardEl);
 cardCardOneEl.append(cardDescOneEl);
 cardsEl.append(cardCardOneEl);
 
-cardsEl.append(mainContainerEl);
+mainContainerEl.append(cardsEl);
 
 
+
+// Event Listener for Cards 1
 cardDescOneEl.addEventListener("click", () =>{
 
     clearChildren(mainContainerEl);
-    displayFeaturesView(mainContainerEl,currentCharacter);
+    displayFeaturesView(mainContainerEl);
     console.log(displayCardsOutputView);
 })
 
 
 
-const cardCardTwoEl = document.createElement("img");
-atHomeOrOnTheGoEl.add("At home or on the go logo");
-atHomeOrOnTheGoEl.src = "./images/card_2.jpg";
+// At home or on  the go Card section 
+const cardCardTwoEl = document.createElement("div");
+cardCardTwoEl.classList.add("cardCard2");
+cardCardTwoEl.innerText = "At Home or on the Go";
+
+
+
+const cardAtHomeOrOnTheGoEl = document.createElement("img");
+cardAtHomeOrOnTheGoEl.classList.add("AtHomeOrOnTheGoLogo");
+cardAtHomeOrOnTheGoEl.src = "./images/card_2.jpg";
 
 const cardDescTwoEl = document.createElement("p");
 cardDescTwoEl.classList.add("card-desc");
 
-//append At home or on the go Cards
+//append At home or on the go Card Section
+cardCardTwoEl.append(cardAtHomeOrOnTheGoEl);
+cardCardTwoEl.append(cardDescTwoEl);
+cardsEl.append(cardCardTwoEl);
 
-cardCardTwoEl.append();
+mainContainerEl.append(cardsEl);
+
+// Event Listener for Cards 2
+cardDescTwoEl.addEventListener("click", () =>{
+
+    clearChildren(mainContainerEl);
+    displayFeaturesView(mainContainerEl);
+    console.log(displayCardsOutputView);
+})
 
 
+// Tap into Adventure Card Section
 const cardCardThreeEl = document.createElement("div");
-cardCardThreeEl.classList.add("card card3");
-cardDescThreeEl.innerText = "Tap into adventure";
+cardCardThreeEl.classList.add("cardCard3");
+cardCardThreeEl.innerText = "Tap into adventure";
 
-const tapIntoAdventureCardEl = document.createElement("img");
-tapIntoAdventureCardEl.add("Tap into adventure");
+const tapIntoAdventureCardEl  = document.createElement("img");
+tapIntoAdventureCardEl.classList.add("TapIntoAdventure");
 tapIntoAdventureCardEl.src = "./images/card_3.jpg";
 
 const cardDescThreeEl = document.createElement("p");
 cardDescThreeEl.classList.add("card-desc");
 
 
+// Event Listener for Cards 3
+cardDescThreeEl.addEventListener("click", () =>{
 
-//Footer Section
+    clearChildren(mainContainerEl);
+    displayFeaturesView(mainContainerEl);
+    console.log(displayCardsOutputView);
+})
 
-const footerCardsEl = document.createElement("footer");
-footerCardsEl.classList.add("footer");
+//Append all Tap into 
+cardCardThreeEl.append(tapIntoAdventureCardEl);
+cardCardThreeEl.append(cardDescThreeEl);
+cardsEl.append(cardCardThreeEl);
 
-const footerLiWeCanCodeItEl = document.createElement("h3");
-footerLiWeCanCodeItEl.classList.add("footerLiEl");
-footerLiWeCanCodeItEl.innerText = "We Can Code It";
+mainContainerEl.append(cardDescThreeEl);
 
-const footerLiGitHobGoblinsEl = document.createElement("h4");
-footerLiGitHobGoblinsEl.classList.add("footerLiEl");
-footerLiGitHobGoblinsEl.innerText = "Git-HobGoblins";
 
-const footerLiTwoThousandTwentyOneEl = document.createElement("p");
-footerLiTwoThousandTwentyOneEl.classList.add("footerLiEl");
-footerLiTwoThousandTwentyOneEl.innerText = "2021";
 
-//append Footer
 
-footerCardsEl.append(footerLiWeCanCodeItEl);
-footerCardsEl.append(footerLiGitHobGoblinsEl);
-footerCardsEl.append(footerLiTwoThousandTwentyOneEl);
 
-footerCardsEl.append(mainContainerEl)
+displayFooter(mainContainerEl);
+
 
 }
 
 export {displayCardsOutputView}
+
+
 
 
 
