@@ -31,6 +31,12 @@ function displayHeader(mainContainerEl) {
     const goblinLogoEl = document.createElement("img");
     goblinLogoEl.classList.add("goblinLogo");
     goblinLogoEl.src = "./images/goblin.png";
+    goblinLogoEl.addEventListener("click", () =>{
+        clearChildren(mainContainerEl);
+        // displayHeader(mainContainerEl);
+        displayCardsOutputView(mainContainerEl);
+        // displayFooter(mainContainerEl);
+    })
     
     homeLiEl.append(goblinLogoEl);
 
@@ -39,15 +45,22 @@ function displayHeader(mainContainerEl) {
     createLiEl.classList.add("headerLi");
     createLiEl.addEventListener("click", ()=> {
         clearChildren(mainContainerEl);
-        displayHeader(mainContainerEl);
+        // displayHeader(mainContainerEl);
         displayFeaturesView(mainContainerEl);
-        displayFooter(mainContainerEl);
+        // displayFooter(mainContainerEl);
     })
 
     
     const userCreationsLiEl = document.createElement("li");
     userCreationsLiEl.innerText = "User Creations";
     userCreationsLiEl.classList.add("headerLi");
+    userCreationsLiEl.addEventListener("click", ()=>{
+        clearChildren(mainContainerEl);
+        // displayHeader(mainContainerEl);
+        displayUserCreationsView(mainContainerEl);
+        // displayFooter(mainContainerEl);
+
+    })
 
     const rulesPageEl = document.createElement("li");
     rulesPageEl.innerText = "Rules Page";
@@ -71,6 +84,8 @@ function displayHeader(mainContainerEl) {
         displayFooter(mainContainerEl);
 
     });
+
+  
 
     //appending header elements
 
@@ -118,7 +133,7 @@ function clearChildren(element) {
 
 
 // displayOutputView(mainContainerEl);
-displayFeaturesView(mainContainerEl);
+// displayFeaturesView(mainContainerEl);
 // displayDNDClassView(mainContainerEl);
 // displayRaceView(mainContainerEl);
 // displayBackgroundView(mainContainerEl);
@@ -127,7 +142,7 @@ displayFeaturesView(mainContainerEl);
 
 //  displayBackgroundView(mainContainerEl);
 // displayAbilitiesView(mainContainerEl);
-// displayCardsOutputView(mainContainerEl);
+displayCardsOutputView(mainContainerEl);
 
 
 export {clearChildren}

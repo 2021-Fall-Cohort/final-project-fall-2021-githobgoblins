@@ -55,6 +55,7 @@ headerDivCardsEl.append(headerUlCardsEl);
 
 headerCardsEl.append(headerDivCardsEl);
 
+
 mainContainerEl.append(headerCardsEl);
 
 
@@ -66,8 +67,12 @@ const cardsEl = document.createElement("div");
 cardsEl.classList.add("cards");
 // cardsEl.innerText = "Portfolio";
 
+
+
 const cardCardOneEl = document.createElement("div");
 cardCardOneEl.classList.add("cardCard1");
+
+
 
 const portfolioCardEl = document.createElement("img");
 portfolioCardEl.classList.add("PortfolioLogo");
