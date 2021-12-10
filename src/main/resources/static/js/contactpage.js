@@ -16,7 +16,7 @@ function displayContacts() {
             
             <ul>
                 <h2>Carson Dentinger</h2>
-                <li><strong class="strong">Primary Role For This Project:</strong> Front End Development, Project Design</li>
+                <li><strong class="strong">Primary Role For This Project:</strong> Front End Development, Project Design, Product Owner</li>
                 <li><strong class="strong">Email: </strong>carson.dentinger@gmail.com</li>
                 <li><a href="https://www.linkedin.com/in/carson-dentinger/">Linked In</a></li>
                 <li><a href="https://carsondentinger.github.io/">Portfolio</a></li>
@@ -32,7 +32,7 @@ function displayContacts() {
             <ul>
                 <h2>Rico McLellan Jr</h2>
                 <li><strong class="strong">Primary Role For This Project:</strong> Front End Development</li>
-                <li><strong class="strong">Email:</strong>ricodmclellan@gmail.com</li>
+                <li><strong class="strong">Email:</strong> ricodmclellan@gmail.com</li>
                 <li><a href="https://www.linkedin.com/in/ricodmclellan2018/">Linked In</a></li>
                 <li><a href="https://ricomclellan.github.io/">Portfolio</a> </li>
             </ul>
@@ -47,7 +47,7 @@ function displayContacts() {
             <ul>
                 <h2>Ali Ashkir</h2>
                 <li><strong class="strong">Primary Role For This Project:</strong> Front End Development</li>
-                <li><strong class="strong">Email: </strong>ashkiralo04@gmail.com</li>
+                <li><strong class="strong">Email: </strong>ashkirali04@gmail.com</li>
                 <li><a href="https://www.linkedin.com/in/ali-ashkir-5070211ba/">Linked In</a></li>
                 <li><a href="https://alithecoder1.github.io/">Portfolio</a></li>
             </ul>
@@ -76,7 +76,7 @@ function displayContacts() {
             
             <ul>
                 <h2>Josh Gardner</h2>
-                <li><strong class="strong">Primary Role For This Project:</strong> Back End Development</li>
+                <li><strong class="strong">Primary Role For This Project:</strong> Front End Development, Back End Development</li>
                 <li><strong class="strong">Email: </strong>jwgardner22@gmail.com</li>
                 <li><a href="https://www.linkedin.com/in/joshua-gardner/">Linked In</a> </li>
                 <li><a href="https://jgard2019.github.io/">Portfolio</a></li>

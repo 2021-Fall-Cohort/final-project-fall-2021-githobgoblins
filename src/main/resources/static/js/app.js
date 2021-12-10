@@ -6,11 +6,11 @@ import { displayOutputView } from "./output.js";
 import { displayAbilitiesView } from "./abilities.js";
 import { displayUserCreationsView } from "./userCreations.js";
 import { displayContacts } from "./contactpage.js";
+import { displayCardsOutputView } from "./cards.js";
 
 import { displayRulesPage } from "./rulesPage.js";
 
 const mainContainerEl = document.querySelector(".mainContainerEl");
-
 
 function displayHeader(mainContainerEl) {
 
@@ -30,6 +30,11 @@ function displayHeader(mainContainerEl) {
     const goblinLogoEl = document.createElement("img");
     goblinLogoEl.classList.add("goblinLogo");
     goblinLogoEl.src = "./images/goblin.png";
+
+    goblinLogoEl.addEventListener("click", () => {
+        clearChildren(mainContainerEl);
+        displayCardsOutputView(mainContainerEl);
+    })
     
     homeLiEl.append(goblinLogoEl);
 
@@ -38,9 +43,7 @@ function displayHeader(mainContainerEl) {
     createLiEl.classList.add("headerLi");
     createLiEl.addEventListener("click", ()=> {
         clearChildren(mainContainerEl);
-        displayHeader(mainContainerEl);
         displayFeaturesView(mainContainerEl);
-        displayFooter(mainContainerEl);
     })
 
     
@@ -53,9 +56,7 @@ function displayHeader(mainContainerEl) {
     rulesPageEl.classList.add("headerLi");
     rulesPageEl.addEventListener("click", ()=> {
         clearChildren(mainContainerEl);
-        displayHeader(mainContainerEl);
         displayRulesPage(mainContainerEl);
-        displayFooter(mainContainerEl);
     });
     
     const meetLiEl = document.createElement("li");
@@ -63,12 +64,9 @@ function displayHeader(mainContainerEl) {
     meetLiEl.classList.add("headerLi");
     meetLiEl.addEventListener("click", ()=> {
         clearChildren(mainContainerEl);
-        displayHeader(mainContainerEl);
         let contactsEl = document.createElement("div");
         contactsEl.innerHTML= displayContacts();
         mainContainerEl.append(contactsEl);
-        displayFooter(mainContainerEl);
-
     });
 
     //appending header elements
@@ -125,7 +123,8 @@ displayFeaturesView(mainContainerEl);
 // displayUserCreationsView(mainContainerEl);
 
 // // displayBackgroundView(mainContainerEl);
-// displayAbilitiesView(mainContainerEl);
+// // displayAbilitiesView(mainContainerEl);
+// displayCardsOutputView(mainContainerEl);
 
 
 export {clearChildren}
@@ -133,4 +132,3 @@ export {clearChildren}
 export {displayHeader}
 
 export {displayFooter}
-
