@@ -27,7 +27,7 @@ function displayRaceView(mainContainerEl, currentCharacter){
     
   const raceSelectorTitleEl = document.createElement("h4");
   raceSelectorTitleEl.classList.add("selectorTitle");
-  raceSelectorTitleEl.innerText = "Select " + "currentCharacter.baseFeatures.name" + "'s Race";
+  raceSelectorTitleEl.innerText = "Select " + currentCharacter.baseFeatures.name + "'s Race";
 
   const raceSelectEl = document.createElement("select");
   raceSelectEl.classList.add("selectorField");
@@ -173,13 +173,13 @@ function displayRaceView(mainContainerEl, currentCharacter){
     raceLearnHeaderEl.classList.add("classLearnHeader");
     raceLearnHeaderEl.innerText = "Learn More About Races";
 
-    const raceLearnDropdownDivEl = document.createElement("div");
-    raceLearnDropdownDivEl.classList.add("learnDropdown");
-
     const raceDropdownLabelEl = document.createElement("label");
-    raceDropdownLabelEl.setAttribute('for', 'raceNames');
-    raceDropdownLabelEl.setAttribute('id', 'raceLearnLabel');
-    
+    raceDropdownLabelEl.classList.add("learnLabel");
+    raceDropdownLabelEl.setAttribute('for', 'classNames');
+    raceDropdownLabelEl.innerText = "Select what race you want to learn about";
+
+    const raceLearnDropdownDivEl = document.createElement("div");
+    raceLearnDropdownDivEl.classList.add("learnDropdown");    
 
     const raceLearnFormEl = document.createElement("form");
     
@@ -266,11 +266,12 @@ function displayRaceView(mainContainerEl, currentCharacter){
     raceLearnDropdownDivEl.append(raceDropdownLabelEl);
     raceLearnDropdownDivEl.append(raceLearnFormEl);
 
-  pageBottomDivEl.append(raceLearnHeaderEl);  
-  pageBottomDivEl.append(raceLearnDropdownDivEl);
-  pageBottomDivEl.append(raceMoreInfoDivEl);
-  pageBottomDivEl.append(raceMoreInfoButtonEl);
-  mainContentDiv.append(pageBottomDivEl);
+    pageBottomDivEl.append(raceLearnHeaderEl);  
+    pageBottomDivEl.append(raceDropdownLabelEl);
+    pageBottomDivEl.append(raceLearnDropdownDivEl);
+    pageBottomDivEl.append(raceMoreInfoDivEl);
+    pageBottomDivEl.append(raceMoreInfoButtonEl);
+    mainContentDiv.append(pageBottomDivEl);
 
   //creating raceLearnMoreDiv elements
 
