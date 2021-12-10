@@ -16,7 +16,7 @@
   bottom: 20px;
   left: 20px;
   font-size: 30px;
-  width: 95%;
+  width: fit-content;
   color: white;
   font-weight: bolder;
   background: rgba(0, 0, 0, 0.3);
@@ -24,4 +24,9 @@
 
 html{
   font-size: 16px !important;
+}
+ 
+.cardCard1{
+  display: flex;
+  background;
 }

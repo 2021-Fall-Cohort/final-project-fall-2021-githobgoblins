@@ -50,6 +50,13 @@ function displayHeader(mainContainerEl) {
     const userCreationsLiEl = document.createElement("li");
     userCreationsLiEl.innerText = "User Creations";
     userCreationsLiEl.classList.add("headerLi");
+    userCreationsLiEl.addEventListener("click", ()=>{
+        clearChildren(mainContainerEl);
+        // displayHeader(mainContainerEl);
+        displayUserCreationsView(mainContainerEl);
+        // displayFooter(mainContainerEl);
+
+    })
 
     const rulesPageEl = document.createElement("li");
     rulesPageEl.innerText = "Rules";
@@ -70,6 +77,8 @@ function displayHeader(mainContainerEl) {
         mainContainerEl.append(contactsEl);
         displayFooter(mainContainerEl);
     });
+
+  
 
     //appending header elements
 
@@ -124,9 +133,9 @@ displayFeaturesView(mainContainerEl);
 // displayAbilitiesView(mainContainerEl);
 // displayUserCreationsView(mainContainerEl);
 
-// // displayBackgroundView(mainContainerEl);
-// // displayAbilitiesView(mainContainerEl);
-// displayCardsOutputView(mainContainerEl);
+//  displayBackgroundView(mainContainerEl);
+// displayAbilitiesView(mainContainerEl);
+displayCardsOutputView(mainContainerEl);
 
 
 export {clearChildren}
