@@ -2,6 +2,9 @@ import {clearChildren} from "./app.js";
 import {displayDNDClassView} from "./dndClass.js";
 import { displayHeader } from "./app.js";
 import { displayFooter } from "./app.js";
+import {backgroundJson} from "./descJson.js";
+import {raceJson} from "./descJson.js";
+import {classJson} from "./descJson.js";
 
 function displayOutputView(mainContainerEl, currentCharacter) {
     console.log(currentCharacter);
@@ -495,42 +498,65 @@ function displayOutputView(mainContainerEl, currentCharacter) {
 //  Event Listeners 
 
 // !!!!!!!!!!!!!!!!!!Submit FIXED!!!!!!!!!!!!!!!!!!!!!!
-    classSubmitBtn.addEventListener("click", () => {
-        const classJson = {
-        "name": selectEl.value,
-        "description": "warlock boi",
-        "features": [
-            {
-            "name" : "something unique",
-            "description" :"unique things"
-            },
-            {
-            "name" : "watch shows faster",
-            "description" :" more shows in less time"
-            }
+    // classSubmitBtn.addEventListener("click", () => {
+    //     const classJson = {
+    //     "name": selectEl.value,
+    //     "description": "warlock boi",
+    //     "features": [
+    //         {
+    //         "name" : "something unique",
+    //         "description" :"unique things"
+    //         },
+    //         {
+    //         "name" : "watch shows faster",
+    //         "description" :" more shows in less time"
+    //         }
         
-        ]
-        };
-        fetch(`/buildcharacter/editclass/${currentCharacter.id}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(classJson)
-        })
-        .then(res => res.json())
-        .then(character => {
-            clearChildren(mainContainerEl);
-            currentCharacter = character;
-            displayOutputView(mainContainerEl, currentCharacter);
+    //     ]
+    //     };
+    //     fetch(`/buildcharacter/editclass/${currentCharacter.id}`, {
+    //         method: 'PUT',
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify(classJson)
+    //     })
+    //     .then(res => res.json())
+    //     .then(character => {
+    //         clearChildren(mainContainerEl);
+    //         currentCharacter = character;
+    //         displayOutputView(mainContainerEl, currentCharacter);
             
-        })
-        .catch(err => console.error(err));
+    //     })
+    //     .catch(err => console.error(err));
 
 
+        
+    // })
+
+
+    classSubmitBtn.addEventListener("click", () => {
+    const userClassJson = {
+      "name": selectEl.value,
+      "description": "warlock boi",
+      "features": classJson[selectEl.selectedIndex].features,
+    };
+      fetch(`/buildcharacter/editclass/${currentCharacter.id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(userClassJson)
+      })
+    .then(res => res.json())
+    .then(character => {
+        clearChildren(mainContainerEl);
+        currentCharacter = character;
+        displayOutputView(mainContainerEl, currentCharacter);
         
     })
-
+    .catch(err => console.error(err));
+  })
 
 //**************************Background*******************************
         const bgDiv = document.createElement("div");
@@ -693,20 +719,11 @@ function displayOutputView(mainContainerEl, currentCharacter) {
 
 //--------------------  Event Listener------------------- 
 
- bgSubmit.addEventListener("click", ()=> {
-      const backgroundJson = {
+    bgSubmit.addEventListener("click", ()=> {
+      const userBackgroundJson = {
         "name": backgroundSelectEl.value,
         "description": "because what else",
-        "features" : [
-          {
-            "name" : "code fast",
-            "description" :"super sonic typing"
-          },
-          {
-            "name" : "Speed reading",
-            "description" : "get 'er don"
-          }
-        ]
+        "features" : backgroundJson[backgroundSelectEl.selectedIndex].features,
       };
     
       fetch(`/buildcharacter/editbackground/${currentCharacter.id}`, {
@@ -714,7 +731,7 @@ function displayOutputView(mainContainerEl, currentCharacter) {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(backgroundJson)
+        body: JSON.stringify(userBackgroundJson)
       })
       .then(res => res.json())
       .then(character => {
@@ -724,7 +741,6 @@ function displayOutputView(mainContainerEl, currentCharacter) {
       })
       .catch(err => console.error(err));
   })
-
 //**************************Race *************************************
         const raceDiv = document.createElement("div");
         raceDiv.classList.add("cardDiv");
@@ -889,38 +905,24 @@ function displayOutputView(mainContainerEl, currentCharacter) {
 //-------------Event Listeners---------------
 
     //----------------Submit------------- 
-    raceSubmitBtn.addEventListener("click", () => {
-        const raceJson = {
-          "name" : raceSelectEl.value,
-          "description": "warlock boi",
-          "abilityScoreImprovement1": 2,
-          "abilityScoreImprovement2": 1,
-          "abilityScoreImprovementName1": "strength",
-          "abilityScoreImprovementName2": "charisma",
-          "features": [
-            {
-              "name" : "run fast",
-              "description" :"super sonic speed",
-              "class" : null,
-              "race" : null,
-              "background" : null
-            },
-    
-            {
-              "name" : "CARSON FEATURES HERE",
-              "description" :"???????",
-              "class" : null,
-              "race" : null,
-              "background" : null
-            }
-          ]
+
+          
+      raceSubmitBtn.addEventListener("click", () => {
+        const userRaceJson = {
+          "name" : raceJson[raceSelectEl.selectedIndex].title,
+          "description": raceJson[raceSelectEl.selectedIndex].desc,
+          "abilityScoreImprovement1": raceJson[raceSelectEl.selectedIndex].abilityScoreImprovement1,
+          "abilityScoreImprovement2": raceJson[raceSelectEl.selectedIndex].abilityScoreImprovement2,
+          "abilityScoreImprovementName1": raceJson[raceSelectEl.selectedIndex].abilityScoreImprovementName1,
+          "abilityScoreImprovementName2": raceJson[raceSelectEl.selectedIndex].abilityScoreImprovementName2,
+          "features": raceJson[raceSelectEl.selectedIndex].features
         };
           fetch(`/buildcharacter/editrace/${currentCharacter.id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(raceJson)
+            body: JSON.stringify(userRaceJson)
           })
         .then(res => res.json())
         .then(character => {
@@ -930,7 +932,6 @@ function displayOutputView(mainContainerEl, currentCharacter) {
         })
         .catch(err => console.error(err));
       })
-          
 
 //******************ABILITY SCORE ************************
         const abilitiesDivEl = document.createElement("div");
