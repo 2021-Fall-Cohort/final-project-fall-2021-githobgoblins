@@ -42,3 +42,28 @@
   cursor: pointer;
 }
 
+.nextPageButton{
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    padding: .5rem;
+    font-weight: bold;
+    border: solid 2px;
+    border-color: black;
+    border-radius: 15px;
+    box-shadow: 0 4px black;
+    background-color: #819187;
+}
+
+.nextPageButton:hover{
+    background-color: #b0c2b7;
+}
+
+.nextPageButton:active{
+    background-color: #85eeaa;
+    box-shadow: 0 2px #666;
+    transform: translateY(4px);
+}

@@ -16,17 +16,21 @@ function displayRaceView(mainContainerEl, currentCharacter){
   //making all html elements for the pageTopDiv
   const raceTitleEl = document.createElement("h1");
   raceTitleEl.classList.add("pageTitle");
-  raceTitleEl.innerText = "Select Your Race";
+  raceTitleEl.innerText = "Race";
 
   const pageTopDivEl = document.createElement("div");
   pageTopDivEl.classList.add("pageTopDiv");
 
   const raceFormButtonsDivEl = document.createElement("div");
-  raceFormButtonsDivEl.classList.add("formButtons");
+  raceFormButtonsDivEl.classList.add("formButtonsDiv");
   const raceFormEl = document.createElement("form");
     
+  const raceSelectorTitleEl = document.createElement("h4");
+  raceSelectorTitleEl.classList.add("selectorTitle");
+  raceSelectorTitleEl.innerText = "Select " + "currentCharacter.baseFeatures.name" + "'s Race";
+
   const raceSelectEl = document.createElement("select");
-  //raceSelectEl.classList.add("selector");
+  raceSelectEl.classList.add("selectorField");
 
   const dragonbornOptionEl = document.createElement("option");
   dragonbornOptionEl.setAttribute('value', 'dragonborn');
@@ -94,6 +98,7 @@ function displayRaceView(mainContainerEl, currentCharacter){
 
   raceFormEl.append(raceSelectEl);
 
+  raceFormButtonsDivEl.append(raceSelectorTitleEl);
   raceFormButtonsDivEl.append(raceFormEl);
   raceFormButtonsDivEl.append(raceModalButtonEl);
 
@@ -170,12 +175,14 @@ function displayRaceView(mainContainerEl, currentCharacter){
     const raceDropdownLabelEl = document.createElement("label");
     raceDropdownLabelEl.setAttribute('for', 'raceNames');
     raceDropdownLabelEl.setAttribute('id', 'raceLearnLabel');
+    
 
     const raceLearnFormEl = document.createElement("form");
     
     const raceLearnSelectEl = document.createElement("select");
     raceLearnSelectEl.setAttribute('name', 'raceNames');
     raceLearnSelectEl.setAttribute('id', 'raceNames');
+    raceLearnSelectEl.classList.add("selectorField");
 
     const dragonbornLearnOptionEl = document.createElement("option");
     dragonbornLearnOptionEl.setAttribute('value', 'dragonborn');
@@ -240,7 +247,6 @@ function displayRaceView(mainContainerEl, currentCharacter){
     
 
     mainContentDiv.append(raceMoreInfoDivEl);
-    mainContentDiv.append(forwardButtonEl);
 
     //appending all pageBottomDiv elements
 
@@ -323,6 +329,7 @@ function displayRaceView(mainContainerEl, currentCharacter){
     
 
     mainContainerEl.append(mainContentDiv);
+    mainContainerEl.append(forwardButtonEl);
 
     displayFooter(mainContainerEl);
 }
