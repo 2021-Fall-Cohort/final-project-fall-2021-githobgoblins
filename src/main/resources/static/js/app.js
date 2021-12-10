@@ -125,7 +125,7 @@ function clearChildren(element) {
 // displayAbilitiesView(mainContainerEl);
 // displayUserCreationsView(mainContainerEl);
 
-// // displayBackgroundView(mainContainerEl);
+//  displayBackgroundView(mainContainerEl);
 // displayAbilitiesView(mainContainerEl);
 displayCardsOutputView(mainContainerEl);
 
