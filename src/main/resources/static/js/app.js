@@ -30,18 +30,10 @@ function displayHeader(mainContainerEl) {
     const goblinLogoEl = document.createElement("img");
     goblinLogoEl.classList.add("goblinLogo");
     goblinLogoEl.src = "./images/goblin.png";
-<<<<<<< HEAD
-    goblinLogoEl.addEventListener("click", () =>{
-        clearChildren(mainContainerEl);
-        // displayHeader(mainContainerEl);
-        displayCardsOutputView(mainContainerEl);
-        // displayFooter(mainContainerEl);
-=======
 
     goblinLogoEl.addEventListener("click", () => {
         clearChildren(mainContainerEl);
         displayCardsOutputView(mainContainerEl);
->>>>>>> dev
     })
     
     homeLiEl.append(goblinLogoEl);
@@ -51,13 +43,7 @@ function displayHeader(mainContainerEl) {
     createLiEl.classList.add("headerLi");
     createLiEl.addEventListener("click", ()=> {
         clearChildren(mainContainerEl);
-<<<<<<< HEAD
-        // displayHeader(mainContainerEl);
         displayFeaturesView(mainContainerEl);
-        // displayFooter(mainContainerEl);
-=======
-        displayFeaturesView(mainContainerEl);
->>>>>>> dev
     })
 
     
@@ -147,15 +133,9 @@ displayFeaturesView(mainContainerEl);
 // displayAbilitiesView(mainContainerEl);
 // displayUserCreationsView(mainContainerEl);
 
-<<<<<<< HEAD
 //  displayBackgroundView(mainContainerEl);
 // displayAbilitiesView(mainContainerEl);
 displayCardsOutputView(mainContainerEl);
-=======
-// // displayBackgroundView(mainContainerEl);
-// // displayAbilitiesView(mainContainerEl);
-// displayCardsOutputView(mainContainerEl);
->>>>>>> dev
 
 
 export {clearChildren}
