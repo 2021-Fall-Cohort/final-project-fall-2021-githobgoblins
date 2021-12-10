@@ -35,7 +35,7 @@
     padding-top: .5rem;
 }
 .Title{
-    font-family:'Murecho', sans-serif;
+    font-family: 'IM Fell English SC', serif;
  }
  #edit-name-label{
      font-family: 'Murecho', sans-serif;
@@ -52,25 +52,40 @@
     padding-left: 5%;
     
 }
+
 .heading button{
-    cursor: pointer;
-    background-color:  #fcba04;
-    /* cool to add border thats the same color */
-    border: 2px solid #fcba04;
-    border-radius: 8px;
-    color: #9B3D12;    
-    font-size: 16px;
-    padding: 5px;   
     width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    padding: .5rem;
+    font-weight: bold;
+    border: solid 2px;
+    border-color: black;
+    border-radius: 15px;
+    box-shadow: 0 4px black;
+    background-color: #fcba04;
+    font-family: 'IM Fell English SC', serif;
+    color: #9B3D12;
+}
+
+.heading button:hover{
+    background-color: #F6AA1C;
+}
+
+.heading button:active{
+    background-color: #db581c;
+    box-shadow: 0 2px #666;
+    transform: translateY(4px);
 }
 
 #user-print{
     margin-right: 10rem;
     
 }
-.heading button:hover{
-    background-color: #F6AA1C;
-}
+
 .cardDiv{   
     /* display: flex; */
     /* flex-direction: row; */
@@ -101,25 +116,33 @@
     padding-left: 5rem;
    
 }
+
 .submit{
-    cursor: pointer;
-    background-color:  #fcba04;
-    /* cool to add border thats the same color */
-    border: 2px solid #fcba04;
-    border-radius: 8px;
-    color: #9B3D12;    
-    font-size: 16px;
-    padding: 5px;   
     width: fit-content;
-    /* grid-column-start: 2; */
-    /* margin-top: 13%; */
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    padding: .5rem;
+    font-weight: bold;
+    border: solid 2px;
+    border-color: black;
+    border-radius: 15px;
+    box-shadow: 0 4px black;
+    background-color: #fcba04;
+    font-family: 'IM Fell English SC', serif;
+    color: #9B3D12;
 }
+
 .submit:hover{
-    cursor: pointer;
     background-color: #F6AA1C;
-    border: 2px solid #fcba04;
-    /* cool to add border thats the same color */
-    
+}
+
+.submit:active{
+    background-color: #db581c;
+    box-shadow: 0 2px #666;
+    transform: translateY(4px);
 }
 
 .cardDiv input{
@@ -175,6 +198,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family: 'IM Fell English SC', serif;
     margin-left: 1rem;
     margin-right: 1rem;
     width: 10rem;

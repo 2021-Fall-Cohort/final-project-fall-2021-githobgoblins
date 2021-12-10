@@ -73,7 +73,7 @@ function displayHeader(mainContainerEl) {
     })
 
     const rulesPageEl = document.createElement("li");
-    rulesPageEl.innerText = "Rules Page";
+    rulesPageEl.innerText = "Rules";
     rulesPageEl.classList.add("headerLi");
     rulesPageEl.addEventListener("click", ()=> {
         clearChildren(mainContainerEl);
