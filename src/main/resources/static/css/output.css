@@ -23,6 +23,7 @@
 .heading h1{
     font-size: 55px;
     color:black;
+    padding-bottom: 1.5rem;
     /* color: #9B3D12; */
 }
 .cardDiv h2{
@@ -39,30 +40,27 @@
 .cardDiv h1{
     font-family:'IM Fell English SC';
 }
+.cardDiv h4{
+    padding-top: .5rem;
+}
 .Title{
     font-family:'Murecho', sans-serif;
  }
- .label,
  #edit-name-label{
      font-family: 'Murecho', sans-serif;
      font-size: 18px;
      font-weight: 500;
      padding-top: .4rem;
  }
- .charText{
-     font-size: 14px;
-     font-weight: 200;
- }
-.heading{
-    display: flex;
+ .heading{
+    /* display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-between; */
     margin-top: 3rem;
-    margin-bottom: 5rem;
+    margin-bottom: 4rem;
     padding-left: 5%;
+    
 }
-
-
 .heading button{
     cursor: pointer;
     background-color:  #fcba04;
@@ -73,7 +71,11 @@
     font-size: 16px;
     padding: 5px;   
     width: 10%;
+}
 
+#user-print{
+    margin-right: 10rem;
+    
 }
 .heading button:hover{
     background-color: #F6AA1C;
@@ -86,11 +88,10 @@
     grid-template-rows: auto;
     /* border: 2px solid black; */
     border-radius: 8px;
-    padding-left: 3%;
+    padding-left: 5%;
     margin-bottom: 2rem;
     
 }
-
 .edit-div{    
     grid-column-start: 2;
     
@@ -128,9 +129,7 @@
     /* cool to add border thats the same color */
     
 }
-.submit{
-margin-left: 18%;
-}
+
 .cardDiv input{
     border: 2px solid #777;    
     border-radius: 4px;
@@ -176,7 +175,7 @@ margin-left: 18%;
     grid-template-rows: auto;
     
     border-radius: 8px;
-    padding-left: 3%;
+    padding-left: 5%;
     margin-bottom: 2rem;
 }
 .indASDiv{
