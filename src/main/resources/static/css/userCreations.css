@@ -7,7 +7,7 @@ body{
     font-family: 'Murecho', sans-serif;
     display: flex;
     flex-direction: column;
-    padding-left: 5%;
+ 
     background-color: #6dab83;
 }
 .allCreations{
@@ -15,11 +15,8 @@ body{
     grid-template-columns: repeat(autofit);
     gap: 1rem;
     margin-top: 2rem;
-    
 }
 .userCards{
     display: flex;
     flex-direction: column;
-
 }
-img{

@@ -18,7 +18,7 @@ console.log(currentCharacter);
 
   const pageTitleEl = document.createElement("h1");
   pageTitleEl.classList.add("pageTitle");
-  pageTitleEl.innerText = "Select Your Class";
+  pageTitleEl.innerText = "Class";
 
   const pageTopDivEl = document.createElement("div");
   pageTopDivEl.classList.add("pageTopDiv");
@@ -26,10 +26,14 @@ console.log(currentCharacter);
   const formButtonsDivEl = document.createElement("div")
   formButtonsDivEl.classList.add("formButtonsDiv");
 
+  const selectorTitleEl = document.createElement("h4");
+  selectorTitleEl.classList.add("selectorTitle");
+  selectorTitleEl.innerText = "Select " + currentCharacter.baseFeatures.name + "'s class"
+
   const formEl = document.createElement("form");
 
   const selectEl = document.createElement("select");
-  selectEl.classList.add("classSelector");
+  selectEl.classList.add("selectorField");
   
   const barbarianOptionEl = document.createElement("option");
   barbarianOptionEl.setAttribute('value', 'barbarian');
@@ -79,8 +83,9 @@ console.log(currentCharacter);
   wizardOptionEl.setAttribute('value', 'wizard');
   wizardOptionEl.innerText = "Wizard";
 
-  const inputEl = document.createElement("input")
-  inputEl.type = "submit";
+  const classLearnHeaderEl = document.createElement("h4");
+  classLearnHeaderEl.classList.add("classLearnHeader");
+  classLearnHeaderEl.innerText = "Learn More About Classes";
 
   const modalButtonEl = document.createElement("button");
   modalButtonEl.setAttribute('id', 'openClassModal');
@@ -92,15 +97,10 @@ console.log(currentCharacter);
 
   //forward and back buttons
 
-  const backButtonEl = document.createElement("button");
-  backButtonEl.classList.add("navButtons");
-  backButtonEl.setAttribute('id', 'backButton');
-  backButtonEl.innerText = "<";
-
   const forwardButtonEl = document.createElement("button");
   forwardButtonEl.classList.add("navButtons");
-  forwardButtonEl.setAttribute('id', 'forwardButton');
-  forwardButtonEl.innerText = ">";
+  forwardButtonEl.setAttribute('id', 'classForwardButton');
+  forwardButtonEl.innerText = "NEXT";
   
   //appending all pageTopDiv content
   selectEl.append(barbarianOptionEl);
@@ -117,15 +117,15 @@ console.log(currentCharacter);
   selectEl.append(wizardOptionEl);
 
   formEl.append(selectEl);
-  formEl.append(inputEl);
 
+  formButtonsDivEl.append(selectorTitleEl);
   formButtonsDivEl.append(formEl);
   formButtonsDivEl.append(modalButtonEl);
   
-  pageTopDivEl.append(backButtonEl);
+ 
   pageTopDivEl.append(formButtonsDivEl);
   pageTopDivEl.append(imgEl);
-  pageTopDivEl.append(forwardButtonEl);
+  
 
   mainContentDivEl.append(pageTitleEl);
   mainContentDivEl.append(pageTopDivEl);
@@ -185,7 +185,7 @@ console.log(currentCharacter);
   const learnFormEl = document.createElement("form");
 
   const classNamesEl = document.createElement("select");4
-  classNamesEl.setAttribute('id', 'classNames');
+  classNamesEl.classList.add("selectorField");
 
   const barbarianLearnOptionEl = document.createElement("option");
   barbarianLearnOptionEl.setAttribute('value', 'barbarian');
@@ -239,7 +239,28 @@ console.log(currentCharacter);
   moreInfoButtonEl.setAttribute('id', 'moreInfoButton');
   moreInfoButtonEl.innerText = " More Info";
 
-  
+   //creating more info elements for page dropdown
+
+   const moreInfoDivEl = document.createElement("div");
+   moreInfoDivEl.setAttribute('id', 'moreInfoDiv');
+ 
+   const moreInfoCloseEl = document.createElement("h4");
+   moreInfoCloseEl.classList.add("moreInfoClose");
+   moreInfoCloseEl.innerText = "x";
+ 
+   const moreInfoTitleEl = document.createElement("h3");
+   moreInfoTitleEl.classList.add("learnMoreTitle");
+ 
+   const moreInfoTextEl = document.createElement("p");
+   moreInfoTextEl.classList.add("moreInfoText");
+ 
+   //appending more info content
+ 
+   moreInfoDivEl.append(moreInfoCloseEl);
+   moreInfoDivEl.append(moreInfoTitleEl);
+   moreInfoDivEl.append(moreInfoTextEl);
+ 
+   
 
   //appending all pageBottomDiv content
   classNamesEl.append(barbarianLearnOptionEl);
@@ -260,33 +281,15 @@ console.log(currentCharacter);
   learnDropdownEl.append(learnLabelEl);
   learnDropdownEl.append(learnFormEl);
   
+  pageBottomDivEl.append(classLearnHeaderEl);
   pageBottomDivEl.append(learnDropdownEl);
+  pageBottomDivEl.append(moreInfoDivEl);
   pageBottomDivEl.append(moreInfoButtonEl);
 
   mainContentDivEl.append(pageBottomDivEl);
 
-  //creating more info elements for page dropdown
-
-  const moreInfoDivEl = document.createElement("div");
-  moreInfoDivEl.setAttribute('id', 'moreInfoDiv');
-
-  const moreInfoCloseEl = document.createElement("h4");
-  moreInfoCloseEl.classList.add("moreInfoClose");
-  moreInfoCloseEl.innerText = "x";
-
-  const moreInfoTitleEl = document.createElement("h3");
-  moreInfoTitleEl.classList.add("learnMoreTitle");
-
-  const moreInfoTextEl = document.createElement("p");
-  moreInfoTextEl.classList.add("moreInfoText");
-
-  //appending more info content
-
-  moreInfoDivEl.append(moreInfoCloseEl);
-  moreInfoDivEl.append(moreInfoTitleEl);
-  moreInfoDivEl.append(moreInfoTextEl);
-
-  mainContentDivEl.append(moreInfoDivEl);
+ 
+  
 
   forwardButtonEl.addEventListener("click", () => {
     const userClassJson = {
@@ -294,7 +297,7 @@ console.log(currentCharacter);
       "description": "warlock boi",
       "features": classJson[selectEl.selectedIndex].features,
     };
-      fetch(`http://localhost:8080/buildcharacter/class/${currentCharacter.id}`, {
+      fetch(`/buildcharacter/class/${currentCharacter.id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
@@ -310,13 +313,8 @@ console.log(currentCharacter);
     .catch(err => console.error(err));
   })
 
-  backButtonEl.addEventListener("click", () => {
-    clearChildren(mainContainerEl);
-    displayFeaturesView(mainContainerEl, currentCharacter);
-  })
-
-
   mainContainerEl.append(mainContentDivEl);
+  mainContainerEl.append(forwardButtonEl);
 
   //modal functionalities
   

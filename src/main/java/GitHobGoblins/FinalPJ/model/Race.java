@@ -14,6 +14,7 @@ public class Race {
     @GeneratedValue
     private Long id;
     private String name;
+    @Lob
     private String description;
     private int abilityScoreImprovement1;
     private int abilityScoreImprovement2;

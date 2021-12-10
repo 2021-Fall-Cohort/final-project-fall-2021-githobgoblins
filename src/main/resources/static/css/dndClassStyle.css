@@ -34,10 +34,40 @@ body{
     margin-right: auto;
     background-color: #558365;
     border-radius: 10px;
+    border: solid 2px;
+    border-color: black;
+}
+
+#openClassModal{
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: .75rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    padding: .5rem;
+    font-weight: bold;
+    border: solid 2px;
+    border-color: black;
+    border-radius: 15px;
+    box-shadow: 0 4px black;
+    background-color: #819187;
+}
+
+#openClassModal:hover{
+    background-color: #b0c2b7;
+}
+
+#openClassModal:active{
+    background-color: #85eeaa;
+    box-shadow: 0 2px #666;
+    transform: translateY(4px);
 }
 
 .pageTitle{
-    margin: 2rem;
+    font-family: 'IM Fell English SC', serif;
+    font-size: 4rem;
+    margin-top: 1rem;
     display: flex;
     justify-content: center;
     padding-bottom: 2.5rem;
@@ -60,6 +90,8 @@ body{
     width: 25rem;
     height: auto;
     border-radius: 25px;
+    border: double 2px;
+    border-color: black;
 }
 
 .selector{
@@ -74,26 +106,21 @@ body{
 
 .modal{
     display: none; 
+    padding: 2rem;
+    border: solid 2px;
+    border-radius: 10px;
+    border-color: black;
     position: fixed;
     z-index: 1; 
-    top: 0;
-    width: 65%; 
+    width: 70%; 
     height: fit-content; 
     overflow: auto; 
-    background-color: blue; 
-}
-
-.modalContent {
-    background-color: #fefefe;
-    margin: 15% auto; 
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; 
+    background-color: #59665f; 
 }
 
 .close {
     color: #aaa;
-    float: right;
+    float:right;
     font-size: 28px;
     font-weight: bold;
 }  
@@ -107,19 +134,29 @@ body{
 
 .pageBottomDiv{
     display: flex;
-    margin: 3rem;
-    justify-content: space-evenly;
+    flex-direction: column;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    align-items: center;
+    justify-content: center;
 }
 
-
+.classLearnHeader{
+    margin-top: 2.5rem;
+    margin-left:auto;
+    margin-right: auto;
+    font-family: 'IM Fell English SC', serif;
+    font-size: 2rem;
+}
 
 .learnDropdown{
     display: flex;
-    margin: 3rem;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    margin-bottom: .5rem;
     flex-direction: column;
     align-items: center;
     font-size: large;
-    
 }
 
 #learnLabel{
@@ -128,36 +165,111 @@ body{
     margin-bottom: 5rem;
 }
 
-#classNames{
-    display: flex;
+.learnMoreTitle{
+    font-family: 'IM Fell English SC', serif;
+    font-size: 2rem;
+    margin-top: 1rem;
+    margin-bottom: .5rem;
+}
+
+/* #classNames{
+    display: flex; 
     width: 10rem;
     height: fit-content;
     font-size: x-large;
     background-color: #85a091;
     border-radius: 15px;
     margin: 2rem;
-}
+} */
 
 #moreInfoDiv{
     display: none;
-    width: 100%;
-    padding: 50px 0;
+    width: 105%;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-bottom: 1.5rem;
     text-align: center;
     background-color: lightblue;
     margin-top: 20px;
+    animation-name: animatetop;
+    animation-duration: 2s;
+    border: 2px solid;
+    border-radius: 10px;
+}
+
+.moreInfoClose{
+    float: right;
+    margin-top: .25rem;
+}
+
+.moreInfoClose:hover{
+    float: right;
+    margin-top: .25rem;
+    color: white;
 }
 
 #moreInfoButton{
-    height: fit-content;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: .75rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: .5rem;
+    font-weight: bold;
+    border: solid 2px;
+    border-color: black;
+    border-radius: 15px;
+    box-shadow: 0 4px black;
+    background-color: #819187;
 }
 
-#forwardButton,
+#moreInfoButton:hover{
+    background-color: #b0c2b7;
+}
+
+#moreInfoButton:active{
+    background-color: #85eeaa;
+    box-shadow: 0 2px #666;
+    transform: translateY(4px);
+}
+
+/* #forwardButton,
 #backButton{
     display: flex;
     width:fit-content;
     font-size: xx-large;
+} */
+
+.modalHeader{
+    font-family: 'IM Fell English SC', serif;
 }
 
+#classForwardButton{
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    padding: .5rem;
+    font-weight: bold;
+    border: solid 2px;
+    border-color: black;
+    border-radius: 15px;
+    box-shadow: 0 4px black;
+    background-color: #819187;
+}
+
+#classForwardButton:hover{
+    background-color: #b0c2b7;
+}
+
+#classForwardButton:active{
+    background-color: #85eeaa;
+    box-shadow: 0 2px #666;
+    transform: translateY(4px);
+}
 
 .footer{
     background-color: #313834;
@@ -171,4 +283,9 @@ body{
 .footerLiEl{
     font-size: small;
     margin: .25rem;
+}
+
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
 }
