@@ -59,7 +59,7 @@ headerCardsEl.append(headerDivCardsEl);
 headerCardsEl.append(mainContainerEl);
 
 headerLiUserCreationsEl.addEventListener("click"(), => {
-    
+display
 
 })
 
