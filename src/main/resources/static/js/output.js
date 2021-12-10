@@ -313,7 +313,7 @@ function displayOutputView(mainContainerEl, currentCharacter) {
             "experiencePoints": 0
         };
           
-        fetch(`http://localhost:8080/buildcharacter/editbase/${currentCharacter.id}`, {
+        fetch(`/buildcharacter/editbase/${currentCharacter.id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
@@ -511,7 +511,7 @@ function displayOutputView(mainContainerEl, currentCharacter) {
         
         ]
         };
-        fetch(`http://localhost:8080/buildcharacter/editclass/${currentCharacter.id}`, {
+        fetch(`/buildcharacter/editclass/${currentCharacter.id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -709,7 +709,7 @@ function displayOutputView(mainContainerEl, currentCharacter) {
         ]
       };
     
-      fetch(`http://localhost:8080/buildcharacter/editbackground/${currentCharacter.id}`, {
+      fetch(`/buildcharacter/editbackground/${currentCharacter.id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
@@ -915,7 +915,7 @@ function displayOutputView(mainContainerEl, currentCharacter) {
             }
           ]
         };
-          fetch(`http://localhost:8080/buildcharacter/editrace/${currentCharacter.id}`, {
+          fetch(`/buildcharacter/editrace/${currentCharacter.id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
