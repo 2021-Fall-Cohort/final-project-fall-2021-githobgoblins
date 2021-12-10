@@ -11,7 +11,7 @@ function displayContacts() {
 
         <section class="center-content">
             <div class=img-div>
-                <img src="images/carsonHS.jpg" alt="Picture of Carson">
+                <img class = "contactImg" src="images/carsonHS.jpg" alt="Picture of Carson">
             </div>
             
             <ul>
@@ -26,7 +26,7 @@ function displayContacts() {
 
         <section class="center-content">
             <div class=img-div>
-                <img src="images/ricoHS.jpg" alt="Picture of Rico">
+                <img class = "contactImg" src="images/ricoHS.jpg" alt="Picture of Rico">
             </div>
             
             <ul>
@@ -41,7 +41,7 @@ function displayContacts() {
 
         <section class="center-content">
             <div class=img-div>
-                <img src="images/aliHS.jpg" alt="Picture of Ali">
+                <img class = "contactImg" src="images/aliHS.jpg" alt="Picture of Ali">
             </div>
             
             <ul>
@@ -56,7 +56,7 @@ function displayContacts() {
 
         <section class="center-content">
             <div class=img-div>
-                <img src="images/britneyHS.jpg" alt="Picture of Britney">
+                <img class = "contactImg" src="images/britneyHS.jpg" alt="Picture of Britney">
             </div>
             
             <ul>
@@ -71,7 +71,7 @@ function displayContacts() {
 
         <section class="center-content">
             <div class=img-div>
-                <img src="images/joshHS.jpg" alt="Picture of Josh">
+                <img class = "contactImg" src="images/joshHS.jpg" alt="Picture of Josh">
             </div>
             
             <ul>

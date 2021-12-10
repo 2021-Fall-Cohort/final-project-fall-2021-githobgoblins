@@ -7,8 +7,7 @@
 }
 
 .card img {
-  border-radius: unset;
-  height: 70vh;
+  height: 10rem;
 }
 
 .card-desc {
@@ -26,7 +25,7 @@ html{
   font-size: 16px !important;
 }
  
-.cardCard1{
+/* .cardCard1{
   display: flex;
   background;
-}
+} */

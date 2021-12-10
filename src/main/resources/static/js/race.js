@@ -37,35 +37,35 @@ function displayRaceView(mainContainerEl, currentCharacter){
   dragonbornOptionEl.innerText = "Dragonborn";
 
   const dwarfOptionEl = document.createElement("option");
-  dwarfOptionEl.setAttribute('value', 'dwarf');
+  dwarfOptionEl.setAttribute('value', 'Dwarf');
   dwarfOptionEl.innerText = "Dwarf";
 
   const elfOptionEl = document.createElement("option");
-  elfOptionEl.setAttribute('value', 'elf');
+  elfOptionEl.setAttribute('value', 'Elf');
   elfOptionEl.innerText = "Elf";
 
   const gnomeOptionEl = document.createElement("option");
-  gnomeOptionEl.setAttribute('value', 'gnome');
+  gnomeOptionEl.setAttribute('value', 'Gnome');
   gnomeOptionEl.innerText = "Gnome";
 
   const halfElfOptionEl = document.createElement("option");
-  halfElfOptionEl.setAttribute('value', 'halfElf');
+  halfElfOptionEl.setAttribute('value', 'Half-Elf');
   halfElfOptionEl.innerText = "Half-Elf";
 
   const halfOrcOptionEl = document.createElement("option");
-  halfOrcOptionEl.setAttribute('value', 'halfOrc');
+  halfOrcOptionEl.setAttribute('value', 'Half-Orc');
   halfOrcOptionEl.innerText = "Half-Orc";
 
   const halflingOptionEl = document.createElement("option");
-  halflingOptionEl.setAttribute('value', 'halfling');
+  halflingOptionEl.setAttribute('value', 'Halfling');
   halflingOptionEl.innerText = "Halfling";
 
   const humanOptionEl = document.createElement("option");
-  humanOptionEl.setAttribute('value', 'human');
+  humanOptionEl.setAttribute('value', 'Human');
   humanOptionEl.innerText = "Human";
 
   const tieflingOptionEl = document.createElement("option");
-  tieflingOptionEl.setAttribute('value', 'tiefling');
+  tieflingOptionEl.setAttribute('value', 'Tiefling');
   tieflingOptionEl.innerText = "Tiefling";
 
   //this is the open modal button
