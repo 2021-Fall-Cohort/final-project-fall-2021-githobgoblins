@@ -59,11 +59,12 @@ function displayOutputView(mainContainerEl, currentCharacter) {
         headingDiv.append(printCharBtn);
         // headingDiv.append(tweetCharBtn);
         outputDivEl.append(headingDiv);
+        // mainContentDivEl.append(outputHeaderEl);
         
 // ****************BASE FEASTURES******************************
 
         const baseFeaturesDiv = document.createElement("div");
-        baseFeaturesDiv.classList.add("outputDiv");
+        baseFeaturesDiv.classList.add("cardDiv");
        
 
  // ----------Current Base Features Sections
@@ -73,41 +74,51 @@ function displayOutputView(mainContainerEl, currentCharacter) {
         baseCurrentSection.setAttribute("id", "base");
 
         const baseFeaturesh2= document.createElement("h2");
-        baseFeaturesh2.innerText= "Base Features";
+        baseFeaturesh2.innerText= "Base";
         
         const currentBaseh3= document.createElement("h3");
-        currentBaseh3.innerText= "Current Base Features";
+        currentBaseh3.innerText= "Current Base";
 
-        const nameLabelEl = document.createElement("h3");
+        const nameLabelEl = document.createElement("p");
         nameLabelEl.innerText = "Name";
+        nameLabelEl.classList.add("label");
 
-        const nameOutputEl = document.createElement("h4");
+        const nameOutputEl = document.createElement("p");
         nameOutputEl.innerText = currentCharacter.baseFeatures.name;
+        nameOutputEl.classList.add("charText");
 
-        const levelEl = document.createElement("h3");
+        const levelEl = document.createElement("p");
         levelEl.innerText = "Level";
+        levelEl.classList.add("label");
 
-        const levelOutputEl = document.createElement("small");
+        const levelOutputEl = document.createElement("p");
         levelOutputEl.innerText = currentCharacter.baseFeatures.level;
+        levelOutputEl.classList.add("charText");
 
-        const alignmentEl = document.createElement("h3");
+        const alignmentEl = document.createElement("p");
         alignmentEl.innerText = "Alignment";
+        alignmentEl.classList.add("label");
         
-        const alignmentOutputEl = document.createElement("small");
+        const alignmentOutputEl = document.createElement("p");
         alignmentOutputEl.innerText = currentCharacter.baseFeatures.alignment;
+        alignmentOutputEl.classList.add("charText");
 
-        const profBonus = document.createElement("h3");
+        const profBonus = document.createElement("p");
         profBonus.innerText = "Proficiency Bonus";
-        
-        const bonusOutputEl = document.createElement("small");
-        bonusOutputEl.innerText = currentCharacter.baseFeatures.proficiencyBonus;
+        profBonus.classList.add("label");
 
-        const experiencePointsEl = document.createElement("h3");
+        const bonusOutputEl = document.createElement("p");
+        bonusOutputEl.innerText = currentCharacter.baseFeatures.proficiencyBonus;
+        bonusOutputEl.classList.add("charText");
+
+        const experiencePointsEl = document.createElement("p");
         experiencePointsEl.innerText = "Experience Points";
+        experiencePointsEl.classList.add("label");
         
-        const experiencePointsOutputEl = document.createElement("small");
+        const experiencePointsOutputEl = document.createElement("p");
         experiencePointsOutputEl.innerText = currentCharacter.baseFeatures.experiencePoints;            
-        
+        experiencePointsOutputEl.classList.add("charText");
+
         baseCurrentSection.append(baseFeaturesh2);
         baseCurrentSection.append(currentBaseh3);
         baseCurrentSection.append(nameLabelEl);
@@ -115,9 +126,9 @@ function displayOutputView(mainContainerEl, currentCharacter) {
         baseCurrentSection.append(levelEl);
         baseCurrentSection.append(levelOutputEl);
         baseCurrentSection.append(alignmentEl);         
-        baseCurrentSection.append(alignmentOutputEl);
-        baseCurrentSection.append(bonusOutputEl);
+        baseCurrentSection.append(alignmentOutputEl);        
         baseCurrentSection.append(profBonus);  
+        baseCurrentSection.append(bonusOutputEl);
         baseCurrentSection.append(experiencePointsEl);
         baseCurrentSection.append(experiencePointsOutputEl);
         baseFeaturesDiv.append(baseCurrentSection);
@@ -133,27 +144,32 @@ function displayOutputView(mainContainerEl, currentCharacter) {
     editBaseSection.classList.add("base", "edits");
     
     const editBaseH1 =document.createElement("h3");
-    editBaseH1.innerText= "Edit Base Features";
+    editBaseH1.innerText= "Edit Base";
 
+    const editNameLabel =document.createElement("label");
+    editNameLabel.innerText= "Edit Your Character's Name";
+    editNameLabel.setAttribute("id", "edit-name-label");
+    
     const editName = document.createElement("input");
     editName.type = "text";
-    editName.placeholder = "Edit Your Character's Name";
+    // editName.placeholder = "Edit Your Character's Name";
 
-    const editLevelFieldEl = document.createElement("input");
-    editLevelFieldEl.type = "number";
-    editLevelFieldEl.placeholder = "Choose 1-3";
+    // const editLevelFieldEl = document.createElement("input");
+    // editLevelFieldEl.type = "number";
+    // editLevelFieldEl.placeholder = "Choose 1-3";
 
-    const editPB = document.createElement("input");
-    editPB.type = "text";
-    editPB.placeholder = "Edit Proficnency Bonus";
+    // const editPB = document.createElement("input");
+    // editPB.type = "text";
+    // editPB.placeholder = "Edit Proficnency Bonus";
 
-    const editXP = document.createElement("input");
-    editXP.type = "text";
-    editXP.placeholder = "Edit Expereince Points";  
+    // const editXP = document.createElement("input");
+    // editXP.type = "text";
+    // editXP.placeholder = "Edit Expereince Points";  
 
 // ------Edit Alignment------------
-    const alignmentLabelEl = document.createElement("h4");
+    const alignmentLabelEl = document.createElement("p");
     alignmentLabelEl.innerText = "Alignment";
+    alignmentLabelEl.classList.add("label");
 
     const editAlignmentFieldEl = document.createElement("select");
     // editAlignmentFieldEl.placeholder = "Select an Alignment";
@@ -245,12 +261,13 @@ function displayOutputView(mainContainerEl, currentCharacter) {
     // Append Remaining Items    
 
     editBaseSection.append(editBaseH1);
+    editBaseSection.append(editNameLabel);
     editBaseSection.append(editName);
-    editBaseSection.append(editLevelFieldEl);
-    editBaseSection.append(alignmentEl);    
+    // editBaseSection.append(editLevelFieldEl);
+    editBaseSection.append(alignmentLabelEl);    
     editBaseSection.append(editAlignmentFieldEl);    
-    editBaseSection.append(editXP);
-    editBaseSection.append(editPB);
+    // editBaseSection.append(editXP);
+    // editBaseSection.append(editPB);
     baseEditWrapper.append(editBaseSection);
     baseFeaturesDiv.append(baseEditWrapper);
 
@@ -276,7 +293,7 @@ function displayOutputView(mainContainerEl, currentCharacter) {
     const baseSubmit= document.createElement("button");
     baseSubmit.classList.add("edit", "submit", "output-button");
     baseSubmit.setAttribute("id", "base-submit");
-    baseSubmit.innerText="Submit";
+    baseSubmit.innerText="Submit Edit";
 
     // editBtnDiv.append(baseEditBtn);    
     // cancSubBtnDiv.append(baseCancEdit);
@@ -284,20 +301,19 @@ function displayOutputView(mainContainerEl, currentCharacter) {
     // baseFeaturesDiv.append(editBtnDiv);
     baseFeaturesDiv.append(cancSubBtnDiv);
 
-//  Edit, Cancel Edit and Submit Event Listeners 
-        
+// Submit Event Listeners        
 
-    //Edit Button
+    
     baseSubmit.addEventListener("click", () => {
         const characterBaseJson = {
             "name": editName.value,
-            "level": editLevelFieldEl.value,
+            "level": 1,
             "alignment": editAlignmentFieldEl.value,
-            "proficiencyBonus": 2,
+            "proficiencyBonus": bonusOutputEl.value,
             "experiencePoints": 0
         };
           
-        fetch(`http://localhost:8080/buildcharacter/editbase/${currentCharacter.id}`, {
+        fetch(`/buildcharacter/editbase/${currentCharacter.id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
@@ -314,10 +330,10 @@ function displayOutputView(mainContainerEl, currentCharacter) {
     .catch(err => console.error(err));
     })
 
-//-************************Class Div******************************   
+//-************************Class******************************   
 
         const dndClassDiv = document.createElement("div");
-        dndClassDiv.classList.add("outputDiv");
+        dndClassDiv.classList.add("cardDiv");
 
         const currentClassSection =document.createElement("section");
         currentClassSection.classList.add("dnd-class", "current-selections");
@@ -329,22 +345,24 @@ function displayOutputView(mainContainerEl, currentCharacter) {
         const classLabelEl = document.createElement("h3");
         classLabelEl.innerText = "Current Class";    
         
-        const classNameEl = document.createElement("small");
+        const classNameEl = document.createElement("p");
         classNameEl.innerText = currentCharacter.dndClass.name;
 
         const classDes = document.createElement("h3");
         classDes.innerText = "Description";  
         
-        const classDesOutput= document.createElement("small");
+        const classDesOutput= document.createElement("p");
         classDesOutput.innerText = currentCharacter.dndClass.description;
         
         const classFeatures =document.createElement("h3");
         classFeatures.innerText="Class Features";
 
-        const classFeature1=document.createElement("small");
+        const classFeature1=document.createElement("p");
         classFeature1.innerText=currentCharacter.dndClass.features[0].name;
 
-        const classFeature2=document.createElement("small");
+
+
+        const classFeature2=document.createElement("p");
         classFeature2.innerText=currentCharacter.dndClass.features[1].name;
         
 
@@ -360,7 +378,7 @@ function displayOutputView(mainContainerEl, currentCharacter) {
         dndClassDiv.append(currentClassSection);
         outputDivEl.append(dndClassDiv);
 
-//-------------------- Edit DND Class----------------------------- 
+//-------------------- Edit Class----------------------------- 
 
         const classEditWrapper= document.createElement("div");
         classEditWrapper.classList.add("edit-div");
@@ -466,7 +484,7 @@ function displayOutputView(mainContainerEl, currentCharacter) {
     const classSubmitBtn= document.createElement("button");
     classSubmitBtn.classList.add("edit", "submit", "output-button");
     classSubmitBtn.setAttribute("id", "class-submit");
-    classSubmitBtn.innerText="Submit";
+    classSubmitBtn.innerText="Submit Edit";
 
     // classEditBtnDiv.append(classEditBtn);    
     // classCancSubmitDiv.append(classCancEdit);
@@ -474,7 +492,7 @@ function displayOutputView(mainContainerEl, currentCharacter) {
     // dndClassDiv.append(classEditBtnDiv);
     dndClassDiv.append(classCancSubmitDiv);
 
-//  Edit, Cancel Edit and Submit Event Listeners 
+//  Event Listeners 
 
 // !!!!!!!!!!!!!!!!!!Submit FIXED!!!!!!!!!!!!!!!!!!!!!!
     classSubmitBtn.addEventListener("click", () => {
@@ -493,7 +511,7 @@ function displayOutputView(mainContainerEl, currentCharacter) {
         
         ]
         };
-        fetch(`http://localhost:8080/buildcharacter/editclass/${currentCharacter.id}`, {
+        fetch(`/buildcharacter/editclass/${currentCharacter.id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -514,12 +532,13 @@ function displayOutputView(mainContainerEl, currentCharacter) {
     })
 
 
-//********************Background Features Div
+//**************************Background*******************************
         const bgDiv = document.createElement("div");
-        bgDiv.classList.add("outputDiv");
+        bgDiv.classList.add("cardDiv");
 
         const bgSection= document.createElement("section");       
-        currentClassSection.classList.add("bg-class", "current-selections");
+        bgSection.classList.add("bg-class", "current-selections");
+        bgSection.setAttribute("id", "bg");
 
         const backgroundLabelEl = document.createElement("h2");
         backgroundLabelEl.innerText = "Background";
@@ -542,8 +561,7 @@ function displayOutputView(mainContainerEl, currentCharacter) {
         const bgFeature1=document.createElement("small");
         bgFeature1.innerText=currentCharacter.background.features[0].name;
 
-        const bgFeature2=document.createElement("small");
-        bgFeature2.innerText=currentCharacter.background.features[1].name;
+        
 
         bgSection.append(backgroundLabelEl);
         bgSection.append(currentBGh2);
@@ -552,7 +570,7 @@ function displayOutputView(mainContainerEl, currentCharacter) {
         bgSection.append(desOutput);
         bgSection.append(bgFeatures);
         bgSection.append(bgFeature1);
-        bgSection.append(bgFeature2);
+       
         bgDiv.append(bgSection);
         outputDivEl.append(bgDiv);
 
@@ -665,7 +683,7 @@ function displayOutputView(mainContainerEl, currentCharacter) {
     const bgSubmit= document.createElement("button");
     bgSubmit.classList.add("edit", "submit", "output-button");
     bgSubmit.setAttribute("id", "bg-submit");
-    bgSubmit.innerText="Submit";
+    bgSubmit.innerText="Submit Edit";
 
     // bgEditBtnDiv.append(bgEditBtn);    
     // bgCancSubDiv.append(bgCancEdit);
@@ -673,7 +691,7 @@ function displayOutputView(mainContainerEl, currentCharacter) {
     // bgDiv.append(bgEditBtnDiv);
     bgDiv.append(bgCancSubDiv);
 
-//--------------------  Event Listener 
+//--------------------  Event Listener------------------- 
 
  bgSubmit.addEventListener("click", ()=> {
       const backgroundJson = {
@@ -691,7 +709,7 @@ function displayOutputView(mainContainerEl, currentCharacter) {
         ]
       };
     
-      fetch(`http://localhost:8080/buildcharacter/editbackground/${currentCharacter.id}`, {
+      fetch(`/buildcharacter/editbackground/${currentCharacter.id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
@@ -707,9 +725,9 @@ function displayOutputView(mainContainerEl, currentCharacter) {
       .catch(err => console.error(err));
   })
 
-//*********************Race Features Div 
+//**************************Race *************************************
         const raceDiv = document.createElement("div");
-        raceDiv.classList.add("outputDiv");
+        raceDiv.classList.add("cardDiv");
 
         const raceSection =document.createElement("section");
         raceSection.classList.add("race-class", "current-selections");
@@ -785,7 +803,7 @@ function displayOutputView(mainContainerEl, currentCharacter) {
         const editRaceH1 =document.createElement("h3");
         editRaceH1.innerText= "Edit Race";
 
-    //------------Race Selector  
+    //------------Race Selector--------------------------  
     const raceSelectEl = document.createElement("select");
   
     const dragonbornOptionEl = document.createElement("option");
@@ -860,7 +878,7 @@ function displayOutputView(mainContainerEl, currentCharacter) {
     const raceSubmitBtn= document.createElement("button");
     raceSubmitBtn.classList.add("edit", "submit", "output-button");
     raceSubmitBtn.setAttribute("id", "race-submit");
-    raceSubmitBtn.innerText="Submit";
+    raceSubmitBtn.innerText="Submit Edit";
 
     // raceEditBtnDiv.append(raceEditBtn);    
     // raceCancSubmitDiv.append(raceCancEdit);
@@ -897,7 +915,7 @@ function displayOutputView(mainContainerEl, currentCharacter) {
             }
           ]
         };
-          fetch(`http://localhost:8080/buildcharacter/editrace/${currentCharacter.id}`, {
+          fetch(`/buildcharacter/editrace/${currentCharacter.id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -914,32 +932,40 @@ function displayOutputView(mainContainerEl, currentCharacter) {
       })
           
 
-//***************KEEP creating ability scores output elements
+//******************ABILITY SCORE ************************
         const abilitiesDivEl = document.createElement("div");
-        abilitiesDivEl.classList.add("abilitiesDiv");
+        abilitiesDivEl.classList.add("asDiv");
 
-        const abilitiesTitleEl = document.createElement("h4");
-        abilitiesTitleEl.classList.add("abilitiesTitle");
+    // !!!!!!!!!!!!! Appending H1 to OUTPUT DIV!!!!!!!!!!!!!!
+        const abilitiesTitleEl = document.createElement("h1");
+        abilitiesTitleEl.classList.add("Title");
         abilitiesTitleEl.innerText = "Ability Scores";
 
+        const asH1Div =document.createElement("div");
+        asH1Div.classList.add("asH1");
 
+        asH1Div.append(abilitiesTitleEl);
+        outputDivEl.append(asH1Div);
+    //--------------------- Strength--------------------
         const strDivEl = document.createElement("div");
-        strDivEl.classList.add("abilityDiv");
-        const strTitleEl = document.createElement("h4");
-        strTitleEl.classList.add("abilityTitle");
+        strDivEl.classList.add("indASDiv");
 
+        const strTitleEl = document.createElement("h4");
+        strTitleEl.classList.add("Title");
         strTitleEl.innerText = "Strength";
+
         const strOutputEl = document.createElement("h3");
         strOutputEl.innerText = currentCharacter.abilityScores.strength;
 
         strDivEl.append(strTitleEl);
         strDivEl.append(strOutputEl);
 
+    // ---------------------  Dexterity---------------
         const dexDivEl = document.createElement("div");
-        dexDivEl.classList.add("abilityDiv");
+        dexDivEl.classList.add("indASDiv");
 
         const dexTitleEl = document.createElement("h4");
-        dexTitleEl.classList.add("abilityTitle");
+        dexTitleEl.classList.add("Title");
         dexTitleEl.innerText = "Dexterity";
 
         const dexOutputEl = document.createElement("h3");
@@ -948,11 +974,12 @@ function displayOutputView(mainContainerEl, currentCharacter) {
         dexDivEl.append(dexTitleEl);
         dexDivEl.append(dexOutputEl);
 
+    //   ------------------- Constitution----------------------
         const conDivEl = document.createElement("div");
-        conDivEl.classList.add("abilityDiv");
+        conDivEl.classList.add("indASDiv");
 
         const conTitleEl = document.createElement("h4");
-        conTitleEl.classList.add("abilityTitle");
+        conTitleEl.classList.add("Title");
         conTitleEl.innerText = "Constitution";
 
         const conOutputEl = document.createElement("h3");
@@ -961,11 +988,12 @@ function displayOutputView(mainContainerEl, currentCharacter) {
         conDivEl.append(conTitleEl);
         conDivEl.append(conOutputEl);
 
+    // -------------------Intelligence----------------------------  
         const intDivEl = document.createElement("div");
-        intDivEl.classList.add("abilityDiv");
+        intDivEl.classList.add("indASDiv");
 
         const intTitleEl = document.createElement("h4");
-        intTitleEl.classList.add("abilityTitle");
+        intTitleEl.classList.add("Title");
         intTitleEl.innerText = "Intelligence";
 
         const intOutputEl = document.createElement("h3");
@@ -974,11 +1002,12 @@ function displayOutputView(mainContainerEl, currentCharacter) {
         intDivEl.append(intTitleEl);
         intDivEl.append(intOutputEl);
 
+    //   ----------------Wisdom---------------------------
         const wisDivEl = document.createElement("div");
-        wisDivEl.classList.add("abilityDiv");
+        wisDivEl.classList.add("indASDiv");
 
         const wisTitleEl = document.createElement("h4");
-        wisTitleEl.classList.add("abilityTitle");
+        wisTitleEl.classList.add("Title");
         wisTitleEl.innerText = "Wisdom";
 
         const wisOutputEl = document.createElement("h3");
@@ -987,11 +1016,12 @@ function displayOutputView(mainContainerEl, currentCharacter) {
         wisDivEl.append(wisTitleEl);
         wisDivEl.append(wisOutputEl);
 
+    //   ----------------Charisma---------------------
         const chaDivEl = document.createElement("div");
-        chaDivEl.classList.add("abilityDiv");
+        chaDivEl.classList.add("indASDiv");
 
         const chaTitleEl = document.createElement("h4");
-        chaTitleEl.classList.add("abilityTitle");
+        chaTitleEl.classList.add("Title");
         chaTitleEl.innerText = "Charisma";
 
         const chaOutputEl = document.createElement("h3");
@@ -999,7 +1029,9 @@ function displayOutputView(mainContainerEl, currentCharacter) {
 
         chaDivEl.append(chaTitleEl);
         chaDivEl.append(chaOutputEl);
-        abilitiesDivEl.append(abilitiesTitleEl);
+
+        //------ AS Div appends------------
+       
         abilitiesDivEl.append(strDivEl);
         abilitiesDivEl.append(dexDivEl);
         abilitiesDivEl.append(conDivEl);
@@ -1010,25 +1042,31 @@ function displayOutputView(mainContainerEl, currentCharacter) {
 
         // append these to the top 
         outputDivEl.append(abilitiesDivEl);
-        mainContentDivEl.append(outputHeaderEl);
+        
         mainContentDivEl.append(outputDivEl);
         mainContainerEl.append(mainContentDivEl);
 
 
-        const proficiencyBonusEl = document.createElement("h3");
-        proficiencyBonusEl.innerText = "Proficiency Bonus";
-        const strengthEl = document.createElement("h3");
-        strengthEl.innerText = "Strength";
-        const dexterityEl = document.createElement("h3");
-        dexterityEl.innerText = "Dexterity";
-        const constitutionEl = document.createElement("h3");
-        constitutionEl.innerText = "Constitution";
-        const intelligenceEl = document.createElement("h3");
-        intelligenceEl.innerText = "Intelligence";
-        const wisdomEl = document.createElement("h3");
-        wisdomEl.innerText = "Wisdom";
-        const charismaEl = document.createElement("h3");
-        charismaEl.innerText = "Charisma";
+        // const proficiencyBonusEl = document.createElement("h3");
+        // proficiencyBonusEl.innerText = "Proficiency Bonus";
+
+        // const strengthEl = document.createElement("h3");
+        // strengthEl.innerText = "Strength";
+
+        // const dexterityEl = document.createElement("h3");
+        // dexterityEl.innerText = "Dexterity";
+
+        // const constitutionEl = document.createElement("h3");
+        // constitutionEl.innerText = "Constitution";
+
+        // const intelligenceEl = document.createElement("h3");
+        // intelligenceEl.innerText = "Intelligence";
+
+        // const wisdomEl = document.createElement("h3");
+        // wisdomEl.innerText = "Wisdom";
+        
+        // const charismaEl = document.createElement("h3");
+        // charismaEl.innerText = "Charisma";
 
         displayFooter(mainContainerEl);
 }

@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap');
+
+
 .abilityMainContentDiv{
     display: flex;
     flex-direction: column;
@@ -40,7 +43,7 @@
     border: solid 2px;
     border-radius: 15px;
     align-items: center;
-    width: 10rem;
+    width: 13rem;
     background-color: #c5ffd9;
     margin: 2rem;
     box-shadow: 2px 10px rgb(0, 0, 0);
@@ -55,7 +58,7 @@
     border: solid 2px;
     border-color: black;
     font-size: xx-large;
-    width:10rem;
+    width:12rem;
     display: flex;
     align-items: center;
     justify-content: center;
