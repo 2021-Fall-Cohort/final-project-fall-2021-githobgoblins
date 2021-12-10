@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/dndClassStyle.css">
+    <link rel="stylesheet" href="./css/raceStyle.css">
+    <link rel="stylesheet" href="./css/backgroundStyle.css">
+    <link rel="stylesheet" href="./css/cardsStyle.css">
+    <link href="https://unpkg.com/bootstrap@3.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://unpkg.com/bootstrap-multiselect@0.9.13/dist/css/bootstrap-multiselect.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="./css/goblincontact.css">
+
+    <link rel="stylesheet" href="./css/abilitiesStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=Special+Elite&display=swap"
+        rel="stylesheet">
+    <title>One Shot Wizard</title>
+</head>
+
+<body>
+    <!-- <header th:replace="/::header"></header>
+    <div class="mainContentDiv">
+
+        <h1 class="pageTitle">Select Your Class</h1>
+        
+        <div class="pageTopDiv">
+            <div class="formButtons">
+                <form>
+                    <select class="selector" >
+                        <option value="barbarian">Barbarian</option>
+                        <option value="fighter">Fighter</option>
+                        <option value="rogue">Rogue</option>
+                    </select>
+                    <input type="submit">
+                </form>
+                <button id="openClassModal">Learn More About Class</button>
+            </div>    
+            <img class = "selectorArt" src="/FinalPJ/src/main/resources/static/images/queen.jpg">
+        </div>
+
+        <div id="classModal" class="modal">
+            <div class="modalContent">
+                <div class="modalHeader">
+                    <span class="close">&times;</span>
+                    <h2>Classes</h2>
+                </div>
+                <div class="modalBody">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non eaque quia adipisci quis alias, laborum quibusdam dignissimos veniam incidunt, tempore, ex eius repellendus. Iure repudiandae quisquam itaque quis neque quam!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="pageBottomDiv">
+
+            <div class="learnDropdown">
+                <label id="learnLabel" for="classNames">Select what classes you want to learn about</label> 
+                <form>        
+                    <select name="classNames" id="classNames"> 
+                        <option value="barbarian">Barbarian</option>
+                        <option value="fighter">Fighter</option>
+                        <option value="rogue">Rogue</option>
+                    </select>
+                    
+                </form >   
+            </div>
+            <button id="moreInfoButton">More Info</button>
+
+        </div>
+
+        <div id = "moreInfoDiv">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur numquam quaerat accusantium voluptatum vero necessitatibus architecto molestiae molestias eligendi amet facere aspernatur, sed ullam a dolorum atque laborum nulla labore.
+        </div>
+
+        <button class="navButtons" id="backButton"><</button>
+        <button class="navButtons" id="forwardButton">></button>
+
+    </div>    
+    <footer th:replace = "/::footer"></footer> -->
+    <div class="mainContainerEl">
+
+        <!-- Header -->
+        <header class="header">
+            <div class="headerDiv">
+                <ul class="headerUl">
+                    <li class="headerLi">Home</li>
+                    <li class="headerLi">Create a Character</li>
+                    <li class="headerLi">User Creations</li>
+                    <li class="headerLi">Meet the Goblins</li>
+                </ul>
+            </div>
+        </header>
+
+        <!-- Cards section -->
+        <div class="cards">
+            <div class="card card1">
+                <img src="./images/card_1.jfif" alt="">
+                <p class="card-desc">
+                    Portfolio
+                </p>
+            </div>
+            <div class="card card2">
+                <img src="./images/card_2.jpg" alt="">
+                <p class="card-desc">
+                    At home or on the go
+                </p>
+            </div>
+            <div class="card card3">
+                <img src="./images/card_3.jpg" alt="">
+                <p class="card-desc">
+                    Tap into adventure
+                </p>
+            </div>
+        </div>
+
+        <!-- Footer section -->
+        <footer class="footer">
+            <h3 class="footerLiEl">We Can Code It</h3>
+            <h4 class="footerLiEl">Git-HobGoblins</h4>
+            <p class="footerLiEl">2021</p>
+        </footer>
+    </div>
+    </div>
+    <script src="https://unpkg.com/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script src="https://unpkg.com/bootstrap@3.3.2/dist/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-multiselect@0.9.13/dist/js/bootstrap-multiselect.js"></script>
+
+    <!-- <script src="./js/app.js" type="module"></script> -->
+</body>
+
+</html>
