@@ -118,7 +118,7 @@ function clearChildren(element) {
 
 
 // displayOutputView(mainContainerEl);
-// displayFeaturesView(mainContainerEl);
+displayFeaturesView(mainContainerEl);
 // displayDNDClassView(mainContainerEl);
 // displayRaceView(mainContainerEl);
 // displayBackgroundView(mainContainerEl);
@@ -127,7 +127,7 @@ function clearChildren(element) {
 
 //  displayBackgroundView(mainContainerEl);
 // displayAbilitiesView(mainContainerEl);
-displayCardsOutputView(mainContainerEl);
+// displayCardsOutputView(mainContainerEl);
 
 
 export {clearChildren}
