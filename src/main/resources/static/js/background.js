@@ -35,55 +35,55 @@ function displayBackgroundView(mainContainerEl, currentCharacter){
     backgroundSelectEl.classList.add("selectorField");
 
     const acolyteOptionEl = document.createElement("option");
-    acolyteOptionEl.setAttribute('value', 'acolyte');
+    acolyteOptionEl.setAttribute('value', 'Acolyte');
     acolyteOptionEl.innerText = "Acolyte";
 
     const charlatanOptionEl = document.createElement("option");
-    charlatanOptionEl.setAttribute('value', 'charlatan');
+    charlatanOptionEl.setAttribute('value', 'Charlatan');
     charlatanOptionEl.innerText = "Charlatan";
 
     const criminalOptionEl = document.createElement("option");
-    criminalOptionEl.setAttribute('value', 'criminal');
+    criminalOptionEl.setAttribute('value', 'Criminal');
     criminalOptionEl.innerText = "Criminal";
 
     const entertainerOptionEl = document.createElement("option");
-    entertainerOptionEl.setAttribute('value', 'entertainer');
+    entertainerOptionEl.setAttribute('value', 'Entertainer');
     entertainerOptionEl.innerText = "Entertainer";
 
     const folkHeroOptionEl = document.createElement("option");
-    folkHeroOptionEl.setAttribute('value', 'folkHero');
+    folkHeroOptionEl.setAttribute('value', 'Folk Hero');
     folkHeroOptionEl.innerText = "Folk Hero";
 
     const guildArtisanOptionEl = document.createElement("option");
-    guildArtisanOptionEl.setAttribute('value', 'guildArtisan');
+    guildArtisanOptionEl.setAttribute('value', 'Guild Artisan');
     guildArtisanOptionEl.innerText = "Guild Artisan";
 
     const hermitOptionEl = document.createElement("option");
-    hermitOptionEl.setAttribute('value', 'hemit');
+    hermitOptionEl.setAttribute('value', 'Hermit');
     hermitOptionEl.innerText = "Hermit";
 
     const nobleOptionEl = document.createElement("option");
-    nobleOptionEl.setAttribute('value', 'noble');
+    nobleOptionEl.setAttribute('value', 'Noble');
     nobleOptionEl.innerText = "Noble";
 
     const outlanderOptionEl = document.createElement("option");
-    outlanderOptionEl.setAttribute('value', 'outlander');
+    outlanderOptionEl.setAttribute('value', 'Outlander');
     outlanderOptionEl.innerText = "Outlander";
 
     const sageOptionEl = document.createElement("option");
-    sageOptionEl.setAttribute('value', 'sage');
+    sageOptionEl.setAttribute('value', 'Sage');
     sageOptionEl.innerText = "Sage";
 
     const sailorOptionEl = document.createElement("option");
-    sailorOptionEl.setAttribute('value', 'sailor');
+    sailorOptionEl.setAttribute('value', 'Sailor');
     sailorOptionEl.innerText = "Sailor";
 
     const soldierOptionEl = document.createElement("option");
-    soldierOptionEl.setAttribute('value', 'soldier');
+    soldierOptionEl.setAttribute('value', 'Soldier');
     soldierOptionEl.innerText = "Soldier";
 
     const urchinOptionEl = document.createElement("option");
-    urchinOptionEl.setAttribute('value', 'urchin');
+    urchinOptionEl.setAttribute('value', 'Urchin');
     urchinOptionEl.innerText = "Urchin";
 
     const backgroundModalButtonEl = document.createElement("button");
