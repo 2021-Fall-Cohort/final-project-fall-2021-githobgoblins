@@ -3,11 +3,28 @@ import {displayDNDClassView} from "./dndClass.js";
 import { displayHeader } from "./app.js";
 import { displayFooter } from "./app.js";
 import { displayFeaturesView } from "./features.js";
+import {displayRulesPage} from "./rulesPage.js";
+import {displayContacts} from "./contactpage.js";
 
 function displayCardsOutputView(mainContainerEl){
   
     displayHeader(mainContainerEl);
 
+//making Page Title
+
+const homeTitleDivEl = document.createElement("div");
+homeTitleDivEl.classList.add("homeTitleDiv");
+
+const presentsEl = document.createElement("h3");
+presentsEl.innerText = "The Git-HobGoblins Present";
+presentsEl.classList.add("presents");
+
+const wizardTitleEl = document.createElement("h1");
+wizardTitleEl.innerText = "The One-Shot Wizard";
+wizardTitleEl.classList.add("wizardTitle");    
+
+homeTitleDivEl.append(presentsEl);
+homeTitleDivEl.append(wizardTitleEl);
 
 //Portfolio Cards Section
 
@@ -21,7 +38,7 @@ cardCardOneEl.classList.add("card");
 
 const portfolioCardEl = document.createElement("img");
 portfolioCardEl.classList.add("cardImg");
-portfolioCardEl.src = "./images/castle.jpg";
+portfolioCardEl.src = "./images/armor.jpg";
 
 const cardDescOneEl = document.createElement("h2");
 cardDescOneEl.classList.add("cardDesc");
@@ -44,7 +61,7 @@ cardCardThreeEl.classList.add("card");
 
 const portfolioCardThreeEl = document.createElement("img");
 portfolioCardThreeEl.classList.add("cardImg");
-portfolioCardThreeEl.src = "./images/castle.jpg";
+portfolioCardThreeEl.src = "./images/gargoyle.jpg";
 
 const cardDescThreeEl = document.createElement("h2");
 cardDescThreeEl.classList.add("cardDesc");
@@ -65,19 +82,34 @@ cardsEl.append(cardCardOneEl);
 cardsEl.append(cardCardTwoEl);
 cardsEl.append(cardCardThreeEl);
 
+mainContainerEl.append(homeTitleDivEl);
 mainContainerEl.append(cardsEl);
 
 
 
 // Event Listener for Cards 1
-cardDescOneEl.addEventListener("click", () =>{
+cardCardOneEl.addEventListener("click", () =>{
 
     clearChildren(mainContainerEl);
     displayFeaturesView(mainContainerEl);
     console.log(displayCardsOutputView);
 })
 
+cardCardTwoEl.addEventListener("click", () =>{
 
+    clearChildren(mainContainerEl);
+    displayRulesPage(mainContainerEl);
+    console.log(displayCardsOutputView);
+})
+
+cardCardThreeEl.addEventListener("click", () =>{
+    clearChildren(mainContainerEl);
+    displayHeader(mainContainerEl);
+    let contactsEl = document.createElement("div");
+    contactsEl.innerHTML= displayContacts();
+    mainContainerEl.append(contactsEl);
+    displayFooter(mainContainerEl);
+})
 
 // // At home or on  the go Card section 
 // const cardCardTwoEl = document.createElement("div");
@@ -101,12 +133,6 @@ cardDescOneEl.addEventListener("click", () =>{
 // mainContainerEl.append(cardsEl);
 
 // Event Listener for Cards 2
-cardDescTwoEl.addEventListener("click", () =>{
-
-    clearChildren(mainContainerEl);
-    displayFeaturesView(mainContainerEl);
-    console.log(displayCardsOutputView);
-})
 
 
 // Tap into Adventure Card Section
@@ -123,12 +149,7 @@ cardDescTwoEl.addEventListener("click", () =>{
 
 
 // Event Listener for Cards 3
-cardDescThreeEl.addEventListener("click", () =>{
 
-    clearChildren(mainContainerEl);
-    displayFeaturesView(mainContainerEl);
-    console.log(displayCardsOutputView);
-})
 
 //Append all Tap into 
 // cardCardThreeEl.append(tapIntoAdventureCardEl);

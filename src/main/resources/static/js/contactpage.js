@@ -6,7 +6,7 @@ function displayContacts() {
 
     <div class="forSections">
         <section class="center-content">
-            <h1>Meet The Goblins</h1>
+            <h1 class="goblinHeader">Meet The Goblins</h1>
         </section>
 
         <section class="center-content">
