@@ -3,155 +3,173 @@ import {displayDNDClassView} from "./dndClass.js";
 import { displayHeader } from "./app.js";
 import { displayFooter } from "./app.js";
 import { displayFeaturesView } from "./features.js";
+import {displayRulesPage} from "./rulesPage.js";
+import {displayContacts} from "./contactpage.js";
 
-function displayCardsOutputView(mainContainerEl,currentCharacter){
+function displayCardsOutputView(mainContainerEl){
+  
+    displayHeader(mainContainerEl);
 
+//making Page Title
 
-console.log(currentCharacter);
+const homeTitleDivEl = document.createElement("div");
+homeTitleDivEl.classList.add("homeTitleDiv");
 
-displayHeader(mainContainerEl);
+const presentsEl = document.createElement("h3");
+presentsEl.innerText = "The Git-HobGoblins Present";
+presentsEl.classList.add("presents");
 
-//header Cards HomePage
-const mainContainerEl = document.createElement("div");
-mainContainerEl.classList.add("mainContainerEl");
+const wizardTitleEl = document.createElement("h1");
+wizardTitleEl.innerText = "The One-Shot Wizard";
+wizardTitleEl.classList.add("wizardTitle");    
 
-const headerCardsEl = document.createElement("header");
-headerCardsEl.classList.add("header");
-headerCardsEl.innerText = "One Shot Wizard";
+homeTitleDivEl.append(presentsEl);
+homeTitleDivEl.append(wizardTitleEl);
 
-const headerDivCardsEl = document.createElement("div");
-headerDivCardsEl.classList.add("headerDiv");
-
-const headerUlCardsEl = document.createElement("ul");
-headerUlCardsEl.classList.add =("headerUl");
-headerUlCardsEl.innerText = "One Shot Goblin";
-
-const headerLiHomeEl = document.createElement("li");
-headerLiHomeEl.classList.add("Home");
-headerLiHomeEl.innerText = "Home";
-
-const headerLiCreateCharacterEl = document.createElement("li");
-headerLiCreateCharacterEl.classList.add("Create a Character");
-headerLiCreateCharacterEl.innerText  = "Create a Character";
-
-const headerLiUserCreationsEl = document.createElement("li");
-headerLiUserCreationsEl.classList.add("User Creations");
-headerLiUserCreationsEl.innerText = "User Creations";
-
-const headerLiMeetTheGoblinsEl = document.createElement("li");
-headerLiMeetTheGoblinsEl.classList.add("Meet the Goblins");
-headerLiMeetTheGoblinsEl.innerText = "Meet the Goblins";
-
-
-
-
-//append the header Cards Hompage
-
-headerUlCardsEl.append(headerLiHomeEl);
-headerUlCardsEl.append(headerLiCreateCharacterEl);
-headerUlCardsEl.append(headerLiUserCreationsEl);
-headerUlCardsEl.append(headerLiMeetTheGoblinsEl);
-
-headerDivCardsEl.append(headerUlCardsEl);
-
-headerCardsEl.append(headerDivCardsEl);
-
-headerCardsEl.append(mainContainerEl);
-
-headerLiUserCreationsEl.addEventListener("click"(), => {
-    
-
-})
-
-
-//Cards Section
+//Portfolio Cards Section
 
 const cardsEl = document.createElement("div");
-cardsEl.classList.add("cards");
-cardsEl.innerText = "Portfolio";
+cardsEl.classList.add("cardsDiv");
+// cardsEl.innerText = "Portfolio";
 
+//creating card elements
 const cardCardOneEl = document.createElement("div");
-cardCardOneEl.classList.add("card card1");
+cardCardOneEl.classList.add("card");
 
 const portfolioCardEl = document.createElement("img");
-portfolioCardEl.add("PortfolioLogo");
-portfolioCardEl.src = "./images/card_1.jfif";
+portfolioCardEl.classList.add("cardImg");
+portfolioCardEl.src = "./images/armor.jpg";
 
-const cardDescOneEl = document.createElement("p");
-cardDescOneEl.classList.add("card-desc");
+const cardDescOneEl = document.createElement("h2");
+cardDescOneEl.classList.add("cardDesc");
+cardDescOneEl.innerText = "Create a Character";
 
+
+const cardCardTwoEl = document.createElement("div");
+cardCardTwoEl.classList.add("card");
+
+const portfolioCardTwoEl = document.createElement("img");
+portfolioCardTwoEl.classList.add("cardImg");
+portfolioCardTwoEl.src = "./images/castle.jpg";
+
+const cardDescTwoEl = document.createElement("h2");
+cardDescTwoEl.classList.add("cardDesc");
+cardDescTwoEl.innerText = "Rules of D&D";
+
+const cardCardThreeEl = document.createElement("div");
+cardCardThreeEl.classList.add("card");
+
+const portfolioCardThreeEl = document.createElement("img");
+portfolioCardThreeEl.classList.add("cardImg");
+portfolioCardThreeEl.src = "./images/gargoyle.jpg";
+
+const cardDescThreeEl = document.createElement("h2");
+cardDescThreeEl.classList.add("cardDesc");
+cardDescThreeEl.innerText = "Meet the Goblins";
 
 // append all Card  Portfolio Sections
 
 cardCardOneEl.append(portfolioCardEl);
 cardCardOneEl.append(cardDescOneEl);
+
+cardCardTwoEl.append(portfolioCardTwoEl);
+cardCardTwoEl.append(cardDescTwoEl);
+
+cardCardThreeEl.append(portfolioCardThreeEl);
+cardCardThreeEl.append(cardDescThreeEl);
+
 cardsEl.append(cardCardOneEl);
+cardsEl.append(cardCardTwoEl);
+cardsEl.append(cardCardThreeEl);
 
-cardsEl.append(mainContainerEl);
+mainContainerEl.append(homeTitleDivEl);
+mainContainerEl.append(cardsEl);
 
 
-cardDescOneEl.addEventListener("click", () =>{
+
+// Event Listener for Cards 1
+cardCardOneEl.addEventListener("click", () =>{
 
     clearChildren(mainContainerEl);
-    displayFeaturesView(mainContainerEl,currentCharacter);
+    displayFeaturesView(mainContainerEl);
     console.log(displayCardsOutputView);
 })
 
+cardCardTwoEl.addEventListener("click", () =>{
 
+    clearChildren(mainContainerEl);
+    displayRulesPage(mainContainerEl);
+    console.log(displayCardsOutputView);
+})
 
-const cardCardTwoEl = document.createElement("img");
-atHomeOrOnTheGoEl.add("At home or on the go logo");
-atHomeOrOnTheGoEl.src = "./images/card_2.jpg";
+cardCardThreeEl.addEventListener("click", () =>{
+    clearChildren(mainContainerEl);
+    displayHeader(mainContainerEl);
+    let contactsEl = document.createElement("div");
+    contactsEl.innerHTML= displayContacts();
+    mainContainerEl.append(contactsEl);
+    displayFooter(mainContainerEl);
+})
 
-const cardDescTwoEl = document.createElement("p");
-cardDescTwoEl.classList.add("card-desc");
-
-//append At home or on the go Cards
-
-cardCardTwoEl.append();
-
-
-const cardCardThreeEl = document.createElement("div");
-cardCardThreeEl.classList.add("card card3");
-cardDescThreeEl.innerText = "Tap into adventure";
-
-const tapIntoAdventureCardEl = document.createElement("img");
-tapIntoAdventureCardEl.add("Tap into adventure");
-tapIntoAdventureCardEl.src = "./images/card_3.jpg";
-
-const cardDescThreeEl = document.createElement("p");
-cardDescThreeEl.classList.add("card-desc");
+// // At home or on  the go Card section 
+// const cardCardTwoEl = document.createElement("div");
+// cardCardTwoEl.classList.add("cardCard2");
+// cardCardTwoEl.innerText = "At Home or on the Go";
 
 
 
-//Footer Section
+// const cardAtHomeOrOnTheGoEl = document.createElement("img");
+// cardAtHomeOrOnTheGoEl.classList.add("AtHomeOrOnTheGoLogo");
+// cardAtHomeOrOnTheGoEl.src = "./images/card_2.jpg";
 
-const footerCardsEl = document.createElement("footer");
-footerCardsEl.classList.add("footer");
+// const cardDescTwoEl = document.createElement("p");
+// cardDescTwoEl.classList.add("card-desc");
 
-const footerLiWeCanCodeItEl = document.createElement("h3");
-footerLiWeCanCodeItEl.classList.add("footerLiEl");
-footerLiWeCanCodeItEl.innerText = "We Can Code It";
+//append At home or on the go Card Section
+// cardCardTwoEl.append(cardAtHomeOrOnTheGoEl);
+// cardCardTwoEl.append(cardDescTwoEl);
+// cardsEl.append(cardCardTwoEl);
 
-const footerLiGitHobGoblinsEl = document.createElement("h4");
-footerLiGitHobGoblinsEl.classList.add("footerLiEl");
-footerLiGitHobGoblinsEl.innerText = "Git-HobGoblins";
+// mainContainerEl.append(cardsEl);
 
-const footerLiTwoThousandTwentyOneEl = document.createElement("p");
-footerLiTwoThousandTwentyOneEl.classList.add("footerLiEl");
-footerLiTwoThousandTwentyOneEl.innerText = "2021";
+// Event Listener for Cards 2
 
-//append Footer
 
-footerCardsEl.append(footerLiWeCanCodeItEl);
-footerCardsEl.append(footerLiGitHobGoblinsEl);
-footerCardsEl.append(footerLiTwoThousandTwentyOneEl);
+// Tap into Adventure Card Section
+// const cardCardThreeEl = document.createElement("div");
+// cardCardThreeEl.classList.add("cardCard3");
+// cardCardThreeEl.innerText = "Tap into adventure";
 
-footerCardsEl.append(mainContainerEl)
+// const tapIntoAdventureCardEl  = document.createElement("img");
+// tapIntoAdventureCardEl.classList.add("TapIntoAdventure");
+// tapIntoAdventureCardEl.src = "./images/card_3.jpg";
+
+// const cardDescThreeEl = document.createElement("p");
+// cardDescThreeEl.classList.add("card-desc");
+
+
+// Event Listener for Cards 3
+
+
+//Append all Tap into 
+// cardCardThreeEl.append(tapIntoAdventureCardEl);
+// cardCardThreeEl.append(cardDescThreeEl);
+// cardsEl.append(cardCardThreeEl);
+
+// mainContainerEl.append(cardDescThreeEl);
+
+
+
+
+
+displayFooter(mainContainerEl);
+
 
 }
 
 export {displayCardsOutputView}
+
+
 
 
 

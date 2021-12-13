@@ -23,83 +23,83 @@ function displayBackgroundView(mainContainerEl, currentCharacter){
     pageTopDivEl.classList.add("pageTopDiv");
 
     const backgroundFormButtonsDivEl = document.createElement("div"); 
-    backgroundFormButtonsDivEl.classList.add("formButtons");
+    backgroundFormButtonsDivEl.classList.add("formButtonsDiv");
 
     const backgroundFormEl = document.createElement("form");
 
+    const backgroundSelectorTitleEl = document.createElement("h4");
+    backgroundSelectorTitleEl.classList.add("selectorTitle");
+    backgroundSelectorTitleEl.innerText = "Select " + currentCharacter.baseFeatures.name + "'s Race";
+
     const backgroundSelectEl = document.createElement("select");
-    backgroundSelectEl.classList.add("selector");
+    backgroundSelectEl.classList.add("selectorField");
 
     const acolyteOptionEl = document.createElement("option");
-    acolyteOptionEl.setAttribute('value', 'acolyte');
+    acolyteOptionEl.setAttribute('value', 'Acolyte');
     acolyteOptionEl.innerText = "Acolyte";
 
     const charlatanOptionEl = document.createElement("option");
-    charlatanOptionEl.setAttribute('value', 'charlatan');
+    charlatanOptionEl.setAttribute('value', 'Charlatan');
     charlatanOptionEl.innerText = "Charlatan";
 
     const criminalOptionEl = document.createElement("option");
-    criminalOptionEl.setAttribute('value', 'criminal');
+    criminalOptionEl.setAttribute('value', 'Criminal');
     criminalOptionEl.innerText = "Criminal";
 
     const entertainerOptionEl = document.createElement("option");
-    entertainerOptionEl.setAttribute('value', 'entertainer');
+    entertainerOptionEl.setAttribute('value', 'Entertainer');
     entertainerOptionEl.innerText = "Entertainer";
 
     const folkHeroOptionEl = document.createElement("option");
-    folkHeroOptionEl.setAttribute('value', 'folkHero');
+    folkHeroOptionEl.setAttribute('value', 'Folk Hero');
     folkHeroOptionEl.innerText = "Folk Hero";
 
     const guildArtisanOptionEl = document.createElement("option");
-    guildArtisanOptionEl.setAttribute('value', 'guildArtisan');
+    guildArtisanOptionEl.setAttribute('value', 'Guild Artisan');
     guildArtisanOptionEl.innerText = "Guild Artisan";
 
     const hermitOptionEl = document.createElement("option");
-    hermitOptionEl.setAttribute('value', 'hemit');
+    hermitOptionEl.setAttribute('value', 'Hermit');
     hermitOptionEl.innerText = "Hermit";
 
     const nobleOptionEl = document.createElement("option");
-    nobleOptionEl.setAttribute('value', 'noble');
+    nobleOptionEl.setAttribute('value', 'Noble');
     nobleOptionEl.innerText = "Noble";
 
     const outlanderOptionEl = document.createElement("option");
-    outlanderOptionEl.setAttribute('value', 'outlander');
+    outlanderOptionEl.setAttribute('value', 'Outlander');
     outlanderOptionEl.innerText = "Outlander";
 
     const sageOptionEl = document.createElement("option");
-    sageOptionEl.setAttribute('value', 'sage');
+    sageOptionEl.setAttribute('value', 'Sage');
     sageOptionEl.innerText = "Sage";
 
     const sailorOptionEl = document.createElement("option");
-    sailorOptionEl.setAttribute('value', 'sailor');
+    sailorOptionEl.setAttribute('value', 'Sailor');
     sailorOptionEl.innerText = "Sailor";
 
     const soldierOptionEl = document.createElement("option");
-    soldierOptionEl.setAttribute('value', 'soldier');
+    soldierOptionEl.setAttribute('value', 'Soldier');
     soldierOptionEl.innerText = "Soldier";
 
     const urchinOptionEl = document.createElement("option");
-    urchinOptionEl.setAttribute('value', 'urchin');
+    urchinOptionEl.setAttribute('value', 'Urchin');
     urchinOptionEl.innerText = "Urchin";
 
     const backgroundModalButtonEl = document.createElement("button");
     backgroundModalButtonEl.setAttribute('id', 'openBackgroundModal');
-    backgroundModalButtonEl.innerText = "Learn More About the Backgroud";
+    backgroundModalButtonEl.innerText = "Learn More About Background";
 
     const backgroundImgEl = document.createElement("img");
     backgroundImgEl.src = "./images/knight.jpg";
     backgroundImgEl.classList.add("selectorArt");
 
     // creating nav buttons
-    const backButtonEl = document.createElement("button");
-    backButtonEl.classList.add("navButtons");
-    backButtonEl.setAttribute('id', 'backgroundBackButton');
-    backButtonEl.innerText = "<";
 
     const forwardButtonEl = document.createElement("button");
-    forwardButtonEl.classList.add("navButtons");
+    forwardButtonEl.classList.add("nextPageButton");
     forwardButtonEl.setAttribute('id', 'backgroundForwardButton');
-    forwardButtonEl.innerText = ">";
+    forwardButtonEl.innerText = "NEXT";
 
     //appending all pageTopDiv elements
 
@@ -119,13 +119,13 @@ function displayBackgroundView(mainContainerEl, currentCharacter){
 
     // backgroundFormEl.append(backgroundSelectEl);
 
+    backgroundFormButtonsDivEl.append(backgroundSelectorTitleEl);
     backgroundFormButtonsDivEl.append(backgroundSelectEl);
     backgroundFormButtonsDivEl.append(backgroundModalButtonEl);
 
-    pageTopDivEl.append(backButtonEl);
+
     pageTopDivEl.append(backgroundFormButtonsDivEl);
     pageTopDivEl.append(backgroundImgEl);
-    pageTopDivEl.append(forwardButtonEl);
 
     mainContentDiv.append(backgroundTitleEl);
     mainContentDiv.append(pageTopDivEl);
@@ -148,7 +148,7 @@ function displayBackgroundView(mainContainerEl, currentCharacter){
 
     const backgroundModalHeaderEl = document.createElement("h2");
     backgroundModalHeaderEl.classList.add("backgroundModalHeader");
-    backgroundModalHeaderEl.innerText = "Backround";
+    backgroundModalHeaderEl.innerText = "Background";
 
     const backgroundModalBodyDivEl = document.createElement("div");
     backgroundModalBodyDivEl.classList.add("modalBody");
@@ -189,20 +189,24 @@ function displayBackgroundView(mainContainerEl, currentCharacter){
     //creating all pageBottomDiv elements
 
     const pageBottomDivEl = document.createElement("div");
-    pageBottomDivEl.classList.add("div");
+    pageBottomDivEl.classList.add("pageBottomDiv");
+
+    const backgroundLearnHeaderEl = document.createElement("h4");
+    backgroundLearnHeaderEl.classList.add("classLearnHeader");
+    backgroundLearnHeaderEl.innerText = "Learn More About Backgrounds";
 
     const backgroundLearnDropdownDivEl = document.createElement("div");
     backgroundLearnDropdownDivEl.classList.add("learnDropdown");
 
     const backgroundDropdownLabelEl = document.createElement("label");
-    backgroundDropdownLabelEl.setAttribute('for', 'backgroundNames');
-    backgroundDropdownLabelEl.setAttribute('id', 'backgroundLearnLabel');
+    backgroundDropdownLabelEl.classList.add("learnLabel");
+    backgroundDropdownLabelEl.setAttribute('for', 'classNames');
+    backgroundDropdownLabelEl.innerText = "Select what background you want to learn about";
 
     const backgroundLearnFormEl = document.createElement("form");
 
     const backgroundLearnSelectEl = document.createElement("select");
-    backgroundLearnSelectEl.setAttribute('name', 'backgroundNames');
-    backgroundLearnSelectEl.setAttribute('id', 'backgroundNames');
+    backgroundLearnSelectEl.classList.add("selectorField");
 
     const acolyteLearnOptionEl = document.createElement("option");
     acolyteLearnOptionEl.setAttribute('value', 'acolyte');
@@ -280,8 +284,6 @@ function displayBackgroundView(mainContainerEl, currentCharacter){
     backgroundMoreInfoDivEl.append(moreInfoCloseEl);
     backgroundMoreInfoDivEl.append(backgroundLearnTitleEl);
     backgroundMoreInfoDivEl.append(backgroundMoreInfoTextEl);
-     
-    mainContentDiv.append(backgroundMoreInfoDivEl);
 
     //making ability scores section
 
@@ -312,9 +314,10 @@ function displayBackgroundView(mainContainerEl, currentCharacter){
 
     backgroundLearnDropdownDivEl.append(backgroundDropdownLabelEl);
     
-
-    pageBottomDivEl.append(backgroundLearnDropdownDivEl);
+    pageBottomDivEl.append(backgroundLearnHeaderEl);
+    pageBottomDivEl.append(backgroundDropdownLabelEl); 
     pageBottomDivEl.append(backgroundLearnFormEl);
+    pageBottomDivEl.append(backgroundMoreInfoDivEl);
     pageBottomDivEl.append(backgroundMoreInfoButtonEl);
     mainContentDiv.append(pageBottomDivEl);
 
@@ -327,10 +330,7 @@ function displayBackgroundView(mainContainerEl, currentCharacter){
     backgroundLearnMoreContentEl.setAttribute('id', 'backgroundLearnMoreContent');
 
     //wiring up nav buttons
-    backButtonEl.addEventListener("click", () => {
-      clearChildren(mainContainerEl);
-      displayRaceView(mainContainerEl);
-    });
+    
 
     forwardButtonEl.addEventListener("click", ()=> {
       const userBackgroundJson = {
@@ -379,6 +379,7 @@ function displayBackgroundView(mainContainerEl, currentCharacter){
     })
 
     mainContainerEl.append(mainContentDiv);
+    mainContainerEl.append(forwardButtonEl);
 
     displayFooter(mainContainerEl);
 }

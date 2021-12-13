@@ -36,51 +36,51 @@ console.log(currentCharacter);
   selectEl.classList.add("selectorField");
   
   const barbarianOptionEl = document.createElement("option");
-  barbarianOptionEl.setAttribute('value', 'barbarian');
+  barbarianOptionEl.setAttribute('value', 'Barbarian');
   barbarianOptionEl.innerText = "Barbarian";
 
   const bardOptionEl = document.createElement("option");
-  bardOptionEl.setAttribute('value', 'bard');
+  bardOptionEl.setAttribute('value', 'Bard');
   bardOptionEl.innerText = "Bard";
 
   const clericOptionEl = document.createElement("option");
-  clericOptionEl.setAttribute('value', 'cleric');
+  clericOptionEl.setAttribute('value', 'Cleric');
   clericOptionEl.innerText = "Cleric";
 
   const druidOptionEl = document.createElement("option");
-  druidOptionEl.setAttribute('value', 'druid');
+  druidOptionEl.setAttribute('value', 'Druid');
   druidOptionEl.innerText = "Druid";
   
   const fighterOptionEl = document.createElement("option");
-  fighterOptionEl.setAttribute('value', 'fighter');
+  fighterOptionEl.setAttribute('value', 'Fighter');
   fighterOptionEl.innerText = "Fighter";
 
   const monkOptionEl = document.createElement("option");
-  monkOptionEl.setAttribute('value', 'monk');
+  monkOptionEl.setAttribute('value', 'Monk');
   monkOptionEl.innerText  = "Monk";
 
   const paladinOptionEl = document.createElement("option");
-  paladinOptionEl.setAttribute('value', 'paladin');
+  paladinOptionEl.setAttribute('value', 'Paladin');
   paladinOptionEl.innerText = "Paladin";
 
   const rangerOptionEl = document.createElement("option");
-  rangerOptionEl.setAttribute('value', 'ranger');
+  rangerOptionEl.setAttribute('value', 'Ranger');
   rangerOptionEl.innerText = "Ranger";
 
   const rogueOptionEl = document.createElement("option");
-  rogueOptionEl.setAttribute('value', 'rogue');
+  rogueOptionEl.setAttribute('value', 'Rogue');
   rogueOptionEl.innerText = "Rogue";
 
   const sorcererOptionEl = document.createElement("option");
-  sorcererOptionEl.setAttribute('value', 'sorcerer');
+  sorcererOptionEl.setAttribute('value', 'Sorcerer');
   sorcererOptionEl.innerText = "Sorcerer";
 
   const warlockOptionEl = document.createElement("option");
-  warlockOptionEl.setAttribute('value', 'warlock');
+  warlockOptionEl.setAttribute('value', 'Warlock');
   warlockOptionEl.innerText = "Warlock";
 
   const wizardOptionEl = document.createElement("option");
-  wizardOptionEl.setAttribute('value', 'wizard');
+  wizardOptionEl.setAttribute('value', 'Wizard');
   wizardOptionEl.innerText = "Wizard";
 
   const classLearnHeaderEl = document.createElement("h4");
@@ -98,7 +98,7 @@ console.log(currentCharacter);
   //forward and back buttons
 
   const forwardButtonEl = document.createElement("button");
-  forwardButtonEl.classList.add("navButtons");
+  forwardButtonEl.classList.add("nextPageButton");
   forwardButtonEl.setAttribute('id', 'classForwardButton');
   forwardButtonEl.innerText = "NEXT";
   
@@ -153,7 +153,7 @@ console.log(currentCharacter);
   modalBodyEl.classList.add("modalBody");
 
   const modalBodyContentEl = document.createElement("p");
-  modalBodyContentEl.innerText = "Class is the primary definition of what your character can do. It’s more than a profession; it’s your character’s calling. Class shapes the way you think about the world and interact with it and your relationship with other people and powers in the multiverse. A fighter, for example, might view the world in pragmatic terms of strategy and maneuvering, and see herself as just a pawn in a much larger game. A cleric, by contrast, might see himself as a willing servant in a god’s unfolding plan or a conflict brewing among various deities. While the fighter has contacts in a mercenary company or army, the cleric might know a number of priests, paladins, and devotees who share his faith. Your class gives you a variety of special features, such as a fighter’s mastery of weapons and armor, and a wizard’s spells. At low levels, your class gives you only two or three features, but as you advance in level you gain more and your existing features often improve.";
+  modalBodyContentEl.innerText = "Class is the primary definition of what your character can do. It's more than a profession; it's your character's calling. Class shapes the way you think about the world and interact with it and your relationship with other people and powers in the multiverse. A fighter, for example, might view the world in pragmatic terms of strategy and maneuvering, and see herself as just a pawn in a much larger game. A cleric, by contrast, might see himself as a willing servant in a god's unfolding plan or a conflict brewing among various deities. While the fighter has contacts in a mercenary company or army, the cleric might know a number of priests, paladins, and devotees who share his faith. Your class gives you a variety of special features, such as a fighter's mastery of weapons and armor, and a wizard's spells. At low levels, your class gives you only two or three features, but as you advance in level you gain more and your existing features often improve.";
 
   //appending all modal content
 

@@ -10,3 +10,72 @@
 .goblinLogo{
     height: 4rem;
 }
+
+
+
+#openBackgroundModal{
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: .75rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    padding: .5rem;
+    font-weight: bold;
+    border: solid 2px;
+    border-color: black;
+    border-radius: 15px;
+    box-shadow: 0 4px black;
+    background-color: #819187;
+}
+
+#openBackgroundModal:hover{
+    background-color: #b0c2b7;
+}
+
+#openBackgroundModal:active{
+    background-color: #85eeaa;
+    box-shadow: 0 2px #666;
+    transform: translateY(4px);
+}
+
+#backgroundMoreInfoButton{
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: .75rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: .5rem;
+    font-weight: bold;
+    border: solid 2px;
+    border-color: black;
+    border-radius: 15px;
+    box-shadow: 0 4px black;
+    background-color: #819187;
+}
+
+#backgroundMoreInfoButton:hover{
+    background-color: #b0c2b7;
+}
+
+#backgroundMoreInfoButton:active{
+    background-color: #85eeaa;
+    box-shadow: 0 2px #666;
+    transform: translateY(4px);
+}
+
+#backgroundMoreInfoDiv{
+    display: none;
+    width: 105%;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-bottom: 1.5rem;
+    text-align: center;
+    background-color: lightblue;
+    margin-top: 20px;
+    animation-name: animatetop;
+    animation-duration: 2s;
+    border: 2px solid;
+    border-radius: 10px;
+}

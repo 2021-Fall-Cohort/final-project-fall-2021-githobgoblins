@@ -2,6 +2,9 @@ import {clearChildren} from "./app.js";
 import {displayDNDClassView} from "./dndClass.js";
 import { displayHeader } from "./app.js";
 import { displayFooter } from "./app.js";
+import {backgroundJson} from "./descJson.js";
+import {raceJson} from "./descJson.js";
+import {classJson} from "./descJson.js";
 
 function displayOutputView(mainContainerEl, currentCharacter) {
     console.log(currentCharacter);
@@ -49,15 +52,15 @@ function displayOutputView(mainContainerEl, currentCharacter) {
             window.print();
         })
 
-        // const tweetCharBtn =document.createElement("button");
-        // tweetCharBtn.setAttribute("id", "user-tweet");
-        // tweetCharBtn.classList.add("output-button");
-        // tweetCharBtn.innerText="Tweet Character";
+        // const restartbtn =document.createElement("button");
+        // restartbtn.setAttribute("id", "user-restart");
+        // restartbtn.classList.add("output-button");
+        // restartbtn.innerText="New Character";
 
         headingDiv.append(outputHeaderEl);
         // headingDiv.append(emailCharBtn);
         headingDiv.append(printCharBtn);
-        // headingDiv.append(tweetCharBtn);
+        // headingDiv.append(restartbtn);
         outputDivEl.append(headingDiv);
         // mainContentDivEl.append(outputHeaderEl);
         
@@ -79,7 +82,7 @@ function displayOutputView(mainContainerEl, currentCharacter) {
         const currentBaseh3= document.createElement("h3");
         currentBaseh3.innerText= "Current Base";
 
-        const nameLabelEl = document.createElement("p");
+        const nameLabelEl = document.createElement("h4");
         nameLabelEl.innerText = "Name";
         nameLabelEl.classList.add("label");
 
@@ -87,7 +90,7 @@ function displayOutputView(mainContainerEl, currentCharacter) {
         nameOutputEl.innerText = currentCharacter.baseFeatures.name;
         nameOutputEl.classList.add("charText");
 
-        const levelEl = document.createElement("p");
+        const levelEl = document.createElement("h4");
         levelEl.innerText = "Level";
         levelEl.classList.add("label");
 
@@ -95,7 +98,7 @@ function displayOutputView(mainContainerEl, currentCharacter) {
         levelOutputEl.innerText = currentCharacter.baseFeatures.level;
         levelOutputEl.classList.add("charText");
 
-        const alignmentEl = document.createElement("p");
+        const alignmentEl = document.createElement("h4");
         alignmentEl.innerText = "Alignment";
         alignmentEl.classList.add("label");
         
@@ -103,7 +106,7 @@ function displayOutputView(mainContainerEl, currentCharacter) {
         alignmentOutputEl.innerText = currentCharacter.baseFeatures.alignment;
         alignmentOutputEl.classList.add("charText");
 
-        const profBonus = document.createElement("p");
+        const profBonus = document.createElement("h4");
         profBonus.innerText = "Proficiency Bonus";
         profBonus.classList.add("label");
 
@@ -111,7 +114,7 @@ function displayOutputView(mainContainerEl, currentCharacter) {
         bonusOutputEl.innerText = currentCharacter.baseFeatures.proficiencyBonus;
         bonusOutputEl.classList.add("charText");
 
-        const experiencePointsEl = document.createElement("p");
+        const experiencePointsEl = document.createElement("h4");
         experiencePointsEl.innerText = "Experience Points";
         experiencePointsEl.classList.add("label");
         
@@ -140,7 +143,7 @@ function displayOutputView(mainContainerEl, currentCharacter) {
     baseEditWrapper.classList.add("edit-div");
     baseEditWrapper.setAttribute("id", "edit-base");
 
-    const editBaseSection =document.createElement("section");
+    const editBaseSection = document.createElement("section");
     editBaseSection.classList.add("base", "edits");
     
     const editBaseH1 =document.createElement("h3");
@@ -168,7 +171,7 @@ function displayOutputView(mainContainerEl, currentCharacter) {
 
 // ------Edit Alignment------------
     const alignmentLabelEl = document.createElement("p");
-    alignmentLabelEl.innerText = "Alignment";
+    alignmentLabelEl.innerText = "Edit Alignment";
     alignmentLabelEl.classList.add("label");
 
     const editAlignmentFieldEl = document.createElement("select");
@@ -348,13 +351,13 @@ function displayOutputView(mainContainerEl, currentCharacter) {
         const classNameEl = document.createElement("p");
         classNameEl.innerText = currentCharacter.dndClass.name;
 
-        const classDes = document.createElement("h3");
-        classDes.innerText = "Description";  
+        // const classDes = document.createElement("h3");
+        // classDes.innerText = "Description";  
         
-        const classDesOutput= document.createElement("p");
-        classDesOutput.innerText = currentCharacter.dndClass.description;
+        // const classDesOutput= document.createElement("p");
+        // classDesOutput.innerText = currentCharacter.dndClass.description;
         
-        const classFeatures =document.createElement("h3");
+        const classFeatures =document.createElement("h4");
         classFeatures.innerText="Class Features";
 
         const classFeature1=document.createElement("p");
@@ -369,8 +372,8 @@ function displayOutputView(mainContainerEl, currentCharacter) {
         currentClassSection.append(classh2); 
         currentClassSection.append(classLabelEl);
         currentClassSection.append(classNameEl); 
-        currentClassSection.append(classDes);
-        currentClassSection.append(classDesOutput);
+        // currentClassSection.append(classDes);
+        // currentClassSection.append(classDesOutput);
 
         currentClassSection.append(classFeatures);
         currentClassSection.append(classFeature1);
@@ -495,42 +498,65 @@ function displayOutputView(mainContainerEl, currentCharacter) {
 //  Event Listeners 
 
 // !!!!!!!!!!!!!!!!!!Submit FIXED!!!!!!!!!!!!!!!!!!!!!!
-    classSubmitBtn.addEventListener("click", () => {
-        const classJson = {
-        "name": selectEl.value,
-        "description": "warlock boi",
-        "features": [
-            {
-            "name" : "something unique",
-            "description" :"unique things"
-            },
-            {
-            "name" : "watch shows faster",
-            "description" :" more shows in less time"
-            }
+    // classSubmitBtn.addEventListener("click", () => {
+    //     const classJson = {
+    //     "name": selectEl.value,
+    //     "description": "warlock boi",
+    //     "features": [
+    //         {
+    //         "name" : "something unique",
+    //         "description" :"unique things"
+    //         },
+    //         {
+    //         "name" : "watch shows faster",
+    //         "description" :" more shows in less time"
+    //         }
         
-        ]
-        };
-        fetch(`/buildcharacter/editclass/${currentCharacter.id}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(classJson)
-        })
-        .then(res => res.json())
-        .then(character => {
-            clearChildren(mainContainerEl);
-            currentCharacter = character;
-            displayOutputView(mainContainerEl, currentCharacter);
+    //     ]
+    //     };
+    //     fetch(`/buildcharacter/editclass/${currentCharacter.id}`, {
+    //         method: 'PUT',
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify(classJson)
+    //     })
+    //     .then(res => res.json())
+    //     .then(character => {
+    //         clearChildren(mainContainerEl);
+    //         currentCharacter = character;
+    //         displayOutputView(mainContainerEl, currentCharacter);
             
-        })
-        .catch(err => console.error(err));
+    //     })
+    //     .catch(err => console.error(err));
 
 
+        
+    // })
+
+
+    classSubmitBtn.addEventListener("click", () => {
+    const userClassJson = {
+      "name": selectEl.value,
+      "description": "warlock boi",
+      "features": classJson[selectEl.selectedIndex].features,
+    };
+      fetch(`/buildcharacter/editclass/${currentCharacter.id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(userClassJson)
+      })
+    .then(res => res.json())
+    .then(character => {
+        clearChildren(mainContainerEl);
+        currentCharacter = character;
+        displayOutputView(mainContainerEl, currentCharacter);
         
     })
-
+    .catch(err => console.error(err));
+  })
 
 //**************************Background*******************************
         const bgDiv = document.createElement("div");
@@ -546,19 +572,19 @@ function displayOutputView(mainContainerEl, currentCharacter) {
         const currentBGh2=document.createElement("h3");
         currentBGh2.innerText="Current Background";
 
-        const backgroundOutputEl = document.createElement("h4");
+        const backgroundOutputEl = document.createElement("p");
         backgroundOutputEl.innerText = currentCharacter.background.name;
 
-        const bgDes=document.createElement("H3");
-        bgDes.innerText="Description";
+        // const bgDes=document.createElement("H3");
+        // bgDes.innerText="Description";
         
-        const desOutput=document.createElement("small");
-        desOutput.innerText=currentCharacter.background.description;
+        // const desOutput=document.createElement("p");
+        // desOutput.innerText=currentCharacter.background.description;
 
-        const bgFeatures =document.createElement("h3");
+        const bgFeatures =document.createElement("h4");
         bgFeatures.innerText="Background Features";
 
-        const bgFeature1=document.createElement("small");
+        const bgFeature1=document.createElement("p");
         bgFeature1.innerText=currentCharacter.background.features[0].name;
 
         
@@ -566,8 +592,8 @@ function displayOutputView(mainContainerEl, currentCharacter) {
         bgSection.append(backgroundLabelEl);
         bgSection.append(currentBGh2);
         bgSection.append(backgroundOutputEl);
-        bgSection.append(bgDes);
-        bgSection.append(desOutput);
+        // bgSection.append(bgDes);
+        // bgSection.append(desOutput);
         bgSection.append(bgFeatures);
         bgSection.append(bgFeature1);
        
@@ -693,20 +719,11 @@ function displayOutputView(mainContainerEl, currentCharacter) {
 
 //--------------------  Event Listener------------------- 
 
- bgSubmit.addEventListener("click", ()=> {
-      const backgroundJson = {
+    bgSubmit.addEventListener("click", ()=> {
+      const userBackgroundJson = {
         "name": backgroundSelectEl.value,
         "description": "because what else",
-        "features" : [
-          {
-            "name" : "code fast",
-            "description" :"super sonic typing"
-          },
-          {
-            "name" : "Speed reading",
-            "description" : "get 'er don"
-          }
-        ]
+        "features" : backgroundJson[backgroundSelectEl.selectedIndex].features,
       };
     
       fetch(`/buildcharacter/editbackground/${currentCharacter.id}`, {
@@ -714,7 +731,7 @@ function displayOutputView(mainContainerEl, currentCharacter) {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(backgroundJson)
+        body: JSON.stringify(userBackgroundJson)
       })
       .then(res => res.json())
       .then(character => {
@@ -724,7 +741,6 @@ function displayOutputView(mainContainerEl, currentCharacter) {
       })
       .catch(err => console.error(err));
   })
-
 //**************************Race *************************************
         const raceDiv = document.createElement("div");
         raceDiv.classList.add("cardDiv");
@@ -739,47 +755,47 @@ function displayOutputView(mainContainerEl, currentCharacter) {
         const raceEl = document.createElement("h3");
         raceEl.innerText = "Current Race";              
 
-        const raceOutputEl = document.createElement("h4");
+        const raceOutputEl = document.createElement("p");
         raceOutputEl.innerText = currentCharacter.race.name;
 
-        const raceDes = document.createElement("h3");
-        raceDes.innerText = "Description";  
+        // const raceDes = document.createElement("h3");
+        // raceDes.innerText = "Description";  
         
-        const raceDesOutput= document.createElement("small");
-        raceDesOutput.innerText = currentCharacter.race.description;
+        // const raceDesOutput= document.createElement("p");
+        // raceDesOutput.innerText = currentCharacter.race.description;
         
-        const raceFeatures =document.createElement("h3");
+        const raceFeatures =document.createElement("h4");
         raceFeatures.innerText="Race Features";
 
-        const raceFeature1=document.createElement("small");
+        const raceFeature1=document.createElement("p");
         raceFeature1.innerText=currentCharacter.race.features[0].name;
 
-        const raceFeature2=document.createElement("small");
+        const raceFeature2=document.createElement("p");
         raceFeature2.innerText=currentCharacter.race.features[1].name;
 
         const asDiv=document.createElement("div");
         asDiv.classList.add("as");
 
-        const aScoreImprovment=document.createElement("h3");
+        const aScoreImprovment=document.createElement("h4");
         aScoreImprovment.innerText="Ability Score Improvements"
 
-        const aScoreOne =document.createElement("small");
+        const aScoreOne =document.createElement("p");
         aScoreOne.innerText= "Name: " + currentCharacter.race.abilityScoreImprovementName1;
         
-        const aScoreBonusOne =document.createElement("small");
+        const aScoreBonusOne =document.createElement("p");
         aScoreBonusOne.innerText=" Bonus: + " + currentCharacter.race.abilityScoreImprovement1;
 
-        const aScoreTwo =document.createElement("small");
+        const aScoreTwo =document.createElement("p");
         aScoreTwo.innerText= "Name: " + currentCharacter.race.abilityScoreImprovementName2;
 
-        const aScoreBonusTwo =document.createElement("small");
+        const aScoreBonusTwo =document.createElement("p");
         aScoreBonusTwo.innerText=" Bonus: + " + currentCharacter.race.abilityScoreImprovement2;
 
         raceSection.append(raceH2);       
         raceSection.append(raceEl);
         raceSection.append(raceOutputEl);
-        raceSection.append(raceDes);
-        raceSection.append(raceDesOutput);
+        // raceSection.append(raceDes);
+        // raceSection.append(raceDesOutput);
         raceSection.append(raceFeatures);
         raceSection.append(raceFeature1);
         raceSection.append(raceFeature2);
@@ -889,38 +905,24 @@ function displayOutputView(mainContainerEl, currentCharacter) {
 //-------------Event Listeners---------------
 
     //----------------Submit------------- 
-    raceSubmitBtn.addEventListener("click", () => {
-        const raceJson = {
-          "name" : raceSelectEl.value,
-          "description": "warlock boi",
-          "abilityScoreImprovement1": 2,
-          "abilityScoreImprovement2": 1,
-          "abilityScoreImprovementName1": "strength",
-          "abilityScoreImprovementName2": "charisma",
-          "features": [
-            {
-              "name" : "run fast",
-              "description" :"super sonic speed",
-              "class" : null,
-              "race" : null,
-              "background" : null
-            },
-    
-            {
-              "name" : "CARSON FEATURES HERE",
-              "description" :"???????",
-              "class" : null,
-              "race" : null,
-              "background" : null
-            }
-          ]
+
+          
+      raceSubmitBtn.addEventListener("click", () => {
+        const userRaceJson = {
+          "name" : raceJson[raceSelectEl.selectedIndex].title,
+          "description": raceJson[raceSelectEl.selectedIndex].desc,
+          "abilityScoreImprovement1": raceJson[raceSelectEl.selectedIndex].abilityScoreImprovement1,
+          "abilityScoreImprovement2": raceJson[raceSelectEl.selectedIndex].abilityScoreImprovement2,
+          "abilityScoreImprovementName1": raceJson[raceSelectEl.selectedIndex].abilityScoreImprovementName1,
+          "abilityScoreImprovementName2": raceJson[raceSelectEl.selectedIndex].abilityScoreImprovementName2,
+          "features": raceJson[raceSelectEl.selectedIndex].features
         };
           fetch(`/buildcharacter/editrace/${currentCharacter.id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(raceJson)
+            body: JSON.stringify(userRaceJson)
           })
         .then(res => res.json())
         .then(character => {
@@ -930,7 +932,6 @@ function displayOutputView(mainContainerEl, currentCharacter) {
         })
         .catch(err => console.error(err));
       })
-          
 
 //******************ABILITY SCORE ************************
         const abilitiesDivEl = document.createElement("div");

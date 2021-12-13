@@ -49,7 +49,7 @@ function displayUserCreationsView(mainContainerEl){
 
             const userCreationsLearnMoreButton = document.createElement("button");
             userCreationsLearnMoreButton.innerText = "Learn More";
-            userCreationsLearnMoreButton.classList.add("learnMore");
+            userCreationsLearnMoreButton.classList.add("submit");
 
             userCreationsLearnMoreButton.addEventListener("click",() =>{
                 clearChildren(mainContainerEl);
@@ -87,7 +87,7 @@ function displayUserCreationsView(mainContainerEl){
 
 
 
-
+    displayFooter(mainContainerEl);
 
 
 

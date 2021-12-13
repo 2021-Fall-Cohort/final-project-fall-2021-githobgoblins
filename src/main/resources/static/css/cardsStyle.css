@@ -1,14 +1,56 @@
-.cards {
-  display: grid;
-  grid-template-columns: auto auto auto;
-}
-.card {
-  position: relative;
+.homeTitleDiv{
+  margin-left: auto;
+  margin-right: auto;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #3c5e47;
+  border-radius: 15px;
+  border: double 2px;
 }
 
-.card img {
-  border-radius: unset;
-  height: 70vh;
+.presents{
+  
+  font-family: 'IM Fell English SC', serif;
+  font-size: 2rem;
+}
+
+
+.wizardTitle{
+  color: #fcba04;
+  font-family: 'IM Fell English SC', serif;
+  font-size: 5rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  margin-bottom: 1rem;
+}
+
+.cardsDiv {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: #558365;
+  height: fit-content;
+  width: 22rem;
+  align-items: center;
+  border-radius: 20px;
+  border: solid 2px;
+  box-shadow: 8px 10px rgb(63, 60, 60);
+}
+
+.card:hover{
+  box-shadow: 0px 0px rgb(66, 61, 61);
+  transform: translateY(4px);
+}
+
+.cardImg{
+  margin-top: 2rem;
+  height: 25rem;
+  border-radius: 20px;
 }
 
 .card-desc {
@@ -16,7 +58,7 @@
   bottom: 20px;
   left: 20px;
   font-size: 30px;
-  width: 95%;
+  width: fit-content;
   color: white;
   font-weight: bolder;
   background: rgba(0, 0, 0, 0.3);
@@ -25,3 +67,16 @@
 html{
   font-size: 16px !important;
 }
+ 
+.cardDesc{
+  font-family: 'IM Fell English SC', serif;
+  font-size: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: #fcba04;
+}
+
+/* .cardCard1{
+  display: flex;
+  background;
+} */

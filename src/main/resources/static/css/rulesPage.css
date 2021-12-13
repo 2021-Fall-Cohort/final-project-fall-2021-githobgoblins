@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Murecho&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap');
+
 section {
     margin: 0 auto;
     width: 60%;
@@ -8,6 +11,8 @@ section {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     width: 85%;
     background-color: rgb(85, 131, 101);
+    border: solid 2px;
+    border-color: black;
     border-radius: 5px;
     margin: 3rem auto;
 }
@@ -15,9 +20,11 @@ section {
 .content-section h1 {
     grid-column-start: 1;
     grid-column-end: 5;
-    font-size: 3rem;
-    color: #fff;
+    font-size: 3.5rem;
+    color: black;
+    padding-top: 1.5rem;
     text-align: center;
+    font-family: 'IM Fell English SC', serif;
 }
 
 .content-section ul {
@@ -31,7 +38,7 @@ section {
     margin: 1rem;
     border-radius: 3px;
     border-style: solid;
-    border-color: #fff;
+    border-color: black;
     min-height: 500px;
     margin: .5rem 2rem;
 }
@@ -39,24 +46,28 @@ section {
 .infoBoxH2 {
     font-size: 2.5rem;
     text-align: center;
-    color: #fff;
+    color: black;
+   font-family: 'IM Fell English SC', serif;
 }
 
 .infoBoxH3 {
     font-size: 1.5rem;
     text-align: center;
-    color: #fff;
+    color: black;
+   font-family: 'IM Fell English SC', serif;
 }
 
 .infoBoxDiv p {
     font-size: 1.25rem;
-    color: #fff;
+    color: black;
+   font-family: 'IM Fell English SC', serif;
     margin: 2rem;
 }
 
 .infoBoxText {
     font-size: 1.25rem;
-    color:white;
+    color: black;
+    font-family: 'Murecho', sans-serif;
     
 }
 
@@ -68,13 +79,41 @@ section {
     font-size: 1.5rem;
 }
 
+
 .clicktohide {
     width: 14rem;
     height: 3rem;
+    margin-left: auto;
+    margin-right: auto;
     font-size: 1.5rem;
-    margin: 0.5rem 2rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    padding: .5rem;
+    padding-left: 1rem;
+    font-weight: bold;
+    border: solid 2px;
+    border-color: black;
+    border-radius: 15px;
+    box-shadow: 0 4px black;
+    background-color: #fcba04;
+    font-family: 'IM Fell English SC', serif;
+    color: #9B3D12;
+}
+
+.clicktohide :hover{
+    background-color: #F6AA1C;
+}
+
+.clicktohide :active{
+    background-color: #db581c;
+    box-shadow: 0 2px #666;
+    transform: translateY(4px);
 }
 
 hr {
-    color: #fff;
+    background-color: black;
+    
+}
+ul{
+    margin-left: 3rem;
 }
