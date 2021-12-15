@@ -29,7 +29,7 @@ function displayBackgroundView(mainContainerEl, currentCharacter){
 
     const backgroundSelectorTitleEl = document.createElement("h4");
     backgroundSelectorTitleEl.classList.add("selectorTitle");
-    backgroundSelectorTitleEl.innerText = "Select " + currentCharacter.baseFeatures.name + "'s Race";
+    backgroundSelectorTitleEl.innerText = "Select " + currentCharacter.baseFeatures.name + "'s Background";
 
     const backgroundSelectEl = document.createElement("select");
     backgroundSelectEl.classList.add("selectorField");
