@@ -7,6 +7,8 @@
   background-color: #3c5e47;
   border-radius: 15px;
   border: double 2px;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .presents{
@@ -28,6 +30,7 @@
 .cardsDiv {
   display: flex;
   justify-content: space-evenly;
+  margin-bottom: 2rem;
 }
 
 .card {
